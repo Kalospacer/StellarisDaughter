@@ -112,7 +112,8 @@ namespace StellarisDaughter
 
             ScanMemoriesForEvents(ai);
             ScanSituationalThoughtsForEvents(ai);
-            ScanSocialThoughtsForEvents(ai);
+            // 社交Thought容易与记忆/情境路径语义重复，且会放大刷值；当前版本停用。
+            // ScanSocialThoughtsForEvents(ai);
             TickPassiveLoneliness(ai);
             TickPassiveNeeds(ai);
             CheckOmenLetter(ai);

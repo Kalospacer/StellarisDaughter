@@ -7,40 +7,40 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>ListeningToHarp</defName>
     <eventLabel>listening to harp</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ListeningToHarpsichord</defName>
     <eventLabel>listening to harpsichord</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ListeningToPiano</defName>
     <eventLabel>listening to piano</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>AnimaScream</defName>
     <eventLabel>anima scream</eventLabel>
-    <affDelta>-2.0</affDelta>
-    <trustDelta>-3.0</trustDelta>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-1.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DecreeUnmet</defName>
     <eventLabel>decree ignored</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -55,8 +55,8 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>PsychicEntropyOverloaded</defName>
     <eventLabel>minor psychic breakdown</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   

@@ -39,80 +39,80 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeedLearning</defName>
     <eventLabel>learning-starved</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeedPlay</defName>
     <eventLabel>desperately wants to play</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BabyCriedSocial</defName>
     <eventLabel>cried</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BabyGiggledSocial</defName>
     <eventLabel>giggled</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BreastfedBaby</defName>
     <eventLabel>breastfed</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>2.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BreastfedMe</defName>
     <eventLabel>breastfed me</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>3.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>1.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>FedBaby</defName>
     <eventLabel>fed</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>2.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>FedMe</defName>
     <eventLabel>fed me</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>3.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>1.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>KilledChild_Opinion</defName>
     <eventLabel>killed a child</eventLabel>
-    <affDelta>-2.0</affDelta>
-    <trustDelta>-4.0</trustDelta>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PlayedWithMe</defName>
     <eventLabel>played with me</eventLabel>
-    <affDelta>2.0</affDelta>
-    <trustDelta>2.0</trustDelta>
+    <affDelta>1.0</affDelta>
+    <trustDelta>1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -271,96 +271,96 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>BabySick</defName>
     <eventLabel>my baby {BABY_nameDef} is sick</eventLabel>
-    <affDelta>-2.0</affDelta>
-    <trustDelta>-3.0</trustDelta>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-1.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ChildInGrowthVat</defName>
     <eventLabel>my child is in a growth vat</eventLabel>
-    <affDelta>-2.0</affDelta>
-    <trustDelta>-4.0</trustDelta>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>CribQuality</defName>
     <eventLabel>good crib</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>2.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>EnslavedChild</defName>
     <eventLabel>enslaved child</eventLabel>
-    <affDelta>-3.0</affDelta>
-    <trustDelta>-6.0</trustDelta>
+    <affDelta>-1.5</affDelta>
+    <trustDelta>-3.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyChildHappy</defName>
     <eventLabel>my child {CHILD_nameDef} is happy</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyChildSad</defName>
     <eventLabel>my child {CHILD_nameDef} is unhappy</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyChildrenHappy</defName>
     <eventLabel>my children are happy</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyChildrenSad</defName>
     <eventLabel>my children are unhappy</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyParentHappy</defName>
     <eventLabel>parent is happy</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyParentsHappy</defName>
     <eventLabel>parents are happy</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>YoungstersHappy</defName>
     <eventLabel>happy youngsters</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>YoungstersSad</defName>
     <eventLabel>sad youngsters</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
 </Defs>

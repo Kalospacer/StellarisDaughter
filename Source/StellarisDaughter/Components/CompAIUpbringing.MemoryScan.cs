@@ -86,31 +86,35 @@ namespace StellarisDaughter
 
         private void ScanSocialThoughtsForEvents(Pawn ai)
         {
-            var thoughtHandler = ai.needs?.mood?.thoughts;
             var mapPawns = ai.Map?.mapPawns?.AllPawnsSpawned;
-            if (thoughtHandler == null || mapPawns == null) return;
-
-            if (_tmpSocialThoughts == null)
-                _tmpSocialThoughts = new List<ISocialThought>();
+            if (mapPawns == null) return;
             if (_socialThoughtNextApplyTick == null)
                 _socialThoughtNextApplyTick = new Dictionary<long, int>();
 
             int now = Find.TickManager.TicksGame;
+            var socialDefs = ThoughtUtility.situationalSocialThoughtDefs;
+            if (socialDefs == null || socialDefs.Count == 0) return;
 
             foreach (var other in mapPawns)
             {
                 if (other == null || other == ai) continue;
                 if (other.Destroyed) continue;
+                if (!other.Spawned) continue;
+                if (other.Dead) continue;
+                // 原版部分 social thought worker（如 ThoughtWorker_Joyous）直接访问 other.story.traits。
+                // 这里先做强过滤，再走我们自己的安全构造逻辑，避免调用 GetSocialThoughts 触发原版批量重算刷红字。
+                if (!other.RaceProps.Humanlike) continue;
+                if (other.story == null || other.story.traits == null) continue;
+                if (other.relations == null) continue;
 
-                thoughtHandler.GetSocialThoughts(other, _tmpSocialThoughts);
-
-                for (int i = 0; i < _tmpSocialThoughts.Count; i++)
+                for (int i = 0; i < socialDefs.Count; i++)
                 {
-                    if (!(_tmpSocialThoughts[i] is Thought thought)) continue;
-                    if (thought.def == null) continue;
+                    var def = socialDefs[i];
+                    if (def == null) continue;
+                    if (def.IsMemory) continue; // MemorySocial 已由记忆扫描处理
 
-                    // MemorySocial 已由记忆扫描处理，这里只补“社交情境Thought”等非Memory路径。
-                    if (thought is Thought_Memory) continue;
+                    var thought = TryCreateSocialSituationalThoughtSafe(ai, other, def);
+                    if (thought == null || thought.def == null || !thought.Active) continue;
 
                     int stage = thought.CurStageIndex + 1;
                     int otherId = other.thingIDNumber;
@@ -127,6 +131,41 @@ namespace StellarisDaughter
                     Apply(resp.affDelta, resp.trustDelta, resp.eventLabel);
                     _socialThoughtNextApplyTick[key] = now + SocialThoughtEventCooldownTicks;
                 }
+            }
+        }
+
+        private Thought_SituationalSocial TryCreateSocialSituationalThoughtSafe(Pawn ai, Pawn other, ThoughtDef def)
+        {
+            try
+            {
+                if (!ThoughtUtility.CanGetThought(ai, def))
+                    return null;
+
+                var state = def.Worker.CurrentSocialState(ai, other);
+                if (!state.ActiveFor(def))
+                    return null;
+
+                if (!def.socialTargetDevelopmentalStageFilter.HasAny(other.DevelopmentalStage))
+                    return null;
+                if (def.ignoreSubhumans && other.IsSubhuman)
+                    return null;
+
+                if (!(ThoughtMaker.MakeThought(def) is Thought_SituationalSocial thought))
+                    return null;
+
+                thought.pawn = ai;
+                thought.otherPawn = other;
+
+                if (def.Worker is ThoughtWorker_Precept_Social && ai.Ideo != null)
+                    thought.sourcePrecept = ai.Ideo.GetFirstPreceptAllowingSituationalThought(def);
+
+                thought.RecalculateState();
+                return thought.Active ? thought : null;
+            }
+            catch
+            {
+                // 某些原版/DLC social thought worker 会对特殊 pawn 组合抛异常；这里静默跳过避免日志刷屏。
+                return null;
             }
         }
     }

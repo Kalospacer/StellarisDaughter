@@ -7,24 +7,24 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>BioluminescentSpores</defName>
     <eventLabel>bioluminescent spores</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>GravNausea</defName>
     <eventLabel>grav nausea</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>VolcanicAsh</defName>
     <eventLabel>volcanic ash</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
 </Defs>

@@ -7,16 +7,16 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>ApparelDamaged</defName>
     <eventLabel>ratty apparel</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DeadMansApparel</defName>
     <eventLabel>tainted</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -63,7 +63,7 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>LoveReading</defName>
     <eventLabel>I love reading</eventLabel>
-    <affDelta>1.0</affDelta>
+    <affDelta>0.5</affDelta>
     <trustDelta>0.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
@@ -71,8 +71,8 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>Sick</defName>
     <eventLabel>sick</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -87,8 +87,8 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>WrongApparelGender</defName>
     <eventLabel>wearing  apparel</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -199,24 +199,24 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>PrisonBarracks</defName>
     <eventLabel>awful barracks</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-3.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PrisonCell</defName>
     <eventLabel>awful prison cell</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Affair</defName>
     <eventLabel>affair</eventLabel>
-    <affDelta>-2.0</affDelta>
-    <trustDelta>-3.0</trustDelta>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-1.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -247,8 +247,8 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>BondedAnimalMaster</defName>
     <eventLabel>'s master</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -287,8 +287,8 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>ExecutedPrisoner</defName>
     <eventLabel>executed prisoner</eventLabel>
-    <affDelta>-2.0</affDelta>
-    <trustDelta>-4.0</trustDelta>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -303,8 +303,8 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>HoldingMePrisoner</defName>
     <eventLabel>holding me prisoner</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-4.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-2.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -319,16 +319,16 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>KilledColonist</defName>
     <eventLabel>killed colonist</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>KilledColonyAnimal</defName>
     <eventLabel>killed colony animal</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -343,8 +343,8 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>NotBondedAnimalMaster</defName>
     <eventLabel>not 's master</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -367,8 +367,8 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>SoldPrisoner</defName>
     <eventLabel>sold prisoner to slavery</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-3.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -423,24 +423,24 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>Aurora</defName>
     <eventLabel>beautiful aurora</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ColonistLeftUnburied</defName>
     <eventLabel>colonist left unburied</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DoingPassionateWork</defName>
     <eventLabel>minor passion for my work</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -455,8 +455,8 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>MissingTongue</defName>
     <eventLabel>missing tongue</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-3.0</trustDelta>
+    <affDelta>-0.5</affDelta>
+    <trustDelta>-1.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
@@ -511,8 +511,8 @@
   <StellarisDaughter.AIEventResponseDef>
     <defName>SharedBed</defName>
     <eventLabel>sharing bed</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <affDelta>0.5</affDelta>
+    <trustDelta>0.5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
