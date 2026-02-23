@@ -5,8 +5,8 @@
     <label>星规之女</label>
     <race>SD_AI_Daughter_Race</race>
     <fixedGender>Female</fixedGender>
-    <defaultFactionType>PlayerColony</defaultFactionType>
-    <invNutrition>0</invNutrition>
+    <defaultFactionType>PlayerColony</defaultFactionType>      <minGenerationAge>18</minGenerationAge>
+      <maxGenerationAge>50</maxGenerationAge>    <invNutrition>0</invNutrition>
     <combatPower>80</combatPower>
     <isFighter>true</isFighter>
     <trader>false</trader>
