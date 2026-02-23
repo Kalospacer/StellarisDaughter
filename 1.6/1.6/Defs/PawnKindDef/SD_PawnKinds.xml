@@ -15,8 +15,6 @@
     <forceNormalGearQuality>true</forceNormalGearQuality>
     <initialWillRange>99~99</initialWillRange>
     <initialResistanceRange>99~99</initialResistanceRange>
-    <minGenerationAge>0</minGenerationAge>
-    <maxGenerationAge>1</maxGenerationAge>
     <canBeScattered>false</canBeScattered>
     <fixedChildBackstories>
       <li>SD_Daughter_Childhood</li>
