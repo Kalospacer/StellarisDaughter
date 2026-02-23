@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 青年体型 - 8~14岁，Worker强制赋值 Naked_SD_Youth_*.png -->
+  <BodyTypeDef>
+    <defName>SD_Youth</defName>
+  </BodyTypeDef>
+</Defs>

@@ -40,13 +40,14 @@ namespace StellarisDaughter
         private void UpdateBodyType(Pawn pawn)
         {
             if (pawn.story == null) return;
-            if (pawn.story.bodyType != BodyTypeDefOf.Child)
-            {
-                pawn.apparel?.DropAllOrMoveAllToInventory(
-                    apparel => !apparel.def.apparel.developmentalStageFilter.Has(DevelopmentalStage.Child));
-                pawn.story.bodyType = BodyTypeDefOf.Child;
-                pawn.Drawer.renderer.SetAllGraphicsDirty();
-            }
+            // 青年阶段使用 SD_Youth 体型，贴图路径：Naked_SD_Youth_*.png
+            BodyTypeDef youthBody = DefDatabase<BodyTypeDef>.GetNamed("SD_Youth", errorOnFail: false)
+                ?? BodyTypeDefOf.Thin; // 安全回退
+            if (pawn.story.bodyType == youthBody) return;
+            pawn.apparel?.DropAllOrMoveAllToInventory(
+                apparel => !apparel.def.apparel.developmentalStageFilter.Has(DevelopmentalStage.Child));
+            pawn.story.bodyType = youthBody;
+            pawn.Drawer.renderer.SetAllGraphicsDirty();
         }
     }
 }

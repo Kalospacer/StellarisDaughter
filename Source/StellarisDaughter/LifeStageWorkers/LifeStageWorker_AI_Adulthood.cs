@@ -33,14 +33,13 @@ namespace StellarisDaughter
         private void UpdateBodyToAdult(Pawn pawn)
         {
             if (pawn.story == null) return;
-            BodyTypeDef adultBody = PawnGenerator.GetBodyTypeFor(pawn);
-            if (pawn.story.bodyType != adultBody)
-            {
-                pawn.apparel?.DropAllOrMoveAllToInventory(
-                    apparel => !apparel.def.apparel.developmentalStageFilter.Has(DevelopmentalStage.Adult));
-                pawn.story.bodyType = adultBody;
-                pawn.Drawer.renderer.SetAllGraphicsDirty();
-            }
+            // 成年阶段统一使用 Thin 体型，贴图路径：Naked_Thin_*.png
+            BodyTypeDef adultBody = BodyTypeDefOf.Thin;
+            if (pawn.story.bodyType == adultBody) return;
+            pawn.apparel?.DropAllOrMoveAllToInventory(
+                apparel => !apparel.def.apparel.developmentalStageFilter.Has(DevelopmentalStage.Adult));
+            pawn.story.bodyType = adultBody;
+            pawn.Drawer.renderer.SetAllGraphicsDirty();
         }
 
         private void SendRouteLockedLetter(Pawn pawn, CompAIUpbringing comp)
