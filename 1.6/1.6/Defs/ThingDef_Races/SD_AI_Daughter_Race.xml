@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <!-- AI女儿种族定义 - 基于 AlienRace -->
+  <!-- AI女儿种族定义 - 基于佩丽卡结构移植，占位用 -->
   <AlienRace.ThingDef_AlienRace ParentName="Human">
     <defName>SD_AI_Daughter_Race</defName>
     <label>星规子单元</label>
@@ -19,8 +19,6 @@
           </headTypes>
           <bodyTypes Inherit="False">
             <li>Thin</li>
-            <li>Female</li>
-            <li>Child</li>
           </bodyTypes>
           <colorChannels Inherit="false">
             <li>
@@ -29,8 +27,8 @@
                 <options>
                   <li>
                     <weight>100</weight>
-                    <min>(180,200,230)</min>
-                    <max>(200,220,255)</max>
+                    <min>(255,255,255)</min>
+                    <max>(255,255,255)</max>
                   </li>
                 </options>
               </first>
@@ -43,6 +41,20 @@
               </first>
             </li>
           </colorChannels>
+          <bodyAddons>
+            <li>
+              <path>Endfield/Things/Perlica/Addons/Perlica_Feather_Ear</path>
+              <offsets>
+                <east>
+                  <offset>(-0.07,0)</offset>
+                </east>
+                <west>
+                  <offset>(-0.07,0)</offset>
+                </west>
+              </offsets>
+              <inFrontOfBody>true</inFrontOfBody>
+            </li>
+          </bodyAddons>
           <headOffsetDirectional>
             <north>
               <offset>(0.0, -0.35)</offset>
@@ -51,23 +63,211 @@
               <offset>(0.0, -0.35)</offset>
             </south>
             <east>
-              <offset>(0.015, -0.35)</offset>
+              <offset>(-0.05, -0.38)</offset>
             </east>
             <west>
-              <offset>(-0.015, -0.35)</offset>
+              <offset>(0.05, -0.38)</offset>
             </west>
           </headOffsetDirectional>
         </alienPartGenerator>
+        <growthAges>
+          <li>0</li>
+        </growthAges>
+        <ageStatOverrides>
+          <WorkSpeedGlobal>
+            <useBiologicalYears>true</useBiologicalYears>
+            <curve>
+              <points>
+                <li>(0,1)</li>
+              </points>
+            </curve>
+          </WorkSpeedGlobal>
+          <ShootingAccuracyChildFactor MayRequire="Ludeon.RimWorld.Biotech">
+            <useBiologicalYears>true</useBiologicalYears>
+            <curve>
+              <points>
+                <li>(0,1)</li>
+              </points>
+            </curve>
+          </ShootingAccuracyChildFactor>
+          <MarketValue>
+            <useBiologicalYears>true</useBiologicalYears>
+            <curve>
+              <points>
+                <li>(0,1)</li>
+              </points>
+            </curve>
+          </MarketValue>
+          <MeleeHitChance>
+            <useBiologicalYears>true</useBiologicalYears>
+            <curve>
+              <points>
+                <li>(0,1)</li>
+              </points>
+            </curve>
+          </MeleeHitChance>
+          <AimingDelayFactor>
+            <useBiologicalYears>true</useBiologicalYears>
+            <curve>
+              <points>
+                <li>(0,1)</li>
+              </points>
+            </curve>
+          </AimingDelayFactor>
+          <ArrestSuccessChance>
+            <useBiologicalYears>true</useBiologicalYears>
+            <curve>
+              <points>
+                <li>(0, 1)</li>
+              </points>
+            </curve>
+          </ArrestSuccessChance>
+        </ageStatOverrides>
+        <reproduction>
+          <gestatingGender>Male</gestatingGender>
+          <femaleFertilityAgeFactor>
+            <points>
+              <li>(0,0)</li>
+              <li>(1,0)</li>
+              <li>(999,0)</li>
+              <li>(9999,0)</li>
+            </points>
+          </femaleFertilityAgeFactor>
+        </reproduction>
       </generalSettings>
 
-      <styleSettings></styleSettings>
-      <relationSettings></relationSettings>
-      <graphicPaths></graphicPaths>
-      <thoughtSettings></thoughtSettings>
+      <graphicPaths>
+        <skinColor>(1,1,1,1)</skinColor>
+        <skinShader>Cutout</skinShader>
+        <body>Endfield/Things/Perlica/Bodies/</body>
+        <head>
+          <path>Endfield/Things/Perlica/Heads/</path>
+        </head>
+        <skeleton>Things/Pawn/Humanlike/Bodies/Dessicated/Dessicated_Thin</skeleton>
+        <stump>Endfield/Things/Perlica/Bodies/</stump>
+      </graphicPaths>
+
+      <styleSettings>
+        <li>
+          <key>HairDef</key>
+          <value>
+            <hasStyle>true</hasStyle>
+            <styleTagsOverride>
+              <li>SD_Perlica_Style</li>
+            </styleTagsOverride>
+          </value>
+        </li>
+        <li>
+          <key>TattooDef</key>
+          <value>
+            <hasStyle>false</hasStyle>
+          </value>
+        </li>
+        <li>
+          <key>BeardDef</key>
+          <value>
+            <hasStyle>false</hasStyle>
+          </value>
+        </li>
+      </styleSettings>
+
+      <raceRestriction>
+        <blackEndoCategories MayRequire="Ludeon.RimWorld.Biotech">
+          <li MayRequire="Ludeon.RimWorld.Biotech">HairColor</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Melanin</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">BodyType</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Ears</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Nose</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Voice</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Headbone</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Head</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Jaw</li>
+        </blackEndoCategories>
+        <blackGeneTags MayRequire="Ludeon.RimWorld.Biotech">
+          <li MayRequire="Ludeon.RimWorld.Biotech">EyeColor</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Tail</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">BeardStyle</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Fur</li>
+        </blackGeneTags>
+        <blackGeneList>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Furskin</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Brow_Heavy</li>
+        </blackGeneList>
+        <blackXenotypeList>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Dirtmole</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Genie</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Hussar</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Sanguophage</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Neanderthal</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Pigskin</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Impid</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Waster</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Yttakin</li>
+          <li MayRequire="Ludeon.RimWorld.Biotech">Highmate</li>
+        </blackXenotypeList>
+        <whiteXenotypeList MayRequire="Ludeon.RimWorld.Biotech">
+          <li MayRequire="Ludeon.RimWorld.Biotech">Baseliner</li>
+        </whiteXenotypeList>
+        <onlyUseRaceRestrictedXenotypes>false</onlyUseRaceRestrictedXenotypes>
+        <blackTraitList>
+          <li>BodyPurist</li>
+          <li>Cannibal</li>
+          <li>DislikesWomen</li>
+          <li>Gourmand</li>
+          <li>Wimp</li>
+          <li>DrugDesire</li>
+          <li>Pyromaniac</li>
+        </blackTraitList>
+      </raceRestriction>
+
+      <relationSettings>
+        <relationChanceModifierLover>0</relationChanceModifierLover>
+        <relationChanceModifierExLover>0</relationChanceModifierExLover>
+        <relationChanceModifierFiance>0</relationChanceModifierFiance>
+        <relationChanceModifierSpouse>0</relationChanceModifierSpouse>
+        <relationChanceModifierExSpouse>0</relationChanceModifierExSpouse>
+        <relationChanceModifierParent>0</relationChanceModifierParent>
+        <relationChanceModifierChild>0</relationChanceModifierChild>
+        <relationChanceModifierSibling>0</relationChanceModifierSibling>
+      </relationSettings>
     </alienRace>
+
+    <statBases>
+      <EatingSpeed>5</EatingSpeed>
+      <MaxNutrition>2</MaxNutrition>
+      <MarketValue>3000</MarketValue>
+      <PainShockThreshold>0.85</PainShockThreshold>
+      <PsychicSensitivity>1.5</PsychicSensitivity>
+      <MentalBreakThreshold>0</MentalBreakThreshold>
+      <Flammability>1.1</Flammability>
+    </statBases>
 
     <comps>
       <li Class="StellarisDaughter.CompProperties_AIUpbringing" />
+      <li MayRequire="Nals.FacialAnimation">
+        <compClass>FacialAnimation.DrawFaceGraphicsComp</compClass>
+      </li>
+      <li MayRequire="Nals.FacialAnimation">
+        <compClass>FacialAnimation.HeadControllerComp</compClass>
+      </li>
+      <li MayRequire="Nals.FacialAnimation">
+        <compClass>FacialAnimation.EyeballControllerComp</compClass>
+      </li>
+      <li MayRequire="Nals.FacialAnimation">
+        <compClass>FacialAnimation.LidControllerComp</compClass>
+      </li>
+      <li MayRequire="Nals.FacialAnimation">
+        <compClass>FacialAnimation.BrowControllerComp</compClass>
+      </li>
+      <li MayRequire="Nals.FacialAnimation">
+        <compClass>FacialAnimation.MouthControllerComp</compClass>
+      </li>
+      <li MayRequire="Nals.FacialAnimation">
+        <compClass>FacialAnimation.SkinControllerComp</compClass>
+      </li>
+      <li MayRequire="Nals.FacialAnimation">
+        <compClass>FacialAnimation.FacialAnimationControllerComp</compClass>
+      </li>
     </comps>
 
     <race>
@@ -83,6 +283,30 @@
       <lifeExpectancy>200</lifeExpectancy>
       <leatherDef>Leather_Human</leatherDef>
       <nameCategory>HumanStandard</nameCategory>
+      <lifeStageWorkSettings MayRequire="Ludeon.RimWorld.Biotech">
+        <Firefighter>0</Firefighter>
+        <Patient>0</Patient>
+        <Doctor>0</Doctor>
+        <PatientBedRest>0</PatientBedRest>
+        <Childcare MayRequire="Ludeon.RimWorld.Biotech">0</Childcare>
+        <BasicWorker>0</BasicWorker>
+        <Warden>0</Warden>
+        <Handling>0</Handling>
+        <Cooking>0</Cooking>
+        <Hunting>0</Hunting>
+        <Construction>0</Construction>
+        <Growing>0</Growing>
+        <Mining>0</Mining>
+        <PlantCutting>0</PlantCutting>
+        <Smithing>0</Smithing>
+        <Tailoring>0</Tailoring>
+        <Art>0</Art>
+        <Crafting>0</Crafting>
+        <Hauling>0</Hauling>
+        <Cleaning>0</Cleaning>
+        <Research>0</Research>
+        <DarkStudy MayRequire="Ludeon.RimWorld.Anomaly">0</DarkStudy>
+      </lifeStageWorkSettings>
       <lifeStageAges>
         <li>
           <def>SD_AI_Childhood</def>
@@ -102,15 +326,21 @@
         </li>
       </lifeStageAges>
     </race>
-
-    <statBases>
-      <MarketValue>2000</MarketValue>
-      <MoveSpeed>4.6</MoveSpeed>
-      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
-      <ComfyTemperatureMax>40</ComfyTemperatureMax>
-      <MentalBreakThreshold>0.2</MentalBreakThreshold>
-      <WorkSpeedGlobal>1</WorkSpeedGlobal>
-      <ImmunityGainSpeed>1.2</ImmunityGainSpeed>
-    </statBases>
   </AlienRace.ThingDef_AlienRace>
+
+  <StyleItemCategoryDef>
+    <defName>SD_Perlica_Style</defName>
+    <label>Star-Rail</label>
+  </StyleItemCategoryDef>
+
+  <HairDef>
+    <defName>SD_Daughter_Hair</defName>
+    <label>Star-Rail Hair</label>
+    <hairGender>Female</hairGender>
+    <texPath>Endfield/Things/Perlica/Hair/Perlica_Hair</texPath>
+    <category>SD_Perlica_Style</category>
+    <styleTags>
+      <li>SD_Perlica_Style</li>
+    </styleTags>
+  </HairDef>
 </Defs>

@@ -4,18 +4,46 @@
     <defName>SD_AI_Daughter</defName>
     <label>星规之女</label>
     <race>SD_AI_Daughter_Race</race>
+    <fixedGender>Female</fixedGender>
     <defaultFactionType>PlayerColony</defaultFactionType>
-    <chemicalAddictionChance>0</chemicalAddictionChance>
+    <invNutrition>0</invNutrition>
     <combatPower>80</combatPower>
-    <canStrip>true</canStrip>
-    <apparelMoney>300~800</apparelMoney>
-    <weaponMoney>0~0</weaponMoney>
-    <backstoryFiltersOverride>
-      <li>
-        <categories>
-          <li>Child</li>
-        </categories>
-      </li>
-    </backstoryFiltersOverride>
+    <isFighter>true</isFighter>
+    <trader>false</trader>
+    <chemicalAddictionChance>0</chemicalAddictionChance>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+    <initialWillRange>99~99</initialWillRange>
+    <initialResistanceRange>99~99</initialResistanceRange>
+    <minGenerationAge>0</minGenerationAge>
+    <maxGenerationAge>1</maxGenerationAge>
+    <canBeScattered>false</canBeScattered>
+    <fixedChildBackstories>
+      <li>SD_Daughter_Childhood</li>
+    </fixedChildBackstories>
+    <fixedAdultBackstories>
+      <li>SD_Daughter_Adulthood_Bond</li>
+    </fixedAdultBackstories>
+    <forcedHairDef>SD_Daughter_Hair</forcedHairDef>
+    <forcedHairColor>(255,255,255,255)</forcedHairColor>
+    <xenotypeSet>
+      <xenotypeChances>
+        <Baseliner MayRequire="Ludeon.RimWorld.Biotech">1</Baseliner>
+        <Dirtmole MayRequire="Ludeon.RimWorld.Biotech">0</Dirtmole>
+        <Genie MayRequire="Ludeon.RimWorld.Biotech">0</Genie>
+        <Hussar MayRequire="Ludeon.RimWorld.Biotech">0</Hussar>
+        <Sanguophage MayRequire="Ludeon.RimWorld.Biotech">0</Sanguophage>
+        <Neanderthal MayRequire="Ludeon.RimWorld.Biotech">0</Neanderthal>
+        <Pigskin MayRequire="Ludeon.RimWorld.Biotech">0</Pigskin>
+        <Impid MayRequire="Ludeon.RimWorld.Biotech">0</Impid>
+        <Waster MayRequire="Ludeon.RimWorld.Biotech">0</Waster>
+        <Yttakin MayRequire="Ludeon.RimWorld.Biotech">0</Yttakin>
+        <Highmate MayRequire="Ludeon.RimWorld.Biotech">0</Highmate>
+      </xenotypeChances>
+    </xenotypeSet>
+    <useFactionXenotypes>false</useFactionXenotypes>
+    <humanPregnancyChance>0</humanPregnancyChance>
+    <apparelMoney>0</apparelMoney>
+    <weaponMoney>0</weaponMoney>
   </PawnKindDef>
 </Defs>
