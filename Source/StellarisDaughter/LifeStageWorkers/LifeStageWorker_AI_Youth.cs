@@ -14,10 +14,11 @@ namespace StellarisDaughter
         public override void Notify_LifeStageStarted(Pawn pawn, LifeStageDef previousLifeStage)
         {
             base.Notify_LifeStageStarted(pawn, previousLifeStage);
-            if (Current.ProgramState != ProgramState.Playing) return;
 
-            // 身体成长
+            // 身体成长：必须在 ProgramState 检查前执行，CharacterEditor 也需要正确体型
             UpdateBodyType(pawn);
+
+            if (Current.ProgramState != ProgramState.Playing) return;
 
             var comp = pawn.GetComp<CompAIUpbringing>();
             if (comp == null) return;
@@ -28,26 +29,27 @@ namespace StellarisDaughter
                 string title = "SD_Letter_YouthStarted_Title".Translate(pawn.NameShortColored);
                 string text = "SD_Letter_YouthStarted_Text".Translate(
                     pawn.NameShortColored,
-                    comp.syncRate.ToString("F0"),
-                    comp.chaosLevel.ToString("F0"));
+                    comp.affection.ToString("F1"),
+                    comp.trust.ToString("F1"));
                 Find.LetterStack.ReceiveLetter(title, text, LetterDefOf.NeutralEvent, pawn);
             }
 
-            comp.RecordEvent("Youth_Started", syncChange: 5f,
-                description: "进入青年懵懂期，暗流涌动");
+            // 青年期开始，细微好感加成
+            comp.Apply(5f, 5f, "进入青年期");
         }
 
         private void UpdateBodyType(Pawn pawn)
         {
             if (pawn.story == null) return;
-            // 青年阶段使用 SD_Youth 体型，贴图路径：Naked_SD_Youth_*.png
             BodyTypeDef youthBody = DefDatabase<BodyTypeDef>.GetNamed("SD_Youth", errorOnFail: false)
                 ?? BodyTypeDefOf.Thin; // 安全回退
             if (pawn.story.bodyType == youthBody) return;
-            pawn.apparel?.DropAllOrMoveAllToInventory(
-                apparel => !apparel.def.apparel.developmentalStageFilter.Has(DevelopmentalStage.Child));
+            // 服装掉落只在游戏中执行
+            if (Current.ProgramState == ProgramState.Playing)
+                pawn.apparel?.DropAllOrMoveAllToInventory(
+                    apparel => !apparel.def.apparel.developmentalStageFilter.Has(DevelopmentalStage.Child));
             pawn.story.bodyType = youthBody;
-            pawn.Drawer.renderer.SetAllGraphicsDirty();
+            pawn.Drawer?.renderer?.SetAllGraphicsDirty();
         }
     }
 }

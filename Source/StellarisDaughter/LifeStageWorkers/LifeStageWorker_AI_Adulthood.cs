@@ -13,9 +13,15 @@ namespace StellarisDaughter
         public override void Notify_LifeStageStarted(Pawn pawn, LifeStageDef previousLifeStage)
         {
             base.Notify_LifeStageStarted(pawn, previousLifeStage);
+
+            // 体型切换必须在 ProgramState 检查前，CharacterEditor 也需要正确渲染
+            EnsureAdultBodyType(pawn);
+
             if (Current.ProgramState != ProgramState.Playing) return;
 
-            UpdateBodyToAdult(pawn);
+            // 只在游戏中才掉落儿童服装
+            pawn.apparel?.DropAllOrMoveAllToInventory(
+                apparel => !apparel.def.apparel.developmentalStageFilter.Has(DevelopmentalStage.Adult));
 
             var comp = pawn.GetComp<CompAIUpbringing>();
             if (comp == null) return;
@@ -25,21 +31,14 @@ namespace StellarisDaughter
 
             if (PawnUtility.ShouldSendNotificationAbout(pawn))
                 SendRouteLockedLetter(pawn, comp);
-
-            comp.RecordEvent("Adulthood_Started",
-                description: $"成年期开始，路线锁定为：{comp.lockedEnding}");
         }
 
-        private void UpdateBodyToAdult(Pawn pawn)
+        private void EnsureAdultBodyType(Pawn pawn)
         {
             if (pawn.story == null) return;
-            // 成年阶段统一使用 Thin 体型，贴图路径：Naked_Thin_*.png
-            BodyTypeDef adultBody = BodyTypeDefOf.Thin;
-            if (pawn.story.bodyType == adultBody) return;
-            pawn.apparel?.DropAllOrMoveAllToInventory(
-                apparel => !apparel.def.apparel.developmentalStageFilter.Has(DevelopmentalStage.Adult));
-            pawn.story.bodyType = adultBody;
-            pawn.Drawer.renderer.SetAllGraphicsDirty();
+            if (pawn.story.bodyType == BodyTypeDefOf.Thin) return;
+            pawn.story.bodyType = BodyTypeDefOf.Thin;
+            pawn.Drawer?.renderer?.SetAllGraphicsDirty();
         }
 
         private void SendRouteLockedLetter(Pawn pawn, CompAIUpbringing comp)
@@ -53,9 +52,8 @@ namespace StellarisDaughter
                 title = "SD_Letter_RouteLocked_FatherBond_Title".Translate(pawn.NameShortColored);
                 text = "SD_Letter_RouteLocked_FatherBond_Text".Translate(
                     pawn.NameShortColored,
-                    comp.mentor?.NameShortColored ?? "SD_Unknown".Translate(),
-                    comp.syncRate.ToString("F0"),
-                    comp.chaosLevel.ToString("F0"));
+                    comp.affection.ToString("F1"),
+                    comp.trust.ToString("F1"));
                 letterDef = LetterDefOf.PositiveEvent;
             }
             else
@@ -63,8 +61,8 @@ namespace StellarisDaughter
                 title = "SD_Letter_RouteLocked_DarkCorruption_Title".Translate(pawn.NameShortColored);
                 text = "SD_Letter_RouteLocked_DarkCorruption_Text".Translate(
                     pawn.NameShortColored,
-                    comp.syncRate.ToString("F0"),
-                    comp.chaosLevel.ToString("F0"));
+                    comp.affection.ToString("F1"),
+                    comp.trust.ToString("F1"));
                 letterDef = LetterDefOf.NegativeEvent;
             }
 

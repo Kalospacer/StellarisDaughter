@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ✨ 沐雪写的哦~ -->
+  <!-- AI 女儿事件对照表：defName 对应原版 ThoughtDef.defName -->
+  <!-- affDelta: 好感度变化量  trustDelta: 信任值变化量 -->
+
+  <!-- ── 社交互动 ────────────────────── -->
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>Chitchat</defName>
+    <eventLabel>日常闲聊</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DeepTalk</defName>
+    <eventLabel>深入谈话</eventLabel>
+    <affDelta>12</affDelta>
+    <trustDelta>10</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SharedJoy</defName>
+    <eventLabel>一起找乐子</eventLabel>
+    <affDelta>8</affDelta>
+    <trustDelta>6</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KindWords</defName>
+    <eventLabel>收到了温柔的话</eventLabel>
+    <affDelta>6</affDelta>
+    <trustDelta>5</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>HarshWords</defName>
+    <eventLabel>被说了难听的话</eventLabel>
+    <affDelta>-6</affDelta>
+    <trustDelta>-4</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>Insulted</defName>
+    <eventLabel>被侮辱了</eventLabel>
+    <affDelta>-10</affDelta>
+    <trustDelta>-8</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PlayedGame</defName>
+    <eventLabel>一起玩了游戏</eventLabel>
+    <affDelta>8</affDelta>
+    <trustDelta>7</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>GivenGift</defName>
+    <eventLabel>收到了礼物</eventLabel>
+    <affDelta>15</affDelta>
+    <trustDelta>10</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <!-- ── 饮食 ──────────────────────────── -->
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteHumanlikeMeatDirect</defName>
+    <eventLabel>被迫吃了人肉</eventLabel>
+    <affDelta>-8</affDelta>
+    <trustDelta>-12</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteKibble</defName>
+    <eventLabel>被喂了动物饲料</eventLabel>
+    <affDelta>-6</affDelta>
+    <trustDelta>-8</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AtePemmican</defName>
+    <eventLabel>只吃到了干粮</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteSimpleMeal</defName>
+    <eventLabel>吃了普通的饭</eventLabel>
+    <affDelta>0</affDelta>
+    <trustDelta>1</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteFineMeal</defName>
+    <eventLabel>吃了不错的饭</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>3</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteLavishMeal</defName>
+    <eventLabel>享用了豪华餐</eventLabel>
+    <affDelta>4</affDelta>
+    <trustDelta>5</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <!-- ── 住宿环境 ─────────────────────── -->
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SleptInBed</defName>
+    <eventLabel>睡了自己的床</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SleptOnGround</defName>
+    <eventLabel>只能睡在地上</eventLabel>
+    <affDelta>-4</affDelta>
+    <trustDelta>-6</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SleptOutside</defName>
+    <eventLabel>在室外过夜</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-4</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SqualidEnvironment</defName>
+    <eventLabel>环境又脏又差</eventLabel>
+    <affDelta>-5</affDelta>
+    <trustDelta>-7</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <!-- ── 健康与受伤 ─────────────────── -->
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>HealedByDoctor</defName>
+    <eventLabel>有人帮忙治伤</eventLabel>
+    <affDelta>8</affDelta>
+    <trustDelta>10</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MySurgerySuccess</defName>
+    <eventLabel>手术成功了</eventLabel>
+    <affDelta>6</affDelta>
+    <trustDelta>8</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MySurgeryFailed</defName>
+    <eventLabel>手术失败了</eventLabel>
+    <affDelta>-5</affDelta>
+    <trustDelta>-10</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>Tortured</defName>
+    <eventLabel>遭受了折磨</eventLabel>
+    <affDelta>-15</affDelta>
+    <trustDelta>-25</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyOrganHarvested</defName>
+    <eventLabel>自己的器官被摘走了</eventLabel>
+    <affDelta>-20</affDelta>
+    <trustDelta>-30</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <!-- ── 死亡目击 ────────────────────── -->
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>WitnessedDeathAlly</defName>
+    <eventLabel>目睹了盟友死亡</eventLabel>
+    <affDelta>-5</affDelta>
+    <trustDelta>-6</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>WitnessedDeathNonAlly</defName>
+    <eventLabel>目睹了敌方死亡</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-2</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>WitnessedDeathPet</defName>
+    <eventLabel>亲眼看到宠物死亡</eventLabel>
+    <affDelta>-8</affDelta>
+    <trustDelta>-5</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledHumanlike</defName>
+    <eventLabel>手上沾了血</eventLabel>
+    <affDelta>-6</affDelta>
+    <trustDelta>-4</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <!-- ── 工作成就 ────────────────────── -->
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DidResearch</defName>
+    <eventLabel>研究取得了进展</eventLabel>
+    <affDelta>8</affDelta>
+    <trustDelta>6</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>CraftedMasterwork</defName>
+    <eventLabel>打造出了精工品</eventLabel>
+    <affDelta>10</affDelta>
+    <trustDelta>8</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>CraftedLegendaryItem</defName>
+    <eventLabel>居然做出了传奇物品！</eventLabel>
+    <affDelta>20</affDelta>
+    <trustDelta>15</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>TamedAnimal</defName>
+    <eventLabel>成功驯服了动物</eventLabel>
+    <affDelta>8</affDelta>
+    <trustDelta>6</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>RescuedPawn</defName>
+    <eventLabel>救了一个人</eventLabel>
+    <affDelta>12</affDelta>
+    <trustDelta>12</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <!-- ── 灾难与危机 ────────────────── -->
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ColonistBanished</defName>
+    <eventLabel>看着大家驱逐了人</eventLabel>
+    <affDelta>-5</affDelta>
+    <trustDelta>-8</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>FireInColony</defName>
+    <eventLabel>经历了大火</eventLabel>
+    <affDelta>-4</affDelta>
+    <trustDelta>-5</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ToxicFallout</defName>
+    <eventLabel>遭遇了毒素污染</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-4</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>FleshbeastAttack</defName>
+    <eventLabel>被肉体异形袭击了</eventLabel>
+    <affDelta>-6</affDelta>
+    <trustDelta>-8</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <!-- ── 关系 ──────────────────────── -->
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>GotNewLovePartner</defName>
+    <eventLabel>找到了心上人</eventLabel>
+    <affDelta>12</affDelta>
+    <trustDelta>8</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>LostLovePartnerDied</defName>
+    <eventLabel>失去了心上人</eventLabel>
+    <affDelta>-20</affDelta>
+    <trustDelta>-15</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DeceivedMe</defName>
+    <eventLabel>被人欺骗了</eventLabel>
+    <affDelta>-15</affDelta>
+    <trustDelta>-20</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>BondedAnimalDied</defName>
+    <eventLabel>羁绊动物离开了</eventLabel>
+    <affDelta>-8</affDelta>
+    <trustDelta>-5</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <!-- ── 特殊事件 ───────────────────── -->
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AttendedCelebration</defName>
+    <eventLabel>参加了节庆活动</eventLabel>
+    <affDelta>10</affDelta>
+    <trustDelta>8</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>Meditating</defName>
+    <eventLabel>进行了冥想</eventLabel>
+    <affDelta>4</affDelta>
+    <trustDelta>3</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ObservedLayingCorpse</defName>
+    <eventLabel>看到了停放的遗体</eventLabel>
+    <affDelta>-4</affDelta>
+    <trustDelta>-3</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ForcedToTakeNonImplant</defName>
+    <eventLabel>被强行安装了零件</eventLabel>
+    <affDelta>-6</affDelta>
+    <trustDelta>-10</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>JoyActivityOnTable</defName>
+    <eventLabel>在桌旁愉快用餐</eventLabel>
+    <affDelta>3</affDelta>
+    <trustDelta>2</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ArtAppreciated</defName>
+    <eventLabel>欣赏了艺术品</eventLabel>
+    <affDelta>5</affDelta>
+    <trustDelta>4</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+</Defs>

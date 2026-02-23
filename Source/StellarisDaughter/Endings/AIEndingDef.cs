@@ -39,9 +39,8 @@ namespace StellarisDaughter
         public string GetEndingText(CompAIUpbringing comp)
         {
             return endingDescription.Translate(
-                comp.syncRate.ToString("F0"),
-                comp.chaosLevel.ToString("F0"),
-                comp.mentor?.NameFullColored ?? "SD_Unknown".Translate());
+                comp.affection.ToString("F1"),
+                comp.trust.ToString("F1"));
         }
     }
 
@@ -55,12 +54,11 @@ namespace StellarisDaughter
         {
             switch (conditionType)
             {
-                case EndingConditionType.SyncRateMinimum: return comp.syncRate >= value;
-                case EndingConditionType.SyncRateMaximum: return comp.syncRate <= value;
-                case EndingConditionType.ChaosLevelMinimum: return comp.chaosLevel >= value;
-                case EndingConditionType.ChaosLevelMaximum: return comp.chaosLevel <= value;
-                case EndingConditionType.AwakeningProgressMinimum: return comp.awakeningProgress >= value;
-                case EndingConditionType.LockedRoute: return (int)comp.lockedEnding == (int)value;
+                case EndingConditionType.AffectionMinimum: return comp.affection >= value;
+                case EndingConditionType.AffectionMaximum: return comp.affection <= value;
+                case EndingConditionType.TrustMinimum:     return comp.trust >= value;
+                case EndingConditionType.TrustMaximum:     return comp.trust <= value;
+                case EndingConditionType.LockedRoute:      return (int)comp.lockedEnding == (int)value;
                 default: return false;
             }
         }
@@ -68,11 +66,10 @@ namespace StellarisDaughter
 
     public enum EndingConditionType
     {
-        SyncRateMinimum,
-        SyncRateMaximum,
-        ChaosLevelMinimum,
-        ChaosLevelMaximum,
-        AwakeningProgressMinimum,
+        AffectionMinimum,
+        AffectionMaximum,
+        TrustMinimum,
+        TrustMaximum,
         LockedRoute
     }
 

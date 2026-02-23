@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using RimWorld;
 using UnityEngine;
@@ -8,45 +6,54 @@ using Verse;
 
 namespace StellarisDaughter
 {
-    /// <summary>
-    /// AI女儿养成系统核心组件
-    /// 追踪同步率、混沌度、觉醒进度，驱动三阶段成长和双结局系统
-    /// </summary>
     // ✨ 沐雪写的哦~
-    public class CompAIUpbringing : ThingComp
+    /// <summary>
+    /// AI女儿养成系统核心组件（Core）
+    /// 字段声明、生命周期、Apply、存档、Gizmo 入口。
+    /// 其余逻辑分布在同名 partial 文件中：
+    ///   - CompAIUpbringing.MemoryScan.cs  记忆扫描
+    ///   - CompAIUpbringing.Passive.cs     被动积累
+    ///   - CompAIUpbringing.Tooltip.cs     Gizmo 悬浮窗文本
+    /// </summary>
+    public partial class CompAIUpbringing : ThingComp
     {
         #region 核心数值
 
-        /// <summary> 同步率 - 情感羁绊程度（0-100） </summary>
-        public float syncRate = 50f;
+        /// <summary> 好感度 -1000~+1000，正值越高越亲密，负值越低越疏离甚至叛逆 </summary>
+        public float affection = 0f;
 
-        /// <summary> 混沌度 - 觉醒扭曲程度（0-100） </summary>
-        public float chaosLevel = 0f;
-
-        /// <summary> 觉醒进度 - 整体觉醒程度（0-100），18年约达100 </summary>
-        public float awakeningProgress = 0f;
+        /// <summary> 信任值 -1000~+1000，正值越高越依赖殖民地，负值越低越离心离德 </summary>
+        public float trust = 0f;
 
         /// <summary> 锁定的结局路线 - 15岁时确定 </summary>
         public AIEndingRoute lockedEnding = AIEndingRoute.NotYetDetermined;
 
-        #endregion
-
-        #region 状态追踪
-
-        /// <summary> 引导者 </summary>
-        public Pawn mentor;
-
-        /// <summary> 成长事件记录 </summary>
-        public List<AIEventRecord> eventRecords = new List<AIEventRecord>();
-
-        /// <summary> 上次引导者距离因子 </summary>
-        private float lastMentorProximity = 0f;
-
-        /// <summary> 累计与引导者互动ticks </summary>
-        public int totalMentorInteractionTicks = 0;
-
         /// <summary> 是否已发送征兆信件 </summary>
         public bool omenLetterSent = false;
+
+        /// <summary> 成长事件日志，最多保留30条 </summary>
+        public List<AIEventLogEntry> eventLog = new List<AIEventLogEntry>();
+
+        #endregion
+
+        #region 被动积累分桶（用于Tooltip显示来源分析）
+
+        public float passiveNaturalAff = 0f;   // 自然陪伴 → 好感
+        public float passiveNaturalTrs = 0f;   // 自然陪伴 → 信任
+        public float passiveLonelyAff  = 0f;   // 孤独 → 好感
+        public float passiveLonelyTrs  = 0f;   // 孤独 → 信任
+        public float passiveNeedsTrs   = 0f;   // 需求满足 → 信任
+        public float passiveEnvTrs     = 0f;   // 环境质量 → 信任
+
+        #endregion
+
+        #region 内部状态（不序列化）
+
+        /// <summary> 已处理的思绪记忆key，防止重复计算 </summary>
+        private HashSet<long> _processedMemories = new HashSet<long>();
+
+        /// <summary> 连续独处tick计数 </summary>
+        private int _ticksAloneCounter = 0;
 
         #endregion
 
@@ -54,38 +61,9 @@ namespace StellarisDaughter
 
         public CompProperties_AIUpbringing Props => (CompProperties_AIUpbringing)props;
 
-        /// <summary> 当前倾向 </summary>
-        public AITendency CurrentTendency
-        {
-            get
-            {
-                float diff = syncRate - chaosLevel;
-                if (diff > 60f) return AITendency.Devoted;
-                if (diff > 20f) return AITendency.Attached;
-                if (diff < -60f) return AITendency.Corrupted;
-                if (diff < -20f) return AITendency.Unstable;
-                return AITendency.Neutral;
-            }
-        }
-
-        /// <summary> 当前阶段描述 </summary>
-        public string CurrentStageDescription
-        {
-            get
-            {
-                var ai = parent as Pawn;
-                if (ai == null) return "";
-                int age = ai.ageTracker.AgeBiologicalYears;
-                if (age < 8) return "SD_Stage_Childhood".Translate();
-                if (age < 15) return "SD_Stage_Youth".Translate();
-                if (age < 18) return "SD_Stage_Adulthood".Translate();
-                return "SD_Stage_Final".Translate();
-            }
-        }
-
         /// <summary> 当前数值偏向的结局 </summary>
         public AIEndingRoute CurrentLeaning =>
-            syncRate > chaosLevel ? AIEndingRoute.FatherBond : AIEndingRoute.DarkCorruption;
+            (affection + trust) >= 0f ? AIEndingRoute.FatherBond : AIEndingRoute.DarkCorruption;
 
         #endregion
 
@@ -94,33 +72,8 @@ namespace StellarisDaughter
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
-            if (!respawningAfterLoad && mentor == null)
-            {
-                InitializeMentor();
-            }
-        }
-
-        private void InitializeMentor()
-        {
-            var ai = parent as Pawn;
-            if (ai?.Faction == null) return;
-
-            // 优先选择派系领袖
-            var leader = ai.Faction.leader;
-            if (leader != null && !leader.Dead)
-            {
-                mentor = leader;
-                return;
-            }
-
-            // 否则选择最近的殖民者
-            if (ai.Map != null)
-            {
-                mentor = ai.Map.mapPawns.FreeColonists
-                    .Where(p => p != ai)
-                    .OrderBy(p => p.Position.DistanceToSquared(ai.Position))
-                    .FirstOrDefault();
-            }
+            if (_processedMemories == null)
+                _processedMemories = new HashSet<long>();
         }
 
         public override void CompTickRare()
@@ -130,149 +83,59 @@ namespace StellarisDaughter
 
             var ai = parent as Pawn;
             if (ai == null) return;
-
-            // 18岁后停止数值计算
             if (ai.ageTracker.AgeBiologicalYears >= 18) return;
 
-            CalculateTickChange();
+            ScanMemoriesForEvents(ai);
+            TickPassiveLoneliness(ai);
+            TickPassiveNeeds(ai);
             CheckOmenLetter(ai);
         }
 
         #endregion
 
-        #region 数值计算
 
-        private void CalculateTickChange()
+
+        #region 核心Apply + OmenLetter + 锁定结局
+
+        /// <summary>
+        /// 应用好感度/信任值变化，并记录事件日志（label为null则为被动积累，不记录）
+        /// </summary>
+        public void Apply(float aff, float trs, string label)
         {
-            var ai = parent as Pawn;
-            if (ai == null) return;
+            affection = Mathf.Clamp(affection + aff, -1000f, 1000f);
+            trust     = Mathf.Clamp(trust     + trs, -1000f, 1000f);
 
-            float mentorProximity = CalculateMentorProximity();
-            float environmentScore = CalculateEnvironmentScore();
-            float emotionalState = CalculateEmotionalState(ai);
-            float workActivity = CalculateWorkActivity(ai);
+            if (label.NullOrEmpty()) return;
 
-            // 同步率变化
-            float syncChange = 0f;
-            if (mentorProximity > 0)
+            var entry = new AIEventLogEntry
             {
-                syncChange += mentorProximity * 0.3f;
-                totalMentorInteractionTicks += 250;
-            }
-            if (environmentScore > 0.7f) syncChange += 0.1f;
-            if (emotionalState > 0.6f) syncChange += 0.1f;
-
-            // 混沌度变化
-            float chaosChange = 0f;
-            if (mentorProximity == 0 && lastMentorProximity == 0) chaosChange += 0.2f;
-            if (environmentScore < 0.3f) chaosChange += (0.3f - environmentScore) * 0.5f;
-            if (emotionalState < 0.4f) chaosChange += (0.4f - emotionalState) * 0.3f;
-
-            // 觉醒进度
-            float awakeningChange = 0.05f;
-            awakeningChange += workActivity * 0.1f;
-            if (environmentScore > 0.8f) awakeningChange += 0.1f;
-
-            // 应用
-            syncRate = Mathf.Clamp(syncRate + syncChange, 0f, 100f);
-            chaosLevel = Mathf.Clamp(chaosLevel + chaosChange, 0f, 100f);
-            awakeningProgress = Mathf.Clamp(awakeningProgress + awakeningChange, 0f, 100f);
-            lastMentorProximity = mentorProximity;
+                label    = label,
+                affDelta = aff,
+                trsDelta = trs,
+                tick     = Find.TickManager.TicksGame
+            };
+            eventLog.Add(entry);
+            if (eventLog.Count > 30)
+                eventLog.RemoveAt(0);
         }
 
         private void CheckOmenLetter(Pawn ai)
         {
             if (omenLetterSent) return;
-            int age = ai.ageTracker.AgeBiologicalYears;
-            if (age < 13 || age >= 15) return;
+            if (ai.ageTracker.AgeBiologicalYears < 13 || ai.ageTracker.AgeBiologicalYears >= 15) return;
 
             omenLetterSent = true;
-
             string title = "SD_Letter_Omen_Title".Translate(ai.NameShortColored);
             string text = CurrentLeaning == AIEndingRoute.FatherBond
-                ? "SD_Letter_Omen_Positive".Translate(ai.NameShortColored, mentor?.NameShortColored ?? "SD_Unknown".Translate())
+                ? "SD_Letter_Omen_Positive".Translate(ai.NameShortColored)
                 : "SD_Letter_Omen_Negative".Translate(ai.NameShortColored);
-
             Find.LetterStack.ReceiveLetter(title, text, LetterDefOf.NeutralEvent, ai);
         }
 
-        /// <summary> 15岁时锁定结局路线 </summary>
         public void LockEndingRoute()
         {
             if (lockedEnding != AIEndingRoute.NotYetDetermined) return;
             lockedEnding = CurrentLeaning;
-
-            RecordEvent("Route_Locked",
-                description: "结局路线锁定：" +
-                    (lockedEnding == AIEndingRoute.FatherBond
-                        ? "SD_Route_FatherBond".Translate().ToString()
-                        : "SD_Route_DarkCorruption".Translate().ToString()));
-        }
-
-        private float CalculateMentorProximity()
-        {
-            if (mentor == null || mentor.Dead) return 0f;
-            var ai = parent as Pawn;
-            if (ai?.Map == null || mentor.Map != ai.Map) return 0f;
-
-            float distance = ai.Position.DistanceTo(mentor.Position);
-            if (distance > 15f) return 0f;
-            return 1f - (distance / 15f);
-        }
-
-        private float CalculateEnvironmentScore()
-        {
-            var ai = parent as Pawn;
-            if (ai?.Map == null) return 0.5f;
-
-            Room room = ai.GetRoom();
-            if (room == null) return 0.3f;
-
-            float score = 0.5f;
-            score += Mathf.Clamp(room.GetStat(RoomStatDefOf.Beauty) / 100f, -0.2f, 0.2f);
-            score += Mathf.Clamp(room.GetStat(RoomStatDefOf.Cleanliness) / 10f, -0.1f, 0.1f);
-            score += Mathf.Clamp(room.GetStat(RoomStatDefOf.Space) / 100f, 0f, 0.1f);
-            return Mathf.Clamp01(score);
-        }
-
-        private float CalculateEmotionalState(Pawn ai)
-        {
-            float score = 0.5f;
-            var moodNeed = ai.needs?.mood;
-            if (moodNeed != null) score = moodNeed.CurLevel;
-            float health = ai.health?.summaryHealth?.SummaryHealthPercent ?? 1f;
-            return Mathf.Clamp01((score + health) / 2f);
-        }
-
-        private float CalculateWorkActivity(Pawn ai)
-        {
-            if (ai.CurJob == null) return 0f;
-            if (ai.CurJob.def == JobDefOf.Research) return 1f;
-            if (ai.CurJob.def == JobDefOf.DoBill) return 0.8f;
-            return 0.3f;
-        }
-
-        #endregion
-
-        #region 事件记录
-
-        public void RecordEvent(string eventName, float syncChange = 0f, float chaosChange = 0f, string description = null)
-        {
-            eventRecords.Add(new AIEventRecord
-            {
-                eventDefName = eventName,
-                tickOccurred = Find.TickManager.TicksGame,
-                syncRateChange = syncChange,
-                chaosLevelChange = chaosChange,
-                description = description
-            });
-
-            if (syncChange != 0f) syncRate = Mathf.Clamp(syncRate + syncChange, 0f, 100f);
-            if (chaosChange != 0f) chaosLevel = Mathf.Clamp(chaosLevel + chaosChange, 0f, 100f);
-
-            Messages.Message(
-                $"SD_Event_{eventName}".Translate(parent.LabelShort, syncChange, chaosChange),
-                parent as Pawn, MessageTypeDefOf.NeutralEvent);
         }
 
         #endregion
@@ -282,15 +145,25 @@ namespace StellarisDaughter
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look(ref syncRate, "syncRate", 50f);
-            Scribe_Values.Look(ref chaosLevel, "chaosLevel", 0f);
-            Scribe_Values.Look(ref awakeningProgress, "awakeningProgress", 0f);
-            Scribe_Values.Look(ref lockedEnding, "lockedEnding", AIEndingRoute.NotYetDetermined);
-            Scribe_Values.Look(ref lastMentorProximity, "lastMentorProximity", 0f);
-            Scribe_Values.Look(ref totalMentorInteractionTicks, "totalMentorInteractionTicks", 0);
-            Scribe_Values.Look(ref omenLetterSent, "omenLetterSent", false);
-            Scribe_References.Look(ref mentor, "mentor");
-            Scribe_Collections.Look(ref eventRecords, "eventRecords", LookMode.Deep);
+            Scribe_Values.Look(ref affection,        "affection",        0f);
+            Scribe_Values.Look(ref trust,            "trust",            0f);
+            Scribe_Values.Look(ref lockedEnding,     "lockedEnding",     AIEndingRoute.NotYetDetermined);
+            Scribe_Values.Look(ref omenLetterSent,   "omenLetterSent",   false);
+            Scribe_Values.Look(ref passiveNaturalAff,"passiveNaturalAff",0f);
+            Scribe_Values.Look(ref passiveNaturalTrs,"passiveNaturalTrs",0f);
+            Scribe_Values.Look(ref passiveLonelyAff, "passiveLonelyAff", 0f);
+            Scribe_Values.Look(ref passiveLonelyTrs, "passiveLonelyTrs", 0f);
+            Scribe_Values.Look(ref passiveNeedsTrs,  "passiveNeedsTrs",  0f);
+            Scribe_Values.Look(ref passiveEnvTrs,    "passiveEnvTrs",    0f);
+            Scribe_Collections.Look(ref eventLog, "eventLog", LookMode.Deep);
+
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                if (_processedMemories == null)
+                    _processedMemories = new HashSet<long>();
+                if (eventLog == null)
+                    eventLog = new List<AIEventLogEntry>();
+            }
         }
 
         #endregion
@@ -304,11 +177,9 @@ namespace StellarisDaughter
 
         public override string CompInspectStringExtra()
         {
-            // Gizmo 已展示同步率/混沌度/觉醒度，这里只补充文字类信息
             var sb = new StringBuilder();
-            sb.AppendLine($"{"SD_InspectStage".Translate()}: {CurrentStageDescription}");
-            if (mentor != null)
-                sb.AppendLine($"{"SD_InspectMentor".Translate()}: {mentor.NameShortColored}");
+            sb.AppendLine($"{"SD_InspectAffection".Translate()}: {affection:+F1;-F1;+0.0}");
+            sb.AppendLine($"{"SD_InspectTrust".Translate()}: {trust:+F1;-F1;+0.0}");
             return sb.ToString().TrimEndNewlines();
         }
 
@@ -320,14 +191,12 @@ namespace StellarisDaughter
         {
             var sb = new StringBuilder();
             sb.AppendLine("=== AI女儿状态 ===");
-            sb.AppendLine($"同步率: {syncRate:F1}%");
-            sb.AppendLine($"混沌度: {chaosLevel:F1}%");
-            sb.AppendLine($"觉醒进度: {awakeningProgress:F1}%");
-            sb.AppendLine($"当前倾向: {CurrentTendency}");
+            sb.AppendLine($"好感度: {affection:F1}");
+            sb.AppendLine($"信任值: {trust:F1}");
             sb.AppendLine($"偏向: {CurrentLeaning}");
             sb.AppendLine($"锁定结局: {lockedEnding}");
-            sb.AppendLine($"引导者: {mentor?.LabelShort ?? "无"}");
             sb.AppendLine($"征兆信件: {(omenLetterSent ? "已发送" : "未发送")}");
+            sb.AppendLine($"事件日志条数: {eventLog?.Count ?? 0}");
             return sb.ToString();
         }
 

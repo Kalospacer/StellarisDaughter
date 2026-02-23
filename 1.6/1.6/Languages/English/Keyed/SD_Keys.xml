@@ -18,7 +18,7 @@
 
   <!-- Childhood Letter -->
   <SD_Letter_ChildhoodStarted_Title>Stellar Regulator Sub-Unit Activated</SD_Letter_ChildhoodStarted_Title>
-  <SD_Letter_ChildhoodStarted_Text>{0} opened her eyes, filled with confusion and curiosity.\n\n"Who... who am I?"\n\nAs her mentor, {1} will guide and care for this special being. Every choice you make will shape her future.</SD_Letter_ChildhoodStarted_Text>
+  <SD_Letter_ChildhoodStarted_Text>{0} opened her eyes, filled with confusion and curiosity.\n\n"Who... who am I?"\n\nThe story begins. Designate a guardian to help the little girl find her place in the colony.</SD_Letter_ChildhoodStarted_Text>
 
   <!-- Youth Letter -->
   <SD_Letter_YouthStarted_Title>{0} enters Youth</SD_Letter_YouthStarted_Title>
@@ -41,6 +41,7 @@
   <SD_InspectAwakening>Awakening</SD_InspectAwakening>
   <SD_InspectStage>Stage</SD_InspectStage>
   <SD_InspectMentor>Mentor</SD_InspectMentor>
+  <SD_InspectMaster>Guardian</SD_InspectMaster>
   <SD_InspectRoute>Destiny Route</SD_InspectRoute>
 
   <!-- Common -->
@@ -54,18 +55,15 @@
   <SD_Event_PositiveInteraction>{0} had a positive interaction with mentor. Sync +{1}</SD_Event_PositiveInteraction>
   <!-- Gizmo labels -->
   <SD_GizmoSync>Sync Rate</SD_GizmoSync>
-  <SD_GizmoSync_Tip>Depth of emotional bond with the mentor.\nCurrent: {0}%</SD_GizmoSync_Tip>
+  <SD_GizmoSync_Tip>Depth of emotional bond with the colony.\nCurrent: {0}%</SD_GizmoSync_Tip>
   <SD_GizmoChaos>Chaos</SD_GizmoChaos>
   <SD_GizmoChaos_Tip>Degree of dark influence erosion.\nCurrent: {0}%</SD_GizmoChaos_Tip>
   <SD_GizmoAwaken>Awakening</SD_GizmoAwaken>
   <SD_GizmoAwaken_Tip>Self-awareness progress of the stellar core.\nCurrent: {0}%\nStage: {1}</SD_GizmoAwaken_Tip>
-
-  <!-- Gizmo labels -->
-  <SD_GizmoSync>Sync Rate</SD_GizmoSync>
-  <SD_GizmoSync_Tip>Depth of emotional bond with the mentor.\nCurrent: {0}%</SD_GizmoSync_Tip>
-  <SD_GizmoChaos>Chaos</SD_GizmoChaos>
-  <SD_GizmoChaos_Tip>Degree of dark influence erosion.\nCurrent: {0}%</SD_GizmoChaos_Tip>
-  <SD_GizmoAwaken>Awakening</SD_GizmoAwaken>
-  <SD_GizmoAwaken_Tip>Self-awareness progress of the stellar core.\nCurrent: {0}%\nStage: {1}</SD_GizmoAwaken_Tip>
+  <SD_GizmoMaster>Guardian</SD_GizmoMaster>
+  <SD_GizmoMaster_Tip>The designated guardian.
+When nearby, sync rate growth is multiplied by 1.5x.
+All colonist companionship contributes to sync rate.
+Current guardian: {0}</SD_GizmoMaster_Tip>
+  <SD_NoMaster>(None)</SD_NoMaster>
 </LanguageData>
-

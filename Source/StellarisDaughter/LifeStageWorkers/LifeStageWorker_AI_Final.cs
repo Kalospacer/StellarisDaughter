@@ -50,9 +50,6 @@ namespace StellarisDaughter
 
         private void TriggerEnding(Pawn pawn, CompAIUpbringing comp, AIEndingDef ending)
         {
-            comp.RecordEvent($"Ending_{ending.defName}",
-                description: $"达成结局: {ending.label}");
-
             ending.ApplyRewards(pawn);
 
             string title = ending.endingTitle.Translate(pawn.NameShortColored);

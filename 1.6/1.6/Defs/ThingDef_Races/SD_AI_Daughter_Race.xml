@@ -152,7 +152,6 @@
           <path>Endfield/Things/Perlica/Heads/</path>
         </head>
         <skeleton>Things/Pawn/Humanlike/Bodies/Dessicated/Dessicated_Thin</skeleton>
-        <stump>Endfield/Things/Perlica/Bodies/</stump>
       </graphicPaths>
 
       <styleSettings>

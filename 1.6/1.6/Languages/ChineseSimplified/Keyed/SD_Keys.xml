@@ -18,7 +18,7 @@
 
   <!-- 童年期信件 -->
   <SD_Letter_ChildhoodStarted_Title>星规子单元已激活</SD_Letter_ChildhoodStarted_Title>
-  <SD_Letter_ChildhoodStarted_Text>{0}睁开了眼睛，眼神中充满了迷茫和好奇。\n\n"我...我是谁？"\n\n作为她的引导者，{1}将负责教导和照顾这个特殊的存在。你的每一个选择都将影响她的未来。</SD_Letter_ChildhoodStarted_Text>
+  <SD_Letter_ChildhoodStarted_Text>{0}睁开了眼睛，眼神中充满了迷茫和好奇。\n\n"我...我是谁？"\n\n故事的开始了。为她指定一个监护人，帮小女孩儿在殖民地中找到蓬勃的归宿之处。</SD_Letter_ChildhoodStarted_Text>
 
   <!-- 青年期信件 -->
   <SD_Letter_YouthStarted_Title>{0}进入了青年期</SD_Letter_YouthStarted_Title>
@@ -41,6 +41,7 @@
   <SD_InspectAwakening>觉醒进度</SD_InspectAwakening>
   <SD_InspectStage>当前阶段</SD_InspectStage>
   <SD_InspectMentor>引导者</SD_InspectMentor>
+  <SD_InspectMaster>监护人</SD_InspectMaster>
   <SD_InspectRoute>命运路线</SD_InspectRoute>
 
   <!-- 通用 -->
@@ -55,10 +56,15 @@
 
   <!-- Gizmo 标签 -->
   <SD_GizmoSync>同步率</SD_GizmoSync>
-  <SD_GizmoSync_Tip>与引导者的情感连结深度。\n当前值：{0}%</SD_GizmoSync_Tip>
+  <SD_GizmoSync_Tip>与殖民地的情感连结深度。\n当前值：{0}%</SD_GizmoSync_Tip>
   <SD_GizmoChaos>混沌度</SD_GizmoChaos>
   <SD_GizmoChaos_Tip>内心黑暗力量的侵蚀程度。\n当前值：{0}%</SD_GizmoChaos_Tip>
   <SD_GizmoAwaken>觉醒度</SD_GizmoAwaken>
   <SD_GizmoAwaken_Tip>星规核心的自我意识进程。\n当前值：{0}%\n当前阶段：{1}</SD_GizmoAwaken_Tip>
+  <SD_GizmoMaster>监护人</SD_GizmoMaster>
+  <SD_GizmoMaster_Tip>当前指定的监护人。
+他们在附近时，同步率增长速度提高1.5倍。
+所有殖民者的陪伴都对同步率有贡献。
+当前监护人：{0}</SD_GizmoMaster_Tip>
+  <SD_NoMaster>(无)</SD_NoMaster>
 </LanguageData>
-
