@@ -307,7 +307,7 @@
         <Research>0</Research>
         <DarkStudy MayRequire="Ludeon.RimWorld.Anomaly">0</DarkStudy>
       </lifeStageWorkSettings>
-      <lifeStageAges>
+      <lifeStageAges Inherit="False">
         <li>
           <def>SD_AI_Childhood</def>
           <minAge>0</minAge>

@@ -24,7 +24,6 @@
     <fixedAdultBackstories>
       <li>SD_Daughter_Adulthood_Bond</li>
     </fixedAdultBackstories>
-    <forcedHairDef>SD_Daughter_Hair</forcedHairDef>
     <forcedHairColor>(255,255,255,255)</forcedHairColor>
     <xenotypeSet>
       <xenotypeChances>
