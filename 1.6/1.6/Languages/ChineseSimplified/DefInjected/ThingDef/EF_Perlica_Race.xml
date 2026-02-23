@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: 黎博利 -->
+  <EF_Perlica_Race.label>黎博利</EF_Perlica_Race.label>
+  <!-- EN: 黎博利族的外观基本类似地球人类，头部毛发混有类似鸟类的羽毛，有的还拥有尾羽。 -->
+  <EF_Perlica_Race.description>黎博利族的外观基本类似地球人类，头部毛发混有类似鸟类的羽毛，有的还拥有尾羽。</EF_Perlica_Race.description>
+  <!-- EN: left fist -->
+  <EF_Perlica_Race.tools.left_fist.label>左拳</EF_Perlica_Race.tools.left_fist.label>
+  <!-- EN: fist -->
+  <EF_Perlica_Race.tools.left_fist.labelNoLocation>拳</EF_Perlica_Race.tools.left_fist.labelNoLocation>
+  <!-- EN: right fist -->
+  <EF_Perlica_Race.tools.right_fist.label>右拳</EF_Perlica_Race.tools.right_fist.label>
+  <!-- EN: fist -->
+  <EF_Perlica_Race.tools.right_fist.labelNoLocation>拳</EF_Perlica_Race.tools.right_fist.labelNoLocation>
+  <!-- EN: teeth -->
+  <EF_Perlica_Race.tools.teeth.label>牙</EF_Perlica_Race.tools.teeth.label>
+  <!-- EN: head -->
+  <EF_Perlica_Race.tools.head.label>头顶</EF_Perlica_Race.tools.head.label>
+  
+</LanguageData>

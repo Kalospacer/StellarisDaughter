@@ -1,0 +1,23 @@
+# Visual Studio / .NET
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.pdb
+*.cache
+
+# OS generated
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# JetBrains / Rider
+.idea/
+
+# Editors
+.vscode/
+
+# RimWorld Modding specific
+# We want to keep the Assemblies folder content usually, but maybe not the debug symbols if releasing
+# 1.6/1.6/Assemblies/*.pdb # Uncomment if you don't want to commit pdb files

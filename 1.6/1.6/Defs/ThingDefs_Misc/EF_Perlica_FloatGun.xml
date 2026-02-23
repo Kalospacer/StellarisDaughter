@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BaseMakeableGrenade">
+    <defName>EF_Perlica_Weapon</defName>
+    <label>Perlica's Baton</label>
+    <description>Perlica carries a baton with one end that can be used as a stylus, and the other end is used to command the spellunits in combat.</description>
+    
+    <generateCommonality>0.01</generateCommonality>
+    <relicChance>0</relicChance>
+    <tradeability>None</tradeability>
+    <smeltable>false</smeltable>
+    <thingSetMakerTags Inherit="False" />
+
+    <!-- <uiIconPath>DivineDiurganate/Mote/DD_DHM86_Knell_Mech_Weapon_Proj</uiIconPath>
+    <uiIconScale>0.75</uiIconScale> -->
+    <recipeMaker>
+      <recipeUsers Inherit="False" />
+    </recipeMaker>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Endfield/Weapons/EF_Perlica_Weapon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.6,0.6)</drawSize>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <soundInteract>Interact_Grenade</soundInteract>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <Mass>1</Mass>
+      <WorkToMake>12000</WorkToMake>
+      <AccuracyTouch>0.45</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.8</AccuracyMedium>
+      <AccuracyLong>0.7</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <Chemfuel>80</Chemfuel>
+    </costList>
+    <weaponTags Inherit="False">
+      <li>EF_Perlica_Weapon</li>
+    </weaponTags>
+    <thingCategories Inherit="False"/>
+    <verbs>
+      <li>
+        <verbClass>EndfieldPerlica.Verb_ShootWithOffset</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+        <warmupTime>0.2</warmupTime>
+        <defaultProjectile>EF_Perlica_SpellUnit_Bullet</defaultProjectile>
+        <range>26.9</range>
+        <burstShotCount>1</burstShotCount>
+        <!-- <minRange>3.9</minRange> -->
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <soundCast>EF_Perlica_Weapon_voice</soundCast>
+        <canGoWild>false</canGoWild>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+    <modExtensions>
+      <li Class="EndfieldPerlica.ModExtension_ShootWithOffset">
+        <offsets>
+          <li>(1.5, 0)</li>
+          <li>(-1.5, 0)</li>
+          <li>(0, 0.5)</li>
+        </offsets>
+      </li>
+    </modExtensions>
+    <comps>
+      <li Class="EndfieldPerlica.CompProperties_ShootOffsetCounter"/>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>EF_Perlica_SpellUnit_Bullet</defName>
+    <label>Spell Charge Shot</label>
+    <thingClass>EndfieldPerlica.Projectile_LineAttack</thingClass>
+    <modExtensions>
+      <li Class="EndfieldPerlica.PathPierce_Extension">
+        <maxHits>1</maxHits>
+        <damageFalloff>0</damageFalloff>
+        <preventFriendlyFire>true</preventFriendlyFire>
+        <!-- <tailFleckDef>Fleck_Spark</tailFleckDef> -->
+        <!-- <fleckDelayTicks>10</fleckDelayTicks> -->
+        <!-- <impactEffecter>ExplosionFlash</impactEffecter> -->
+        
+        <!-- 新增反向Mote配置 -->
+        <reverseMoteDef>EF_Perlica_SpellUnit_Mote</reverseMoteDef>
+        <reverseMoteSpeed>1.0</reverseMoteSpeed>
+        <reverseMoteLifetimeTicks>45</reverseMoteLifetimeTicks>
+        <reverseMoteScale>1</reverseMoteScale>
+        <reverseMoteOffset>(0, 0, 0)</reverseMoteOffset>
+        <spawnReverseMoteOnLaunch>true</spawnReverseMoteOnLaunch>
+      </li>
+    </modExtensions>
+    <graphicData>
+      <texPath>Endfield/Mote/EF_Perlica_SpellUnit_Bullet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>MoteGlow</shaderType>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>16</damageAmountBase>
+      <armorPenetrationBase>0.35</armorPenetrationBase>
+      <speed>70</speed>
+    </projectile>
+    <comps>
+      <li Class="EndfieldPerlica.CompProperties_PlaySoundOnSpawn">
+        <sound>EF_Perlica_SpellUnit_Attack_Sound</sound>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="MoteBase">
+    <defName>EF_Perlica_SpellUnit_Mote</defName>
+    <thingClass>MoteThrown</thingClass>
+    <graphicData>
+      <texPath>Endfield/Mote/EF_Perlica_SpellUnit</texPath>
+      <color>(1,1,1)</color>
+      <drawSize>(0.6,0.6)</drawSize>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.01</fadeInTime>
+      <solidTime>0</solidTime>
+      <fadeOutTime>0.5</fadeOutTime>
+      <growthRate>0</growthRate>
+    </mote>
+  </ThingDef>
+  <SoundDef>
+    <defName>EF_Perlica_SpellUnit_Attack_Sound</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Endfield/EF_Perlica_SpellUnit_Attack_Sound</clipPath>
+          </li>
+        </grains>
+        <volumeRange>75</volumeRange>
+        <pitchRange>0.9~1.1</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  <SoundDef>
+    <defName>EF_Perlica_Weapon_voice</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>3</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Endfield/EF_Perlica_Weapon</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>65</volumeRange>
+        <!-- <muteWhenPaused>True</muteWhenPaused> -->
+        <tempoAffectedByGameSpeed>false</tempoAffectedByGameSpeed>
+      </li>
+    </subSounds>
+  </SoundDef>
+</Defs>

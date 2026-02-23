@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: crush -->
+  <EF_Perlica_OrbitTrash_Crush.label>碾压</EF_Perlica_OrbitTrash_Crush.label>
+  <!-- EN: {0} has been crushed to death. -->
+  <EF_Perlica_OrbitTrash_Crush.deathMessage>{0} 被碾压至死。</EF_Perlica_OrbitTrash_Crush.deathMessage>
+  
+</LanguageData>

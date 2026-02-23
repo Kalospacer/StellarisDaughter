@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<PawnKindDef>
+		<defName>EF_Perlica</defName>
+		<label>Perlica</label>
+		<race>EF_Perlica_Race</race>
+		<fixedGender>Female</fixedGender>
+		<defaultFactionType>PlayerColony</defaultFactionType>
+		<invNutrition>0</invNutrition>
+		<combatPower>50</combatPower>
+		<isFighter>true</isFighter>
+		<trader>false</trader>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+		<forceNormalGearQuality>true</forceNormalGearQuality>
+		<initialWillRange>99~99</initialWillRange>
+		<initialResistanceRange>99~99</initialResistanceRange>
+		<minGenerationAge>19</minGenerationAge>
+		<maxGenerationAge>25</maxGenerationAge>
+		<canBeScattered>false</canBeScattered>
+		<abilities>
+			<li>EF_Perlica_LightingStrike</li>
+			<li>EF_Perlica_OrbitStrike</li>
+		</abilities>
+		<nameMaker>EF_Perlica_NameMaker</nameMaker>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>EF_Perlica_Backstory_Categories</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+		<fixedChildBackstories>
+			<li>EF_Perlica_Childhood</li>
+		</fixedChildBackstories>
+		<fixedAdultBackstories>
+			<li>EF_Perlica_Adulthood</li>
+		</fixedAdultBackstories>
+		<apparelRequired>
+			<li>EF_Perlica_Cloth</li>
+		</apparelRequired>
+		<forcedHairColor>(255,255,255,255)</forcedHairColor>
+    <itemQuality>Excellent</itemQuality>
+    <weaponMoney>9999~9999</weaponMoney>
+    <weaponTags>
+      <li>EF_Perlica_Weapon</li>
+    </weaponTags>
+		<xenotypeSet>
+			<xenotypeChances>
+
+				<Baseliner MayRequire="Ludeon.RimWorld.Biotech">0</Baseliner>
+
+				<Dirtmole MayRequire="Ludeon.RimWorld.Biotech">0</Dirtmole>
+				<Genie MayRequire="Ludeon.RimWorld.Biotech">0</Genie>
+				<Hussar MayRequire="Ludeon.RimWorld.Biotech">0</Hussar>
+				<Sanguophage MayRequire="Ludeon.RimWorld.Biotech">0</Sanguophage>
+				<Neanderthal MayRequire="Ludeon.RimWorld.Biotech">0</Neanderthal>
+				<Pigskin MayRequire="Ludeon.RimWorld.Biotech">0</Pigskin>
+				<Impid MayRequire="Ludeon.RimWorld.Biotech">0</Impid>
+				<Waster MayRequire="Ludeon.RimWorld.Biotech">0</Waster>
+				<Yttakin MayRequire="Ludeon.RimWorld.Biotech">0</Yttakin>
+				<Highmate MayRequire="Ludeon.RimWorld.Biotech">0</Highmate>
+			</xenotypeChances>
+		</xenotypeSet>
+		<useFactionXenotypes>false</useFactionXenotypes>
+    <startingHediffs>
+      <li>
+        <def>EF_Perlica_Hair_Draw_Hediff</def>
+      </li>
+    </startingHediffs>
+		<apparelMoney>0</apparelMoney>
+		<humanPregnancyChance>0</humanPregnancyChance>
+
+		<modExtensions>
+      <li Class="EndfieldPerlica.UniquePawnExtension">
+        <isSingleton>true</isSingleton>
+        <destroyDuplicates>true</destroyDuplicates>
+        <singletonScope>World</singletonScope>
+        <clearExistingRelations>true</clearExistingRelations>
+        <removeOnDeath>false</removeOnDeath>
+        <showSpawnMessage>false</showSpawnMessage>
+        <logLevel>Info</logLevel>
+        
+        <!-- 固定关系 -->
+        <!-- <fixedRelations>
+          <li>
+            <targetPawnKind>DD_Michelle</targetPawnKind>
+            <relationDef>DD_Sibling</relationDef>
+            <direction>Bidirectional</direction>
+            <required>true</required>
+            <autoEstablish>true</autoEstablish>
+          </li>
+        </fixedRelations> -->
+      </li>
+		</modExtensions>
+	</PawnKindDef>
+  <HediffDef>
+    <defName>EF_Perlica_Hair_Draw_Hediff</defName>
+    <label>Perlica's Hair</label>
+    <description>Perlica's Hair</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <everCurableByItem>false</everCurableByItem>
+    <isBad>false</isBad>
+    <defaultLabelColor>(0, 0, 0)</defaultLabelColor>
+    <stages>
+      <li>
+        <becomeVisible>true</becomeVisible>
+        <minSeverity>0</minSeverity>
+      </li>
+    </stages>
+    <renderNodeProperties>
+      <li>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <texPath>Endfield/Things/Perlica/Hair/Perlica_Hair_south_behind</texPath>
+        <parentTagDef>ApparelHead</parentTagDef>
+        <useSkinShader>false</useSkinShader>
+        <useRottenColor>false</useRottenColor>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <visibleFacing>
+          <li>South</li>
+        </visibleFacing>
+        <drawData>
+          <dataEast>
+            <layer>-99999</layer>
+          </dataEast>
+          <dataWest>
+            <layer>-99999</layer>
+          </dataWest>
+          <dataNorth>
+            <layer>-99999</layer>
+          </dataNorth>
+          <dataSouth>
+            <layer>-1</layer>
+            <offset>(0, 0, 0)</offset>
+          </dataSouth>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </HediffDef>
+	<RulePackDef>
+		<defName>EF_Perlica_NameMaker</defName>
+		<rulePack>
+			<rulesStrings>
+				<li>r_name->[EF_Perlica_FirstName] '[EF_Perlica_nickName]' [EF_Perlica_LastName]</li>
+				<li>EF_Perlica_nickName->Perlica</li>
+				<li>EF_Perlica_FirstName-> </li>
+				<li>EF_Perlica_LastName-> </li>
+			</rulesStrings>
+		</rulePack>
+	</RulePackDef>
+  <IncidentDef>
+    <defName>EF_Perlica_Join</defName>
+    <label>Perlica Join</label>
+    <category>Special</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>IncidentWorker_WandererJoin</workerClass>
+    <letterLabel>Perlica Join</letterLabel>
+    <letterText>A small pelican wishes to join your colony.</letterText>
+    <baseChance>0</baseChance>
+    <minRefireDays>99999</minRefireDays>
+    <minGreatestPopulation>0</minGreatestPopulation>
+    <pawnKind>EF_Perlica</pawnKind>
+    <pawnFixedGender>Female</pawnFixedGender>
+    <pawnMustBeCapableOfViolence>true</pawnMustBeCapableOfViolence>
+  </IncidentDef>
+
+  <AlienRace.AlienBackstoryDef>
+    <defName>EF_Perlica_Childhood</defName>
+    <slot>Childhood</slot>
+    <title>Rescued Child</title>
+    <titleShort>Rescued Child</titleShort>
+    <description>Like many of the operators at Endfield Industries, [PAWN_nameDef] survived the disaster as a child, along with other children who had lost their families, received protection from the administrators and Endfield Industries. During [PAWN_possessive] studies and growth, [PAWN_pronoun] showed great curiosity about protocol technology and gradually began to engage with various fundamental affairs of Endfield Industries on TalosⅡ.</description>
+    <skillGains>
+      <Social>4</Social>
+      <Intellectual>4</Intellectual>
+    </skillGains>
+    <!-- <workDisables>ManualDumb,Cooking,Mining</workDisables> -->
+    <requiredWorkTags>Violent</requiredWorkTags>
+    <spawnCategories>
+      <li>EF_Perlica_Backstory_Categories</li>
+    </spawnCategories>
+    <bodyTypeGlobal>Thin</bodyTypeGlobal>
+    <bodyTypeFemale>Thin</bodyTypeFemale>
+    <bodyTypeMale>Thin</bodyTypeMale>
+    <forcedTraitsChance>
+      <li>
+        <defName Degree="2">Nerves</defName>
+        <chance>100</chance>
+      </li>
+    </forcedTraitsChance>
+    <passions>
+      <Intellectual>2</Intellectual>
+    </passions>
+    <shuffleable>false</shuffleable>
+  </AlienRace.AlienBackstoryDef>
+  <AlienRace.AlienBackstoryDef>
+    <defName>EF_Perlica_Adulthood</defName>
+    <slot>Adulthood</slot>
+    <title>Supervisor Of Endfield</title>
+    <titleShort>Supervisor</titleShort>
+    <description>In less than two years, [PAWN_nameDef] had left [PAWN_possessive] mark on cities large and small across the planet, and [PAWN_possessive] understanding of threats far surpassed that of ordinary people. [PAWN_possessive] passion for protocol technology led [PAWN_possessive] to join the research and development center, where [PAWN_pronoun] later helped Endfield Industries achieve significant breakthroughs in protocol technology development and application. Subsequently, [PAWN_nameDef] was formally appointed "Supervisor," beginning to truly steer the colossal O.M.V.DiJiang, suspended in the orbit of TalosⅡ.</description>
+    <skillGains>
+      <Shooting>4</Shooting>
+      <Intellectual>5</Intellectual>
+      <Social>3</Social>
+      <Crafting>5</Crafting>
+      <Artistic>3</Artistic>
+    </skillGains>
+    <!-- <workDisables>ManualDumb,Cooking,Mining</workDisables> -->
+    <requiredWorkTags>Violent</requiredWorkTags>
+    <spawnCategories>
+      <li>EF_Perlica_Backstory_Categories</li>
+    </spawnCategories>
+    <bodyTypeGlobal>Thin</bodyTypeGlobal>
+    <bodyTypeFemale>Thin</bodyTypeFemale>
+    <bodyTypeMale>Thin</bodyTypeMale>
+    <forcedTraitsChance>
+      <li>
+        <defName Degree="0">FastLearner</defName>
+        <chance>100</chance>
+      </li>
+    </forcedTraitsChance>
+    <passions>
+      <Shooting>2</Shooting>
+      <Crafting>1</Crafting>
+    </passions>
+    <shuffleable>false</shuffleable>
+  </AlienRace.AlienBackstoryDef>
+</Defs>

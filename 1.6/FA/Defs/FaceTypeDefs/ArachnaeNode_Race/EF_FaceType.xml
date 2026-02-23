@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<!-- 眉毛的定义 -->
+	<FacialAnimation.BrowTypeDef MayRequire="Nals.FacialAnimation">
+		<defName>EF_Perlica_Race_BrowNormal</defName>
+		<raceName>EF_Perlica_Race</raceName>
+		<texPath>Endfield/Things/Perlica/Brows/Normal</texPath>
+		<shader>Map/Transparent</shader>
+      <enableUnisexTexPath>True</enableUnisexTexPath>
+	</FacialAnimation.BrowTypeDef>
+  <!-- 眼睛的定义 -->
+  <FacialAnimation.EyeballTypeDef MayRequire="Nals.FacialAnimation">
+		<defName>EF_Perlica_Race_EyeA</defName>
+		<raceName>EF_Perlica_Race</raceName>
+    <texPath>Endfield/Things/Perlica/Eyes/Normal</texPath>
+	  <altMaskPath>Endfield/Things/Perlica/Eyes/Common</altMaskPath>
+    <shader>Map/CutoutSkinOverlay</shader>
+    <minColor>RGB(255,255,255)</minColor>
+    <maxColor>RGB(255,255,255)</maxColor>
+    <enableUnisexTexPath>True</enableUnisexTexPath>
+  </FacialAnimation.EyeballTypeDef>
+  <!-- 头的定义 -->
+  <FacialAnimation.HeadTypeDef MayRequire="Nals.FacialAnimation">
+		<defName>EF_Perlica_Race_Head</defName>
+		<raceName>EF_Perlica_Race</raceName>
+    <texPath>Endfield/Things/Perlica/Heads_Blank/Normal</texPath>
+	  <shader>Map/CutoutSkin</shader>
+    <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
+    <enableUnisexTexPath>True</enableUnisexTexPath>
+  </FacialAnimation.HeadTypeDef>
+  <!-- 睫毛的定义 -->
+  <FacialAnimation.LidTypeDef MayRequire="Nals.FacialAnimation">
+		<defName>EF_Perlica_Race_Lid</defName>
+		<raceName>EF_Perlica_Race</raceName>
+	  <texPath>Endfield/Things/Perlica/Lids/Normal</texPath>
+	  <shader>Map/Transparent</shader>
+    <enableUnisexTexPath>True</enableUnisexTexPath>
+  </FacialAnimation.LidTypeDef>
+  <!-- 嘴的定义 -->
+  <FacialAnimation.MouthTypeDef MayRequire="Nals.FacialAnimation">
+		<defName>EF_Perlica_Race_Mouth</defName>
+		<raceName>EF_Perlica_Race</raceName>
+		<texPath>Endfield/Things/Perlica/Mouth/Normal</texPath>
+		<shader>Map/Transparent</shader>
+		<enableUnisexTexPath>True</enableUnisexTexPath>
+  </FacialAnimation.MouthTypeDef>
+  <!-- 皮肤的定义 -->
+  <FacialAnimation.SkinTypeDef MayRequire="Nals.FacialAnimation">
+		<defName>EF_Perlica_Race_Skin</defName>
+		<raceName>EF_Perlica_Race</raceName>
+	  <texPath>Endfield/Things/Perlica/Skins/Normal</texPath>
+	  <shader>Map/CutoutSkin</shader>
+    <enableUnisexTexPath>True</enableUnisexTexPath>
+  </FacialAnimation.SkinTypeDef>
+</Defs>
