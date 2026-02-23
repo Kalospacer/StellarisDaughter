@@ -17,6 +17,11 @@
     <canInitiateSocialInteraction>true</canInitiateSocialInteraction>
     <canDoRandomMentalBreaks>false</canDoRandomMentalBreaks>
     <icon>UI/Icons/LifeStage/VeryYoung</icon>
+    <silhouetteGraphicData>
+      <texPath>Things/Pawn/Humanlike/Silhouettes/Silhouette_HumanChild</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </silhouetteGraphicData>
     <statFactors>
       <MoveSpeed>0.6</MoveSpeed>
       <WorkSpeedGlobal>0.3</WorkSpeedGlobal>
@@ -41,6 +46,11 @@
     <canInitiateSocialInteraction>true</canInitiateSocialInteraction>
     <canDoRandomMentalBreaks>true</canDoRandomMentalBreaks>
     <icon>UI/Icons/LifeStage/Young</icon>
+    <silhouetteGraphicData>
+      <texPath>Things/Pawn/Humanlike/Silhouettes/Silhouette_HumanChild</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </silhouetteGraphicData>
     <statFactors>
       <MoveSpeed>0.85</MoveSpeed>
       <WorkSpeedGlobal>0.6</WorkSpeedGlobal>
@@ -64,6 +74,11 @@
     <meleeDamageFactor>1.0</meleeDamageFactor>
     <reproductive>false</reproductive>
     <icon>UI/Icons/LifeStage/Adult</icon>
+    <silhouetteGraphicData>
+      <texPath>Things/Pawn/Humanlike/Silhouettes/Silhouette_HumanAdult</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </silhouetteGraphicData>
     <statFactors>
       <MoveSpeed>1.0</MoveSpeed>
       <WorkSpeedGlobal>1.0</WorkSpeedGlobal>
@@ -87,6 +102,11 @@
     <meleeDamageFactor>1.0</meleeDamageFactor>
     <reproductive>false</reproductive>
     <icon>UI/Icons/LifeStage/Adult</icon>
+    <silhouetteGraphicData>
+      <texPath>Things/Pawn/Humanlike/Silhouettes/Silhouette_HumanAdult</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </silhouetteGraphicData>
     <statFactors>
       <MoveSpeed>1.2</MoveSpeed>
       <WorkSpeedGlobal>1.5</WorkSpeedGlobal>
