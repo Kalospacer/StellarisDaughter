@@ -20,6 +20,8 @@
           <!-- 仅列 Thin 供随机选择；Child/SD_Youth 由 LifeStageWorker 在阶段切换时强制写入 -->
           <bodyTypes Inherit="False">
             <li>Thin</li>
+            <li MayRequire="Ludeon.RimWorld.Biotech">Baby</li>
+            <li MayRequire="Ludeon.RimWorld.Biotech">Child</li>
           </bodyTypes>
           <colorChannels Inherit="false">
             <li>

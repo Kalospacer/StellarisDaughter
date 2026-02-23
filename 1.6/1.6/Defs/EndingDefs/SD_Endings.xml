@@ -13,7 +13,7 @@
     <requiredRoute>FatherBond</requiredRoute>
     <conditions>
       <li>
-        <conditionType>SyncRateMinimum</conditionType>
+        <conditionType>AffectionMinimum</conditionType>
         <value>50</value>
       </li>
     </conditions>
@@ -38,7 +38,7 @@
     <requiredRoute>DarkCorruption</requiredRoute>
     <conditions>
       <li>
-        <conditionType>ChaosLevelMinimum</conditionType>
+        <conditionType>TrustMaximum</conditionType>
         <value>50</value>
       </li>
     </conditions>

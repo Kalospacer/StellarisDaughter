@@ -53,7 +53,7 @@ namespace StellarisDaughter
             ending.ApplyRewards(pawn);
 
             string title = ending.endingTitle.Translate(pawn.NameShortColored);
-            string text = ending.GetEndingText(comp);
+            string text = ending.GetEndingText(pawn, comp);
             LetterDef letterDef = ending.isPositive ? LetterDefOf.PositiveEvent : LetterDefOf.NegativeEvent;
 
             Find.LetterStack.ReceiveLetter(title, text, letterDef, pawn);

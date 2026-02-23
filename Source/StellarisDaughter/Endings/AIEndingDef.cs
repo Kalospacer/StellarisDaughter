@@ -36,9 +36,10 @@ namespace StellarisDaughter
                 reward.Apply(pawn);
         }
 
-        public string GetEndingText(CompAIUpbringing comp)
+        public string GetEndingText(Pawn pawn, CompAIUpbringing comp)
         {
             return endingDescription.Translate(
+                pawn.NameShortColored,
                 comp.affection.ToString("F1"),
                 comp.trust.ToString("F1"));
         }
