@@ -52,6 +52,15 @@ namespace StellarisDaughter
         /// <summary> 已处理的思绪记忆key，防止重复计算 </summary>
         private HashSet<long> _processedMemories = new HashSet<long>();
 
+        /// <summary> 情境Thought（def+stage）的下次允许结算tick（内置冷却） </summary>
+        private Dictionary<long, int> _situationalThoughtNextApplyTick = new Dictionary<long, int>();
+
+        /// <summary> 情境Thought扫描临时集合（复用以减少分配） </summary>
+        private HashSet<long> _scratchSituationalThoughtKeys = new HashSet<long>();
+
+        /// <summary> Mood Thoughts 临时列表（Memory + Situational） </summary>
+        private List<Thought> _tmpMoodThoughts = new List<Thought>();
+
         /// <summary> 连续独处tick计数 </summary>
         private int _ticksAloneCounter = 0;
 
@@ -74,6 +83,12 @@ namespace StellarisDaughter
             base.PostSpawnSetup(respawningAfterLoad);
             if (_processedMemories == null)
                 _processedMemories = new HashSet<long>();
+            if (_situationalThoughtNextApplyTick == null)
+                _situationalThoughtNextApplyTick = new Dictionary<long, int>();
+            if (_scratchSituationalThoughtKeys == null)
+                _scratchSituationalThoughtKeys = new HashSet<long>();
+            if (_tmpMoodThoughts == null)
+                _tmpMoodThoughts = new List<Thought>();
         }
 
         public override void CompTickRare()
@@ -86,6 +101,7 @@ namespace StellarisDaughter
             if (ai.ageTracker.AgeBiologicalYears >= 18) return;
 
             ScanMemoriesForEvents(ai);
+            ScanSituationalThoughtsForEvents(ai);
             TickPassiveLoneliness(ai);
             TickPassiveNeeds(ai);
             CheckOmenLetter(ai);
@@ -161,6 +177,12 @@ namespace StellarisDaughter
             {
                 if (_processedMemories == null)
                     _processedMemories = new HashSet<long>();
+                if (_situationalThoughtNextApplyTick == null)
+                    _situationalThoughtNextApplyTick = new Dictionary<long, int>();
+                if (_scratchSituationalThoughtKeys == null)
+                    _scratchSituationalThoughtKeys = new HashSet<long>();
+                if (_tmpMoodThoughts == null)
+                    _tmpMoodThoughts = new List<Thought>();
                 if (eventLog == null)
                     eventLog = new List<AIEventLogEntry>();
             }

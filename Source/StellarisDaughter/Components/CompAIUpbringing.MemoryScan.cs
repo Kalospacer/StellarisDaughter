@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using RimWorld;
 using Verse;
@@ -11,6 +12,8 @@ namespace StellarisDaughter
     /// </summary>
     public partial class CompAIUpbringing
     {
+        private const int SituationalThoughtEventCooldownTicks = 30000; // 0.5 in-game day
+
         private void ScanMemoriesForEvents(Pawn ai)
         {
             var memories = ai.needs?.mood?.thoughts?.memories?.Memories;
@@ -28,6 +31,55 @@ namespace StellarisDaughter
                 var resp = DefDatabase<AIEventResponseDef>.GetNamedSilentFail(memory.def.defName);
                 if (resp != null)
                     Apply(resp.affDelta, resp.trustDelta, resp.eventLabel);
+            }
+        }
+
+        private void ScanSituationalThoughtsForEvents(Pawn ai)
+        {
+            var thoughtHandler = ai.needs?.mood?.thoughts;
+            if (thoughtHandler == null) return;
+
+            if (_tmpMoodThoughts == null)
+                _tmpMoodThoughts = new System.Collections.Generic.List<Thought>();
+            if (_situationalThoughtNextApplyTick == null)
+                _situationalThoughtNextApplyTick = new System.Collections.Generic.Dictionary<long, int>();
+            if (_scratchSituationalThoughtKeys == null)
+                _scratchSituationalThoughtKeys = new HashSet<long>();
+
+            _scratchSituationalThoughtKeys.Clear();
+            thoughtHandler.GetAllMoodThoughts(_tmpMoodThoughts);
+            int now = Find.TickManager.TicksGame;
+
+            foreach (var thought in _tmpMoodThoughts)
+            {
+                if (!(thought is Thought_Situational situational)) continue;
+                if (situational.def == null || !situational.Active) continue;
+
+                long key = ((long)situational.def.shortHash << 32) | (uint)(situational.CurStageIndex + 1);
+                _scratchSituationalThoughtKeys.Add(key);
+                if (_situationalThoughtNextApplyTick.TryGetValue(key, out int nextTick) && now < nextTick)
+                    continue;
+
+                var resp = DefDatabase<AIEventResponseDef>.GetNamedSilentFail(situational.def.defName);
+                if (resp != null)
+                {
+                    Apply(resp.affDelta, resp.trustDelta, resp.eventLabel);
+                    _situationalThoughtNextApplyTick[key] = now + SituationalThoughtEventCooldownTicks;
+                }
+            }
+
+            // 清理已不再激活的情境Thought冷却项，避免字典无限增长。
+            if (_situationalThoughtNextApplyTick.Count > 0)
+            {
+                var keysToRemove = new System.Collections.Generic.List<long>();
+                foreach (var kv in _situationalThoughtNextApplyTick)
+                {
+                    if (!_scratchSituationalThoughtKeys.Contains(kv.Key))
+                        keysToRemove.Add(kv.Key);
+                }
+
+                for (int i = 0; i < keysToRemove.Count; i++)
+                    _situationalThoughtNextApplyTick.Remove(keysToRemove[i]);
             }
         }
     }
