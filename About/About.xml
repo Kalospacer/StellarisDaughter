@@ -1,12 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Arknights Endfield - Perlica</name>
+  <name>StellarisDaughter|星规之女</name>
   <author>Tourswen</author>
-  <description>Arknights Endfield - Perlica</description>
+  <description>星规之女 - AI女儿养成系统
+
+在遥远的边缘世界，你意外获得了一个来自路希维亚帝国的星规子单元——一个拥有自我意识但处于失忆状态的强AI核心。
+
+作为她的引导者，你将负责教导她、照顾她、决定她的成长方向。你的每一个选择都将影响她的命运。
+
+特色功能：
+- 三阶段成长系统（童年/青年/成年）
+- 双结局叙事（父嫁/黑化恶堕）
+- 同步率与混沌度养成数值
+- 征兆系统与结局路线锁定
+  </description>
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>
-  <packageId>Tourswen.EndfieldPerlica</packageId>
+  <packageId>Tourswen.StellarisDaughter</packageId>
   
   <modDependencies>
     <li>
@@ -15,16 +26,11 @@
       <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
       <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
     </li>
-		<li>
-			<packageId>erdelf.HumanoidAlienRaces</packageId>
-			<displayName>Humanoid Alien Races 2.0</displayName>
-			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=839005762</steamWorkshopUrl>
-		</li>	
-		<!-- <li>
-		  <packageId>Nals.FacialAnimation</packageId>
-			<displayName>[NL] Facial Animation - WIP</displayName>
-			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1635901197</steamWorkshopUrl>
-		</li>	 -->
+    <li>
+      <packageId>erdelf.HumanoidAlienRaces</packageId>
+      <displayName>Humanoid Alien Races 2.0</displayName>
+      <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=839005762</steamWorkshopUrl>
+    </li>
   </modDependencies>
   
   <loadAfter>

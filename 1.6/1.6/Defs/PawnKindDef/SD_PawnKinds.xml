@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnKindDef>
+    <defName>SD_AI_Daughter</defName>
+    <label>星规之女</label>
+    <race>SD_AI_Daughter_Race</race>
+    <defaultFactionType>PlayerColony</defaultFactionType>
+    <chemicalAddictionChance>0</chemicalAddictionChance>
+    <combatPower>80</combatPower>
+    <canStrip>true</canStrip>
+    <apparelMoney>300~800</apparelMoney>
+    <weaponMoney>0~0</weaponMoney>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>Child</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+  </PawnKindDef>
+</Defs>

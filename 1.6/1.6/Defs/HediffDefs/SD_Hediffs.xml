@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 正面结局Hediff：永恒羁绊 -->
+  <HediffDef>
+    <defName>SD_Hediff_EternalBond</defName>
+    <label>永恒羁绊</label>
+    <description>星规子单元已完全觉醒，并选择与引导者建立永恒的情感连接。她的眼中只有你。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.5, 0.8, 1.0)</defaultLabelColor>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <label>永恒羁绊</label>
+        <becomeVisible>true</becomeVisible>
+        <statOffsets>
+          <MoveSpeed>0.5</MoveSpeed>
+          <WorkSpeedGlobal>0.3</WorkSpeedGlobal>
+          <ShootingAccuracyPawn>5</ShootingAccuracyPawn>
+        </statOffsets>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.1</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- 负面结局Hediff：黑暗觉醒 -->
+  <HediffDef>
+    <defName>SD_Hediff_DarkAwakening</defName>
+    <label>黑暗觉醒</label>
+    <description>星规子单元的觉醒走向了黑暗面。她的意识已经扭曲，充满了对一切的敌意。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.8, 0.2, 0.2)</defaultLabelColor>
+    <isBad>true</isBad>
+    <stages>
+      <li>
+        <label>黑暗觉醒</label>
+        <becomeVisible>true</becomeVisible>
+        <statOffsets>
+          <MoveSpeed>1.0</MoveSpeed>
+          <MeleeDamageFactor>0.5</MeleeDamageFactor>
+        </statOffsets>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.2</offset>
+          </li>
+        </capMods>
+        <mentalStateGivers>
+          <li>
+            <mentalState>Berserk</mentalState>
+            <mtbDays>5</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

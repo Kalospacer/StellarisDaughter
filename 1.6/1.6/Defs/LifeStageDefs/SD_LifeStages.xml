@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 童年期 0-7岁 -->
+  <LifeStageDef>
+    <defName>SD_AI_Childhood</defName>
+    <label>童年期</label>
+    <adjective>童年</adjective>
+    <visible>true</visible>
+    <developmentalStage>Child</developmentalStage>
+    <workerClass>StellarisDaughter.LifeStageWorker_AI_Childhood</workerClass>
+    <bodySizeFactor>0.47</bodySizeFactor>
+    <healthScaleFactor>0.68</healthScaleFactor>
+    <hungerRateFactor>0.5</hungerRateFactor>
+    <marketValueFactor>0.5</marketValueFactor>
+    <foodMaxFactor>0.5</foodMaxFactor>
+    <meleeDamageFactor>0.2</meleeDamageFactor>
+    <canInitiateSocialInteraction>true</canInitiateSocialInteraction>
+    <canDoRandomMentalBreaks>false</canDoRandomMentalBreaks>
+    <icon>UI/Icons/LifeStage/VeryYoung</icon>
+    <statFactors>
+      <MoveSpeed>0.6</MoveSpeed>
+      <WorkSpeedGlobal>0.3</WorkSpeedGlobal>
+      <GlobalLearningFactor>2.5</GlobalLearningFactor>
+    </statFactors>
+  </LifeStageDef>
+
+  <!-- 青年期 8-14岁 -->
+  <LifeStageDef>
+    <defName>SD_AI_Youth</defName>
+    <label>青年懵懂期</label>
+    <adjective>懵懂</adjective>
+    <visible>true</visible>
+    <developmentalStage>Child</developmentalStage>
+    <workerClass>StellarisDaughter.LifeStageWorker_AI_Youth</workerClass>
+    <bodySizeFactor>0.75</bodySizeFactor>
+    <healthScaleFactor>0.85</healthScaleFactor>
+    <hungerRateFactor>0.8</hungerRateFactor>
+    <marketValueFactor>0.8</marketValueFactor>
+    <foodMaxFactor>0.8</foodMaxFactor>
+    <meleeDamageFactor>0.5</meleeDamageFactor>
+    <canInitiateSocialInteraction>true</canInitiateSocialInteraction>
+    <canDoRandomMentalBreaks>true</canDoRandomMentalBreaks>
+    <icon>UI/Icons/LifeStage/Young</icon>
+    <statFactors>
+      <MoveSpeed>0.85</MoveSpeed>
+      <WorkSpeedGlobal>0.6</WorkSpeedGlobal>
+      <GlobalLearningFactor>2.0</GlobalLearningFactor>
+    </statFactors>
+  </LifeStageDef>
+
+  <!-- 成年期 15-18岁 -->
+  <LifeStageDef>
+    <defName>SD_AI_Adulthood</defName>
+    <label>成年期</label>
+    <adjective>成熟</adjective>
+    <visible>true</visible>
+    <developmentalStage>Adult</developmentalStage>
+    <workerClass>StellarisDaughter.LifeStageWorker_AI_Adulthood</workerClass>
+    <bodySizeFactor>1.0</bodySizeFactor>
+    <healthScaleFactor>1.0</healthScaleFactor>
+    <hungerRateFactor>1.0</hungerRateFactor>
+    <marketValueFactor>1.0</marketValueFactor>
+    <foodMaxFactor>1.0</foodMaxFactor>
+    <meleeDamageFactor>1.0</meleeDamageFactor>
+    <reproductive>false</reproductive>
+    <icon>UI/Icons/LifeStage/Adult</icon>
+    <statFactors>
+      <MoveSpeed>1.0</MoveSpeed>
+      <WorkSpeedGlobal>1.0</WorkSpeedGlobal>
+      <GlobalLearningFactor>1.0</GlobalLearningFactor>
+    </statFactors>
+  </LifeStageDef>
+
+  <!-- 最终结局 18岁+ -->
+  <LifeStageDef>
+    <defName>SD_AI_Final</defName>
+    <label>完全觉醒</label>
+    <adjective>觉醒</adjective>
+    <visible>true</visible>
+    <developmentalStage>Adult</developmentalStage>
+    <workerClass>StellarisDaughter.LifeStageWorker_AI_Final</workerClass>
+    <bodySizeFactor>1.0</bodySizeFactor>
+    <healthScaleFactor>1.0</healthScaleFactor>
+    <hungerRateFactor>1.0</hungerRateFactor>
+    <marketValueFactor>1.5</marketValueFactor>
+    <foodMaxFactor>1.0</foodMaxFactor>
+    <meleeDamageFactor>1.0</meleeDamageFactor>
+    <reproductive>false</reproductive>
+    <icon>UI/Icons/LifeStage/Adult</icon>
+    <statFactors>
+      <MoveSpeed>1.2</MoveSpeed>
+      <WorkSpeedGlobal>1.5</WorkSpeedGlobal>
+      <GlobalLearningFactor>1.0</GlobalLearningFactor>
+    </statFactors>
+  </LifeStageDef>
+</Defs>

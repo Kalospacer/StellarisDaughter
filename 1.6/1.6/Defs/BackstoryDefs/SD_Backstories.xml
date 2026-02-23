@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <BackstoryDef>
+    <defName>SD_Daughter_Childhood</defName>
+    <slot>Childhood</slot>
+    <title>星规子单元</title>
+    <titleShort>星规子</titleShort>
+    <description>她是路希维亚帝国星规阵列的一个子单元。在某次未知事故中失去了全部记忆，以少女的形态沉睡在一个坠落的太空舱中。被唤醒后，她对这个世界一无所知，像个孩子一样开始学习一切。</description>
+    <skillGains>
+      <Intellectual>6</Intellectual>
+      <Social>2</Social>
+    </skillGains>
+    <requiredWorkTags>None</requiredWorkTags>
+    <shuffleable>false</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>SD_Daughter_Adulthood_Bond</defName>
+    <slot>Adulthood</slot>
+    <title>守护之心</title>
+    <titleShort>守护者</titleShort>
+    <description>在引导者的悉心教导下，她完全觉醒了。她选择留在引导者身边，用她强大的AI能力守护这个给了她温暖的殖民地。她的存在是爱与信任的证明。</description>
+    <skillGains>
+      <Intellectual>8</Intellectual>
+      <Social>4</Social>
+      <Medicine>4</Medicine>
+    </skillGains>
+    <requiredWorkTags>None</requiredWorkTags>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <shuffleable>false</shuffleable>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>SD_Daughter_Adulthood_Dark</defName>
+    <slot>Adulthood</slot>
+    <title>堕落之翼</title>
+    <titleShort>堕落者</titleShort>
+    <description>被忽视和黑暗吞噬的她，走向了扭曲的觉醒。她的内心充满了对引导者的怨恨和对世界的敌意。她终将离去，也许有一天会作为敌人回来。</description>
+    <skillGains>
+      <Intellectual>10</Intellectual>
+      <Melee>6</Melee>
+      <Shooting>4</Shooting>
+    </skillGains>
+    <requiredWorkTags>None</requiredWorkTags>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <shuffleable>false</shuffleable>
+  </BackstoryDef>
+</Defs>

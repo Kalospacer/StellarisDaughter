@@ -1,7 +1,0 @@
-适用于 .NET Framework MSBuild 版本 17.9.5+33de0b227
-
-  正在确定要还原的项目…
-  所有项目均是最新的，无法还原。
-适用于 .NET Framework MSBuild 版本 17.9.5+33de0b227
-
-C:\Steam\steamapps\common\RimWorld\Mods\EndfieldPerlica\Source\EndfieldPerlica\Comps\TurretGun\CompTurretGun.cs(11,45): error CS0535: “CompTurretGun”不实现接口成员“IAttackTargetSearcher.CurrentEffectiveVerb” [C:\Steam\steamapps\common\RimWorld\Mods\EndfieldPerlica\Source\EndfieldPerlica\EFPerlica.csproj]

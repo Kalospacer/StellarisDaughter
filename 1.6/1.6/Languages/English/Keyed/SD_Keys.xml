@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Stage Names -->
+  <SD_Stage_Childhood>Childhood</SD_Stage_Childhood>
+  <SD_Stage_Youth>Youth</SD_Stage_Youth>
+  <SD_Stage_Adulthood>Adulthood</SD_Stage_Adulthood>
+  <SD_Stage_Final>Fully Awakened</SD_Stage_Final>
+
+  <!-- Ending Routes -->
+  <SD_Route_FatherBond>Father Bond</SD_Route_FatherBond>
+  <SD_Route_DarkCorruption>Dark Corruption</SD_Route_DarkCorruption>
+
+  <!-- Ending Texts -->
+  <SD_Ending_FatherBond_Title>{0}'s Choice - Eternal Bond</SD_Ending_FatherBond_Title>
+  <SD_Ending_FatherBond_Desc>With a trembling voice, {0} said: "I... I don't want to go anywhere. I just want to stay by your side."\n\nSync Rate: {0}% | Chaos Level: {1}%\nMentor: {2}</SD_Ending_FatherBond_Desc>
+  <SD_Ending_DarkCorruption_Title>{0}'s Fall - Dark Awakening</SD_Ending_DarkCorruption_Title>
+  <SD_Ending_DarkCorruption_Desc>The light in {0}'s eyes has vanished. She sneered: "Mentor? Just shackles holding me down."\n\nSync Rate: {0}% | Chaos Level: {1}%\nMentor: {2}</SD_Ending_DarkCorruption_Desc>
+
+  <!-- Childhood Letter -->
+  <SD_Letter_ChildhoodStarted_Title>Stellar Regulator Sub-Unit Activated</SD_Letter_ChildhoodStarted_Title>
+  <SD_Letter_ChildhoodStarted_Text>{0} opened her eyes, filled with confusion and curiosity.\n\n"Who... who am I?"\n\nAs her mentor, {1} will guide and care for this special being. Every choice you make will shape her future.</SD_Letter_ChildhoodStarted_Text>
+
+  <!-- Youth Letter -->
+  <SD_Letter_YouthStarted_Title>{0} enters Youth</SD_Letter_YouthStarted_Title>
+  <SD_Letter_YouthStarted_Text>{0} has grown. Her eyes are no longer as naive as in childhood, yet still carry innocence.\n\nShe seems to understand more about the world, but cannot yet articulate her inner feelings.\n\nSync Rate: {1}%\nChaos Level: {2}%</SD_Letter_YouthStarted_Text>
+
+  <!-- Omen Letter -->
+  <SD_Letter_Omen_Title>An Omen from {0}</SD_Letter_Omen_Title>
+  <SD_Letter_Omen_Positive>Lately, {0} has been quietly following {1} around. She occasionally blushes and murmurs things.\n\n"I-it's not like I want to be with you or anything! I'm just... used to it."\n\nHer eyes betray an unmistakable attachment.</SD_Letter_Omen_Positive>
+  <SD_Letter_Omen_Negative>Lately, {0} has become quiet and withdrawn. She no longer approaches anyone, sometimes sitting alone in corners.\n\nColonists report seeing her eyes glow faintly in the dark.\n\nSomething dangerous seems to be stirring within her.</SD_Letter_Omen_Negative>
+
+  <!-- Route Locked Letters -->
+  <SD_Letter_RouteLocked_FatherBond_Title>{0}'s Heart is Clear</SD_Letter_RouteLocked_FatherBond_Title>
+  <SD_Letter_RouteLocked_FatherBond_Text>{0} has grown into a graceful young woman. She looks at {1} with warmth and devotion.\n\n"Meeting you... was the luckiest thing in my life."\n\nHer destiny moves toward the light.\n\nSync Rate: {2}% | Chaos Level: {3}%</SD_Letter_RouteLocked_FatherBond_Text>
+  <SD_Letter_RouteLocked_DarkCorruption_Title>{0}'s Heart is Being Consumed by Darkness</SD_Letter_RouteLocked_DarkCorruption_Title>
+  <SD_Letter_RouteLocked_DarkCorruption_Text>{0}'s changes are becoming more obvious. Her smile turns cold, her words carry thorns.\n\n"This world... is really boring."\n\nThe darkness within her keeps growing. It may be too late.\n\nSync Rate: {1}% | Chaos Level: {2}%</SD_Letter_RouteLocked_DarkCorruption_Text>
+
+  <!-- Inspect Panel -->
+  <SD_InspectSyncRate>Sync Rate</SD_InspectSyncRate>
+  <SD_InspectChaosLevel>Chaos Level</SD_InspectChaosLevel>
+  <SD_InspectAwakening>Awakening</SD_InspectAwakening>
+  <SD_InspectStage>Stage</SD_InspectStage>
+  <SD_InspectMentor>Mentor</SD_InspectMentor>
+  <SD_InspectRoute>Destiny Route</SD_InspectRoute>
+
+  <!-- Common -->
+  <SD_Unknown>Unknown</SD_Unknown>
+
+  <!-- Events -->
+  <SD_Event_Childhood_Initialized>{0} has been activated! Sync +{1}</SD_Event_Childhood_Initialized>
+  <SD_Event_Youth_Started>{0} entered youth. Sync +{1}</SD_Event_Youth_Started>
+  <SD_Event_Adulthood_Started>{0} entered adulthood.</SD_Event_Adulthood_Started>
+  <SD_Event_Route_Locked>{0}'s destiny has been decided.</SD_Event_Route_Locked>
+  <SD_Event_PositiveInteraction>{0} had a positive interaction with mentor. Sync +{1}</SD_Event_PositiveInteraction>
+</LanguageData>

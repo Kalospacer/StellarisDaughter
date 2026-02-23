@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- AI女儿种族定义 - 基于 AlienRace -->
+  <AlienRace.ThingDef_AlienRace ParentName="Human">
+    <defName>SD_AI_Daughter_Race</defName>
+    <label>星规子单元</label>
+    <description>一个基于路希维亚帝国星规技术的强AI核心。她以少女的形态出现，失忆但充满好奇。你的引导将决定她的命运。</description>
+
+    <alienRace>
+      <generalSettings>
+        <maleGenderProbability>0</maleGenderProbability>
+        <immuneToXenophobia>true</immuneToXenophobia>
+        <minAgeForAdulthood>15</minAgeForAdulthood>
+        <humanRecipeImport>true</humanRecipeImport>
+        <canLayDown>true</canLayDown>
+        <alienPartGenerator Inherit="False">
+          <headTypes Inherit="False">
+            <li>Female_AverageNormal</li>
+          </headTypes>
+          <bodyTypes Inherit="False">
+            <li>Thin</li>
+            <li>Female</li>
+            <li>Child</li>
+          </bodyTypes>
+          <colorChannels Inherit="false">
+            <li>
+              <name>hair</name>
+              <first Class="ColorGenerator_Options">
+                <options>
+                  <li>
+                    <weight>100</weight>
+                    <min>(180,200,230)</min>
+                    <max>(200,220,255)</max>
+                  </li>
+                </options>
+              </first>
+            </li>
+            <li>
+              <name>skin</name>
+              <first Class="AlienRace.ColorGenerator_SkinColorMelanin">
+                <minMelanin>0</minMelanin>
+                <maxMelanin>0</maxMelanin>
+              </first>
+            </li>
+          </colorChannels>
+          <headOffsetDirectional>
+            <north>
+              <offset>(0.0, -0.35)</offset>
+            </north>
+            <south>
+              <offset>(0.0, -0.35)</offset>
+            </south>
+            <east>
+              <offset>(0.015, -0.35)</offset>
+            </east>
+            <west>
+              <offset>(-0.015, -0.35)</offset>
+            </west>
+          </headOffsetDirectional>
+        </alienPartGenerator>
+      </generalSettings>
+
+      <styleSettings></styleSettings>
+      <relationSettings></relationSettings>
+      <graphicPaths></graphicPaths>
+      <thoughtSettings></thoughtSettings>
+    </alienRace>
+
+    <comps>
+      <li Class="StellarisDaughter.CompProperties_AIUpbringing" />
+    </comps>
+
+    <race>
+      <intelligence>Humanlike</intelligence>
+      <thinkTreeMain>Humanlike</thinkTreeMain>
+      <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+      <hasGenders>true</hasGenders>
+      <needsRest>true</needsRest>
+      <foodType>OmnivoreHuman</foodType>
+      <baseBodySize>1</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <baseHungerRate>1</baseHungerRate>
+      <lifeExpectancy>200</lifeExpectancy>
+      <leatherDef>Leather_Human</leatherDef>
+      <nameCategory>HumanStandard</nameCategory>
+      <lifeStageAges>
+        <li>
+          <def>SD_AI_Childhood</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>SD_AI_Youth</def>
+          <minAge>8</minAge>
+        </li>
+        <li>
+          <def>SD_AI_Adulthood</def>
+          <minAge>15</minAge>
+        </li>
+        <li>
+          <def>SD_AI_Final</def>
+          <minAge>18</minAge>
+        </li>
+      </lifeStageAges>
+    </race>
+
+    <statBases>
+      <MarketValue>2000</MarketValue>
+      <MoveSpeed>4.6</MoveSpeed>
+      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+      <ComfyTemperatureMax>40</ComfyTemperatureMax>
+      <MentalBreakThreshold>0.2</MentalBreakThreshold>
+      <WorkSpeedGlobal>1</WorkSpeedGlobal>
+      <ImmunityGainSpeed>1.2</ImmunityGainSpeed>
+    </statBases>
+  </AlienRace.ThingDef_AlienRace>
+</Defs>
