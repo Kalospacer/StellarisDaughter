@@ -7,7 +7,7 @@ namespace StellarisDaughter
     // ✨ 沐雪写的哦~
     /// <summary>
     /// CompAIUpbringing：被动积累模块
-    /// 每 TickRare 根据孤独状态和基础需求水平给予细水长流的好感/信任变化。
+    /// 每 TickRare 根据孤独/需求不足施加惩罚，不主动给予正向增长（增长只靠事件驱动）。
     /// </summary>
     public partial class CompAIUpbringing
     {
@@ -38,11 +38,7 @@ namespace StellarisDaughter
             if (hasNearby)
             {
                 _ticksAloneCounter = 0;
-                const float aff = 0.10f;
-                const float trs = 0.10f;
-                Apply(aff, trs, null);
-                passiveNaturalAff += aff;
-                passiveNaturalTrs += trs;
+                // 有人陪伴时仅重置计数器，不自然增长
             }
             else
             {
@@ -77,23 +73,24 @@ namespace StellarisDaughter
             var comfort = ai.needs.AllNeeds.Find(n => n.def.defName == "Comfort");
             var joy     = ai.needs.joy;
 
-            if (food    != null) trs += (food.CurLevel    - 0.5f) * 0.04f;
-            if (rest    != null) trs += (rest.CurLevel    - 0.5f) * 0.03f;
-            if (comfort != null) trs += (comfort.CurLevel - 0.5f) * 0.02f;
-            if (joy     != null) trs += (joy.CurLevel     - 0.5f) * 0.02f;
+            // 只计算低于基准（0.5）的惩罚，满足需求不自然增长
+            if (food    != null && food.CurLevel    < 0.5f) trs += (food.CurLevel    - 0.5f) * 0.04f;
+            if (rest    != null && rest.CurLevel    < 0.5f) trs += (rest.CurLevel    - 0.5f) * 0.03f;
+            if (comfort != null && comfort.CurLevel < 0.5f) trs += (comfort.CurLevel - 0.5f) * 0.02f;
+            if (joy     != null && joy.CurLevel     < 0.5f) trs += (joy.CurLevel     - 0.5f) * 0.02f;
 
-            if (trs != 0f)
+            if (trs < 0f)
             {
                 Apply(0f, trs, null);
                 passiveNeedsTrs += trs;
             }
 
-            // 居室美感
+            // 居室美感：只惩罚，不奖励
             Room room = ai.GetRoom();
             if (room != null)
             {
                 float envTrs = room.GetStat(RoomStatDefOf.Beauty) * 0.002f;
-                if (envTrs != 0f)
+                if (envTrs < 0f)
                 {
                     Apply(0f, envTrs, null);
                     passiveEnvTrs += envTrs;

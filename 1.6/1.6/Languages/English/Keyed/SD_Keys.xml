@@ -43,6 +43,8 @@
   <SD_InspectMentor>Mentor</SD_InspectMentor>
   <SD_InspectMaster>Guardian</SD_InspectMaster>
   <SD_InspectRoute>Destiny Route</SD_InspectRoute>
+  <SD_InspectAffection>Affection</SD_InspectAffection>
+  <SD_InspectTrust>Trust</SD_InspectTrust>
 
   <!-- Common -->
   <SD_Unknown>Unknown</SD_Unknown>
@@ -53,7 +55,16 @@
   <SD_Event_Adulthood_Started>{0} entered adulthood.</SD_Event_Adulthood_Started>
   <SD_Event_Route_Locked>{0}'s destiny has been decided.</SD_Event_Route_Locked>
   <SD_Event_PositiveInteraction>{0} had a positive interaction with mentor. Sync +{1}</SD_Event_PositiveInteraction>
-  <!-- Gizmo labels -->
+  <!-- Gizmo labels (new dual-axis system) -->
+  <SD_GizmoAff>Affection</SD_GizmoAff>
+  <SD_GizmoTrs>Trust</SD_GizmoTrs>
+  <SD_GizmoAff_TipHeader>Affection: {0}</SD_GizmoAff_TipHeader>
+  <SD_GizmoTrs_TipHeader>Trust: {0}</SD_GizmoTrs_TipHeader>
+  <SD_TipEvents>[Recent Events]</SD_TipEvents>
+  <SD_TipNoEvents>(No records yet)</SD_TipNoEvents>
+  <SD_TipPassive>[Passive Accumulation]</SD_TipPassive>
+
+  <!-- Gizmo labels (legacy compatibility) -->
   <SD_GizmoSync>Sync Rate</SD_GizmoSync>
   <SD_GizmoSync_Tip>Depth of emotional bond with the colony.\nCurrent: {0}%</SD_GizmoSync_Tip>
   <SD_GizmoChaos>Chaos</SD_GizmoChaos>

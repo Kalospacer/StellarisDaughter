@@ -43,6 +43,8 @@
   <SD_InspectMentor>引导者</SD_InspectMentor>
   <SD_InspectMaster>监护人</SD_InspectMaster>
   <SD_InspectRoute>命运路线</SD_InspectRoute>
+  <SD_InspectAffection>好感度</SD_InspectAffection>
+  <SD_InspectTrust>信任值</SD_InspectTrust>
 
   <!-- 通用 -->
   <SD_Unknown>未知</SD_Unknown>
@@ -54,7 +56,16 @@
   <SD_Event_Route_Locked>{0}的命运已经确定。</SD_Event_Route_Locked>
   <SD_Event_PositiveInteraction>{0}与引导者进行了愉快的互动。同步率+{1}</SD_Event_PositiveInteraction>
 
-  <!-- Gizmo 标签 -->
+  <!-- Gizmo 标签（新双轴系统） -->
+  <SD_GizmoAff>好感度</SD_GizmoAff>
+  <SD_GizmoTrs>信任值</SD_GizmoTrs>
+  <SD_GizmoAff_TipHeader>好感度：{0}</SD_GizmoAff_TipHeader>
+  <SD_GizmoTrs_TipHeader>信任值：{0}</SD_GizmoTrs_TipHeader>
+  <SD_TipEvents>【近期事件】</SD_TipEvents>
+  <SD_TipNoEvents>（暂无记录）</SD_TipNoEvents>
+  <SD_TipPassive>【被动积累】</SD_TipPassive>
+
+  <!-- Gizmo 标签（旧字段保留兼容） -->
   <SD_GizmoSync>同步率</SD_GizmoSync>
   <SD_GizmoSync_Tip>与殖民地的情感连结深度。\n当前值：{0}%</SD_GizmoSync_Tip>
   <SD_GizmoChaos>混沌度</SD_GizmoChaos>
