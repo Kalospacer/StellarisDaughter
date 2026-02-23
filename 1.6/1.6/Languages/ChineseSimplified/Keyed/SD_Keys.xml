@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <!-- 阶段名称 -->
   <SD_Stage_Childhood>童年期</SD_Stage_Childhood>
@@ -52,4 +52,13 @@
   <SD_Event_Adulthood_Started>{0}进入了成年期。</SD_Event_Adulthood_Started>
   <SD_Event_Route_Locked>{0}的命运已经确定。</SD_Event_Route_Locked>
   <SD_Event_PositiveInteraction>{0}与引导者进行了愉快的互动。同步率+{1}</SD_Event_PositiveInteraction>
+
+  <!-- Gizmo 标签 -->
+  <SD_GizmoSync>同步率</SD_GizmoSync>
+  <SD_GizmoSync_Tip>与引导者的情感连结深度。\n当前值：{0}%</SD_GizmoSync_Tip>
+  <SD_GizmoChaos>混沌度</SD_GizmoChaos>
+  <SD_GizmoChaos_Tip>内心黑暗力量的侵蚀程度。\n当前值：{0}%</SD_GizmoChaos_Tip>
+  <SD_GizmoAwaken>觉醒度</SD_GizmoAwaken>
+  <SD_GizmoAwaken_Tip>星规核心的自我意识进程。\n当前值：{0}%\n当前阶段：{1}</SD_GizmoAwaken_Tip>
 </LanguageData>
+

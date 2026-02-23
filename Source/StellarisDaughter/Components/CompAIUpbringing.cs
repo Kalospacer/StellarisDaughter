@@ -297,21 +297,18 @@ namespace StellarisDaughter
 
         #region UI / Gizmos
 
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        {
+            yield return new Gizmo_AIUpbringing(this);
+        }
+
         public override string CompInspectStringExtra()
         {
+            // Gizmo 已展示同步率/混沌度/觉醒度，这里只补充文字类信息
             var sb = new StringBuilder();
-            sb.AppendLine($"{"SD_InspectSyncRate".Translate()}: {syncRate:F0}%");
-            sb.AppendLine($"{"SD_InspectChaosLevel".Translate()}: {chaosLevel:F0}%");
-            sb.AppendLine($"{"SD_InspectAwakening".Translate()}: {awakeningProgress:F0}%");
             sb.AppendLine($"{"SD_InspectStage".Translate()}: {CurrentStageDescription}");
             if (mentor != null)
                 sb.AppendLine($"{"SD_InspectMentor".Translate()}: {mentor.NameShortColored}");
-            if (lockedEnding != AIEndingRoute.NotYetDetermined)
-            {
-                string route = lockedEnding == AIEndingRoute.FatherBond
-                    ? "SD_Route_FatherBond".Translate() : "SD_Route_DarkCorruption".Translate();
-                sb.AppendLine($"{"SD_InspectRoute".Translate()}: {route}");
-            }
             return sb.ToString().TrimEndNewlines();
         }
 

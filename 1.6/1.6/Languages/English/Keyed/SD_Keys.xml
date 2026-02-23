@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <!-- Stage Names -->
   <SD_Stage_Childhood>Childhood</SD_Stage_Childhood>
@@ -52,4 +52,20 @@
   <SD_Event_Adulthood_Started>{0} entered adulthood.</SD_Event_Adulthood_Started>
   <SD_Event_Route_Locked>{0}'s destiny has been decided.</SD_Event_Route_Locked>
   <SD_Event_PositiveInteraction>{0} had a positive interaction with mentor. Sync +{1}</SD_Event_PositiveInteraction>
+  <!-- Gizmo labels -->
+  <SD_GizmoSync>Sync Rate</SD_GizmoSync>
+  <SD_GizmoSync_Tip>Depth of emotional bond with the mentor.\nCurrent: {0}%</SD_GizmoSync_Tip>
+  <SD_GizmoChaos>Chaos</SD_GizmoChaos>
+  <SD_GizmoChaos_Tip>Degree of dark influence erosion.\nCurrent: {0}%</SD_GizmoChaos_Tip>
+  <SD_GizmoAwaken>Awakening</SD_GizmoAwaken>
+  <SD_GizmoAwaken_Tip>Self-awareness progress of the stellar core.\nCurrent: {0}%\nStage: {1}</SD_GizmoAwaken_Tip>
+
+  <!-- Gizmo labels -->
+  <SD_GizmoSync>Sync Rate</SD_GizmoSync>
+  <SD_GizmoSync_Tip>Depth of emotional bond with the mentor.\nCurrent: {0}%</SD_GizmoSync_Tip>
+  <SD_GizmoChaos>Chaos</SD_GizmoChaos>
+  <SD_GizmoChaos_Tip>Degree of dark influence erosion.\nCurrent: {0}%</SD_GizmoChaos_Tip>
+  <SD_GizmoAwaken>Awakening</SD_GizmoAwaken>
+  <SD_GizmoAwaken_Tip>Self-awareness progress of the stellar core.\nCurrent: {0}%\nStage: {1}</SD_GizmoAwaken_Tip>
 </LanguageData>
+
