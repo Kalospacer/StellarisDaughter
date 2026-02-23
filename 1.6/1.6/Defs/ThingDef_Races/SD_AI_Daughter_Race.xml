@@ -19,6 +19,9 @@
           </headTypes>
           <bodyTypes Inherit="False">
             <li>Thin</li>
+            <li>Female</li>
+            <li>Child</li>
+            <li>Baby</li>
           </bodyTypes>
           <colorChannels Inherit="false">
             <li>
