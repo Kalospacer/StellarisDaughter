@@ -1,10 +1,10 @@
-ï»¿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 
 <Defs>
-  <!-- æ‚é¡¹ -->
+  <!-- ÔÓÏî -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_normal_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_normal_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>1</duration>
@@ -17,8 +17,8 @@
     <priority>0</priority>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_eyeMoving_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_eyeMoving_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>15</duration>
@@ -30,8 +30,8 @@
     <roopIntervalMax>500</roopIntervalMax>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_eyeMoving_2</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_eyeMoving_2</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>15</duration>
@@ -43,8 +43,8 @@
     <roopIntervalMax>500</roopIntervalMax>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_eyeFlicker_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_eyeFlicker_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>3</duration>
@@ -55,8 +55,8 @@
     <roopIntervalMax>30</roopIntervalMax>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_blink_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_blink_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>3</duration>
@@ -81,10 +81,10 @@
     <priority>1000</priority>
   </FacialAnimation.FaceAnimationDef>
 
-  <!-- è¿‘æˆ˜å’Œç«™ç«‹æˆ˜æ–— -->
+  <!-- ½üÕ½ºÍÕ¾Á¢Õ½¶· -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_AttackMelee_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_AttackMelee_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>1</duration>
@@ -101,8 +101,8 @@
     <priority>10200</priority>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_AttackMelee_2</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_AttackMelee_2</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>75</duration>
@@ -123,10 +123,10 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
 
-  <!-- åšè®¢å• -->
+  <!-- ×ö¶©µ¥ -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_DoBill_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_DoBill_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>1</duration>
@@ -148,8 +148,8 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">   
-    <defName>EF_Perlica_Race_DoBill_2</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_DoBill_2</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>3</duration>
@@ -188,10 +188,10 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
   
-  <!-- å‰å¾€ -->
+  <!-- Ç°Íù -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Goto_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Goto_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>1</duration>
@@ -206,10 +206,10 @@
     <priority>10300</priority>
   </FacialAnimation.FaceAnimationDef>
   
-  <!-- è¿›é£Ÿ -->
+  <!-- ½øÊ³ -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Ingest_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Ingest_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>4</duration>
@@ -236,10 +236,10 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
 
-  <!-- èººä¸‹ -->
+  <!-- ÌÉÏÂ -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_laydown_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_laydown_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>1</duration>
@@ -257,8 +257,8 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_laydown_2</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_laydown_2</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>240</duration>
@@ -274,8 +274,8 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_laydown_3</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_laydown_3</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>15</duration>
@@ -308,10 +308,10 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
 
-  <!-- ç›¸çˆ± -->
+  <!-- Ïà°® -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Lovin_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Lovin_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>8</duration>
@@ -358,8 +358,8 @@
     <priority>10400</priority>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Lovin_2</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Lovin_2</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>240</duration>
@@ -385,10 +385,10 @@
     <priority>10500</priority>
   </FacialAnimation.FaceAnimationDef>
 
-  <!-- æŒ–çŸ¿ -->
+  <!-- ÍÚ¿ó -->
   <FacialAnimation.FaceAnimationDef Name="ARA_Mine_1" MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Mine_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Mine_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>10</duration>
@@ -416,10 +416,10 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
   
-  <!-- è„±è¡£æœ -->
+  <!-- ÍÑÒÂ·þ -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_RemoveApparel_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_RemoveApparel_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>10</duration>
@@ -449,8 +449,8 @@
     <roopIntervalMax>300</roopIntervalMax>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_RemoveApparel_2</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_RemoveApparel_2</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>1</duration>
@@ -466,8 +466,8 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_RemoveApparel_3</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_RemoveApparel_3</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>120</duration>
@@ -486,10 +486,10 @@
     <roopIntervalMax>300</roopIntervalMax>
   </FacialAnimation.FaceAnimationDef>
   
-  <!-- ç ”ç©¶ -->
+  <!-- ÑÐ¾¿ -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Research_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Research_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>10</duration>
@@ -507,8 +507,8 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Research_2</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Research_2</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>4</duration>
@@ -588,10 +588,10 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
   
-  <!-- ç¤¾äº¤ -->
+  <!-- Éç½» -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_SocialRelax_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_SocialRelax_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>1</duration>
@@ -605,10 +605,10 @@
     <priority>10200</priority>
   </FacialAnimation.FaceAnimationDef>
   
-  <!-- ç¤¾äº¤æ”¾æ¾ -->
+  <!-- Éç½»·ÅËÉ -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_StandAndBeSociallyActive_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_StandAndBeSociallyActive_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>3</duration>
@@ -638,10 +638,10 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
 
-  <!-- å‰¥å…‰ -->
+  <!-- °þ¹â -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Strip_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Strip_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>10</duration>
@@ -671,8 +671,8 @@
     <roopIntervalMax>300</roopIntervalMax>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Strip_2</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Strip_2</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>1</duration>
@@ -689,10 +689,10 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
 
-  <!-- å€’åœ° -->
+  <!-- µ¹µØ -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Wait_Downed_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Wait_Downed_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>80</duration>
@@ -723,8 +723,8 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Wait_Downed_2</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Wait_Downed_2</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>3</duration>
@@ -739,10 +739,10 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
   
-  <!-- å‡†å¤‡æˆ˜æ–— -->
+  <!-- ×¼±¸Õ½¶· -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_WaitCombat_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_WaitCombat_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>1</duration>
@@ -756,8 +756,8 @@
     <priority>10200</priority>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_WaitCombat_2</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_WaitCombat_2</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>15</duration>
@@ -820,10 +820,10 @@
     <roopIntervalMax>2000</roopIntervalMax>
   </FacialAnimation.FaceAnimationDef>
   
-  <!-- ç©¿è¡£æœ -->
+  <!-- ´©ÒÂ·þ -->
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Wear_1</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Wear_1</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>10</duration>
@@ -856,8 +856,8 @@
     <roopIntervalMax>300</roopIntervalMax>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Wear_2</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Wear_2</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>1</duration>
@@ -874,8 +874,8 @@
     <applyWhenStandingOnly>true</applyWhenStandingOnly>
   </FacialAnimation.FaceAnimationDef>
   <FacialAnimation.FaceAnimationDef MayRequire="Nals.FacialAnimation">
-    <defName>EF_Perlica_Race_Wear_3</defName>
-    <raceName>EF_Perlica_Race</raceName>
+    <defName>SD_AI_Daughter_Race_Wear_3</defName>
+    <raceName>SD_AI_Daughter_Race</raceName>
     <animationFrames>
       <li>
         <duration>120</duration>

@@ -1,18 +1,18 @@
-ï»¿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 
 <Defs>
-	<!-- çœ‰æ¯›çš„å®šä¹‰ -->
+	<!-- Ã¼Ã«µÄ¶¨Òå -->
 	<FacialAnimation.BrowTypeDef MayRequire="Nals.FacialAnimation">
-		<defName>EF_Perlica_Race_BrowNormal</defName>
-		<raceName>EF_Perlica_Race</raceName>
+		<defName>SD_AI_Daughter_Race_BrowNormal</defName>
+		<raceName>SD_AI_Daughter_Race</raceName>
 		<texPath>Endfield/Things/Perlica/Brows/Normal</texPath>
 		<shader>Map/Transparent</shader>
       <enableUnisexTexPath>True</enableUnisexTexPath>
 	</FacialAnimation.BrowTypeDef>
-  <!-- çœ¼ç›çš„å®šä¹‰ -->
+  <!-- ÑÛ¾¦µÄ¶¨Òå -->
   <FacialAnimation.EyeballTypeDef MayRequire="Nals.FacialAnimation">
-		<defName>EF_Perlica_Race_EyeA</defName>
-		<raceName>EF_Perlica_Race</raceName>
+		<defName>SD_AI_Daughter_Race_EyeA</defName>
+		<raceName>SD_AI_Daughter_Race</raceName>
     <texPath>Endfield/Things/Perlica/Eyes/Normal</texPath>
 	  <altMaskPath>Endfield/Things/Perlica/Eyes/Common</altMaskPath>
     <shader>Map/CutoutSkinOverlay</shader>
@@ -20,35 +20,35 @@
     <maxColor>RGB(255,255,255)</maxColor>
     <enableUnisexTexPath>True</enableUnisexTexPath>
   </FacialAnimation.EyeballTypeDef>
-  <!-- å¤´çš„å®šä¹‰ -->
+  <!-- Í·µÄ¶¨Òå -->
   <FacialAnimation.HeadTypeDef MayRequire="Nals.FacialAnimation">
-		<defName>EF_Perlica_Race_Head</defName>
-		<raceName>EF_Perlica_Race</raceName>
+		<defName>SD_AI_Daughter_Race_Head</defName>
+		<raceName>SD_AI_Daughter_Race</raceName>
     <texPath>Endfield/Things/Perlica/Heads_Blank/Normal</texPath>
 	  <shader>Map/CutoutSkin</shader>
     <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
     <enableUnisexTexPath>True</enableUnisexTexPath>
   </FacialAnimation.HeadTypeDef>
-  <!-- ç«æ¯›çš„å®šä¹‰ -->
+  <!-- ½ÞÃ«µÄ¶¨Òå -->
   <FacialAnimation.LidTypeDef MayRequire="Nals.FacialAnimation">
-		<defName>EF_Perlica_Race_Lid</defName>
-		<raceName>EF_Perlica_Race</raceName>
+		<defName>SD_AI_Daughter_Race_Lid</defName>
+		<raceName>SD_AI_Daughter_Race</raceName>
 	  <texPath>Endfield/Things/Perlica/Lids/Normal</texPath>
 	  <shader>Map/Transparent</shader>
     <enableUnisexTexPath>True</enableUnisexTexPath>
   </FacialAnimation.LidTypeDef>
-  <!-- å˜´çš„å®šä¹‰ -->
+  <!-- ×ìµÄ¶¨Òå -->
   <FacialAnimation.MouthTypeDef MayRequire="Nals.FacialAnimation">
-		<defName>EF_Perlica_Race_Mouth</defName>
-		<raceName>EF_Perlica_Race</raceName>
+		<defName>SD_AI_Daughter_Race_Mouth</defName>
+		<raceName>SD_AI_Daughter_Race</raceName>
 		<texPath>Endfield/Things/Perlica/Mouth/Normal</texPath>
 		<shader>Map/Transparent</shader>
 		<enableUnisexTexPath>True</enableUnisexTexPath>
   </FacialAnimation.MouthTypeDef>
-  <!-- çš®è‚¤çš„å®šä¹‰ -->
+  <!-- Æ¤·ôµÄ¶¨Òå -->
   <FacialAnimation.SkinTypeDef MayRequire="Nals.FacialAnimation">
-		<defName>EF_Perlica_Race_Skin</defName>
-		<raceName>EF_Perlica_Race</raceName>
+		<defName>SD_AI_Daughter_Race_Skin</defName>
+		<raceName>SD_AI_Daughter_Race</raceName>
 	  <texPath>Endfield/Things/Perlica/Skins/Normal</texPath>
 	  <shader>Map/CutoutSkin</shader>
     <enableUnisexTexPath>True</enableUnisexTexPath>
