@@ -5,7 +5,7 @@
 	<FacialAnimation.BrowTypeDef MayRequire="Nals.FacialAnimation">
 		<defName>SD_AI_Daughter_Race_BrowNormal</defName>
 		<raceName>SD_AI_Daughter_Race</raceName>
-		<texPath>Endfield/Things/Perlica/Brows/Normal</texPath>
+		<texPath>StellarisDaughter/Things/SD/Brows/Normal</texPath>
 		<shader>Map/Transparent</shader>
       <enableUnisexTexPath>True</enableUnisexTexPath>
 	</FacialAnimation.BrowTypeDef>
@@ -13,8 +13,8 @@
   <FacialAnimation.EyeballTypeDef MayRequire="Nals.FacialAnimation">
 		<defName>SD_AI_Daughter_Race_EyeA</defName>
 		<raceName>SD_AI_Daughter_Race</raceName>
-    <texPath>Endfield/Things/Perlica/Eyes/Normal</texPath>
-	  <altMaskPath>Endfield/Things/Perlica/Eyes/Common</altMaskPath>
+    <texPath>StellarisDaughter/Things/SD/Eyes/Normal</texPath>
+	  <altMaskPath>StellarisDaughter/Things/SD/Eyes/Common</altMaskPath>
     <shader>Map/CutoutSkinOverlay</shader>
     <minColor>RGB(255,255,255)</minColor>
     <maxColor>RGB(255,255,255)</maxColor>
@@ -24,7 +24,7 @@
   <FacialAnimation.HeadTypeDef MayRequire="Nals.FacialAnimation">
 		<defName>SD_AI_Daughter_Race_Head</defName>
 		<raceName>SD_AI_Daughter_Race</raceName>
-    <texPath>Endfield/Things/Perlica/Heads_Blank/Normal</texPath>
+    <texPath>StellarisDaughter/Things/SD/Heads_Blank/Normal</texPath>
 	  <shader>Map/CutoutSkin</shader>
     <shaderColorOverride>Map/CutoutSkinOverride</shaderColorOverride>
     <enableUnisexTexPath>True</enableUnisexTexPath>
@@ -33,7 +33,7 @@
   <FacialAnimation.LidTypeDef MayRequire="Nals.FacialAnimation">
 		<defName>SD_AI_Daughter_Race_Lid</defName>
 		<raceName>SD_AI_Daughter_Race</raceName>
-	  <texPath>Endfield/Things/Perlica/Lids/Normal</texPath>
+	  <texPath>StellarisDaughter/Things/SD/Lids/Normal</texPath>
 	  <shader>Map/Transparent</shader>
     <enableUnisexTexPath>True</enableUnisexTexPath>
   </FacialAnimation.LidTypeDef>
@@ -41,7 +41,7 @@
   <FacialAnimation.MouthTypeDef MayRequire="Nals.FacialAnimation">
 		<defName>SD_AI_Daughter_Race_Mouth</defName>
 		<raceName>SD_AI_Daughter_Race</raceName>
-		<texPath>Endfield/Things/Perlica/Mouth/Normal</texPath>
+		<texPath>StellarisDaughter/Things/SD/Mouth/Normal</texPath>
 		<shader>Map/Transparent</shader>
 		<enableUnisexTexPath>True</enableUnisexTexPath>
   </FacialAnimation.MouthTypeDef>
@@ -49,7 +49,7 @@
   <FacialAnimation.SkinTypeDef MayRequire="Nals.FacialAnimation">
 		<defName>SD_AI_Daughter_Race_Skin</defName>
 		<raceName>SD_AI_Daughter_Race</raceName>
-	  <texPath>Endfield/Things/Perlica/Skins/Normal</texPath>
+	  <texPath>StellarisDaughter/Things/SD/Skins</texPath>
 	  <shader>Map/CutoutSkin</shader>
     <enableUnisexTexPath>True</enableUnisexTexPath>
   </FacialAnimation.SkinTypeDef>

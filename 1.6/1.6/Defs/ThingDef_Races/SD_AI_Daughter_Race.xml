@@ -44,20 +44,7 @@
               </first>
             </li>
           </colorChannels>
-          <bodyAddons>
-            <li>
-              <path>Endfield/Things/Perlica/Addons/Perlica_Feather_Ear</path>
-              <offsets>
-                <east>
-                  <offset>(-0.07,0)</offset>
-                </east>
-                <west>
-                  <offset>(-0.07,0)</offset>
-                </west>
-              </offsets>
-              <inFrontOfBody>true</inFrontOfBody>
-            </li>
-          </bodyAddons>
+          <bodyAddons />
           <headOffsetDirectional>
             <north>
               <offset>(0.0, -0.35)</offset>
@@ -149,9 +136,9 @@
       <graphicPaths>
         <skinColor>(1,1,1,1)</skinColor>
         <skinShader>Cutout</skinShader>
-        <body>Endfield/Things/Perlica/Bodies/</body>
+        <body>StellarisDaughter/Things/SD/Bodies/</body>
         <head>
-          <path>Endfield/Things/Perlica/Heads/</path>
+          <path>StellarisDaughter/Things/SD/Heads/</path>
         </head>
         <skeleton>Things/Pawn/Humanlike/Bodies/Dessicated/Dessicated_Thin</skeleton>
       </graphicPaths>
@@ -346,7 +333,7 @@
     <defName>SD_Daughter_Hair</defName>
     <label>Star-Rail Hair</label>
     <hairGender>Female</hairGender>
-    <texPath>Endfield/Things/Perlica/Hair/Perlica_Hair</texPath>
+    <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_Hair</texPath>
     <category>SD_Perlica_Style</category>
     <styleTags>
       <li>SD_Perlica_Style</li>
