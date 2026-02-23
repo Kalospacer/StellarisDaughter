@@ -135,6 +135,13 @@
             </points>
           </femaleFertilityAgeFactor>
         </reproduction>
+        <!-- 成长速度曲线：0岁满速，12岁后减半 -->
+        <growthFactorByAge>
+          <points>
+            <li>(0,1)</li>
+            <li>(12,0.5)</li>
+          </points>
+        </growthFactorByAge>
       </generalSettings>
 
       <graphicPaths>
