@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>BioferriteGenerator</defName>
+    <eventLabel>Bioferrite generator</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>BloodRage</defName>
+    <eventLabel>blood rage</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>CubeSculptures</defName>
+    <eventLabel>cube sculpture</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>CubeWithdrawl</defName>
+    <eventLabel>cube withdrawal</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DeadlifeDust</defName>
+    <eventLabel>deadlife dust</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DeathPall</defName>
+    <eventLabel>death pall</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DeathRefusalSickness</defName>
+    <eventLabel>death refusal</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DestroyedCubeSculpture</defName>
+    <eventLabel>my cube sculpture destroyed</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>EntityInRoom</defName>
+    <eventLabel>monster by my bed</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>FleshTentacle</defName>
+    <eventLabel>flesh tentacle</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>FleshWhip</defName>
+    <eventLabel>flesh whip</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>GrayPall</defName>
+    <eventLabel>gray pall</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>HarbingerScream</defName>
+    <eventLabel>harbinger tree scream</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>HateChantDrone</defName>
+    <eventLabel>hate chant whispers</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ImprisonedWithEntity</defName>
+    <eventLabel>imprisoned with entity</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-5.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>JoyousPresence</defName>
+    <eventLabel>Joyous presence</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>JuggernautSerum</defName>
+    <eventLabel>juggernaut serum</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>NeurosisPulse</defName>
+    <eventLabel>neurosis pulse</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PleasurePulse</defName>
+    <eventLabel>pleasure pulse</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ReadingTome</defName>
+    <eventLabel>Fascinating tome</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SleepSuppressor</defName>
+    <eventLabel>Sleep suppressor</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SpokeToDisturbingMood</defName>
+    <eventLabel>unsettling conversation</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SwallowedByDarkness</defName>
+    <eventLabel>swallowed by darkness</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>UnnaturalCorpse</defName>
+    <eventLabel>unnatural corpse</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>UnnaturalDarkness</defName>
+    <eventLabel>unnatural darkness</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>VoidFascination</defName>
+    <eventLabel>captured entity</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>VoidPleasure</defName>
+    <eventLabel>void pleasure</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>Voidsight</defName>
+    <eventLabel>voidsight</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>WearingDreadLeather</defName>
+    <eventLabel>dread leather</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>GhoulNegative</defName>
+    <eventLabel>ghoul</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>GhoulPositive</defName>
+    <eventLabel>ghoul</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>Joyous</defName>
+    <eventLabel>joyous</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SpokeToDisturbing</defName>
+    <eventLabel>unsettling conversation</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+</Defs>

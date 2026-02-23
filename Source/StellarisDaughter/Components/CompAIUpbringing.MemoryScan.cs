@@ -13,6 +13,7 @@ namespace StellarisDaughter
     public partial class CompAIUpbringing
     {
         private const int SituationalThoughtEventCooldownTicks = 30000; // 0.5 in-game day
+        private const int SocialThoughtEventCooldownTicks = 30000;      // 0.5 in-game day
 
         private void ScanMemoriesForEvents(Pawn ai)
         {
@@ -80,6 +81,52 @@ namespace StellarisDaughter
 
                 for (int i = 0; i < keysToRemove.Count; i++)
                     _situationalThoughtNextApplyTick.Remove(keysToRemove[i]);
+            }
+        }
+
+        private void ScanSocialThoughtsForEvents(Pawn ai)
+        {
+            var thoughtHandler = ai.needs?.mood?.thoughts;
+            var mapPawns = ai.Map?.mapPawns?.AllPawnsSpawned;
+            if (thoughtHandler == null || mapPawns == null) return;
+
+            if (_tmpSocialThoughts == null)
+                _tmpSocialThoughts = new List<ISocialThought>();
+            if (_socialThoughtNextApplyTick == null)
+                _socialThoughtNextApplyTick = new Dictionary<long, int>();
+
+            int now = Find.TickManager.TicksGame;
+
+            foreach (var other in mapPawns)
+            {
+                if (other == null || other == ai) continue;
+                if (other.Destroyed) continue;
+
+                thoughtHandler.GetSocialThoughts(other, _tmpSocialThoughts);
+
+                for (int i = 0; i < _tmpSocialThoughts.Count; i++)
+                {
+                    if (!(_tmpSocialThoughts[i] is Thought thought)) continue;
+                    if (thought.def == null) continue;
+
+                    // MemorySocial 已由记忆扫描处理，这里只补“社交情境Thought”等非Memory路径。
+                    if (thought is Thought_Memory) continue;
+
+                    int stage = thought.CurStageIndex + 1;
+                    int otherId = other.thingIDNumber;
+                    long key = ((long)thought.def.shortHash << 40)
+                             | (((long)stage & 0xFFL) << 32)
+                             | (uint)otherId;
+
+                    if (_socialThoughtNextApplyTick.TryGetValue(key, out int nextTick) && now < nextTick)
+                        continue;
+
+                    var resp = DefDatabase<AIEventResponseDef>.GetNamedSilentFail(thought.def.defName);
+                    if (resp == null) continue;
+
+                    Apply(resp.affDelta, resp.trustDelta, resp.eventLabel);
+                    _socialThoughtNextApplyTick[key] = now + SocialThoughtEventCooldownTicks;
+                }
             }
         }
     }

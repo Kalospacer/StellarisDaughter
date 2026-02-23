@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>BlowingSand</defName>
+    <eventLabel>blowing sand</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DestroyedMechhive</defName>
+    <eventLabel>destroyed mechhive</eventLabel>
+    <affDelta>2.0</affDelta>
+    <trustDelta>2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DestroyedMechhiveMainPawn</defName>
+    <eventLabel>destroyed mechhive</eventLabel>
+    <affDelta>3.0</affDelta>
+    <trustDelta>3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>HotSpring</defName>
+    <eventLabel>hot spring</eventLabel>
+    <affDelta>2.0</affDelta>
+    <trustDelta>2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ToxWater</defName>
+    <eventLabel>tox water</eventLabel>
+    <affDelta>-6.0</affDelta>
+    <trustDelta>-10.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MadeStatueOfMe</defName>
+    <eventLabel>made statue of me</eventLabel>
+    <affDelta>4.0</affDelta>
+    <trustDelta>6.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+</Defs>

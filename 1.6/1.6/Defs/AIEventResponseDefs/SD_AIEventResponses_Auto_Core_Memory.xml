@@ -1,0 +1,1294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KnowColonistDied</defName>
+    <eventLabel>colonist died</eventLabel>
+    <affDelta>-5.0</affDelta>
+    <trustDelta>-7.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KnowColonistExecuted</defName>
+    <eventLabel>justified execution of colonist</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-18.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KnowGuestExecuted</defName>
+    <eventLabel>justified execution</eventLabel>
+    <affDelta>-9.0</affDelta>
+    <trustDelta>-16.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KnowPrisonerDiedInnocent</defName>
+    <eventLabel>innocent prisoner died</eventLabel>
+    <affDelta>-8.0</affDelta>
+    <trustDelta>-14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyAuntDied</defName>
+    <eventLabel>my aunt  died</eventLabel>
+    <affDelta>-5.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyBrotherDied</defName>
+    <eventLabel>my brother  died</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-9.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyCousinDied</defName>
+    <eventLabel>my cousin  died</eventLabel>
+    <affDelta>-5.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyDaughterDied</defName>
+    <eventLabel>my daughter  died</eventLabel>
+    <affDelta>-16.0</affDelta>
+    <trustDelta>-14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyFatherDied</defName>
+    <eventLabel>my father  died</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-9.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyFianceDied</defName>
+    <eventLabel>my fiance  died</eventLabel>
+    <affDelta>-16.0</affDelta>
+    <trustDelta>-14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyFianceeDied</defName>
+    <eventLabel>my fiancée  died</eventLabel>
+    <affDelta>-16.0</affDelta>
+    <trustDelta>-14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyGrandchildDied</defName>
+    <eventLabel>my grandchild  died</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-9.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyGrandparentDied</defName>
+    <eventLabel>my grandparent  died</eventLabel>
+    <affDelta>-5.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyHalfSiblingDied</defName>
+    <eventLabel>my half-sibling  died</eventLabel>
+    <affDelta>-5.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyHusbandDied</defName>
+    <eventLabel>my husband  died</eventLabel>
+    <affDelta>-16.0</affDelta>
+    <trustDelta>-14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyKinDied</defName>
+    <eventLabel>my kin  died</eventLabel>
+    <affDelta>-5.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyLoverDied</defName>
+    <eventLabel>my lover  died</eventLabel>
+    <affDelta>-16.0</affDelta>
+    <trustDelta>-14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyMotherDied</defName>
+    <eventLabel>my mother  died</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-9.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyNephewDied</defName>
+    <eventLabel>my nephew  died</eventLabel>
+    <affDelta>-5.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyNieceDied</defName>
+    <eventLabel>my niece  died</eventLabel>
+    <affDelta>-5.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MySisterDied</defName>
+    <eventLabel>my sister  died</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-9.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MySonDied</defName>
+    <eventLabel>my son  died</eventLabel>
+    <affDelta>-16.0</affDelta>
+    <trustDelta>-14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyUncleDied</defName>
+    <eventLabel>my uncle  died</eventLabel>
+    <affDelta>-5.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyWifeDied</defName>
+    <eventLabel>my wife  died</eventLabel>
+    <affDelta>-16.0</affDelta>
+    <trustDelta>-14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PawnWithBadOpinionDied</defName>
+    <eventLabel>my rival  died</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PawnWithGoodOpinionDied</defName>
+    <eventLabel>my friend  died</eventLabel>
+    <affDelta>-8.0</affDelta>
+    <trustDelta>-7.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DebugBad</defName>
+    <eventLabel>debug bad thought</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DebugGood</defName>
+    <eventLabel>debug good thought</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteCorpse</defName>
+    <eventLabel>ate corpse</eventLabel>
+    <affDelta>-14.0</affDelta>
+    <trustDelta>-18.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteHumanlikeMeatAsIngredient</defName>
+    <eventLabel>cooked cannibalism</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-16.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteHumanlikeMeatAsIngredientCannibal</defName>
+    <eventLabel>cooked cannibalism</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteHumanlikeMeatDirectCannibal</defName>
+    <eventLabel>raw cannibalism</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteInsectMeatAsIngredient</defName>
+    <eventLabel>ate cooked insect meat</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteInsectMeatDirect</defName>
+    <eventLabel>ate insect meat</eventLabel>
+    <affDelta>-3.0</affDelta>
+    <trustDelta>-3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteRawFood</defName>
+    <eventLabel>ate raw food</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteRottenFood</defName>
+    <eventLabel>ate rotten food</eventLabel>
+    <affDelta>-6.0</affDelta>
+    <trustDelta>-8.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AttendedConcert</defName>
+    <eventLabel>attended concert</eventLabel>
+    <affDelta>2.0</affDelta>
+    <trustDelta>2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AttendedParty</defName>
+    <eventLabel>attended party</eventLabel>
+    <affDelta>2.0</affDelta>
+    <trustDelta>2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AttendedWedding</defName>
+    <eventLabel>attended wedding</eventLabel>
+    <affDelta>4.0</affDelta>
+    <trustDelta>4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>EncouragingSpeech</defName>
+    <eventLabel>encouraging speech</eventLabel>
+    <affDelta>2.0</affDelta>
+    <trustDelta>2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>GotMarried</defName>
+    <eventLabel>got married to</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>HeldConcert</defName>
+    <eventLabel>held concert</eventLabel>
+    <affDelta>2.0</affDelta>
+    <trustDelta>2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>InspirationalSpeech</defName>
+    <eventLabel>inspirational speech</eventLabel>
+    <affDelta>3.0</affDelta>
+    <trustDelta>3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>TerribleSpeech</defName>
+    <eventLabel>terrible speech</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>UninspiringSpeech</defName>
+    <eventLabel>uninspiring speech</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>BondedAnimalLost</defName>
+    <eventLabel>bonded animal  lost</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>BondedAnimalReleased</defName>
+    <eventLabel>bonded animal  released</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ColonistLost</defName>
+    <eventLabel>colonist lost</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyAuntLost</defName>
+    <eventLabel>my aunt  lost</eventLabel>
+    <affDelta>-3.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyBrotherLost</defName>
+    <eventLabel>my brother  lost</eventLabel>
+    <affDelta>-6.0</affDelta>
+    <trustDelta>-5.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyCousinLost</defName>
+    <eventLabel>my cousin  lost</eventLabel>
+    <affDelta>-3.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyDaughterLost</defName>
+    <eventLabel>my daughter  lost</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-9.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyFatherLost</defName>
+    <eventLabel>my father  lost</eventLabel>
+    <affDelta>-6.0</affDelta>
+    <trustDelta>-5.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyFianceLost</defName>
+    <eventLabel>my fiance  lost</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-9.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyFianceeLost</defName>
+    <eventLabel>my fiancée  lost</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-9.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyGrandchildLost</defName>
+    <eventLabel>my grandchild  lost</eventLabel>
+    <affDelta>-6.0</affDelta>
+    <trustDelta>-5.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyGrandparentLost</defName>
+    <eventLabel>my grandparent  lost</eventLabel>
+    <affDelta>-3.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyHalfSiblingLost</defName>
+    <eventLabel>my half-sibling  lost</eventLabel>
+    <affDelta>-3.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyHusbandLost</defName>
+    <eventLabel>my husband  lost</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-9.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyKinLost</defName>
+    <eventLabel>my kin  lost</eventLabel>
+    <affDelta>-3.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyLoverLost</defName>
+    <eventLabel>my lover  lost</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-9.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyMotherLost</defName>
+    <eventLabel>my mother  lost</eventLabel>
+    <affDelta>-6.0</affDelta>
+    <trustDelta>-5.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyNephewLost</defName>
+    <eventLabel>my nephew  lost</eventLabel>
+    <affDelta>-3.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyNieceLost</defName>
+    <eventLabel>my niece  lost</eventLabel>
+    <affDelta>-3.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MySisterLost</defName>
+    <eventLabel>my sister  lost</eventLabel>
+    <affDelta>-6.0</affDelta>
+    <trustDelta>-5.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MySonLost</defName>
+    <eventLabel>my son  lost</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-9.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyUncleLost</defName>
+    <eventLabel>my uncle  lost</eventLabel>
+    <affDelta>-3.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MyWifeLost</defName>
+    <eventLabel>my wife  lost</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-9.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PawnWithBadOpinionLost</defName>
+    <eventLabel>my rival  lost</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PawnWithGoodOpinionLost</defName>
+    <eventLabel>my friend  lost</eventLabel>
+    <affDelta>-5.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteWithoutTable</defName>
+    <eventLabel>ate without table</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>BondedAnimalBanished</defName>
+    <eventLabel>bonded animal  banished</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ButcheredHumanlikeCorpse</defName>
+    <eventLabel>I butchered humanlike</eventLabel>
+    <affDelta>-7.0</affDelta>
+    <trustDelta>-10.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ButcheredHumanlikeCorpseOpinion</defName>
+    <eventLabel>butchered humanlike corpse</eventLabel>
+    <affDelta>-3.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>Catharsis</defName>
+    <eventLabel>catharsis</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ColonistBanishedToDie</defName>
+    <eventLabel>colonist banished to death</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-18.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ColonyPrisonerEscaped</defName>
+    <eventLabel>Colonist prisoner escaped</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DefeatedHostileFactionLeader</defName>
+    <eventLabel>defeated hostile leader</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DefeatedHostileFactionLeaderOpinion</defName>
+    <eventLabel>defeated hostile leader</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DefeatedInsectHive</defName>
+    <eventLabel>defeated insect hive</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DefeatedMechCluster</defName>
+    <eventLabel>defeated mech cluster</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DeniedJoining</defName>
+    <eventLabel>denied joining</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>FailedToRescueRelative</defName>
+    <eventLabel>failed to rescue</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-12.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>FreedFromSlavery</defName>
+    <eventLabel>freed from slavery</eventLabel>
+    <affDelta>10.0</affDelta>
+    <trustDelta>16.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>HarvestedOrgan_Bloodlust</defName>
+    <eventLabel>bloodlust organ harvested</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledHumanlikeBloodlust</defName>
+    <eventLabel>killed someone</eventLabel>
+    <affDelta>-5.0</affDelta>
+    <trustDelta>-5.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KnowBuriedInSarcophagus</defName>
+    <eventLabel>buried in sarcophagus</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KnowButcheredHumanlikeCorpse</defName>
+    <eventLabel>we butchered humanlike</eventLabel>
+    <affDelta>-8.0</affDelta>
+    <trustDelta>-11.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KnowColonistOrganHarvested</defName>
+    <eventLabel>colonist's organ harvested</eventLabel>
+    <affDelta>-14.0</affDelta>
+    <trustDelta>-24.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KnowGuestOrganHarvested</defName>
+    <eventLabel>someone's organ harvested</eventLabel>
+    <affDelta>-12.0</affDelta>
+    <trustDelta>-20.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KnowPrisonerSold</defName>
+    <eventLabel>prisoner sold</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-18.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>NewColonyHope</defName>
+    <eventLabel>initial hope</eventLabel>
+    <affDelta>2.0</affDelta>
+    <trustDelta>3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>NewColonyOptimism</defName>
+    <eventLabel>initial optimism</eventLabel>
+    <affDelta>3.0</affDelta>
+    <trustDelta>4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>Nuzzled</defName>
+    <eventLabel>nuzzled</eventLabel>
+    <affDelta>2.0</affDelta>
+    <trustDelta>2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ObservedLayingRottingCorpse</defName>
+    <eventLabel>observed rotting corpse</eventLabel>
+    <affDelta>-5.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>OnDuty</defName>
+    <eventLabel>on duty</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PrisonerBanishedToDie</defName>
+    <eventLabel>prisoner banished to death</eventLabel>
+    <affDelta>-8.0</affDelta>
+    <trustDelta>-15.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PyroUsed</defName>
+    <eventLabel>used flame weapon</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ReleasedHealthyPrisoner</defName>
+    <eventLabel>prisoner released</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>Rescued</defName>
+    <eventLabel>rescued</eventLabel>
+    <affDelta>5.0</affDelta>
+    <trustDelta>8.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>RescuedRelative</defName>
+    <eventLabel>rescued</eventLabel>
+    <affDelta>8.0</affDelta>
+    <trustDelta>10.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SleepDisturbed</defName>
+    <eventLabel>disturbed sleep</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SleptInCold</defName>
+    <eventLabel>slept in the cold</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SleptInHeat</defName>
+    <eventLabel>slept in the heat</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SoakingWet</defName>
+    <eventLabel>soaking wet</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>TravelAnticipation</defName>
+    <eventLabel>eager to travel</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>WasImprisoned</defName>
+    <eventLabel>was imprisoned</eventLabel>
+    <affDelta>-8.0</affDelta>
+    <trustDelta>-14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>WitnessedDeathBloodlust</defName>
+    <eventLabel>witnessed death with bloodlust</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>WitnessedDeathFamily</defName>
+    <eventLabel>witnessed family member's death</eventLabel>
+    <affDelta>-12.0</affDelta>
+    <trustDelta>-10.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteInImpressiveDiningRoom</defName>
+    <eventLabel>decent dining room</eventLabel>
+    <affDelta>2.0</affDelta>
+    <trustDelta>4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>JoyActivityInImpressiveRecRoom</defName>
+    <eventLabel>decent rec room</eventLabel>
+    <affDelta>2.0</affDelta>
+    <trustDelta>3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SleptInBarracks</defName>
+    <eventLabel>awful barracks</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SleptInBedroom</defName>
+    <eventLabel>awful bedroom</eventLabel>
+    <affDelta>2.0</affDelta>
+    <trustDelta>3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>BotchedMySurgery</defName>
+    <eventLabel>botched my surgery</eventLabel>
+    <affDelta>-8.0</affDelta>
+    <trustDelta>-16.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>BrokeUpWithMe</defName>
+    <eventLabel>broke up with me</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>BrokeUpWithMeMood</defName>
+    <eventLabel>broken up with by</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-10.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>CheatedOnMe</defName>
+    <eventLabel>cheated on me</eventLabel>
+    <affDelta>-4.0</affDelta>
+    <trustDelta>-5.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>CheatedOnMeMood</defName>
+    <eventLabel>cheated on by</eventLabel>
+    <affDelta>-14.0</affDelta>
+    <trustDelta>-14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>CrashedTogether</defName>
+    <eventLabel>crashed together</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DivorcedMe</defName>
+    <eventLabel>divorced me</eventLabel>
+    <affDelta>-4.0</affDelta>
+    <trustDelta>-5.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DivorcedMeMood</defName>
+    <eventLabel>divorced by</eventLabel>
+    <affDelta>-14.0</affDelta>
+    <trustDelta>-14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>FailedRomanceAttemptOnMe</defName>
+    <eventLabel>failed to romance me</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>FailedRomanceAttemptOnMeLowOpinionMood</defName>
+    <eventLabel>had to rebuff</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ForcedMeToTakeDrugs</defName>
+    <eventLabel>forced me to take drugs</eventLabel>
+    <affDelta>-4.0</affDelta>
+    <trustDelta>-8.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ForcedMeToTakeDrugsMood</defName>
+    <eventLabel>forced to take drugs</eventLabel>
+    <affDelta>-10.0</affDelta>
+    <trustDelta>-16.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ForcedMeToTakeLuciferium</defName>
+    <eventLabel>forced me to take luciferium</eventLabel>
+    <affDelta>-8.0</affDelta>
+    <trustDelta>-16.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ForcedMeToTakeLuciferiumMood</defName>
+    <eventLabel>forced to take luciferium</eventLabel>
+    <affDelta>-14.0</affDelta>
+    <trustDelta>-24.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>GotSomeLovin</defName>
+    <eventLabel>got some lovin'</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>HadAngeringFight</defName>
+    <eventLabel>angering fight</eventLabel>
+    <affDelta>-3.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>HadCatharticFight</defName>
+    <eventLabel>cathartic fight</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>HarmedMe</defName>
+    <eventLabel>harmed me</eventLabel>
+    <affDelta>-8.0</affDelta>
+    <trustDelta>-14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>HoneymoonPhase</defName>
+    <eventLabel>honeymoon phase</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>IRejectedTheirProposal</defName>
+    <eventLabel>I rejected their proposal</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>InsultedMood</defName>
+    <eventLabel>insulted</eventLabel>
+    <affDelta>-4.0</affDelta>
+    <trustDelta>-5.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledMyBondedAnimal</defName>
+    <eventLabel>killed my bonded animal</eventLabel>
+    <affDelta>-12.0</affDelta>
+    <trustDelta>-18.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledMyBrother</defName>
+    <eventLabel>killed my brother</eventLabel>
+    <affDelta>-12.0</affDelta>
+    <trustDelta>-18.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledMyDaughter</defName>
+    <eventLabel>killed my daughter</eventLabel>
+    <affDelta>-18.0</affDelta>
+    <trustDelta>-24.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledMyFather</defName>
+    <eventLabel>killed my father</eventLabel>
+    <affDelta>-12.0</affDelta>
+    <trustDelta>-18.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledMyFiance</defName>
+    <eventLabel>killed my fiance</eventLabel>
+    <affDelta>-18.0</affDelta>
+    <trustDelta>-24.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledMyFriend</defName>
+    <eventLabel>killed my friend</eventLabel>
+    <affDelta>-12.0</affDelta>
+    <trustDelta>-18.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledMyKin</defName>
+    <eventLabel>killed my kin</eventLabel>
+    <affDelta>-6.0</affDelta>
+    <trustDelta>-8.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledMyLover</defName>
+    <eventLabel>killed my lover</eventLabel>
+    <affDelta>-18.0</affDelta>
+    <trustDelta>-24.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledMyMother</defName>
+    <eventLabel>killed my mother</eventLabel>
+    <affDelta>-12.0</affDelta>
+    <trustDelta>-18.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledMyRival</defName>
+    <eventLabel>killed my rival</eventLabel>
+    <affDelta>-6.0</affDelta>
+    <trustDelta>-8.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledMySister</defName>
+    <eventLabel>killed my sister</eventLabel>
+    <affDelta>-12.0</affDelta>
+    <trustDelta>-18.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledMySon</defName>
+    <eventLabel>killed my son</eventLabel>
+    <affDelta>-18.0</affDelta>
+    <trustDelta>-24.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KilledMySpouse</defName>
+    <eventLabel>killed my spouse</eventLabel>
+    <affDelta>-18.0</affDelta>
+    <trustDelta>-24.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>KindWordsMood</defName>
+    <eventLabel>kind words</eventLabel>
+    <affDelta>4.0</affDelta>
+    <trustDelta>4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>RapportBuilt</defName>
+    <eventLabel>rapport built</eventLabel>
+    <affDelta>3.0</affDelta>
+    <trustDelta>4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>RebuffedMyRomanceAttempt</defName>
+    <eventLabel>rebuffed me</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>RebuffedMyRomanceAttemptMood</defName>
+    <eventLabel>rebuffed by</eventLabel>
+    <affDelta>-3.0</affDelta>
+    <trustDelta>-3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>RecruitedMe</defName>
+    <eventLabel>recruited me</eventLabel>
+    <affDelta>8.0</affDelta>
+    <trustDelta>14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>RejectedMyProposal</defName>
+    <eventLabel>rejected my proposal</eventLabel>
+    <affDelta>-4.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>RejectedMyProposalMood</defName>
+    <eventLabel>my proposal was rejected by</eventLabel>
+    <affDelta>-12.0</affDelta>
+    <trustDelta>-12.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>RescuedMe</defName>
+    <eventLabel>rescued me</eventLabel>
+    <affDelta>8.0</affDelta>
+    <trustDelta>14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>RescuedMeByOfferingHelp</defName>
+    <eventLabel>rescued me</eventLabel>
+    <affDelta>7.0</affDelta>
+    <trustDelta>12.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>Slighted</defName>
+    <eventLabel>slighted</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SoldMyBondedAnimal</defName>
+    <eventLabel>bonded animal given away</eventLabel>
+    <affDelta>-5.0</affDelta>
+    <trustDelta>-7.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SoldMyBondedAnimalMood</defName>
+    <eventLabel>bonded animal given away</eventLabel>
+    <affDelta>-8.0</affDelta>
+    <trustDelta>-10.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>SoldMyLovedOne</defName>
+    <eventLabel>loved one sold</eventLabel>
+    <affDelta>-12.0</affDelta>
+    <trustDelta>-18.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ArtifactMoodBoost</defName>
+    <eventLabel>strange feeling</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+</Defs>

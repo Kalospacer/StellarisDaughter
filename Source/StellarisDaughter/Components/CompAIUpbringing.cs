@@ -61,6 +61,12 @@ namespace StellarisDaughter
         /// <summary> Mood Thoughts 临时列表（Memory + Situational） </summary>
         private List<Thought> _tmpMoodThoughts = new List<Thought>();
 
+        /// <summary> Social Thoughts 临时列表（按目标Pawn查询） </summary>
+        private List<ISocialThought> _tmpSocialThoughts = new List<ISocialThought>();
+
+        /// <summary> 社交Thought（def+stage+otherPawn）的下次允许结算tick（内置冷却） </summary>
+        private Dictionary<long, int> _socialThoughtNextApplyTick = new Dictionary<long, int>();
+
         /// <summary> 连续独处tick计数 </summary>
         private int _ticksAloneCounter = 0;
 
@@ -89,6 +95,10 @@ namespace StellarisDaughter
                 _scratchSituationalThoughtKeys = new HashSet<long>();
             if (_tmpMoodThoughts == null)
                 _tmpMoodThoughts = new List<Thought>();
+            if (_tmpSocialThoughts == null)
+                _tmpSocialThoughts = new List<ISocialThought>();
+            if (_socialThoughtNextApplyTick == null)
+                _socialThoughtNextApplyTick = new Dictionary<long, int>();
         }
 
         public override void CompTickRare()
@@ -102,6 +112,7 @@ namespace StellarisDaughter
 
             ScanMemoriesForEvents(ai);
             ScanSituationalThoughtsForEvents(ai);
+            ScanSocialThoughtsForEvents(ai);
             TickPassiveLoneliness(ai);
             TickPassiveNeeds(ai);
             CheckOmenLetter(ai);
@@ -183,6 +194,10 @@ namespace StellarisDaughter
                     _scratchSituationalThoughtKeys = new HashSet<long>();
                 if (_tmpMoodThoughts == null)
                     _tmpMoodThoughts = new List<Thought>();
+                if (_tmpSocialThoughts == null)
+                    _tmpSocialThoughts = new List<ISocialThought>();
+                if (_socialThoughtNextApplyTick == null)
+                    _socialThoughtNextApplyTick = new Dictionary<long, int>();
                 if (eventLog == null)
                     eventLog = new List<AIEventLogEntry>();
             }

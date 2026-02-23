@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>OtherTravelerDied</defName>
+    <eventLabel>traveler died</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>AteFoodInappropriateForTitle</defName>
+    <eventLabel>ate low-class food</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>OtherTravelerArrested</defName>
+    <eventLabel>traveler arrested</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>OtherTravelerLeftBehind</defName>
+    <eventLabel>traveler left behind</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-3.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>OtherTravelerSurgicallyViolated</defName>
+    <eventLabel>traveler surgically violated</eventLabel>
+    <affDelta>-8.0</affDelta>
+    <trustDelta>-14.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>GrandioseBestowingCeremony</defName>
+    <eventLabel>grandiose bestowing ceremony</eventLabel>
+    <affDelta>2.0</affDelta>
+    <trustDelta>2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>HonorableBestowingCeremony</defName>
+    <eventLabel>honorable bestowing ceremony</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>TerribleBestowingCeremony</defName>
+    <eventLabel>terrible bestowing ceremony</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>UnimpressiveBestowingCeremony</defName>
+    <eventLabel>unimpressive bestowing ceremony</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ReignedInThroneroom</defName>
+    <eventLabel>awful throneroom</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DecreeFailed</defName>
+    <eventLabel>decree failed</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DecreeMet</defName>
+    <eventLabel>decree satisfied</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>Disinherited</defName>
+    <eventLabel>disinherited</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>NeuroquakeEcho</defName>
+    <eventLabel>neuroquake echo</eventLabel>
+    <affDelta>-2.0</affDelta>
+    <trustDelta>-4.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+</Defs>

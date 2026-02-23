@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>FailedConvertIdeoAttemptResentment</defName>
+    <eventLabel>conversion resentment</eventLabel>
+    <affDelta>-1.0</affDelta>
+    <trustDelta>-2.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PsychicArchotechEmanator_Core</defName>
+    <eventLabel>archotech emanation</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PsychicArchotechEmanator_Grand</defName>
+    <eventLabel>archotech emanation</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PsychicArchotechEmanator_Major</defName>
+    <eventLabel>archotech emanation</eventLabel>
+    <affDelta>1.0</affDelta>
+    <trustDelta>1.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>LookChangeDesired</defName>
+    <eventLabel>look change desired</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MasochistWearingBodyStrap</defName>
+    <eventLabel>masochist body strapped</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MasochistWearingCollar</defName>
+    <eventLabel>masochist collared</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>WearingColor_Favorite</defName>
+    <eventLabel>wearing favorite color</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>WearingColor_Ideo</defName>
+    <eventLabel>wearing ideoligion color</eventLabel>
+    <affDelta>0.0</affDelta>
+    <trustDelta>0.0</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+</Defs>
