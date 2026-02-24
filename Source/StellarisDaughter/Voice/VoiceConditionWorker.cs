@@ -23,30 +23,38 @@ namespace StellarisDaughter
         public override bool Satisfied(VoiceContext ctx) => true;
     }
 
-    /// <summary>轻度精神崩溃风险</summary>
+    /// <summary>轻度精神崩溃风险 — 心情低于小崩溃阈值但高于中崩溃阈值</summary>
     public class VoiceConditionWorker_MinorBreakRisk : VoiceConditionWorker
     {
         public override bool Satisfied(VoiceContext ctx)
         {
-            return ctx.pawn?.mindState?.mentalBreaker?.BreakMinorIsImminent == true;
+            var breaker = ctx.pawn?.mindState?.mentalBreaker;
+            if (breaker == null) return false;
+            return breaker.CurMood < breaker.BreakThresholdMinor
+                && breaker.CurMood >= breaker.BreakThresholdMajor;
         }
     }
 
-    /// <summary>中度精神崩溃风险</summary>
+    /// <summary>中度精神崩溃风险 — 心情低于中崩溃阈值但高于重崩溃阈值</summary>
     public class VoiceConditionWorker_MajorBreakRisk : VoiceConditionWorker
     {
         public override bool Satisfied(VoiceContext ctx)
         {
-            return ctx.pawn?.mindState?.mentalBreaker?.BreakMajorIsImminent == true;
+            var breaker = ctx.pawn?.mindState?.mentalBreaker;
+            if (breaker == null) return false;
+            return breaker.CurMood < breaker.BreakThresholdMajor
+                && breaker.CurMood >= breaker.BreakThresholdExtreme;
         }
     }
 
-    /// <summary>重度精神崩溃风险</summary>
+    /// <summary>重度精神崩溃风险 — 心情低于重崩溃阈值</summary>
     public class VoiceConditionWorker_ExtremeBreakRisk : VoiceConditionWorker
     {
         public override bool Satisfied(VoiceContext ctx)
         {
-            return ctx.pawn?.mindState?.mentalBreaker?.BreakExtremeIsImminent == true;
+            var breaker = ctx.pawn?.mindState?.mentalBreaker;
+            if (breaker == null) return false;
+            return breaker.CurMood < breaker.BreakThresholdExtreme;
         }
     }
 
