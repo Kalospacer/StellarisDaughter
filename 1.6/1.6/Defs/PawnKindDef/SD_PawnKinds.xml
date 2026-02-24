@@ -50,6 +50,9 @@
       <li>SD_StellarUniform</li>
       <li>SD_StellarCloak</li>
     </apparelRequired>
+    <apparelTags>
+      <li>SD_StellarWear</li>
+    </apparelTags>
     <startingHediffs>
       <li>
         <def>SD_Hediff_HairBackSouthRender</def>

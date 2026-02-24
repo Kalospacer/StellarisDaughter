@@ -45,6 +45,12 @@
         <li>OnSkin</li>
         <li>Middle</li>
       </layers>
+      <tags>
+        <li>SD_StellarWear</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+      </defaultOutfitTags>
       <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
       <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
       <canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
@@ -117,6 +123,7 @@
           </dataNorth>
       </drawData>
       <tags>
+        <li>SD_StellarWear</li>
         <li>IndustrialAdvanced</li>
       </tags>
       <defaultOutfitTags>
