@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <!-- ✨ 沐雪写的哦~ -->
-  <!-- 星规语音 SoundDefs — 每个 SoundDef 对应一个音频文件夹 (AudioGrain_Folder) -->
-  <!-- 往文件夹里丢入 .wav 或 .ogg 文件即可，引擎自动随机播放 -->
+  <!-- �?沐雪写的哦~ -->
+  <!-- 星规语音 SoundDefs �?每个 SoundDef 对应一个音频文件夹 (AudioGrain_Folder) -->
+  <!-- 往文件夹里丢入 .wav �?.ogg 文件即可，引擎自动随机播�?-->
 
   <!-- ===================== 选中 ===================== -->
 
@@ -14,7 +14,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Selected/Normal</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/Selected/Normal</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
@@ -30,7 +30,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Selected/MinorBreak</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/Selected/MinorBreak</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
@@ -46,7 +46,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Selected/MajorBreak</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/Selected/MajorBreak</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
@@ -62,7 +62,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Selected/ExtremeBreak</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/Selected/ExtremeBreak</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
@@ -80,7 +80,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Drafted/Normal</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/Drafted/Normal</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
@@ -96,7 +96,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Drafted/ExpensiveWeapon</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/Drafted/ExpensiveWeapon</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
@@ -112,7 +112,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Drafted/Injured</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/Drafted/Injured</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
@@ -130,7 +130,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Move/Normal</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/Move/Normal</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
@@ -146,7 +146,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Move/Injured</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/Move/Injured</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
@@ -164,7 +164,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Attack/Normal</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/Attack/Normal</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
@@ -180,7 +180,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Attack/Human</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/Attack/Human</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
@@ -196,7 +196,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Attack/Mechanoid</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/Attack/Mechanoid</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
@@ -212,7 +212,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Attack/Injured</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/Attack/Injured</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
@@ -230,7 +230,7 @@
         <onCamera>True</onCamera>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/SpamClick</clipFolderPath>
+            <clipFolderPath>Voice/SD_Daughter/SpamClick</clipFolderPath>
           </li>
         </grains>
         <volumeRange>30~30</volumeRange>
