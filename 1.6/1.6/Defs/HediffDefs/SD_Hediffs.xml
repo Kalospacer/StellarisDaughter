@@ -74,7 +74,7 @@
       <li>
         <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
         <texPath>StellarisDaughter/Things/SD/Clothes/SD_Cloak_Behind_Thin</texPath>
-        <parentTagDef>ApparelHead</parentTagDef>
+        <parentTagDef>ApparelBody</parentTagDef>
         <useSkinShader>false</useSkinShader>
         <useRottenColor>false</useRottenColor>
         <rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -82,11 +82,8 @@
           <li>South</li>
         </visibleFacing>
         <drawData>
-          <dataEast><layer>-99999</layer></dataEast>
-          <dataWest><layer>-99999</layer></dataWest>
-          <dataNorth><layer>-99999</layer></dataNorth>
           <dataSouth>
-            <layer>-5</layer>
+            <layer>0</layer>
             <offset>(0, 0, 0)</offset>
           </dataSouth>
         </drawData>
@@ -115,27 +112,17 @@
         <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
         <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
         <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_Hair_behind</texPath>
-        <parentTagDef>Body</parentTagDef>
+        <parentTagDef>Head</parentTagDef>
         <useSkinShader>false</useSkinShader>
         <useRottenColor>false</useRottenColor>
         <rotDrawMode>Fresh, Rotting</rotDrawMode>
         <visibleFacing>
-          <li>South</li>
+          <li>Nouth</li>
         </visibleFacing>
         <drawData>
-          <dataEast>
-            <layer>-99999</layer>
-          </dataEast>
-          <dataWest>
-            <layer>-99999</layer>
-          </dataWest>
           <dataNorth>
-            <layer>-99999</layer>
+            <layer>0</layer>
           </dataNorth>
-          <dataSouth>
-            <layer>-1</layer>
-            <offset>(0, 0, 0)</offset>
-          </dataSouth>
         </drawData>
       </li>
     </renderNodeProperties>

@@ -111,6 +111,11 @@
       <layers>
         <li>Shell</li>
       </layers>
+      <drawData>
+        <dataNorth>
+            <layer>50</layer>
+          </dataNorth>
+      </drawData>
       <tags>
         <li>IndustrialAdvanced</li>
       </tags>
