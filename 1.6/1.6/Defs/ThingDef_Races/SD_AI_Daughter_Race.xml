@@ -230,6 +230,7 @@
       <EatingSpeed>5</EatingSpeed>
       <MaxNutrition>2</MaxNutrition>
       <MarketValue>3000</MarketValue>
+      <IncomingDamageFactor>0.1</IncomingDamageFactor>
       <PainShockThreshold>0.85</PainShockThreshold>
       <PsychicSensitivity>1.5</PsychicSensitivity>
       <MentalBreakThreshold>0</MentalBreakThreshold>
