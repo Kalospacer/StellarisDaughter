@@ -69,14 +69,27 @@ namespace StellarisDaughter
             var targetEvent = isSpamClick ? SD_VoiceEventDefOf.SD_VoiceEvent_SpamClick : eventDef;
             SoundDef sound = pack.Resolve(targetEvent, ctx);
 
-            // 彩蛋未配置时回退到原事件
-            if (sound == null && isSpamClick)
+            // 彩蛋未配置（或文件夹为空）时回退到原事件
+            if ((sound == null || !HasResolvedGrains(sound)) && isSpamClick)
                 sound = pack.Resolve(eventDef, ctx);
 
-            if (sound == null) return;
+            if (sound == null || !HasResolvedGrains(sound)) return;
 
             sound.PlayOneShotOnCamera(ctx.map);
             lastPlayTick = now;
+        }
+        /// <summary>检查 SoundDef 是否至少有一个可解析的音频文件（文件夹非空）</summary>
+        private static bool HasResolvedGrains(SoundDef sound)
+        {
+            if (sound?.subSounds == null) return false;
+            foreach (var sub in sound.subSounds)
+            {
+                if (sub?.grains == null) continue;
+                foreach (var grain in sub.grains)
+                    foreach (var _ in grain.GetResolvedGrains())
+                        return true;
+            }
+            return false;
         }
     }
 }
