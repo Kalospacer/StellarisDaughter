@@ -25,10 +25,7 @@
       <li>SD_Daughter_Adulthood_Bond</li>
     </fixedAdultBackstories>
     <forcedTraits>
-      <li>
-        <def>SD_MemoryCore</def>
-        <degree>0</degree>
-      </li>
+      <SD_MemoryCore>0</SD_MemoryCore>
     </forcedTraits>
     <forcedHairColor>(255,255,255,255)</forcedHairColor>
     <xenotypeSet>
