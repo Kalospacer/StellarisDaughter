@@ -41,8 +41,7 @@ namespace StellarisDaughter
         private void UpdateBodyType(Pawn pawn)
         {
             if (pawn.story == null) return;
-            BodyTypeDef youthBody = DefDatabase<BodyTypeDef>.GetNamed("SD_Youth", errorOnFail: false)
-                ?? BodyTypeDefOf.Thin; // 安全回退
+            BodyTypeDef youthBody = BodyTypeDefOf.Thin;
             if (pawn.story.bodyType == youthBody) return;
             // 服装掉落只在游戏中执行
             if (Current.ProgramState == ProgramState.Playing)

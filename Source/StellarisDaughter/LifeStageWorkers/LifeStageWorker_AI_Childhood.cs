@@ -15,10 +15,10 @@ namespace StellarisDaughter
         {
             base.Notify_LifeStageStarted(pawn, previousLifeStage);
 
-            // 童年体型：必须在 ProgramState 检查前执行，CharacterEditor 也需要
-            if (pawn.story != null && pawn.story.bodyType != BodyTypeDefOf.Child)
+            // 全阶段统一 Thin：必须在 ProgramState 检查前执行，CharacterEditor 也需要
+            if (pawn.story != null && pawn.story.bodyType != BodyTypeDefOf.Thin)
             {
-                pawn.story.bodyType = BodyTypeDefOf.Child;
+                pawn.story.bodyType = BodyTypeDefOf.Thin;
                 pawn.Drawer?.renderer?.SetAllGraphicsDirty();
             }
 

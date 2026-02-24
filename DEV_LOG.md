@@ -131,8 +131,7 @@ Source/StellarisDaughter/
 | 体型 | 年龄 | 贴图 |
 |------|------|------|
 | Child | 0-7 | Naked_Child_*.png |
-| SD_Youth | 8-14 | Naked_SD_Youth_*.png |
-| Thin | 15+ | Naked_Thin_*.png |
+| Thin | 8+ | Naked_Thin_*.png |
 
 ---
 
@@ -159,7 +158,7 @@ cd "Source\StellarisDaughter"
 - [ ] **ThoughtWorkers_SD.cs** — 5 个 Situation ThoughtWorker（HighAff/LowAff/HighTrs/LowTrs/Lonely）
 - [ ] **SD_ThoughtDefs.xml** — 对应 5 条 ThoughtDef，带 `baseMoodEffect`，让心情面板反映养成状态
 - [ ] 补充 5 个 ThoughtDef 语言键
-- [ ] 替换占位贴图（SD_Youth 体型、童年体型、头部、FA 脸部）
+- [ ] 替换占位贴图（童年体型、Thin体型、头部、FA 脸部）
 - [ ] `AIEndingDef.ApplyRewards()` / `leavesColony` 逻辑完善
 - [ ] `SD_AI_Childhood` Worker 中 `SD_Curious` 特质 Def 实现
 - [ ] 清理旧占位语言键（SD_GizmoSync/Chaos/Awaken 等）
