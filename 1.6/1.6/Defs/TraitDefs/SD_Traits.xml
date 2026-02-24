@@ -16,4 +16,17 @@
       </li>
     </degreeDatas>
   </TraitDef>
+
+  <!-- 独立版“记忆核心”（不依赖 Anomaly），实际效果由 Harmony 补丁实现 -->
+  <TraitDef>
+    <defName>SD_MemoryCore</defName>
+    <commonality>0</commonality>
+    <degreeDatas>
+      <li>
+        <label>记忆核心</label>
+        <description>{PAWN_nameDef}有着卓越的记忆力，不仅大脑能够储存各种信息，甚至还有着完美的肌肉记忆。{PAWN_possessive}技能永不会生疏。</description>
+        <degree>0</degree>
+      </li>
+    </degreeDatas>
+  </TraitDef>
 </Defs>

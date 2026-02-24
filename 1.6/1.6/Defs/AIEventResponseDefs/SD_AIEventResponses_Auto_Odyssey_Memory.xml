@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   
   
@@ -6,49 +6,49 @@
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BlowingSand</defName>
-    <eventLabel>blowing sand</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <eventLabel>风沙</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DestroyedMechhive</defName>
-    <eventLabel>destroyed mechhive</eventLabel>
-    <affDelta>2.0</affDelta>
-    <trustDelta>2.0</trustDelta>
+    <eventLabel>摧毁了机械巢穴</eventLabel>
+    <affDelta>5</affDelta>
+    <trustDelta>5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DestroyedMechhiveMainPawn</defName>
-    <eventLabel>destroyed mechhive</eventLabel>
-    <affDelta>3.0</affDelta>
-    <trustDelta>3.0</trustDelta>
+    <eventLabel>摧毁了机械巢穴</eventLabel>
+    <affDelta>8</affDelta>
+    <trustDelta>8</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>HotSpring</defName>
-    <eventLabel>hot spring</eventLabel>
-    <affDelta>2.0</affDelta>
-    <trustDelta>2.0</trustDelta>
+    <eventLabel>温泉</eventLabel>
+    <affDelta>4</affDelta>
+    <trustDelta>4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ToxWater</defName>
-    <eventLabel>tox water</eventLabel>
-    <affDelta>-6.0</affDelta>
-    <trustDelta>-10.0</trustDelta>
+    <eventLabel>毒水</eventLabel>
+    <affDelta>-4</affDelta>
+    <trustDelta>-5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MadeStatueOfMe</defName>
-    <eventLabel>made statue of me</eventLabel>
-    <affDelta>4.0</affDelta>
-    <trustDelta>6.0</trustDelta>
+    <eventLabel>为我制作了雕像</eventLabel>
+    <affDelta>8</affDelta>
+    <trustDelta>6</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
 </Defs>

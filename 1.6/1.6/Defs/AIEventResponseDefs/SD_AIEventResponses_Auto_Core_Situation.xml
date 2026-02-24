@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   
   
@@ -6,689 +6,690 @@
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ApparelDamaged</defName>
-    <eventLabel>ratty apparel</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-0.5</trustDelta>
+    <eventLabel>磨损的衣物</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DeadMansApparel</defName>
-    <eventLabel>tainted</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <eventLabel>死人的{0}</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>EnvironmentCold</defName>
-    <eventLabel>chilly</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>有点冷</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>EnvironmentDark</defName>
-    <eventLabel>darkness</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>黑暗的环境</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>EnvironmentHot</defName>
-    <eventLabel>sweaty</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>有点热</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>HumanLeatherApparelHappy</defName>
-    <eventLabel>human leather</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>人皮{0}（快乐）</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>HumanLeatherApparelSad</defName>
-    <eventLabel>human leather</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>人皮{0}（难受）</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>LoveReading</defName>
-    <eventLabel>I love reading</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>喜爱阅读</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Sick</defName>
-    <eventLabel>sick</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <eventLabel>得病</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>SkillBookPassion</defName>
-    <eventLabel>interesting textbook</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>有趣的教材</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>WrongApparelGender</defName>
-    <eventLabel>wearing  apparel</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-0.5</trustDelta>
+    <eventLabel>穿着{0}的衣物</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DrugDesireFascination</defName>
-    <eventLabel>chemical want</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>成瘾品渴求（迷恋）</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DrugDesireFascinationSatisfied</defName>
-    <eventLabel>chemical comfort</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>成瘾品满足（迷恋）</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DrugDesireInterest</defName>
-    <eventLabel>chemical want</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>成瘾品渴求（兴趣）</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DrugDesireInterestSatisfied</defName>
-    <eventLabel>chemical comfort</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>成瘾品满足（兴趣）</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeedBeauty</defName>
-    <eventLabel>hideous environment</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>极其丑陋的环境</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeedComfort</defName>
-    <eventLabel>uncomfortable</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>不够舒适</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeedFood</defName>
-    <eventLabel>hungry</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>饥饿</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeedIndoors</defName>
-    <eventLabel>just outdoors</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>室外活动</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeedJoy</defName>
-    <eventLabel>recreation-starved</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>完全没有娱乐活动</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeedOutdoors</defName>
-    <eventLabel>entombed underground</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>幽居病</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeedRest</defName>
-    <eventLabel>drowsy</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>疲劳</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeedRoomSize</defName>
-    <eventLabel>confined interior</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>非常狭窄的室内</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>HospitalPatientRoomStats</defName>
-    <eventLabel>awful hospital</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>可怕的医务室</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PrisonBarracks</defName>
-    <eventLabel>awful barracks</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-1.5</trustDelta>
+    <eventLabel>可怕的多人牢房</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PrisonCell</defName>
-    <eventLabel>awful prison cell</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <eventLabel>可怕的牢房</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Affair</defName>
-    <eventLabel>affair</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-1.5</trustDelta>
+    <eventLabel>风流</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>AnnoyingVoice</defName>
-    <eventLabel>annoying voice</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>烦人的声音</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>AteRawHumanlikeMeat</defName>
-    <eventLabel>ate raw humanlike meat</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>生吃过人肉</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BodyPuristDisgust</defName>
-    <eventLabel>body purist disgust</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>纯粹主义厌恶</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BondedAnimalMaster</defName>
-    <eventLabel>'s master</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.5</trustDelta>
+    <eventLabel>{0}的主人</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ChemicalInterestVsTeetotaler</defName>
-    <eventLabel>chemical interest vs teetotaler</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>成瘾品爱好VS厌恶</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>CreepyBreathing</defName>
-    <eventLabel>creepy breathing</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>恶心的呼吸声</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Disfigured</defName>
-    <eventLabel>disfigured</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>毁容</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Drunk</defName>
-    <eventLabel>drunk</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>醉酒</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ExecutedPrisoner</defName>
-    <eventLabel>executed prisoner</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <eventLabel>处决过囚犯</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>HardWorkerVsLazy</defName>
-    <eventLabel>hard worker vs lazy</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>工作勤奋VS懒惰</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>HoldingMePrisoner</defName>
-    <eventLabel>holding me prisoner</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <eventLabel>囚禁过我</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Incestuous</defName>
-    <eventLabel>incestuous</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>乱伦</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>KilledColonist</defName>
-    <eventLabel>killed colonist</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <eventLabel>杀死过殖民者</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>KilledColonyAnimal</defName>
-    <eventLabel>killed colony animal</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-0.5</trustDelta>
+    <eventLabel>杀死过殖民地动物</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Man</defName>
-    <eventLabel>man</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>讨厌男人</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NotBondedAnimalMaster</defName>
-    <eventLabel>not 's master</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-0.5</trustDelta>
+    <eventLabel>不是{0}的主人</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>OpinionOfMyLover</defName>
-    <eventLabel>opinion of my</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>与{0}在一起的感觉</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Pretty</defName>
-    <eventLabel>physically appealing</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>迷人</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>SoldPrisoner</defName>
-    <eventLabel>sold prisoner to slavery</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-1.5</trustDelta>
+    <eventLabel>贩卖过囚犯</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>TeetotalerVsAddict</defName>
-    <eventLabel>teetotaler vs addict</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>成瘾品厌恶VS成瘾者</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>TeetotalerVsChemicalInterest</defName>
-    <eventLabel>teetotaler vs chemical interest</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>成瘾品厌恶VS爱好者</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>TranshumanistAppreciation</defName>
-    <eventLabel>body modder appreciation</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>超人主义欣赏</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Ugly</defName>
-    <eventLabel>physically unsightly</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>丑陋</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>WantToSleepWithSpouseOrLover</defName>
-    <eventLabel>sleeping alone</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>孤身入眠</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Woman</defName>
-    <eventLabel>woman</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>讨厌女人</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Aurora</defName>
-    <eventLabel>beautiful aurora</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.5</trustDelta>
+    <eventLabel>美丽的极光</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ColonistLeftUnburied</defName>
-    <eventLabel>colonist left unburied</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <eventLabel>殖民者未埋葬</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DoingPassionateWork</defName>
-    <eventLabel>minor passion for my work</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.5</trustDelta>
+    <eventLabel>工作热情</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Joywire</defName>
-    <eventLabel>joywire</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>乐丝芯片</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MissingTongue</defName>
-    <eventLabel>missing tongue</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-1.5</trustDelta>
+    <eventLabel>没有舌头</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Naked</defName>
-    <eventLabel>naked</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>裸体</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Pain</defName>
-    <eventLabel>minor pain</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>身上有点疼</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PsychicDrone</defName>
-    <eventLabel>psychic soothe</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>心灵抚慰</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PsychicEmanatorSoothe</defName>
-    <eventLabel>psychic emanator soothe</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>心灵放射器抚慰</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>RotStink</defName>
-    <eventLabel>rot stink</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>腐臭</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>RotStinkLingering</defName>
-    <eventLabel>rot stink lingering</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>久弥不散的腐臭</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>SharedBed</defName>
-    <eventLabel>sharing bed</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.5</trustDelta>
+    <eventLabel>共用床铺</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Ascetic</defName>
-    <eventLabel>ascetic has awful bedroom</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>可怕的卧室（苦行者）</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>0</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BrawlerUnhappy</defName>
-    <eventLabel>brawler has ranged weapon</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>格斗者持有远程武器</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ClothedNudist</defName>
-    <eventLabel>constraining clothes</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>衣物束缚</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Greedy</defName>
-    <eventLabel>greedy for impressive bedroom</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>没有印象深刻的卧室（贪心）</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>HappyNude</defName>
-    <eventLabel>happily nude</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>快乐的裸体</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Jealous</defName>
-    <eventLabel>jealous of 's bedroom</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>妒忌{0}的卧室</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MasochistPain</defName>
-    <eventLabel>masochist in minor pain</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>身上有点疼（受虐狂）</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NightOwlDuringTheDay</defName>
-    <eventLabel>night owl in daytime</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>夜猫子（白天）</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NightOwlDuringTheNight</defName>
-    <eventLabel>night owl at night</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>夜猫子（晚上）</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ProsthophileHappy</defName>
-    <eventLabel>body modder pleased</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>超人主义拥有改造</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ProsthophileNoProsthetic</defName>
-    <eventLabel>body modder frustrated</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>超人主义需要改造</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ProsthophobeUnhappy</defName>
-    <eventLabel>body purist squeamish</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>纯粹主义拥有改造</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PyromaniacHappy</defName>
-    <eventLabel>pyromaniac has incendiary weapon</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>纵火狂持有燃烧武器</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PyromaniacNearFire</defName>
-    <eventLabel>beautiful fire</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>美丽的火焰</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>UndergrounderIndoors</defName>
-    <eventLabel>undergrounder indoors</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>穴居者在室内</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>UndergrounderOutdoors</defName>
-    <eventLabel>undergrounder outdoors</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>穴居者在室外</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>UndergrounderUnderground</defName>
-    <eventLabel>underground</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>穴居者在地下</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MoodOffsetDepressive</defName>
-    <eventLabel>depressive</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>抑郁</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MoodOffsetOptimist</defName>
-    <eventLabel>optimist</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>乐观</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MoodOffsetPessimist</defName>
-    <eventLabel>pessimist</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>悲观</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MoodOffsetSanguine</defName>
-    <eventLabel>sanguine</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>乐天派</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MoodOffsetTorturedArtist</defName>
-    <eventLabel>Tortured artist</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>崩溃艺术家</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
 </Defs>
+

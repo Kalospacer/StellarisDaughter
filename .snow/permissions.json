@@ -1,0 +1,9 @@
+{
+  "alwaysApprovedTools": [
+    "filesystem-read",
+    "terminal-execute",
+    "rimworld-code-rag-rough_search",
+    "rimworld-code-rag-get_item",
+    "filesystem-edit_search"
+  ]
+}

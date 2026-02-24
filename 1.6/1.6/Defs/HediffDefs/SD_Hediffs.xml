@@ -73,8 +73,8 @@
     <renderNodeProperties>
       <li>
         <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
-        <texPath>StellarisDaughter/Things/SD/Clothes/SD_Cloak_Behind_Thin_south</texPath>
-        <parentTagDef>Body</parentTagDef>
+        <texPath>StellarisDaughter/Things/SD/Clothes/SD_Cloak_Behind_Thin</texPath>
+        <parentTagDef>ApparelHead</parentTagDef>
         <useSkinShader>false</useSkinShader>
         <useRottenColor>false</useRottenColor>
         <rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -86,7 +86,7 @@
           <dataWest><layer>-99999</layer></dataWest>
           <dataNorth><layer>-99999</layer></dataNorth>
           <dataSouth>
-            <layer>-10</layer>
+            <layer>-5</layer>
             <offset>(0, 0, 0)</offset>
           </dataSouth>
         </drawData>
@@ -95,5 +95,49 @@
     <comps>
       <li Class="HediffCompProperties_RemoveIfApparelDropped" />
     </comps>
+  </HediffDef>
+  <HediffDef>
+    <defName>SD_Hediff_HairBackSouthRender</defName>
+    <label>stellar hair back render</label>
+    <description>Render helper for south-facing back hair layer.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <everCurableByItem>false</everCurableByItem>
+    <isBad>false</isBad>
+    <defaultLabelColor>(0, 0, 0)</defaultLabelColor>
+    <stages>
+      <li>
+        <becomeVisible>true</becomeVisible>
+        <minSeverity>0</minSeverity>
+      </li>
+    </stages>
+    <renderNodeProperties>
+      <li>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_Hair_behind</texPath>
+        <parentTagDef>Body</parentTagDef>
+        <useSkinShader>false</useSkinShader>
+        <useRottenColor>false</useRottenColor>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <visibleFacing>
+          <li>South</li>
+        </visibleFacing>
+        <drawData>
+          <dataEast>
+            <layer>-99999</layer>
+          </dataEast>
+          <dataWest>
+            <layer>-99999</layer>
+          </dataWest>
+          <dataNorth>
+            <layer>-99999</layer>
+          </dataNorth>
+          <dataSouth>
+            <layer>-1</layer>
+            <offset>(0, 0, 0)</offset>
+          </dataSouth>
+        </drawData>
+      </li>
+    </renderNodeProperties>
   </HediffDef>
 </Defs>

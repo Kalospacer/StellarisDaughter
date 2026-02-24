@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   
   
@@ -6,177 +6,140 @@
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>AteTwistedMeat</defName>
-    <eventLabel>ate twisted meat</eventLabel>
-    <affDelta>-8.0</affDelta>
-    <trustDelta>-12.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>BecameGhoul</defName>
-    <eventLabel>became a ghoul</eventLabel>
-    <affDelta>-6.0</affDelta>
-    <trustDelta>-12.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>BlissLobotomy</defName>
-    <eventLabel>bliss lobotomy</eventLabel>
-    <affDelta>-12.0</affDelta>
-    <trustDelta>-22.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>Chimera</defName>
-    <eventLabel>observed chimera</eventLabel>
-    <affDelta>-6.0</affDelta>
-    <trustDelta>-10.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>ClosedTheVoid</defName>
-    <eventLabel>closed the void</eventLabel>
-    <affDelta>8.0</affDelta>
-    <trustDelta>10.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>ClosedTheVoidOpinion</defName>
-    <eventLabel>closed the void</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>DarknessLifted</defName>
-    <eventLabel>unnatural darkness lifted</eventLabel>
-    <affDelta>3.0</affDelta>
-    <trustDelta>4.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>EmbracedTheVoid</defName>
-    <eventLabel>embraced the void</eventLabel>
-    <affDelta>-8.0</affDelta>
-    <trustDelta>-16.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>HealedMe</defName>
-    <eventLabel>healed me</eventLabel>
-    <affDelta>6.0</affDelta>
-    <trustDelta>10.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>HeardInhumanRambling</defName>
-    <eventLabel>rambling</eventLabel>
-    <affDelta>-2.0</affDelta>
-    <trustDelta>-3.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>MutatedMyArm</defName>
-    <eventLabel>mutated my arm</eventLabel>
-    <affDelta>-8.0</affDelta>
-    <trustDelta>-14.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>ObeliskAbduction</defName>
-    <eventLabel>obelisk abduction</eventLabel>
-    <affDelta>-10.0</affDelta>
-    <trustDelta>-14.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>PlayedWithCube</defName>
-    <eventLabel>cube joy</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>PsychicRitualGuilt</defName>
-    <eventLabel>{RITUAL} guilt</eventLabel>
-    <affDelta>-6.0</affDelta>
-    <trustDelta>-8.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>PsychicRitualVictim</defName>
-    <eventLabel>psychic ritual victim</eventLabel>
-    <affDelta>-10.0</affDelta>
-    <trustDelta>-18.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>UnnaturalCorpseDestroyed</defName>
-    <eventLabel>unnatural corpse is angry</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>1.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>VoidCatharsis</defName>
-    <eventLabel>void catharsis</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>VoidClosed</defName>
-    <eventLabel>void closed</eventLabel>
-    <affDelta>6.0</affDelta>
-    <trustDelta>8.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>VoidCuriosity</defName>
-    <eventLabel>Void curiosity</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>0.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>VoidCuriositySatisfied</defName>
-    <eventLabel>Void curiosity satisfied</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
-  </StellarisDaughter.AIEventResponseDef>
-
-  
-  <StellarisDaughter.AIEventResponseDef>
-    <defName>DrainedMySkills</defName>
-    <eventLabel>drained my skills</eventLabel>
-    <affDelta>-6.0</affDelta>
-    <trustDelta>-10.0</trustDelta>
+    <eventLabel>吃了扭曲肉</eventLabel>
+    <affDelta>-4</affDelta>
+    <trustDelta>-6</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>UsedMeForPsychicRitual</defName>
-    <eventLabel>used me for psychic ritual</eventLabel>
-    <affDelta>-12.0</affDelta>
-    <trustDelta>-22.0</trustDelta>
+    <eventLabel>被用于心灵仪式</eventLabel>
+    <affDelta>-10</affDelta>
+    <trustDelta>-14</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ObeliskAbduction</defName>
+    <eventLabel>被方尖碑绑架</eventLabel>
+    <affDelta>-8</affDelta>
+    <trustDelta>-12</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DrainedMySkills</defName>
+    <eventLabel>技能被抽取</eventLabel>
+    <affDelta>-8</affDelta>
+    <trustDelta>-10</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>UnnaturalCorpseDestroyed</defName>
+    <eventLabel>摧毁异常尸体</eventLabel>
+    <affDelta>4</affDelta>
+    <trustDelta>4</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>ClosedTheVoidOpinion</defName>
+    <eventLabel>关闭虚空</eventLabel>
+    <affDelta>6</affDelta>
+    <trustDelta>6</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>DarknessLifted</defName>
+    <eventLabel>异常黑暗散去</eventLabel>
+    <affDelta>6</affDelta>
+    <trustDelta>5</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>EmbracedTheVoid</defName>
+    <eventLabel>拥抱虚空</eventLabel>
+    <affDelta>3</affDelta>
+    <trustDelta>2</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>VoidCuriositySatisfied</defName>
+    <eventLabel>满足对虚空的好奇</eventLabel>
+    <affDelta>4</affDelta>
+    <trustDelta>3</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>HeardInhumanRambling</defName>
+    <eventLabel>滔滔不绝</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-4</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>MutatedMyArm</defName>
+    <eventLabel>我的手臂突变</eventLabel>
+    <affDelta>-6</affDelta>
+    <trustDelta>-8</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PlayedWithCube</defName>
+    <eventLabel>魔方之愉</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>1</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PsychicRitualGuilt</defName>
+    <eventLabel>{RITUAL}后愧疚</eventLabel>
+    <affDelta>-5</affDelta>
+    <trustDelta>-6</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>PsychicRitualVictim</defName>
+    <eventLabel>心灵仪式受害者</eventLabel>
+    <affDelta>-8</affDelta>
+    <trustDelta>-12</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>VoidCatharsis</defName>
+    <eventLabel>心无杂念</eventLabel>
+    <affDelta>4</affDelta>
+    <trustDelta>3</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>VoidClosed</defName>
+    <eventLabel>虚空已关闭</eventLabel>
+    <affDelta>5</affDelta>
+    <trustDelta>5</trustDelta>
+  </StellarisDaughter.AIEventResponseDef>
+
+  
+  <StellarisDaughter.AIEventResponseDef>
+    <defName>VoidCuriosity</defName>
+    <eventLabel>探虚问奇</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
 </Defs>

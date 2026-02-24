@@ -238,6 +238,7 @@
 
     <comps>
       <li Class="StellarisDaughter.CompProperties_AIUpbringing" />
+      <li Class="StellarisDaughter.CompProperties_AllSkillsMinorPassion" />
       <li MayRequire="Nals.FacialAnimation">
         <compClass>FacialAnimation.DrawFaceGraphicsComp</compClass>
       </li>

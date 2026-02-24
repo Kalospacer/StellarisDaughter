@@ -16,6 +16,8 @@ namespace StellarisDaughter
         // 特性
         [MayRequire("Tourswen.StellarisDaughter")]
         public static TraitDef SD_Curious;
+        [MayRequire("Tourswen.StellarisDaughter")]
+        public static TraitDef SD_MemoryCore;
 
         static SD_DefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(SD_DefOf));
     }

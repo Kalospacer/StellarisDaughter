@@ -24,6 +24,12 @@
     <fixedAdultBackstories>
       <li>SD_Daughter_Adulthood_Bond</li>
     </fixedAdultBackstories>
+    <forcedTraits>
+      <li>
+        <def>SD_MemoryCore</def>
+        <degree>0</degree>
+      </li>
+    </forcedTraits>
     <forcedHairColor>(255,255,255,255)</forcedHairColor>
     <xenotypeSet>
       <xenotypeChances>
@@ -47,6 +53,11 @@
       <li>SD_StellarUniform</li>
       <li>SD_StellarCloak</li>
     </apparelRequired>
+    <startingHediffs>
+      <li>
+        <def>SD_Hediff_HairBackSouthRender</def>
+      </li>
+    </startingHediffs>
     <weaponMoney>0</weaponMoney>
   </PawnKindDef>
 </Defs>

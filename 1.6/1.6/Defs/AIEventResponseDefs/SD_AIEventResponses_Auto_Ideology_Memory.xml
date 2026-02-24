@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   
   
@@ -6,129 +6,129 @@
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BiosculpterPleasure</defName>
-    <eventLabel>biosculpter pleasure cycle</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>2.0</trustDelta>
+    <eventLabel>生物雕塑愉悦循环</eventLabel>
+    <affDelta>5</affDelta>
+    <trustDelta>4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ConnectedTreeDied</defName>
-    <eventLabel>Gauranlen death</eventLabel>
-    <affDelta>-4.0</affDelta>
-    <trustDelta>-4.0</trustDelta>
+    <eventLabel>高岚树死亡</eventLabel>
+    <affDelta>-8</affDelta>
+    <trustDelta>-10</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DryadDied</defName>
-    <eventLabel>dryad died</eventLabel>
-    <affDelta>-3.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <eventLabel>树灵死亡</eventLabel>
+    <affDelta>-5</affDelta>
+    <trustDelta>-6</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>RelicsCollected</defName>
-    <eventLabel>all relics collected</eventLabel>
-    <affDelta>2.0</affDelta>
-    <trustDelta>2.0</trustDelta>
+    <eventLabel>收集了所有圣物</eventLabel>
+    <affDelta>6</affDelta>
+    <trustDelta>6</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>SleptInRoomWithSlave</defName>
-    <eventLabel>shared room with slave</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <eventLabel>与奴隶共用房间</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>WasEnslaved</defName>
-    <eventLabel>was enslaved</eventLabel>
-    <affDelta>-12.0</affDelta>
-    <trustDelta>-20.0</trustDelta>
+    <eventLabel>被奴役</eventLabel>
+    <affDelta>-10</affDelta>
+    <trustDelta>-14</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>CounselFailed</defName>
-    <eventLabel>failed consolation by</eventLabel>
-    <affDelta>-2.0</affDelta>
-    <trustDelta>-3.0</trustDelta>
+    <eventLabel>安慰失败</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Counselled</defName>
-    <eventLabel>counselled by</eventLabel>
-    <affDelta>2.0</affDelta>
-    <trustDelta>3.0</trustDelta>
+    <eventLabel>被安慰</eventLabel>
+    <affDelta>4</affDelta>
+    <trustDelta>5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Counselled_MoodBoost</defName>
-    <eventLabel>counselled by</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <eventLabel>被安慰</eventLabel>
+    <affDelta>3</affDelta>
+    <trustDelta>4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>FailedConvertAbilityInitiator</defName>
-    <eventLabel>failed to convert</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>改信失败</eventLabel>
+    <affDelta>-4</affDelta>
+    <trustDelta>-5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>FailedConvertAbilityRecipient</defName>
-    <eventLabel>tried to convert me</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <eventLabel>试图改变我的信仰</eventLabel>
+    <affDelta>-4</affDelta>
+    <trustDelta>-6</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>TendedByMedicalSpecialist</defName>
-    <eventLabel>tended by</eventLabel>
-    <affDelta>4.0</affDelta>
-    <trustDelta>7.0</trustDelta>
+    <eventLabel>被治疗</eventLabel>
+    <affDelta>5</affDelta>
+    <trustDelta>6</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>WillDiminished</defName>
-    <eventLabel>will diminished</eventLabel>
-    <affDelta>-2.0</affDelta>
-    <trustDelta>-4.0</trustDelta>
+    <eventLabel>意志被削弱</eventLabel>
+    <affDelta>-6</affDelta>
+    <trustDelta>-8</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ObservedGibbetCage</defName>
-    <eventLabel>observed gibbet cage</eventLabel>
-    <affDelta>-3.0</affDelta>
-    <trustDelta>-5.0</trustDelta>
+    <eventLabel>看到了绞刑笼</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ObservedSkullspike</defName>
-    <eventLabel>observed skullspike</eventLabel>
-    <affDelta>-2.0</affDelta>
-    <trustDelta>-4.0</trustDelta>
+    <eventLabel>看到了骷髅尖刺</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ObservedTerror</defName>
     <eventLabel>{THING_label}</eventLabel>
-    <affDelta>-4.0</affDelta>
-    <trustDelta>-7.0</trustDelta>
+    <affDelta>-3</affDelta>
+    <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
 </Defs>

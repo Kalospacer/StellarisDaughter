@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   
   
@@ -6,361 +6,361 @@
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MoodOffsetHappy</defName>
-    <eventLabel>genetic optimism</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>基因乐观</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MoodOffsetUnhappy</defName>
-    <eventLabel>genetic pessimism</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>基因悲观</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MoodOffsetVeryHappy</defName>
-    <eventLabel>genetic joy</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>基因喜悦</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MoodOffsetVeryUnhappy</defName>
-    <eventLabel>genetic depression</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>基因抑郁</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeedLearning</defName>
-    <eventLabel>learning-starved</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <eventLabel>学习匮乏</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeedPlay</defName>
-    <eventLabel>desperately wants to play</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <eventLabel>迫切地想要玩</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BabyCriedSocial</defName>
-    <eventLabel>cried</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-0.5</trustDelta>
+    <eventLabel>哭泣</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BabyGiggledSocial</defName>
-    <eventLabel>giggled</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.5</trustDelta>
+    <eventLabel>咯咯笑</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BreastfedBaby</defName>
-    <eventLabel>breastfed</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <eventLabel>母乳喂养</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BreastfedMe</defName>
-    <eventLabel>breastfed me</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>1.5</trustDelta>
+    <eventLabel>给我母乳喂养</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>FedBaby</defName>
-    <eventLabel>fed</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <eventLabel>喂食</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>FedMe</defName>
-    <eventLabel>fed me</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>1.5</trustDelta>
+    <eventLabel>喂给我食物</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>KilledChild_Opinion</defName>
-    <eventLabel>killed a child</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <eventLabel>杀害了孩子</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PlayedWithMe</defName>
-    <eventLabel>played with me</eventLabel>
-    <affDelta>1.0</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <eventLabel>和我玩耍</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PsychicBond</defName>
-    <eventLabel>psychic bond</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>心灵纽带</eventLabel>
+    <affDelta>3</affDelta>
+    <trustDelta>3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BloodTorch</defName>
-    <eventLabel>blood torch</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>血光火把</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ChildlikePositivity</defName>
-    <eventLabel>childlike joy</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>纯真的快乐</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DeathrestChamber</defName>
-    <eventLabel>deathrested outside</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>在外面死眠</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DeathrestExhaustion</defName>
-    <eventLabel>deathrest exhaustion</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>死眠衰竭症</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>HateAura</defName>
-    <eventLabel>apocriton hatred (intense)</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>憎恶毒蜂仇恨</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>HemogenCraving</defName>
-    <eventLabel>hemogen craving</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>血原质渴求</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>KillThirst</defName>
-    <eventLabel>kill thirst</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>杀戮渴望</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>NoxiousHaze</defName>
-    <eventLabel>acidic smog</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>酸雾弥漫</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PregnancyAttitude</defName>
-    <eventLabel>new pregnancy</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>孕育新生命</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PregnancyMood_Collapse</defName>
-    <eventLabel>pregnancy mood collapse</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>怀孕心情崩溃</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PregnancyMood_Down</defName>
-    <eventLabel>pregnancy mood down</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>怀孕心情低落</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PregnancyMood_High</defName>
-    <eventLabel>pregnancy mood high</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>怀孕心情高涨</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PregnancyMood_Up</defName>
-    <eventLabel>pregnancy mood up</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>怀孕心情提升</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PsychicBondProximity</defName>
-    <eventLabel>psychic bond</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>心灵纽带（距离）</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Recluse</defName>
-    <eventLabel>recluse alone</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>独处（隐居者）</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ScanningSickness</defName>
-    <eventLabel>scanning sickness</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>扫描后遗症</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>SunlightSensitivity_Major</defName>
-    <eventLabel>sunlight sensitivity</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>日光过敏（严重）</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>SunlightSensitivity_Mild</defName>
-    <eventLabel>sunlight sensitivity</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>日光过敏</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>BabySick</defName>
-    <eventLabel>my baby {BABY_nameDef} is sick</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-1.5</trustDelta>
+    <eventLabel>我的婴儿生病了</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ChildInGrowthVat</defName>
-    <eventLabel>my child is in a growth vat</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-2.0</trustDelta>
+    <eventLabel>我的孩子在培育舱里</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>CribQuality</defName>
-    <eventLabel>good crib</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>1.0</trustDelta>
+    <eventLabel>良好的婴儿床</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>EnslavedChild</defName>
-    <eventLabel>enslaved child</eventLabel>
-    <affDelta>-1.5</affDelta>
-    <trustDelta>-3.0</trustDelta>
+    <eventLabel>被奴役的儿童</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyChildHappy</defName>
-    <eventLabel>my child {CHILD_nameDef} is happy</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.5</trustDelta>
+    <eventLabel>我的孩子很开心</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyChildSad</defName>
-    <eventLabel>my child {CHILD_nameDef} is unhappy</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-0.5</trustDelta>
+    <eventLabel>我的孩子不开心</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyChildrenHappy</defName>
-    <eventLabel>my children are happy</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.5</trustDelta>
+    <eventLabel>我的孩子们很开心</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyChildrenSad</defName>
-    <eventLabel>my children are unhappy</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-0.5</trustDelta>
+    <eventLabel>我的孩子们不开心</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyParentHappy</defName>
-    <eventLabel>parent is happy</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.5</trustDelta>
+    <eventLabel>父母很开心</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyParentsHappy</defName>
-    <eventLabel>parents are happy</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.5</trustDelta>
+    <eventLabel>父母都很开心</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>YoungstersHappy</defName>
-    <eventLabel>happy youngsters</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.5</trustDelta>
+    <eventLabel>年轻人们很快乐</eventLabel>
+    <affDelta>1</affDelta>
+    <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>YoungstersSad</defName>
-    <eventLabel>sad youngsters</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-0.5</trustDelta>
+    <eventLabel>年轻人们很悲伤</eventLabel>
+    <affDelta>-1</affDelta>
+    <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
 </Defs>

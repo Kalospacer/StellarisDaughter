@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   
   
@@ -6,65 +6,65 @@
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ListeningToHarp</defName>
-    <eventLabel>listening to harp</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.5</trustDelta>
+    <eventLabel>聆听竖琴</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ListeningToHarpsichord</defName>
-    <eventLabel>listening to harpsichord</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.5</trustDelta>
+    <eventLabel>聆听大键琴</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>ListeningToPiano</defName>
-    <eventLabel>listening to piano</eventLabel>
-    <affDelta>0.5</affDelta>
-    <trustDelta>0.5</trustDelta>
+    <eventLabel>聆听钢琴</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>AnimaScream</defName>
-    <eventLabel>anima scream</eventLabel>
-    <affDelta>-1.0</affDelta>
-    <trustDelta>-1.5</trustDelta>
+    <eventLabel>心灵尖叫</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>DecreeUnmet</defName>
-    <eventLabel>decree ignored</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <eventLabel>法令被忽视</eventLabel>
+    <affDelta>-2</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>Joyfuzz</defName>
-    <eventLabel>joyfuzz</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>欢愉模糊</eventLabel>
+    <affDelta>2</affDelta>
+    <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PsychicEntropyOverloaded</defName>
-    <eventLabel>minor psychic breakdown</eventLabel>
-    <affDelta>-0.5</affDelta>
-    <trustDelta>-1.0</trustDelta>
+    <eventLabel>轻微心灵崩溃</eventLabel>
+    <affDelta>-3</affDelta>
+    <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
   
   <StellarisDaughter.AIEventResponseDef>
     <defName>PsychicLove</defName>
-    <eventLabel>psychic love</eventLabel>
-    <affDelta>0.0</affDelta>
-    <trustDelta>0.0</trustDelta>
+    <eventLabel>心灵之爱</eventLabel>
+    <affDelta>3</affDelta>
+    <trustDelta>3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
 </Defs>
