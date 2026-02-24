@@ -8,7 +8,7 @@
     <visible>true</visible>
     <developmentalStage>Child</developmentalStage>
     <workerClass>StellarisDaughter.LifeStageWorker_AI_Childhood</workerClass>
-    <bodySizeFactor>0.47</bodySizeFactor>
+    <bodySizeFactor>1.0</bodySizeFactor>
     <healthScaleFactor>0.68</healthScaleFactor>
     <hungerRateFactor>0.5</hungerRateFactor>
     <marketValueFactor>0.5</marketValueFactor>
@@ -37,7 +37,7 @@
     <visible>true</visible>
     <developmentalStage>Child</developmentalStage>
     <workerClass>StellarisDaughter.LifeStageWorker_AI_Youth</workerClass>
-    <bodySizeFactor>0.75</bodySizeFactor>
+    <bodySizeFactor>1.0</bodySizeFactor>
     <healthScaleFactor>0.85</healthScaleFactor>
     <hungerRateFactor>0.8</hungerRateFactor>
     <marketValueFactor>0.8</marketValueFactor>

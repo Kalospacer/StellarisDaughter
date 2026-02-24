@@ -58,4 +58,42 @@
       </li>
     </stages>
   </HediffDef>
+  <HediffDef>
+    <defName>SD_Hediff_StellarCloak_BackSouth</defName>
+    <label>stellar cloak back render</label>
+    <description>Render helper for the stellar cloak back layer.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.6, 0.4, 0.8)</defaultLabelColor>
+    <stages>
+      <li>
+        <becomeVisible>true</becomeVisible>
+        <minSeverity>0</minSeverity>
+      </li>
+    </stages>
+    <renderNodeProperties>
+      <li>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <texPath>StellarisDaughter/Things/SD/Clothes/SD_Cloak_Behind_Thin_south</texPath>
+        <parentTagDef>Body</parentTagDef>
+        <useSkinShader>false</useSkinShader>
+        <useRottenColor>false</useRottenColor>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <visibleFacing>
+          <li>South</li>
+        </visibleFacing>
+        <drawData>
+          <dataEast><layer>-99999</layer></dataEast>
+          <dataWest><layer>-99999</layer></dataWest>
+          <dataNorth><layer>-99999</layer></dataNorth>
+          <dataSouth>
+            <layer>-10</layer>
+            <offset>(0, 0, 0)</offset>
+          </dataSouth>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <comps>
+      <li Class="HediffCompProperties_RemoveIfApparelDropped" />
+    </comps>
+  </HediffDef>
 </Defs>
