@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ✨ 沐雪写的哦~ -->
+  <!-- 语音事件类型定义 — 新增事件 hook 只需追加一个 VoiceEventDef -->
+
+  <StellarisDaughter.VoiceEventDef>
+    <defName>SD_VoiceEvent_Selected</defName>
+    <label>选中</label>
+    <description>pawn 被玩家选中时触发</description>
+  </StellarisDaughter.VoiceEventDef>
+
+  <StellarisDaughter.VoiceEventDef>
+    <defName>SD_VoiceEvent_Drafted</defName>
+    <label>征召</label>
+    <description>pawn 被征召时触发</description>
+  </StellarisDaughter.VoiceEventDef>
+
+  <StellarisDaughter.VoiceEventDef>
+    <defName>SD_VoiceEvent_MoveOrder</defName>
+    <label>移动指令</label>
+    <description>征召状态下玩家下达移动指令时触发</description>
+  </StellarisDaughter.VoiceEventDef>
+
+  <StellarisDaughter.VoiceEventDef>
+    <defName>SD_VoiceEvent_AttackOrder</defName>
+    <label>攻击指令</label>
+    <description>征召状态下玩家下达攻击指令时触发</description>
+  </StellarisDaughter.VoiceEventDef>
+
+  <StellarisDaughter.VoiceEventDef>
+    <defName>SD_VoiceEvent_SpamClick</defName>
+    <label>连点彩蛋</label>
+    <description>快速连续点击 pawn 超过阈值时触发</description>
+  </StellarisDaughter.VoiceEventDef>
+
+</Defs>

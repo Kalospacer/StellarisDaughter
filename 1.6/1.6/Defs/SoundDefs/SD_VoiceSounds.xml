@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ✨ 沐雪写的哦~ -->
+  <!-- 星规语音 SoundDefs — 每个 SoundDef 对应一个音频文件夹 (AudioGrain_Folder) -->
+  <!-- 往文件夹里丢入 .wav 或 .ogg 文件即可，引擎自动随机播放 -->
+
+  <!-- ===================== 选中 ===================== -->
+
+  <SoundDef>
+    <defName>SD_Voice_Select_Normal</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Selected/Normal</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SD_Voice_Select_MinorBreak</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Selected/MinorBreak</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SD_Voice_Select_MajorBreak</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Selected/MajorBreak</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SD_Voice_Select_ExtremeBreak</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Selected/ExtremeBreak</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- ===================== 征召 ===================== -->
+
+  <SoundDef>
+    <defName>SD_Voice_Draft_Normal</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Drafted/Normal</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SD_Voice_Draft_ExpensiveWeapon</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Drafted/ExpensiveWeapon</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SD_Voice_Draft_Injured</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Drafted/Injured</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- ===================== 移动 ===================== -->
+
+  <SoundDef>
+    <defName>SD_Voice_Move_Normal</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Move/Normal</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SD_Voice_Move_Injured</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Move/Injured</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- ===================== 攻击 ===================== -->
+
+  <SoundDef>
+    <defName>SD_Voice_Attack_Normal</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Attack/Normal</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SD_Voice_Attack_Human</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Attack/Human</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SD_Voice_Attack_Mechanoid</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Attack/Mechanoid</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>SD_Voice_Attack_Injured</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/Attack/Injured</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- ===================== 彩蛋 ===================== -->
+
+  <SoundDef>
+    <defName>SD_Voice_SpamClick</defName>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>StellarisDaughter/Sounds/Voice/SD_Daughter/SpamClick</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~30</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>

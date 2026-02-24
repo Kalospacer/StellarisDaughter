@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ✨ 沐雪写的哦~ -->
+  <!-- 语音条目 Defs — 将事件 + 条件 + 音效三者绑定 -->
+  <!-- priority 越高越优先匹配；相同 priority 按 XML 声明顺序 -->
+
+  <!-- ===================== 选中 ===================== -->
+
+  <!-- 重度崩溃风险 (priority 30) — 最优先 -->
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_Select_ExtremeBreak</defName>
+    <eventDef>SD_VoiceEvent_Selected</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_ExtremeBreakRisk</conditionWorkerClass>
+    <sound>SD_Voice_Select_ExtremeBreak</sound>
+    <priority>30</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+  <!-- 中度崩溃风险 (priority 20) -->
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_Select_MajorBreak</defName>
+    <eventDef>SD_VoiceEvent_Selected</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_MajorBreakRisk</conditionWorkerClass>
+    <sound>SD_Voice_Select_MajorBreak</sound>
+    <priority>20</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+  <!-- 轻度崩溃风险 (priority 10) -->
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_Select_MinorBreak</defName>
+    <eventDef>SD_VoiceEvent_Selected</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_MinorBreakRisk</conditionWorkerClass>
+    <sound>SD_Voice_Select_MinorBreak</sound>
+    <priority>10</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+  <!-- 常规（兜底, priority 0） -->
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_Select_Normal</defName>
+    <eventDef>SD_VoiceEvent_Selected</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_Always</conditionWorkerClass>
+    <sound>SD_Voice_Select_Normal</sound>
+    <priority>0</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+  <!-- ===================== 征召 ===================== -->
+
+  <!-- 持有昂贵武器 (priority 20) -->
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_Draft_ExpensiveWeapon</defName>
+    <eventDef>SD_VoiceEvent_Drafted</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_HasExpensiveWeapon</conditionWorkerClass>
+    <sound>SD_Voice_Draft_ExpensiveWeapon</sound>
+    <priority>20</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+  <!-- 受伤状态 (priority 10) -->
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_Draft_Injured</defName>
+    <eventDef>SD_VoiceEvent_Drafted</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_Injured</conditionWorkerClass>
+    <sound>SD_Voice_Draft_Injured</sound>
+    <priority>10</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+  <!-- 常规 -->
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_Draft_Normal</defName>
+    <eventDef>SD_VoiceEvent_Drafted</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_Always</conditionWorkerClass>
+    <sound>SD_Voice_Draft_Normal</sound>
+    <priority>0</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+  <!-- ===================== 移动 ===================== -->
+
+  <!-- 受伤状态 (priority 10) -->
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_Move_Injured</defName>
+    <eventDef>SD_VoiceEvent_MoveOrder</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_Injured</conditionWorkerClass>
+    <sound>SD_Voice_Move_Injured</sound>
+    <priority>10</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+  <!-- 常规 -->
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_Move_Normal</defName>
+    <eventDef>SD_VoiceEvent_MoveOrder</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_Always</conditionWorkerClass>
+    <sound>SD_Voice_Move_Normal</sound>
+    <priority>0</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+  <!-- ===================== 攻击 ===================== -->
+
+  <!-- 受伤 (priority 15) — 比目标类型稍高 -->
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_Attack_Injured</defName>
+    <eventDef>SD_VoiceEvent_AttackOrder</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_Injured</conditionWorkerClass>
+    <sound>SD_Voice_Attack_Injured</sound>
+    <priority>15</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+  <!-- 对人类 (priority 10) -->
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_Attack_Human</defName>
+    <eventDef>SD_VoiceEvent_AttackOrder</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_TargetHuman</conditionWorkerClass>
+    <sound>SD_Voice_Attack_Human</sound>
+    <priority>10</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+  <!-- 对机械体 (priority 10) -->
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_Attack_Mechanoid</defName>
+    <eventDef>SD_VoiceEvent_AttackOrder</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_TargetMechanoid</conditionWorkerClass>
+    <sound>SD_Voice_Attack_Mechanoid</sound>
+    <priority>10</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+  <!-- 常规 -->
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_Attack_Normal</defName>
+    <eventDef>SD_VoiceEvent_AttackOrder</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_Always</conditionWorkerClass>
+    <sound>SD_Voice_Attack_Normal</sound>
+    <priority>0</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+  <!-- ===================== 彩蛋 ===================== -->
+
+  <StellarisDaughter.VoiceLineDef>
+    <defName>SD_VL_SpamClick</defName>
+    <eventDef>SD_VoiceEvent_SpamClick</eventDef>
+    <conditionWorkerClass>StellarisDaughter.VoiceConditionWorker_Always</conditionWorkerClass>
+    <sound>SD_Voice_SpamClick</sound>
+    <priority>0</priority>
+  </StellarisDaughter.VoiceLineDef>
+
+</Defs>

@@ -239,6 +239,9 @@
     <comps>
       <li Class="StellarisDaughter.CompProperties_AIUpbringing" />
       <li Class="StellarisDaughter.CompProperties_AllSkillsMinorPassion" />
+      <li Class="StellarisDaughter.CompProperties_UnitVoice">
+        <voicePack>SD_VoicePack_Daughter</voicePack>
+      </li>
       <li MayRequire="Nals.FacialAnimation">
         <compClass>FacialAnimation.DrawFaceGraphicsComp</compClass>
       </li>

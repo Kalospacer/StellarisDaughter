@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ✨ 沐雪写的哦~ -->
+  <!-- 星规语音包 — 聚合所有 VoiceLineDef，挂载在 CompProperties_UnitVoice 中 -->
+
+  <StellarisDaughter.UnitVoicePackDef>
+    <defName>SD_VoicePack_Daughter</defName>
+    <label>星规语音包</label>
+    <description>星规子单元的 RTS 式单位语音。</description>
+
+    <cooldownSeconds>2.5</cooldownSeconds>
+    <spamClickCount>5</spamClickCount>
+    <spamClickWindowSeconds>3</spamClickWindowSeconds>
+
+    <voiceLines>
+      <!-- 选中 -->
+      <li>SD_VL_Select_ExtremeBreak</li>
+      <li>SD_VL_Select_MajorBreak</li>
+      <li>SD_VL_Select_MinorBreak</li>
+      <li>SD_VL_Select_Normal</li>
+      <!-- 征召 -->
+      <li>SD_VL_Draft_ExpensiveWeapon</li>
+      <li>SD_VL_Draft_Injured</li>
+      <li>SD_VL_Draft_Normal</li>
+      <!-- 移动 -->
+      <li>SD_VL_Move_Injured</li>
+      <li>SD_VL_Move_Normal</li>
+      <!-- 攻击 -->
+      <li>SD_VL_Attack_Injured</li>
+      <li>SD_VL_Attack_Human</li>
+      <li>SD_VL_Attack_Mechanoid</li>
+      <li>SD_VL_Attack_Normal</li>
+      <!-- 彩蛋 -->
+      <li>SD_VL_SpamClick</li>
+    </voiceLines>
+  </StellarisDaughter.UnitVoicePackDef>
+
+</Defs>
