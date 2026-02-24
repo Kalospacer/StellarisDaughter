@@ -2,11 +2,13 @@
 <Defs>
   <PawnKindDef>
     <defName>SD_AI_Daughter</defName>
-    <label>星规之女</label>
+    <label>星规子单元</label>
     <race>SD_AI_Daughter_Race</race>
     <fixedGender>Female</fixedGender>
-    <defaultFactionType>PlayerColony</defaultFactionType>      <minGenerationAge>0</minGenerationAge>
-      <maxGenerationAge>0</maxGenerationAge>    <invNutrition>0</invNutrition>
+    <defaultFactionType>PlayerColony</defaultFactionType>
+    <minGenerationAge>0</minGenerationAge>
+    <maxGenerationAge>18</maxGenerationAge>
+    <invNutrition>0</invNutrition>
     <combatPower>80</combatPower>
     <isFighter>true</isFighter>
     <trader>false</trader>
@@ -41,6 +43,10 @@
     <useFactionXenotypes>false</useFactionXenotypes>
     <humanPregnancyChance>0</humanPregnancyChance>
     <apparelMoney>0</apparelMoney>
+    <apparelRequired>
+      <li>SD_StellarUniform</li>
+      <li>SD_StellarCloak</li>
+    </apparelRequired>
     <weaponMoney>0</weaponMoney>
   </PawnKindDef>
 </Defs>
