@@ -6,7 +6,7 @@
     <label>童年期</label>
     <adjective>童年</adjective>
     <visible>true</visible>
-    <developmentalStage>Child</developmentalStage>
+    <developmentalStage>Adult</developmentalStage>
     <workerClass>StellarisDaughter.LifeStageWorker_AI_Childhood</workerClass>
     <bodySizeFactor>1.0</bodySizeFactor>
     <healthScaleFactor>0.68</healthScaleFactor>
@@ -35,7 +35,7 @@
     <label>青年懵懂期</label>
     <adjective>懵懂</adjective>
     <visible>true</visible>
-    <developmentalStage>Child</developmentalStage>
+    <developmentalStage>Adult</developmentalStage>
     <workerClass>StellarisDaughter.LifeStageWorker_AI_Youth</workerClass>
     <bodySizeFactor>1.0</bodySizeFactor>
     <healthScaleFactor>0.85</healthScaleFactor>

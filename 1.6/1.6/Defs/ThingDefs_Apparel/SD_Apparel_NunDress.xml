@@ -44,6 +44,9 @@
 				<li>Arms</li>
 				<li>Legs</li>
 			</bodyPartGroups>
+      <renderSkipFlags>
+        <li>None</li>
+      </renderSkipFlags>
       <wornGraphicPath>StellarisDaughter/Things/SD/Clothes/SD_Cloth</wornGraphicPath>
       <layers>
         <li>OnSkin</li>
@@ -104,13 +107,13 @@
 		</equippedStatOffsets>
     <apparel>
       <bodyPartGroups>
-        <li>FullHead</li>
-				<li>Neck</li>
 				<li>Torso</li>
 				<li>Shoulders</li>
 				<li>Arms</li>
-				<li>Legs</li>
 			</bodyPartGroups>
+      <renderSkipFlags>
+        <li>None</li>
+      </renderSkipFlags>
       <wornGraphicPath>StellarisDaughter/Things/SD/Clothes/SD_Cloak</wornGraphicPath>
       <layers>
         <li>Shell</li>
