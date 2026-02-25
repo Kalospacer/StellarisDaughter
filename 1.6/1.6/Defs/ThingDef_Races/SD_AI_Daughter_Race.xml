@@ -8,10 +8,19 @@
 
     <alienRace>
       <generalSettings>
+        <!-- 男性生成几率 -->
         <maleGenderProbability>0</maleGenderProbability>
+        <!-- 无视年龄疾病 -->
+        <immuneToAge>true</immuneToAge>
+				<!-- 在口角中造成的最大伤害 -->
+        <maxDamageForSocialfight>6</maxDamageForSocialfight>
+        <!-- 免疫人类的异形歧视 -->
         <immuneToXenophobia>true</immuneToXenophobia>
-        <minAgeForAdulthood>15</minAgeForAdulthood>
+        <!-- 最小的可生成成人背景的年龄 -->
+        <minAgeForAdulthood>17</minAgeForAdulthood>
+        <!-- 手术继承自人类 -->
         <humanRecipeImport>true</humanRecipeImport>
+        <!-- 睡觉定义 -->
         <canLayDown>true</canLayDown>
         <alienPartGenerator Inherit="False">
           <headTypes Inherit="False">
@@ -42,7 +51,9 @@
               </first>
             </li>
           </colorChannels>
+          <!-- 额外身体部件 -->
           <bodyAddons />
+          <!-- 头部偏移 -->
           <headOffsetDirectional>
             <north>
               <offset>(0.0, -0.35)</offset>
@@ -61,6 +72,7 @@
         <growthAges>
           <li>0</li>
         </growthAges>
+        <!-- 年龄工作效率等的覆盖 -->
         <ageStatOverrides>
           <WorkSpeedGlobal>
             <useBiologicalYears>true</useBiologicalYears>
@@ -111,6 +123,7 @@
             </curve>
           </ArrestSuccessChance>
         </ageStatOverrides>
+        <!-- 生育设置，将妊娠设为男性来避免开局刷妊娠 -->
         <reproduction>
           <gestatingGender>Male</gestatingGender>
           <femaleFertilityAgeFactor>
@@ -129,19 +142,22 @@
             <li>(12,0.5)</li>
           </points>
         </growthFactorByAge>
+        <!-- 额外特质 -->
+        <additionalTraits>1</additionalTraits>
       </generalSettings>
 
+      <!-- 图形 -->
       <graphicPaths>
         <skinColor>(1,1,1,1)</skinColor>
         <skinShader>Cutout</skinShader>
         <body>StellarisDaughter/Things/SD/Bodies/</body>
-        <head>
-          <path>StellarisDaughter/Things/SD/Heads/</path>
-        </head>
+        <head>StellarisDaughter/Things/SD/Heads/</head>
         <skeleton>Things/Pawn/Humanlike/Bodies/Dessicated/Dessicated_Thin</skeleton>
       </graphicPaths>
 
+      <!-- 风格设置 -->
       <styleSettings>
+      <!-- 头发 -->
         <li>
           <key>HairDef</key>
           <value>
@@ -151,12 +167,14 @@
             </styleTagsOverride>
           </value>
         </li>
+        <!-- 纹身 -->
         <li>
           <key>TattooDef</key>
           <value>
             <hasStyle>false</hasStyle>
           </value>
         </li>
+        <!-- 胡须 -->
         <li>
           <key>BeardDef</key>
           <value>
@@ -164,7 +182,7 @@
           </value>
         </li>
       </styleSettings>
-
+      <!-- 种族的允许和禁止特化设置 -->
       <raceRestriction>
         <blackEndoCategories MayRequire="Ludeon.RimWorld.Biotech">
           <li MayRequire="Ludeon.RimWorld.Biotech">HairColor</li>
@@ -203,15 +221,16 @@
           <li MayRequire="Ludeon.RimWorld.Biotech">Baseliner</li>
         </whiteXenotypeList>
         <onlyUseRaceRestrictedXenotypes>false</onlyUseRaceRestrictedXenotypes>
+        <!-- 可以穿戴的衣服 -->
+        <apparelList>
+          <li>SD_StellarUniform</li>
+          <li>SD_StellarCloak</li>
+        </apparelList>
         <blackTraitList>
-          <li>BodyPurist</li>
-          <li>Cannibal</li>
-          <li>DislikesWomen</li>
-          <li>Gourmand</li>
-          <li>Wimp</li>
-          <li>DrugDesire</li>
-          <li>Pyromaniac</li>
         </blackTraitList>
+        <!-- 生育能力 -->
+        <onlyReproduceWithRestrictedRaces>true</onlyReproduceWithRestrictedRaces>
+        <canReproduce>false</canReproduce>
       </raceRestriction>
 
       <relationSettings>
@@ -224,17 +243,52 @@
         <relationChanceModifierChild>0</relationChanceModifierChild>
         <relationChanceModifierSibling>0</relationChanceModifierSibling>
       </relationSettings>
+
+      <!-- 兼容性标签，非必要 -->
+      <compatibility>
+        <isFlesh>false</isFlesh>
+      </compatibility>
     </alienRace>
 
+    <!-- 以下是原版标签 -->
+    <!-- 受击音效 -->
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+
     <statBases>
-      <EatingSpeed>5</EatingSpeed>
-      <MaxNutrition>2</MaxNutrition>
-      <MarketValue>3000</MarketValue>
-      <IncomingDamageFactor>0.1</IncomingDamageFactor>
-      <PainShockThreshold>0.85</PainShockThreshold>
-      <PsychicSensitivity>1.5</PsychicSensitivity>
-      <MentalBreakThreshold>0</MentalBreakThreshold>
-      <Flammability>1.1</Flammability>
+      <WorkToMake>7200</WorkToMake>
+      <MarketValue>10000</MarketValue>
+      <Mass>50</Mass>
+      <MoveSpeed>4</MoveSpeed>
+      <EatingSpeed>1000</EatingSpeed>
+      <!-- 温度适应性，在hediff修改 -->
+      <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+      <ComfyTemperatureMax>250</ComfyTemperatureMax>
+      <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
+      <ToxicResistance>1</ToxicResistance>
+      <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
+      <!-- 心灵敏感，很低 -->
+      <PsychicSensitivity>1</PsychicSensitivity>
+      <!-- 肉量 -->
+      <MeatAmount>10</MeatAmount>
+      <!-- 皮革量 -->
+      <LeatherAmount>0</LeatherAmount>
+      <!-- 谈判能力 -->
+      <NegotiationAbility>1</NegotiationAbility>
+      <!-- 社交效果 -->
+      <SocialImpact>1</SocialImpact>
+      <!-- 挖矿速度 -->
+      <MiningSpeed>1</MiningSpeed>
+      <!-- 采矿效率 -->
+      <MiningYield>1</MiningYield>
+      <!-- 种植速度 -->
+      <PlantWorkSpeed>1</PlantWorkSpeed>
+      <!-- 狩猎隐蔽 -->
+      <HuntingStealth>1</HuntingStealth>
+      <!-- 建造速度 -->
+      <ConstructionSpeed>1</ConstructionSpeed>
+      <ConstructSuccessChance>1</ConstructSuccessChance>
+      <!-- 研究速度 -->
+      <ResearchSpeed>1</ResearchSpeed>
     </statBases>
 
     <comps>
@@ -270,18 +324,25 @@
     </comps>
 
     <race>
+      <fleshType>SD_Fleshtype</fleshType>
       <intelligence>Humanlike</intelligence>
       <thinkTreeMain>Humanlike</thinkTreeMain>
       <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+      <!-- 血液，不流血 -->
+      <bloodDef>Filth_MachineBits</bloodDef>
       <hasGenders>true</hasGenders>
       <needsRest>true</needsRest>
       <foodType>OmnivoreHuman</foodType>
       <baseBodySize>1</baseBodySize>
-      <baseHealthScale>1</baseHealthScale>
-      <baseHungerRate>1</baseHungerRate>
+      <baseHealthScale>8</baseHealthScale>
+      <baseHungerRate>0</baseHungerRate>
       <lifeExpectancy>200</lifeExpectancy>
-      <leatherDef>Leather_Human</leatherDef>
+      <!-- 解剖产物 -->
+			<leatherDef>Steel</leatherDef>
+      <specificMeatDef>Steel</specificMeatDef>
       <nameCategory>HumanStandard</nameCategory>
+      <canBecomeShambler>false</canBecomeShambler>
+      <hasUnnaturalCorpse>false</hasUnnaturalCorpse>
       <lifeStageWorkSettings MayRequire="Ludeon.RimWorld.Biotech">
         <Firefighter>0</Firefighter>
         <Patient>0</Patient>
@@ -325,16 +386,21 @@
         </li>
       </lifeStageAges>
     </race>
+
+    <butcherProducts>
+      <Plasteel>200</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </butcherProducts>
   </AlienRace.ThingDef_AlienRace>
 
   <StyleItemCategoryDef>
     <defName>SD_Perlica_Style</defName>
-    <label>Star-Rail</label>
+    <label>StellarRegulator</label>
   </StyleItemCategoryDef>
 
   <HairDef>
     <defName>SD_Daughter_Hair</defName>
-    <label>Star-Rail Hair</label>
+    <label>StellarRegulator Hair</label>
     <hairGender>Female</hairGender>
     <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_Hair</texPath>
     <category>SD_Perlica_Style</category>

@@ -63,7 +63,7 @@
     <label>stellar cloak back render</label>
     <description>Render helper for the stellar cloak back layer.</description>
     <hediffClass>HediffWithComps</hediffClass>
-    <defaultLabelColor>(0.6, 0.4, 0.8)</defaultLabelColor>
+    <defaultLabelColor>(0, 0, 0)</defaultLabelColor>
     <stages>
       <li>
         <becomeVisible>true</becomeVisible>
@@ -117,7 +117,7 @@
         <useRottenColor>false</useRottenColor>
         <rotDrawMode>Fresh, Rotting</rotDrawMode>
         <visibleFacing>
-          <li>Nouth</li>
+          <li>North</li>
         </visibleFacing>
         <drawData>
           <dataNorth>

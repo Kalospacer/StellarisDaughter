@@ -14,6 +14,9 @@
       <li>Leathery</li>
       <li>Fabric</li>
     </stuffCategories>
+    <thingCategories>
+      <li>ApparelNoble</li>
+    </thingCategories>
     <costList>
       <Cloth>30</Cloth>
     </costList>
@@ -48,9 +51,6 @@
       <tags>
         <li>SD_StellarWear</li>
       </tags>
-      <defaultOutfitTags>
-        <li>Worker</li>
-      </defaultOutfitTags>
       <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
       <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
       <canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
@@ -91,7 +91,7 @@
       <li>Leathery</li>
     </stuffCategories>
     <thingCategories>
-      <li>ApparelMisc</li>
+      <li>ApparelNoble</li>
     </thingCategories>
     <statBases>
       <MaxHitPoints>200</MaxHitPoints>
@@ -124,11 +124,7 @@
       </drawData>
       <tags>
         <li>SD_StellarWear</li>
-        <li>IndustrialAdvanced</li>
       </tags>
-      <defaultOutfitTags>
-        <li>Worker</li>
-      </defaultOutfitTags>
       <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
       <useWornGraphicMask>true</useWornGraphicMask>
     </apparel>
