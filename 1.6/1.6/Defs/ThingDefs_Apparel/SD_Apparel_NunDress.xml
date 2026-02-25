@@ -2,47 +2,48 @@
 <Defs>
   <ThingDef ParentName="ApparelMakeableBase">
     <defName>SD_StellarUniform</defName>
-    <label>stellar uniform</label>
+    <label>星规-公式服</label>
     <description>A practical ceremonial dress adapted for field use. It offers modest protection and comfort, but remains cloth rather than true armor.</description>
     <graphicData>
       <texPath>StellarisDaughter/Things/SD/Clothes/SD_Cloth</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <costStuffCount>60</costStuffCount>
-    <stuffCategories>
-      <li>Leathery</li>
-      <li>Fabric</li>
-    </stuffCategories>
+    <generateCommonality>0.0001</generateCommonality>
+    <costStuffCount>0</costStuffCount>
+    <smeltable>false</smeltable>
+    <useHitPoints>false</useHitPoints>
+    <tradeTags Inherit="False"/>
+    <tradeability>None</tradeability>
+    <recipeMaker Inherit="False" IsNull="True"/>
     <thingCategories>
       <li>ApparelNoble</li>
     </thingCategories>
-    <costList>
-      <Cloth>30</Cloth>
-    </costList>
-    <techLevel>Industrial</techLevel>
+    <costList Inherit="False"/>
+    <techLevel>Spacer</techLevel>
     <statBases>
-      <MaxHitPoints>150</MaxHitPoints>
-      <WorkToMake>25000</WorkToMake>
-      <Mass>3</Mass>
-      <Flammability>1</Flammability>
-      <EquipDelay>1</EquipDelay>
-      <StuffEffectMultiplierArmor>0.25</StuffEffectMultiplierArmor>
-      <StuffEffectMultiplierInsulation_Cold>0.40</StuffEffectMultiplierInsulation_Cold>
-      <StuffEffectMultiplierInsulation_Heat>0.40</StuffEffectMultiplierInsulation_Heat>
-    </statBases>
+			<WorkToMake>25000</WorkToMake>
+			<Mass>0.5</Mass>
+			<Flammability>0</Flammability>
+			<EquipDelay>1</EquipDelay>
+      <DeteriorationRate>0</DeteriorationRate>
+
+      <ArmorRating_Blunt>1</ArmorRating_Blunt>
+      <ArmorRating_Sharp>1</ArmorRating_Sharp>
+      <ArmorRating_Heat>1</ArmorRating_Heat>
+		</statBases>
     <equippedStatOffsets>
-      <MedicalTendQuality>0.25</MedicalTendQuality>
-      <MentalBreakThreshold>-0.1</MentalBreakThreshold>
-    </equippedStatOffsets>
+      <IncomingDamageFactor>-0.5</IncomingDamageFactor>
+		</equippedStatOffsets>
     <apparel>
       <bodyPartGroups>
-        <li>Neck</li>
-        <li>Torso</li>
-        <li>Shoulders</li>
-        <li>Arms</li>
-        <li>Legs</li>
-      </bodyPartGroups>
+        <li>FullHead</li>
+				<li>Neck</li>
+				<li>Torso</li>
+				<li>Shoulders</li>
+				<li>Arms</li>
+				<li>Legs</li>
+			</bodyPartGroups>
       <wornGraphicPath>StellarisDaughter/Things/SD/Clothes/SD_Cloth</wornGraphicPath>
       <layers>
         <li>OnSkin</li>
@@ -64,68 +65,67 @@
         </li>
       </options>
     </colorGenerator>
-    <recipeMaker>
-      <researchPrerequisites>
-        <li>HighClassClothing</li>
-      </researchPrerequisites>
-    </recipeMaker>
   </ThingDef>
   <ThingDef ParentName="ApparelMakeableBase">
     <defName>SD_StellarCloak</defName>
-    <label>stellar cloak</label>
+    <label>星规-披风</label>
     <description>A shell-layer cloak worn over the AI nun dress. It adds weather protection and a ceremonial silhouette for field duty.</description>
-    <possessionCount>1</possessionCount>
-    <recipeMaker>
-      <researchPrerequisite>ComplexClothing</researchPrerequisite>
-      <displayPriority>215</displayPriority>
-    </recipeMaker>
     <graphicData>
       <texPath>StellarisDaughter/Things/SD/Clothes/SD_Cloak</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
       <drawSize>1.05</drawSize>
     </graphicData>
-    <costStuffCount>80</costStuffCount>
-    <stuffCategories>
-      <li>Fabric</li>
-      <li>Leathery</li>
-    </stuffCategories>
+    <generateCommonality>0.0001</generateCommonality>
+    <costStuffCount>0</costStuffCount>
+    <smeltable>false</smeltable>
+    <useHitPoints>false</useHitPoints>
+    <tradeTags Inherit="False"/>
+    <tradeability>None</tradeability>
+    <recipeMaker Inherit="False" IsNull="True"/>
     <thingCategories>
       <li>ApparelNoble</li>
     </thingCategories>
+    <costList Inherit="False"/>
+    <techLevel>Spacer</techLevel>
     <statBases>
-      <MaxHitPoints>200</MaxHitPoints>
-      <WorkToMake>10000</WorkToMake>
-      <Mass>2</Mass>
-      <StuffEffectMultiplierArmor>0.3</StuffEffectMultiplierArmor>
-      <StuffEffectMultiplierInsulation_Cold>0.60</StuffEffectMultiplierInsulation_Cold>
-      <StuffEffectMultiplierInsulation_Heat>0.85</StuffEffectMultiplierInsulation_Heat>
-      <EquipDelay>3</EquipDelay>
-    </statBases>
+			<WorkToMake>25000</WorkToMake>
+			<Mass>0.5</Mass>
+			<Flammability>0</Flammability>
+			<EquipDelay>1</EquipDelay>
+      <DeteriorationRate>0</DeteriorationRate>
+
+      <ArmorRating_Blunt>1</ArmorRating_Blunt>
+      <ArmorRating_Sharp>1</ArmorRating_Sharp>
+      <ArmorRating_Heat>1</ArmorRating_Heat>
+		</statBases>
     <equippedStatOffsets>
-      <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.05</SlaveSuppressionOffset>
-    </equippedStatOffsets>
+      <IncomingDamageFactor>-0.5</IncomingDamageFactor>
+		</equippedStatOffsets>
     <apparel>
       <bodyPartGroups>
-        <li>Torso</li>
-        <li>Neck</li>
-        <li>Shoulders</li>
-        <li>Arms</li>
-        <li>Legs</li>
-      </bodyPartGroups>
+        <li>FullHead</li>
+				<li>Neck</li>
+				<li>Torso</li>
+				<li>Shoulders</li>
+				<li>Arms</li>
+				<li>Legs</li>
+			</bodyPartGroups>
       <wornGraphicPath>StellarisDaughter/Things/SD/Clothes/SD_Cloak</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
+      <tags>
+        <li>SD_StellarWear</li>
+      </tags>
       <drawData>
         <dataNorth>
             <layer>50</layer>
           </dataNorth>
       </drawData>
-      <tags>
-        <li>SD_StellarWear</li>
-      </tags>
       <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+      <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+      <canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
       <useWornGraphicMask>true</useWornGraphicMask>
     </apparel>
     <colorGenerator Class="ColorGenerator_Options">
@@ -136,10 +136,7 @@
         </li>
       </options>
     </colorGenerator>
-    <tradeTags>
-      <li>BasicClothing</li>
-    </tradeTags>
-      <comps>
+    <comps>
       <li Class="CompProperties_CauseHediff_Apparel">
         <hediff>SD_Hediff_StellarCloak_BackSouth</hediff>
         <part>Torso</part>
