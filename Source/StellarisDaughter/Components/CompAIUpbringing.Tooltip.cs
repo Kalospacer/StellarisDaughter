@@ -32,11 +32,6 @@ namespace StellarisDaughter
             if (!hasEvents)
                 sb.AppendLine($"  {"SD_TipNoEvents".Translate()}");
 
-            sb.AppendLine();
-            sb.AppendLine("SD_TipPassive".Translate());
-            sb.AppendLine($"  {"自然陪伴",-12}{passiveNaturalAff:+0.0;-0.0;+0.0}");
-            sb.AppendLine($"  {"孤独衰减",-12}{passiveLonelyAff:+0.0;-0.0;+0.0}");
-
             return sb.ToString().TrimEndNewlines();
         }
 
@@ -60,13 +55,6 @@ namespace StellarisDaughter
             }
             if (!hasEvents)
                 sb.AppendLine($"  {"SD_TipNoEvents".Translate()}");
-
-            sb.AppendLine();
-            sb.AppendLine("SD_TipPassive".Translate());
-            sb.AppendLine($"  {"自然陪伴",-12}{passiveNaturalTrs:+0.0;-0.0;+0.0}");
-            sb.AppendLine($"  {"孤独衰减",-12}{passiveLonelyTrs:+0.0;-0.0;+0.0}");
-            sb.AppendLine($"  {"需求满足",-12}{passiveNeedsTrs:+0.0;-0.0;+0.0}");
-            sb.AppendLine($"  {"环境质量",-12}{passiveEnvTrs:+0.0;-0.0;+0.0}");
 
             return sb.ToString().TrimEndNewlines();
         }

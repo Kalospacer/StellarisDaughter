@@ -32,7 +32,7 @@ namespace StellarisDaughter
 
         // ── 布局 ──────────────────────────────────────────────────────
         private const float Width      = 220f;
-        private const float GizmoHeight = 90f;
+        private const float GizmoHeight = 75f;
         private const float Pad        = 4f;
         private const float LabelPct   = 0.28f;
         private const float RowGap     = 3f;
@@ -58,9 +58,7 @@ namespace StellarisDaughter
 
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
-            // 向上延伸超出标准 75px 高度
-            float extraUp = GizmoHeight - 75f;
-            var outer = new Rect(topLeft.x, topLeft.y - extraUp, Width, GizmoHeight);
+            var outer = new Rect(topLeft.x, topLeft.y, Width, GizmoHeight);
             Widgets.DrawWindowBackground(outer);
 
             var inner  = outer.ContractedBy(Pad);
