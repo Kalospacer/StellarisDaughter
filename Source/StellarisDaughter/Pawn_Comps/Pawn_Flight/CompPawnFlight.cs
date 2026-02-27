@@ -30,8 +30,9 @@ namespace StellarisDaughter
                 {
                     defaultLabel = "SD_FlightToggle".Translate(),
                     defaultDesc = "SD_FlightToggleDesc".Translate(),
-                    icon = ContentFinder<Texture2D>.Get("UI/Commands/SD_FlightToggle", false)
-                           ?? TexCommand.Draft,
+                    Order = 100f,
+                    icon = ContentFinder<Texture2D>.Get("StellarisDaughter/UI/Commands/SD_FlightToggle", false)
+                           ?? TexCommand.GatherSpotActive,
                     isActive = () => flightEnabled,
                     toggleAction = () =>
                     {
@@ -43,8 +44,7 @@ namespace StellarisDaughter
                             if (pawn.CurJob != null)
                                 pawn.CurJob.flying = false;
                         }
-                    },
-                    hotKey = KeyBindingDefOf.Command_ColonistDraft,
+                    }
                 };
             }
         }
