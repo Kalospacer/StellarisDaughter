@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- 翅膀飞行 -->
+  <AnimationDef>
+    <defName>SD_FlyEast</defName>
+    <durationTicks>32</durationTicks>
+    <keyframeParts>
+      <li>
+        <key>Root</key>
+        <value><workerType>AnimationWorker_Keyframes</workerType><keyframes>
+            <li><tick>0</tick><offset>(0,0,-0.025)</offset></li>
+            <li><tick>18</tick><offset>(0,0,0.025)</offset></li>
+            <li><tick>32</tick><offset>(0,0,-0.025)</offset></li>
+          </keyframes></value>
+      </li>
+    </keyframeParts>
+  </AnimationDef>
+  <AnimationDef>
+    <defName>SD_FlyNorth</defName>
+    <durationTicks>32</durationTicks>
+    <keyframeParts>
+      <li>
+        <key>Root</key>
+        <value><workerType>AnimationWorker_Keyframes</workerType><keyframes>
+            <li><tick>0</tick><offset>(0,0,-0.025)</offset></li>
+            <li><tick>18</tick><offset>(0,0,0.025)</offset></li>
+            <li><tick>32</tick><offset>(0,0,-0.025)</offset></li>
+          </keyframes></value>
+      </li>
+    </keyframeParts>
+  </AnimationDef>
+  <AnimationDef>
+    <defName>SD_FlySouth</defName>
+    <durationTicks>32</durationTicks>
+    <keyframeParts>
+      <li>
+        <key>Root</key>
+        <value><workerType>AnimationWorker_Keyframes</workerType><keyframes>
+            <li><tick>0</tick><offset>(0,0,-0.025)</offset></li>
+            <li><tick>18</tick><offset>(0,0,0.025)</offset></li>
+            <li><tick>32</tick><offset>(0,0,-0.025)</offset></li>
+          </keyframes></value>
+      </li>
+    </keyframeParts>
+  </AnimationDef>
+</Defs>

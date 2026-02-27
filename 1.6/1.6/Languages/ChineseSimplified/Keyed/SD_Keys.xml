@@ -71,6 +71,43 @@
   <SD_GizmoChaos>混沌度</SD_GizmoChaos>
   <SD_GizmoChaos_Tip>内心黑暗力量的侵蚀程度。\n当前值：{0}%</SD_GizmoChaos_Tip>
   <SD_GizmoAwaken>觉醒度</SD_GizmoAwaken>
+
+  <!-- 检查面板 -->
+  <SD_InspectSyncRate>同步率</SD_InspectSyncRate>
+  <SD_InspectChaosLevel>混沌度</SD_InspectChaosLevel>
+  <SD_InspectAwakening>觉醒进度</SD_InspectAwakening>
+  <SD_InspectStage>当前阶段</SD_InspectStage>
+  <SD_InspectMentor>引导者</SD_InspectMentor>
+  <SD_InspectMaster>监护人</SD_InspectMaster>
+  <SD_InspectRoute>命运路线</SD_InspectRoute>
+  <SD_InspectAffection>好感度</SD_InspectAffection>
+  <SD_InspectTrust>信任值</SD_InspectTrust>
+
+  <!-- 通用 -->
+  <SD_Unknown>未知</SD_Unknown>
+
+  <!-- 事件（占位，RecordEvent用） -->
+  <SD_Event_Childhood_Initialized>{0}被激活了！同步率+{1}</SD_Event_Childhood_Initialized>
+  <SD_Event_Youth_Started>{0}进入了青年期。同步率+{1}</SD_Event_Youth_Started>
+  <SD_Event_Adulthood_Started>{0}进入了成年期。</SD_Event_Adulthood_Started>
+  <SD_Event_Route_Locked>{0}的命运已经确定。</SD_Event_Route_Locked>
+  <SD_Event_PositiveInteraction>{0}与引导者进行了愉快的互动。同步率+{1}</SD_Event_PositiveInteraction>
+
+  <!-- Gizmo 标签（新双轴系统） -->
+  <SD_GizmoAff>好感度</SD_GizmoAff>
+  <SD_GizmoTrs>信任值</SD_GizmoTrs>
+  <SD_GizmoAff_TipHeader>好感度：{0}</SD_GizmoAff_TipHeader>
+  <SD_GizmoTrs_TipHeader>信任值：{0}</SD_GizmoTrs_TipHeader>
+  <SD_TipEvents>【近期事件】</SD_TipEvents>
+  <SD_TipNoEvents>（暂无记录）</SD_TipNoEvents>
+  <SD_TipPassive>【被动积累】</SD_TipPassive>
+
+  <!-- Gizmo 标签（旧字段保留兼容） -->
+  <SD_GizmoSync>同步率</SD_GizmoSync>
+  <SD_GizmoSync_Tip>与殖民地的情感连结深度。\n当前值：{0}%</SD_GizmoSync_Tip>
+  <SD_GizmoChaos>混沌度</SD_GizmoChaos>
+  <SD_GizmoChaos_Tip>内心黑暗力量的侵蚀程度。\n当前值：{0}%</SD_GizmoChaos_Tip>
+  <SD_GizmoAwaken>觉醒度</SD_GizmoAwaken>
   <SD_GizmoAwaken_Tip>星规核心的自我意识进程。\n当前值：{0}%\n当前阶段：{1}</SD_GizmoAwaken_Tip>
   <SD_GizmoMaster>监护人</SD_GizmoMaster>
   <SD_GizmoMaster_Tip>当前指定的监护人。
@@ -78,4 +115,8 @@
 所有殖民者的陪伴都对同步率有贡献。
 当前监护人：{0}</SD_GizmoMaster_Tip>
   <SD_NoMaster>(无)</SD_NoMaster>
+
+  <!-- 飞行开关 -->
+  <SD_FlightToggle>飞行</SD_FlightToggle>
+  <SD_FlightToggleDesc>开启或关闭飞行模式。</SD_FlightToggleDesc>
 </LanguageData>

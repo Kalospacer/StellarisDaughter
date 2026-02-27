@@ -77,4 +77,8 @@ When nearby, sync rate growth is multiplied by 1.5x.
 All colonist companionship contributes to sync rate.
 Current guardian: {0}</SD_GizmoMaster_Tip>
   <SD_NoMaster>(None)</SD_NoMaster>
+
+  <!-- Flight Toggle -->
+  <SD_FlightToggle>Flight</SD_FlightToggle>
+  <SD_FlightToggleDesc>Toggle flight mode on or off.</SD_FlightToggleDesc>
 </LanguageData>
