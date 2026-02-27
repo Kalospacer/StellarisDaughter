@@ -216,13 +216,8 @@ namespace StellarisDaughter
             yield return new Gizmo_AIUpbringing(this);
         }
 
-        public override string CompInspectStringExtra()
-        {
-            var sb = new StringBuilder();
-            sb.AppendLine($"{"SD_InspectAffection".Translate()}: {affection:+F1;-F1;+0.0}");
-            sb.AppendLine($"{"SD_InspectTrust".Translate()}: {trust:+F1;-F1;+0.0}");
-            return sb.ToString().TrimEndNewlines();
-        }
+        // 好感度/信任度已由 Gizmo_AIUpbringing 显示，不再在 Inspect 面板重复展示。
+
 
         #endregion
 
