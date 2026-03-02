@@ -33,7 +33,7 @@
       <ArmorRating_Heat>1</ArmorRating_Heat>
 		</statBases>
     <equippedStatOffsets>
-      <IncomingDamageFactor>-0.5</IncomingDamageFactor>
+      <IncomingDamageFactor>-0.1</IncomingDamageFactor>
 		</equippedStatOffsets>
     <apparel>
       <bodyPartGroups>
@@ -102,9 +102,6 @@
       <ArmorRating_Sharp>1</ArmorRating_Sharp>
       <ArmorRating_Heat>1</ArmorRating_Heat>
 		</statBases>
-    <equippedStatOffsets>
-      <IncomingDamageFactor>-0.5</IncomingDamageFactor>
-		</equippedStatOffsets>
     <apparel>
       <bodyPartGroups>
 				<li>Torso</li>
