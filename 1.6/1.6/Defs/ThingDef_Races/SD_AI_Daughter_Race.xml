@@ -425,6 +425,25 @@
     <styleTags>
       <li>SD_Stellar_Style</li>
     </styleTags>
+    <modExtensions>
+      <li Class="StellarisDaughter.DefModExtension_ExtraHairNodes">
+        <renderNodes>
+          <li>
+            <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+            <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+            <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_Hair_behind</texPath>
+            <parentTagDef>Head</parentTagDef>
+            <useSkinShader>false</useSkinShader>
+            <useRottenColor>false</useRottenColor>
+            <rotDrawMode>Fresh, Rotting</rotDrawMode>
+            <visibleFacing>
+              <li>North</li>
+            </visibleFacing>
+            <baseLayer>-5</baseLayer>
+          </li>
+        </renderNodes>
+      </li>
+    </modExtensions>
   </HairDef>
 
   <HairDef>
@@ -436,5 +455,24 @@
     <styleTags>
       <li>SD_Stellar_Style_Black</li>
     </styleTags>
+    <modExtensions>
+      <li Class="StellarisDaughter.DefModExtension_ExtraHairNodes">
+        <renderNodes>
+          <li>
+            <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+            <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+            <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_BlackHair_behind</texPath>
+            <parentTagDef>Head</parentTagDef>
+            <useSkinShader>false</useSkinShader>
+            <useRottenColor>false</useRottenColor>
+            <rotDrawMode>Fresh, Rotting</rotDrawMode>
+            <visibleFacing>
+              <li>North</li>
+            </visibleFacing>
+            <baseLayer>-5</baseLayer>
+          </li>
+        </renderNodes>
+      </li>
+    </modExtensions>
   </HairDef>
 </Defs>
