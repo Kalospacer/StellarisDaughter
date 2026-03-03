@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace StellarisDaughter
@@ -32,7 +33,7 @@ namespace StellarisDaughter
             foreach (Apparel apparel in pawn.apparel.WornApparel)
             {
                 var comp = apparel.TryGetComp<CompExtraApparelRenderNodes>();
-                if (comp?.Props?.renderNodes == null)
+                if (comp == null || comp.Props?.renderNodes == null)
                     continue;
 
                 foreach (var nodeProps in comp.Props.renderNodes)
@@ -43,8 +44,6 @@ namespace StellarisDaughter
                     PawnRenderNode renderNode;
                     try
                     {
-                        // Use 3-arg constructor (PawnRenderNode default)
-                        // since these are extra overlay nodes, not standard apparel nodes
                         renderNode = (PawnRenderNode)Activator.CreateInstance(
                             nodeProps.nodeClass, pawn, nodeProps, tree);
                         renderNode.apparel = apparel;
@@ -57,7 +56,6 @@ namespace StellarisDaughter
                         continue;
                     }
 
-                    // parent is null => PawnRenderTree.AddChild will use parentTagDef to find parent
                     yield return (renderNode, null);
                 }
             }

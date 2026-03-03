@@ -54,9 +54,6 @@
       <li>SD_StellarWear</li>
     </apparelTags>
     <startingHediffs>
-      <li>
-        <def>SD_Hediff_HairBackSouthRender</def>
-      </li>
     </startingHediffs>
     <weaponMoney>0</weaponMoney>
   </PawnKindDef>

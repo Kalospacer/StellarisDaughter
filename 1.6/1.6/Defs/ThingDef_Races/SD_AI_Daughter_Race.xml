@@ -163,7 +163,7 @@
           <value>
             <hasStyle>true</hasStyle>
             <styleTagsOverride>
-              <li>SD_Perlica_Style</li>
+              <li>SD_Stellar_Style</li>
             </styleTagsOverride>
           </value>
         </li>
@@ -409,6 +409,11 @@
   <StyleItemCategoryDef>
     <defName>SD_Stellar_Style</defName>
     <label>StellarRegulator</label>
+  </StyleItemCategoryDef>
+
+  <StyleItemCategoryDef>
+    <defName>SD_Stellar_Style_Black</defName>
+    <label>StellarRegulator Black</label>
   </StyleItemCategoryDef>
 
   <HairDef>

@@ -140,20 +140,20 @@
       <li Class="StellarisDaughter.CompProperties_ExtraApparelRenderNodes">
         <renderNodes>
           <li>
-            <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+            <workerClass>PawnRenderNodeWorker_Body</workerClass>
             <texPath>StellarisDaughter/Things/SD/Clothes/SD_Cloak_Behind_Thin</texPath>
             <parentTagDef>ApparelBody</parentTagDef>
             <useSkinShader>false</useSkinShader>
             <useRottenColor>false</useRottenColor>
             <rotDrawMode>Fresh, Rotting</rotDrawMode>
+            <baseLayer>-5</baseLayer>
             <visibleFacing>
               <li>South</li>
             </visibleFacing>
             <drawData>
-              <dataSouth>
-                <layer>0</layer>
+              <defaultData>
                 <offset>(0, 0, 0)</offset>
-              </dataSouth>
+              </defaultData>
             </drawData>
           </li>
         </renderNodes>
@@ -233,18 +233,15 @@
       <li Class="StellarisDaughter.CompProperties_ExtraApparelRenderNodes">
         <renderNodes>
           <li>
-            <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+            <workerClass>PawnRenderNodeWorker_Body</workerClass>
             <texPath>StellarisDaughter/Things/SD/Clothes/SD_Black_Cloth_Skirt_Thin</texPath>
             <shaderTypeDef>Transparent</shaderTypeDef>
             <parentTagDef>ApparelBody</parentTagDef>
             <useSkinShader>false</useSkinShader>
             <useRottenColor>false</useRottenColor>
             <rotDrawMode>Fresh, Rotting</rotDrawMode>
+            <baseLayer>10</baseLayer>
             <drawData>
-              <defaultData>
-                <layer>0</layer>
-                <offset>(0, 0, 0)</offset>
-              </defaultData>
             </drawData>
           </li>
         </renderNodes>
