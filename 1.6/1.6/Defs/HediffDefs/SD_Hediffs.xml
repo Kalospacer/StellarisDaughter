@@ -127,4 +127,39 @@
       </li>
     </renderNodeProperties>
   </HediffDef>
+
+  <HediffDef>
+    <defName>SD_Hediff_BlackHairBackSouthRender</defName>
+    <label>stellar hair back render</label>
+    <description>Render helper for south-facing back hair layer.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <everCurableByItem>false</everCurableByItem>
+    <isBad>false</isBad>
+    <defaultLabelColor>(0, 0, 0)</defaultLabelColor>
+    <stages>
+      <li>
+        <becomeVisible>true</becomeVisible>
+        <minSeverity>0</minSeverity>
+      </li>
+    </stages>
+    <renderNodeProperties>
+      <li>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_BlackHair_behind</texPath>
+        <parentTagDef>Head</parentTagDef>
+        <useSkinShader>false</useSkinShader>
+        <useRottenColor>false</useRottenColor>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <visibleFacing>
+          <li>North</li>
+        </visibleFacing>
+        <drawData>
+          <dataNorth>
+            <layer>0</layer>
+          </dataNorth>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </HediffDef>
 </Defs>

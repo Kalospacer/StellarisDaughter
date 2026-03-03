@@ -22,28 +22,28 @@
     <costList Inherit="False"/>
     <techLevel>Spacer</techLevel>
     <statBases>
-			<WorkToMake>25000</WorkToMake>
-			<Mass>0.5</Mass>
-			<Flammability>0</Flammability>
-			<EquipDelay>1</EquipDelay>
+      <WorkToMake>25000</WorkToMake>
+      <Mass>0.5</Mass>
+      <Flammability>0</Flammability>
+      <EquipDelay>1</EquipDelay>
       <DeteriorationRate>0</DeteriorationRate>
 
       <ArmorRating_Blunt>1</ArmorRating_Blunt>
       <ArmorRating_Sharp>1</ArmorRating_Sharp>
       <ArmorRating_Heat>1</ArmorRating_Heat>
-		</statBases>
+    </statBases>
     <equippedStatOffsets>
       <IncomingDamageFactor>-0.1</IncomingDamageFactor>
-		</equippedStatOffsets>
+    </equippedStatOffsets>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
-				<li>Neck</li>
-				<li>Torso</li>
-				<li>Shoulders</li>
-				<li>Arms</li>
-				<li>Legs</li>
-			</bodyPartGroups>
+        <li>Neck</li>
+        <li>Torso</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
       <renderSkipFlags>
         <li>None</li>
       </renderSkipFlags>
@@ -92,22 +92,22 @@
     <costList Inherit="False"/>
     <techLevel>Spacer</techLevel>
     <statBases>
-			<WorkToMake>25000</WorkToMake>
-			<Mass>0.5</Mass>
-			<Flammability>0</Flammability>
-			<EquipDelay>1</EquipDelay>
+      <WorkToMake>25000</WorkToMake>
+      <Mass>0.5</Mass>
+      <Flammability>0</Flammability>
+      <EquipDelay>1</EquipDelay>
       <DeteriorationRate>0</DeteriorationRate>
 
       <ArmorRating_Blunt>1</ArmorRating_Blunt>
       <ArmorRating_Sharp>1</ArmorRating_Sharp>
       <ArmorRating_Heat>1</ArmorRating_Heat>
-		</statBases>
+    </statBases>
     <apparel>
       <bodyPartGroups>
-				<li>Torso</li>
-				<li>Shoulders</li>
-				<li>Arms</li>
-			</bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+      </bodyPartGroups>
       <renderSkipFlags>
         <li>None</li>
       </renderSkipFlags>
@@ -120,8 +120,8 @@
       </tags>
       <drawData>
         <dataNorth>
-            <layer>50</layer>
-          </dataNorth>
+          <layer>50</layer>
+        </dataNorth>
       </drawData>
       <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
       <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
@@ -137,9 +137,117 @@
       </options>
     </colorGenerator>
     <comps>
-      <li Class="CompProperties_CauseHediff_Apparel">
-        <hediff>SD_Hediff_StellarCloak_BackSouth</hediff>
-        <part>Torso</part>
+      <li Class="StellarisDaughter.CompProperties_ExtraApparelRenderNodes">
+        <renderNodes>
+          <li>
+            <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+            <texPath>StellarisDaughter/Things/SD/Clothes/SD_Cloak_Behind_Thin</texPath>
+            <parentTagDef>ApparelBody</parentTagDef>
+            <useSkinShader>false</useSkinShader>
+            <useRottenColor>false</useRottenColor>
+            <rotDrawMode>Fresh, Rotting</rotDrawMode>
+            <visibleFacing>
+              <li>South</li>
+            </visibleFacing>
+            <drawData>
+              <dataSouth>
+                <layer>0</layer>
+                <offset>(0, 0, 0)</offset>
+              </dataSouth>
+            </drawData>
+          </li>
+        </renderNodes>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>SD_StellarBlackUniform</defName>
+    <label>星规-被侵蚀的公式服</label>
+    <description>A practical ceremonial dress adapted for field use. It offers modest protection and comfort, but remains cloth rather than true armor.</description>
+    <graphicData>
+      <texPath>StellarisDaughter/Things/SD/Clothes/SD_Black_Cloth</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <generateCommonality>0.0001</generateCommonality>
+    <costStuffCount>0</costStuffCount>
+    <smeltable>false</smeltable>
+    <useHitPoints>false</useHitPoints>
+    <tradeTags Inherit="False"/>
+    <tradeability>None</tradeability>
+    <recipeMaker Inherit="False" IsNull="True"/>
+    <thingCategories>
+      <li>ApparelNoble</li>
+    </thingCategories>
+    <costList Inherit="False"/>
+    <techLevel>Spacer</techLevel>
+    <statBases>
+      <WorkToMake>25000</WorkToMake>
+      <Mass>0.5</Mass>
+      <Flammability>0</Flammability>
+      <EquipDelay>1</EquipDelay>
+      <DeteriorationRate>0</DeteriorationRate>
+
+      <ArmorRating_Blunt>1</ArmorRating_Blunt>
+      <ArmorRating_Sharp>1</ArmorRating_Sharp>
+      <ArmorRating_Heat>1</ArmorRating_Heat>
+    </statBases>
+    <equippedStatOffsets>
+      <IncomingDamageFactor>-0.1</IncomingDamageFactor>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+        <li>Neck</li>
+        <li>Torso</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <renderSkipFlags>
+        <li>None</li>
+      </renderSkipFlags>
+      <wornGraphicPath>StellarisDaughter/Things/SD/Clothes/SD_Black_Cloth</wornGraphicPath>
+      <layers>
+        <li>OnSkin</li>
+        <li>Middle</li>
+      </layers>
+      <tags>
+        <li>SD_StellarWear</li>
+      </tags>
+      <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+      <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+      <canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
+      <useWornGraphicMask>true</useWornGraphicMask>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>(1,1,1,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="StellarisDaughter.CompProperties_ExtraApparelRenderNodes">
+        <renderNodes>
+          <li>
+            <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+            <texPath>StellarisDaughter/Things/SD/Clothes/SD_Black_Cloth_Skirt_Thin</texPath>
+            <shaderTypeDef>Transparent</shaderTypeDef>
+            <parentTagDef>ApparelBody</parentTagDef>
+            <useSkinShader>false</useSkinShader>
+            <useRottenColor>false</useRottenColor>
+            <rotDrawMode>Fresh, Rotting</rotDrawMode>
+            <drawData>
+              <defaultData>
+                <layer>0</layer>
+                <offset>(0, 0, 0)</offset>
+              </defaultData>
+            </drawData>
+          </li>
+        </renderNodes>
       </li>
     </comps>
   </ThingDef>

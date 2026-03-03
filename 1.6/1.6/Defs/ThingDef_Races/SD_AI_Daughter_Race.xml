@@ -407,7 +407,7 @@
   </AlienRace.ThingDef_AlienRace>
 
   <StyleItemCategoryDef>
-    <defName>SD_Perlica_Style</defName>
+    <defName>SD_Stellar_Style</defName>
     <label>StellarRegulator</label>
   </StyleItemCategoryDef>
 
@@ -416,9 +416,20 @@
     <label>StellarRegulator Hair</label>
     <hairGender>Female</hairGender>
     <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_Hair</texPath>
-    <category>SD_Perlica_Style</category>
+    <category>SD_Stellar_Style</category>
     <styleTags>
-      <li>SD_Perlica_Style</li>
+      <li>SD_Stellar_Style</li>
+    </styleTags>
+  </HairDef>
+
+  <HairDef>
+    <defName>SD_Daughter_Black_Hair</defName>
+    <label>StellarRegulator Black Hair</label>
+    <hairGender>Female</hairGender>
+    <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_BlackHair</texPath>
+    <category>SD_Stellar_Style_Black</category>
+    <styleTags>
+      <li>SD_Stellar_Style_Black</li>
     </styleTags>
   </HairDef>
 </Defs>
