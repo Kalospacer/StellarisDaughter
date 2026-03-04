@@ -24,6 +24,7 @@
     <fixedAdultBackstories>
       <li>SD_Daughter_Adulthood_Bond</li>
     </fixedAdultBackstories>
+    <nameMaker>LBD_Stellar_NameMaker</nameMaker>
     <forcedTraits>
       <SD_MemoryCore>0</SD_MemoryCore>
     </forcedTraits>
@@ -57,4 +58,16 @@
     </startingHediffs>
     <weaponMoney>0</weaponMoney>
   </PawnKindDef>
+
+  <RulePackDef>
+		<defName>SD_Stellar_NameMaker</defName>
+		<rulePack>
+			<rulesStrings>
+				<li>r_name->[SD_Stellar_FirstName]·[SD_Stellar_LastName]</li>
+				<li>SD_Stellar_nickName->Stellar</li>
+				<li>SD_Stellar_FirstName->StellarRegulator</li>
+				<li>SD_Stellar_LastName->Array</li>
+			</rulesStrings>
+		</rulePack>
+	</RulePackDef>
 </Defs>

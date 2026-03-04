@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- SD_Stellar 星规子单元 名字翻译 -->
+  <SD_Stellar_NameMaker.rulePack.rulesStrings>
+    <li>r_name->[SD_Stellar_FirstName]·[SD_Stellar_LastName]</li>
+    <li>SD_Stellar_nickName->星规</li>
+    <li>SD_Stellar_FirstName->星规</li>
+    <li>SD_Stellar_LastName->阵列</li>
+  </SD_Stellar_NameMaker.rulePack.rulesStrings>
+
+</LanguageData>
