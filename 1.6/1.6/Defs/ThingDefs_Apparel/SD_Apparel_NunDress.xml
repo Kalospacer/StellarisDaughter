@@ -242,6 +242,9 @@
             <rotDrawMode>Fresh, Rotting</rotDrawMode>
             <baseLayer>10</baseLayer>
             <drawData>
+              <dataSouth>
+                <layer>100</layer>
+              </dataSouth>
             </drawData>
           </li>
         </renderNodes>
