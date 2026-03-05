@@ -253,6 +253,7 @@
     <!-- 以下是原版标签 -->
     <!-- 受击音效 -->
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    
 
     <statBases>
       <MaxFlightTime>9999</MaxFlightTime>
@@ -300,8 +301,8 @@
         <cleaveDamageFactor>1</cleaveDamageFactor>
         <damageDowned>false</damageDowned>
         <cleaveDamageDef>Cut</cleaveDamageDef>
-        <attackEffecter>SD_Melee_Attack_Pluse_Hit</attackEffecter>
-        <cleaveEffecter>SD_Melee_Attack_Pluse_Hit</cleaveEffecter>
+        <attackEffecter>SD_SlashArc_Big</attackEffecter>
+        <cleaveEffecter>SD_SlashArc_Big</cleaveEffecter>
         <requiresMeleeSkill>true</requiresMeleeSkill>
         <onlyWhenDrafted>false</onlyWhenDrafted>
       </li>

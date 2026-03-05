@@ -286,7 +286,8 @@ namespace StellarisDaughter
                 // 进入魔女形态：添加 Hediff（如果还没有）
                 if (existingHediff == null)
                 {
-                    Pawn.health.AddHediff(SD_DefOf.SD_Hediff_WitchForm);
+                    Hediff hediff = HediffMaker.MakeHediff(SD_DefOf.SD_Hediff_WitchForm, Pawn);
+                    Pawn.health.AddHediff(hediff);
                 }
             }
             else

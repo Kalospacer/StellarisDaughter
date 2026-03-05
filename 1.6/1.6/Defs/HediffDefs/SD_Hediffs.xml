@@ -25,6 +25,8 @@
         </capMods>
       </li>
     </stages>
+  </HediffDef>
+
   <!-- 负面结局Hediff：黑暗觉醒 -->
   <HediffDef>
     <defName>SD_Hediff_DarkAwakening</defName>
@@ -61,21 +63,23 @@
   <HediffDef>
     <defName>SD_Hediff_WitchForm</defName>
     <label>魔女形态</label>
-    <description>星规子单元进入了魔女形态，获得了强大的镰爪攻击能力。</description>
+    <description>星规子单元进入了魔女形态，获得了强大的真空切割能力。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <defaultLabelColor>(0.8, 0.4, 0.8)</defaultLabelColor>
     <isBad>false</isBad>
     <comps>
       <li Class="HediffCompProperties_VerbGiver">
-        <tools>
+        <tools Inherit="False">
           <li>
-            <label>镰爪挥击</label>
+            <label>真空切割</label>
             <capacities>
               <li>SD_PawnBodyWeapon_Cleave</li>
             </capacities>
             <power>50</power>
             <armorPenetration>2</armorPenetration>
-            <cooldownTime>2.75</cooldownTime>
+            <cooldownTime>1.15</cooldownTime>
+            <soundMeleeHit>MeleeHit_BladelinkPlasmaSword</soundMeleeHit>
+            <soundMeleeMiss>MeleeHit_BladelinkPlasmaSword</soundMeleeMiss>
           </li>
         </tools>
       </li>
