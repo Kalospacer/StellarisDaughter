@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>StellarRegulator Array - StellarisDaughter</name>
-  <author>Tourswen Kalo 地砖</author>
+  <author>Kalospacer</author>
   <description>群星的女儿 - AI养成系统
 
 在遥远的边缘世界，你意外获得了一个来自路希维亚帝国的星规阵列子执行单元——一个拥有自我意识但处于失忆状态的强AI核心。
@@ -18,7 +18,7 @@
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>
-  <packageId>Tourswen.StellarisDaughter</packageId>
+  <packageId>Kalospacer.StellarisDaughter</packageId>
   
   <modDependencies>
     <li>

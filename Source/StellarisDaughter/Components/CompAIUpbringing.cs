@@ -25,12 +25,6 @@ namespace StellarisDaughter
         /// <summary> 信任值 -1000~+1000，正值越高越依赖殖民地，负值越低越离心离德 </summary>
         public float trust = 0f;
 
-        /// <summary> 锁定的结局路线 - 15岁时确定 </summary>
-        public AIEndingRoute lockedEnding = AIEndingRoute.NotYetDetermined;
-
-        /// <summary> 是否已发送征兆信件 </summary>
-        public bool omenLetterSent = false;
-
         /// <summary> 成长事件日志，最多保留30条 </summary>
         public List<AIEventLogEntry> eventLog = new List<AIEventLogEntry>();
 
@@ -76,9 +70,8 @@ namespace StellarisDaughter
 
         public CompProperties_AIUpbringing Props => (CompProperties_AIUpbringing)props;
 
-        /// <summary> 当前数值偏向的结局 </summary>
-        public AIEndingRoute CurrentLeaning =>
-            (affection + trust) >= 0f ? AIEndingRoute.FatherBond : AIEndingRoute.DarkCorruption;
+        /// <summary> 好感与信任的总和 </summary>
+        public float CombinedValue => affection + trust;
 
         #endregion
 
@@ -118,8 +111,6 @@ namespace StellarisDaughter
             // 被动惩罚系统已被移除
             // TickPassiveLoneliness(ai);
             // TickPassiveNeeds(ai);
-            
-            CheckOmenLetter(ai);
         }
 
         #endregion
@@ -150,25 +141,6 @@ namespace StellarisDaughter
                 eventLog.RemoveAt(0);
         }
 
-        private void CheckOmenLetter(Pawn ai)
-        {
-            if (omenLetterSent) return;
-            if (ai.ageTracker.AgeBiologicalYears < 13 || ai.ageTracker.AgeBiologicalYears >= 15) return;
-
-            omenLetterSent = true;
-            string title = "SD_Letter_Omen_Title".Translate(ai.NameShortColored);
-            string text = CurrentLeaning == AIEndingRoute.FatherBond
-                ? "SD_Letter_Omen_Positive".Translate(ai.NameShortColored)
-                : "SD_Letter_Omen_Negative".Translate(ai.NameShortColored);
-            Find.LetterStack.ReceiveLetter(title, text, LetterDefOf.NeutralEvent, ai);
-        }
-
-        public void LockEndingRoute()
-        {
-            if (lockedEnding != AIEndingRoute.NotYetDetermined) return;
-            lockedEnding = CurrentLeaning;
-        }
-
         #endregion
 
         #region 存档
@@ -178,8 +150,6 @@ namespace StellarisDaughter
             base.PostExposeData();
             Scribe_Values.Look(ref affection,        "affection",        0f);
             Scribe_Values.Look(ref trust,            "trust",            0f);
-            Scribe_Values.Look(ref lockedEnding,     "lockedEnding",     AIEndingRoute.NotYetDetermined);
-            Scribe_Values.Look(ref omenLetterSent,   "omenLetterSent",   false);
             Scribe_Values.Look(ref passiveNaturalAff,"passiveNaturalAff",0f);
             Scribe_Values.Look(ref passiveNaturalTrs,"passiveNaturalTrs",0f);
             Scribe_Values.Look(ref passiveLonelyAff, "passiveLonelyAff", 0f);
@@ -229,9 +199,6 @@ namespace StellarisDaughter
             sb.AppendLine("=== AI女儿状态 ===");
             sb.AppendLine($"好感度: {affection:F1}");
             sb.AppendLine($"信任值: {trust:F1}");
-            sb.AppendLine($"偏向: {CurrentLeaning}");
-            sb.AppendLine($"锁定结局: {lockedEnding}");
-            sb.AppendLine($"征兆信件: {(omenLetterSent ? "已发送" : "未发送")}");
             sb.AppendLine($"事件日志条数: {eventLog?.Count ?? 0}");
             return sb.ToString();
         }
