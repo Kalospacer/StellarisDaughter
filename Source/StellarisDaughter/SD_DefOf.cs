@@ -25,6 +25,9 @@ namespace StellarisDaughter
         // 魔女系统精神状态
         public static MentalStateDef SD_WitchBerserk;
 
+        // 魔女系统Hediff
+        public static HediffDef SD_Hediff_WitchForm;
+
         static SD_DefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(SD_DefOf));
     }
 }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <!-- Stage Names -->
   <SD_Stage_Childhood>Childhood</SD_Stage_Childhood>
@@ -48,4 +48,5 @@
   <SD_Witch_NoSuppressor>No available colonist to perform suppression.</SD_Witch_NoSuppressor>
   <SD_Witch_CannotSuppress>Cannot suppress</SD_Witch_CannotSuppress>
   <SD_Witch_MustBeDowned>Target must be downed</SD_Witch_MustBeDowned>
+  <SD_BodyWeapon_CannotUse>{0} cannot use body weapon right now</SD_BodyWeapon_CannotUse>
 </LanguageData>

@@ -77,6 +77,69 @@ namespace StellarisDaughter
 
         #endregion
 
+        #region FloatMenu
+
+        public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
+        {
+            // 只有在发狂状态下才显示镇压选项
+            if (!IsBerserk)
+            {
+                yield break;
+            }
+
+            // 检查目标是否倒地（镇压的前提条件）
+            if (!Pawn.Downed)
+            {
+                yield return new FloatMenuOption(
+                    "SD_Witch_CannotSuppress".Translate() + ": " + "SD_Witch_MustBeDowned".Translate(),
+                    null
+                );
+                yield break;
+            }
+
+            // 检查选中的 Pawn 是否可以到达目标
+            if (!selPawn.CanReach(Pawn, PathEndMode.Touch, Danger.Deadly))
+            {
+                yield return new FloatMenuOption(
+                    "SD_Witch_Suppress".Translate() + " (" + "NoPath".Translate() + ")",
+                    null
+                );
+                yield break;
+            }
+
+            // 检查选中的 Pawn 是否有能力执行镇压
+            if (selPawn.Dead || selPawn.Downed || selPawn.InMentalState)
+            {
+                yield return new FloatMenuOption(
+                    "SD_Witch_Suppress".Translate() + " (" + "CannotReach".Translate() + ")",
+                    null
+                );
+                yield break;
+            }
+
+            // 检查是否可以预订目标
+            if (!selPawn.CanReserve(Pawn))
+            {
+                yield return new FloatMenuOption(
+                    "SD_Witch_Suppress".Translate() + " (" + "Reserved".Translate() + ")",
+                    null
+                );
+                yield break;
+            }
+
+            // 有效的镇压选项
+            yield return new FloatMenuOption(
+                "SD_Witch_Suppress".Translate(),
+                delegate
+                {
+                    Job job = JobMaker.MakeJob(SD_DefOf.SD_SuppressWitch, Pawn);
+                    selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                }
+            );
+        }
+
+        #endregion
+
         #region 魔女因子增长
 
         private void CalculateGrowth()
@@ -204,8 +267,36 @@ namespace StellarisDaughter
             // 切换头发
             SwitchHair(toWitchForm);
 
+            // 添加/移除魔女形态 Hediff（提供镰爪攻击）
+            SwitchWitchFormHediff(toWitchForm);
+
             // 刷新渲染
             Pawn.Drawer?.renderer?.SetAllGraphicsDirty();
+        }
+
+        /// <summary> 添加或移除魔女形态 Hediff </summary>
+        private void SwitchWitchFormHediff(bool toWitchForm)
+        {
+            if (Pawn?.health?.hediffSet == null) return;
+
+            var existingHediff = Pawn.health.hediffSet.GetFirstHediffOfDef(SD_DefOf.SD_Hediff_WitchForm);
+
+            if (toWitchForm)
+            {
+                // 进入魔女形态：添加 Hediff（如果还没有）
+                if (existingHediff == null)
+                {
+                    Pawn.health.AddHediff(SD_DefOf.SD_Hediff_WitchForm);
+                }
+            }
+            else
+            {
+                // 退出魔女形态：移除 Hediff
+                if (existingHediff != null)
+                {
+                    Pawn.health.RemoveHediff(existingHediff);
+                }
+            }
         }
 
         private void DropNonExclusiveApparel()
@@ -327,47 +418,7 @@ namespace StellarisDaughter
             // 魔女变身切换按钮（Ability风格）
             yield return new Command_ToggleWitchForm(this);
 
-            // 镇压按钮（仅发狂且倒地时显示）
-            if (IsBerserk && Pawn.Downed)
-            {
-                yield return new Command_Action
-                {
-                    defaultLabel = "SD_Witch_Suppress".Translate(),
-                    defaultDesc = "SD_Witch_SuppressDesc".Translate(),
-                    icon = ContentFinder<Texture2D>.Get("UI/Commands/TryReconnect", false) ?? BaseContent.BadTex,
-                    action = () =>
-                    {
-                        // 寻找可以执行镇压的殖民者
-                        var colonists = Pawn.Map.mapPawns.FreeColonistsSpawned;
-                        Pawn suppressor = null;
-                        float minDist = float.MaxValue;
 
-                        foreach (var colonist in colonists)
-                        {
-                            if (colonist == Pawn) continue;
-                            if (!colonist.CanReach(Pawn, PathEndMode.Touch, Danger.Deadly)) continue;
-                            if (!colonist.CanReserve(Pawn)) continue;
-
-                            float dist = colonist.Position.DistanceTo(Pawn.Position);
-                            if (dist < minDist)
-                            {
-                                minDist = dist;
-                                suppressor = colonist;
-                            }
-                        }
-
-                        if (suppressor != null)
-                        {
-                            Job job = JobMaker.MakeJob(SD_DefOf.SD_SuppressWitch, Pawn);
-                            suppressor.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-                        }
-                        else
-                        {
-                            Messages.Message("SD_Witch_NoSuppressor".Translate(), MessageTypeDefOf.RejectInput);
-                        }
-                    }
-                };
-            }
 
             // 开发模式调试按钮
             if (Prefs.DevMode)

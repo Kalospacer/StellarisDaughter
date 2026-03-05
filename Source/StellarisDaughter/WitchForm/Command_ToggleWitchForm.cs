@@ -21,7 +21,7 @@ namespace StellarisDaughter
             {
                 defaultLabel = "SD_Witch_BerserkWarning".Translate();
                 defaultDesc = "SD_Witch_CannotToggle_Berserk".Translate();
-                icon = ContentFinder<Texture2D>.Get("UI/Commands/Forbidden", true);
+                icon = ContentFinder<Texture2D>.Get("UI/Designators/ForbidOn", true);
                 Disable("SD_Witch_CannotToggle_Berserk".Translate());
             }
             else if (comp.IsWitchForm)

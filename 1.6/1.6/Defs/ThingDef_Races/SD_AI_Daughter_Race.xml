@@ -294,6 +294,17 @@
     </statBases>
 
     <comps>
+      <li Class="StellarisDaughter.CompProperties_PawnBodyWeapon">
+        <cleaveAngle>60</cleaveAngle>
+        <cleaveRange>2</cleaveRange>
+        <cleaveDamageFactor>1</cleaveDamageFactor>
+        <damageDowned>false</damageDowned>
+        <cleaveDamageDef>Cut</cleaveDamageDef>
+        <attackEffecter>SD_Melee_Attack_Pluse_Hit</attackEffecter>
+        <cleaveEffecter>SD_Melee_Attack_Pluse_Hit</cleaveEffecter>
+        <requiresMeleeSkill>true</requiresMeleeSkill>
+        <onlyWhenDrafted>false</onlyWhenDrafted>
+      </li>
     <li Class="StellarisDaughter.CompProperties_PawnFlight">
 
         <!-- 飞行触发条件：仅在征召时飞行 -->
@@ -479,4 +490,23 @@
       </li>
     </modExtensions>
   </HairDef>
+
+  <ToolCapacityDef>
+    <defName>SD_PawnBodyWeapon_Cleave</defName>
+    <label>镰爪挥击</label>
+  </ToolCapacityDef>
+
+  <ManeuverDef>
+    <defName>SD_PawnBodyWeapon_Cleave</defName>
+    <requiredCapacity>SD_PawnBodyWeapon_Cleave</requiredCapacity>
+    <verb>
+      <verbClass>StellarisDaughter.Verb_MeleeAttack_BodyWeapon</verbClass>
+      <meleeDamageDef>Cut</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+  </ManeuverDef>
 </Defs>

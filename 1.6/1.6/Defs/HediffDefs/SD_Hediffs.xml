@@ -25,8 +25,6 @@
         </capMods>
       </li>
     </stages>
-  </HediffDef>
-
   <!-- 负面结局Hediff：黑暗觉醒 -->
   <HediffDef>
     <defName>SD_Hediff_DarkAwakening</defName>
@@ -55,6 +53,36 @@
             <mtbDays>5</mtbDays>
           </li>
         </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- 魔女形态 Hediff：提供镰爪攻击 -->
+  <HediffDef>
+    <defName>SD_Hediff_WitchForm</defName>
+    <label>魔女形态</label>
+    <description>星规子单元进入了魔女形态，获得了强大的镰爪攻击能力。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.8, 0.4, 0.8)</defaultLabelColor>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>镰爪挥击</label>
+            <capacities>
+              <li>SD_PawnBodyWeapon_Cleave</li>
+            </capacities>
+            <power>50</power>
+            <armorPenetration>2</armorPenetration>
+            <cooldownTime>2.75</cooldownTime>
+          </li>
+        </tools>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
       </li>
     </stages>
   </HediffDef>

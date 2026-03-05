@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <!-- 魔女狂暴精神状态 - 参考原版 Berserk 实现 -->
-  <MentalStateDef ParentName="BaseMentalState">
+  <!-- 魔女狂暴精神状态 - 直接继承原版 Berserk，只修改自动结束 -->
+  <MentalStateDef ParentName="Berserk">
     <defName>SD_WitchBerserk</defName>
-    <stateClass>StellarisDaughter.MentalState_WitchBerserk</stateClass>
+    <stateClass>MentalState_Berserk</stateClass>
     <label>魔女狂暴</label>
-    <category>Aggro</category>
-    <blockInteractionInitiationExcept>
-      <li>Insult</li>
-    </blockInteractionInitiationExcept>
-    <blockInteractionRecipientExcept>
-      <li>Insult</li>
-    </blockInteractionRecipientExcept>
-    <blockRandomInteraction>true</blockRandomInteraction>
-    <blockNormalThoughts>true</blockNormalThoughts>
     <nameColor>(0.9, 0.2, 0.5)</nameColor>
     <beginLetter>{0}进入了魔女狂暴状态。\n\n[PAWN_pronoun]会攻击任何[PAWN_pronoun]看见的人。</beginLetter>
-    <beginLetterDef>ThreatSmall</beginLetterDef>
     <minTicksBeforeRecovery>99999999</minTicksBeforeRecovery>
     <maxTicksBeforeRecovery>99999999</maxTicksBeforeRecovery>
     <recoveryMessage>{0}的魔女狂暴状态已被镇压。</recoveryMessage>
     <baseInspectLine>精神状态：魔女狂暴</baseInspectLine>
+    <stateEffecter>Berserk</stateEffecter>
     <recoverFromSleep>false</recoverFromSleep>
     <recoverFromDowned>false</recoverFromDowned>
-    <inCaravanCanDo>true</inCaravanCanDo>
   </MentalStateDef>
 
   <!-- 恢复后的思想 -->

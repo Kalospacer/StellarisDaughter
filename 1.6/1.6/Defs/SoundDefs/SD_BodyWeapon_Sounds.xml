@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <SoundDef>
+    <defName>SD_BodyWeapon_Cleave_Hit</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>StellarisDaughter/SD_BodyWeapon_Cleave_Hit</clipPath>
+          </li>
+        </grains>
+        <volumeRange>75</volumeRange>
+        <pitchRange>0.9~1.1</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+</Defs>
