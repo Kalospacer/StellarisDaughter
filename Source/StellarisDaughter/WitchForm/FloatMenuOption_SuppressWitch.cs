@@ -10,7 +10,7 @@ namespace StellarisDaughter
     /// </summary>
     public class FloatMenuOption_SuppressWitch : FloatMenuOptionProvider
     {
-        protected override bool Drafted => false;
+        protected override bool Drafted => true;
         protected override bool Undrafted => true;
         protected override bool Multiselect => false;
         protected override bool RequiresManipulation => true;

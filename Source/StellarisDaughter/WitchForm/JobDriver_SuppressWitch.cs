@@ -24,7 +24,6 @@ namespace StellarisDaughter
         {
             // 检查目标是否有效
             this.FailOnDespawnedOrNull(WitchIndex);
-            this.FailOnAggroMentalState(WitchIndex);
 
             // 前往目标
             yield return Toils_Goto.GotoThing(WitchIndex, PathEndMode.Touch);
