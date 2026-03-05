@@ -12,7 +12,7 @@
         <maleGenderProbability>0</maleGenderProbability>
         <!-- 无视年龄疾病 -->
         <immuneToAge>true</immuneToAge>
-				<!-- 在口角中造成的最大伤害 -->
+        <!-- 在口角中造成的最大伤害 -->
         <maxDamageForSocialfight>6</maxDamageForSocialfight>
         <!-- 免疫人类的异形歧视 -->
         <immuneToXenophobia>true</immuneToXenophobia>
@@ -52,7 +52,40 @@
             </li>
           </colorChannels>
           <!-- 额外身体部件 -->
-          <bodyAddons />
+          <bodyAddons>
+            <!-- 光环 -->
+            <li>
+              <name>Stellar halo</name>
+              <userCustomizable>false</userCustomizable>
+              <path>StellarisDaughter/Things/SD/Clothes/SD_Ring</path>
+              <inFrontOfBody>true</inFrontOfBody>
+              <layerInvert>true</layerInvert>
+              <shaderType>MoteGlow</shaderType>
+              <defaultOffset>Center</defaultOffset>
+              <drawSize>1</drawSize>
+              <alignWithHead>true</alignWithHead>
+              <scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
+              <useSkipFlags>
+                <li>Stellar halo</li>
+              </useSkipFlags>
+              <conditions>
+                <BodyPart>
+                  <bodyPart>Head</bodyPart>
+                </BodyPart>
+                <Posture>
+                  <drawnStanding>true</drawnStanding>
+                  <drawnInBed>true</drawnInBed>
+                  <drawnLaying>true</drawnLaying>
+                </Posture>
+                <RotStage>Fresh</RotStage>
+              </conditions>
+              <extendedGraphics>
+                <Hediff For="SD_Hediff_WitchForm">StellarisDaughter/Things/SD/Clothes/SD_Ring_Thin</Hediff>
+              </extendedGraphics>
+              <offsets>
+              </offsets>
+            </li>
+          </bodyAddons>
           <!-- 头部偏移 -->
           <headOffsetDirectional>
             <north>
@@ -157,7 +190,7 @@
 
       <!-- 风格设置 -->
       <styleSettings>
-      <!-- 头发 -->
+        <!-- 头发 -->
         <li>
           <key>HairDef</key>
           <value>
@@ -253,7 +286,7 @@
     <!-- 以下是原版标签 -->
     <!-- 受击音效 -->
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
-    
+
 
     <statBases>
       <MaxFlightTime>9999</MaxFlightTime>
@@ -306,7 +339,7 @@
         <requiresMeleeSkill>true</requiresMeleeSkill>
         <onlyWhenDrafted>false</onlyWhenDrafted>
       </li>
-    <li Class="StellarisDaughter.CompProperties_PawnFlight">
+      <li Class="StellarisDaughter.CompProperties_PawnFlight">
 
         <!-- 飞行触发条件：仅在征召时飞行 -->
         <flightCondition>Drafted</flightCondition>
@@ -376,7 +409,7 @@
       <lifeExpectancy>200</lifeExpectancy>
       <flightSpeedFactor>3.5</flightSpeedFactor>
       <!-- 解剖产物 -->
-			<leatherDef>Steel</leatherDef>
+      <leatherDef>Steel</leatherDef>
       <specificMeatDef>Steel</specificMeatDef>
       <nameCategory>HumanStandard</nameCategory>
       <canBecomeShambler>false</canBecomeShambler>
