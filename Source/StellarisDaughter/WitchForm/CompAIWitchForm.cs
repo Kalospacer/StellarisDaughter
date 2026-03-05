@@ -3,6 +3,7 @@ using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace StellarisDaughter
 {
@@ -151,13 +152,13 @@ namespace StellarisDaughter
                 SwitchAppearance(true);
             }
 
-            // 触发发狂精神状态（攻击所有人）
+            // 触发魔女狂暴精神状态（不会自动结束）
             if (Pawn.mindState != null && !Pawn.InMentalState)
             {
-                bool success = Pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.Berserk, null, forceWake: true);
+                bool success = Pawn.mindState.mentalStateHandler.TryStartMentalState(SD_DefOf.SD_WitchBerserk, null, forceWake: true);
                 if (!success)
                 {
-                    Log.Warning($"[StellarisDaughter] Failed to start Berserk mental state for {Pawn.NameShortColored}");
+                    Log.Warning($"[StellarisDaughter] Failed to start WitchBerserk mental state for {Pawn.NameShortColored}");
                 }
             }
 
@@ -209,14 +210,25 @@ namespace StellarisDaughter
 
         private void DropNonExclusiveApparel()
         {
+            // 专属装备（会被销毁重建）
             var exclusiveDefs = new HashSet<ThingDef>
             {
                 Props.normalApparelDef,
                 Props.witchApparelDef
             };
 
+            // 白名单装备（保留不脱下）
+            var keepDefs = new HashSet<ThingDef>();
+            if (Props.keepApparelDefs != null)
+            {
+                foreach (var def in Props.keepApparelDefs)
+                {
+                    keepDefs.Add(def);
+                }
+            }
+
             var apparelsToDrop = Pawn.apparel.WornApparel
-                .Where(a => !exclusiveDefs.Contains(a.def))
+                .Where(a => !exclusiveDefs.Contains(a.def) && !keepDefs.Contains(a.def))
                 .ToList();
 
             foreach (var apparel in apparelsToDrop)
@@ -311,6 +323,51 @@ namespace StellarisDaughter
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             yield return new Gizmo_AIWitchForm(this);
+
+            // 魔女变身切换按钮（Ability风格）
+            yield return new Command_ToggleWitchForm(this);
+
+            // 镇压按钮（仅发狂且倒地时显示）
+            if (IsBerserk && Pawn.Downed)
+            {
+                yield return new Command_Action
+                {
+                    defaultLabel = "SD_Witch_Suppress".Translate(),
+                    defaultDesc = "SD_Witch_SuppressDesc".Translate(),
+                    icon = ContentFinder<Texture2D>.Get("UI/Commands/TryReconnect", false) ?? BaseContent.BadTex,
+                    action = () =>
+                    {
+                        // 寻找可以执行镇压的殖民者
+                        var colonists = Pawn.Map.mapPawns.FreeColonistsSpawned;
+                        Pawn suppressor = null;
+                        float minDist = float.MaxValue;
+
+                        foreach (var colonist in colonists)
+                        {
+                            if (colonist == Pawn) continue;
+                            if (!colonist.CanReach(Pawn, PathEndMode.Touch, Danger.Deadly)) continue;
+                            if (!colonist.CanReserve(Pawn)) continue;
+
+                            float dist = colonist.Position.DistanceTo(Pawn.Position);
+                            if (dist < minDist)
+                            {
+                                minDist = dist;
+                                suppressor = colonist;
+                            }
+                        }
+
+                        if (suppressor != null)
+                        {
+                            Job job = JobMaker.MakeJob(SD_DefOf.SD_SuppressWitch, Pawn);
+                            suppressor.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                        }
+                        else
+                        {
+                            Messages.Message("SD_Witch_NoSuppressor".Translate(), MessageTypeDefOf.RejectInput);
+                        }
+                    }
+                };
+            }
 
             // 开发模式调试按钮
             if (Prefs.DevMode)

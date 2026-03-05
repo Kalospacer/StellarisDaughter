@@ -22,6 +22,9 @@ namespace StellarisDaughter
         // 魔女系统Job
         public static JobDef SD_SuppressWitch;
 
+        // 魔女系统精神状态
+        public static MentalStateDef SD_WitchBerserk;
+
         static SD_DefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(SD_DefOf));
     }
 }

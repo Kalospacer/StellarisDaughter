@@ -125,7 +125,9 @@
   <SD_Witch_State_Witch>魔女形态</SD_Witch_State_Witch>
   <SD_Witch_State_Berserk>发狂中</SD_Witch_State_Berserk>
   <SD_Witch_Transform>魔女变身</SD_Witch_Transform>
+  <SD_Witch_Transform_Desc>切换到魔女形态，魔女因子增长速度加快。</SD_Witch_Transform_Desc>
   <SD_Witch_CancelTransform>解除变身</SD_Witch_CancelTransform>
+  <SD_Witch_CancelTransform_Desc>解除魔女形态，恢复正常状态。</SD_Witch_CancelTransform_Desc>
   <SD_Witch_BerserkWarning>发狂失控中</SD_Witch_BerserkWarning>
   <SD_Witch_Suppress>镇压魔女</SD_Witch_Suppress>
   <SD_Witch_SuppressDesc>镇压发狂的魔女，重置魔女因子。</SD_Witch_SuppressDesc>
@@ -133,4 +135,7 @@
   <SD_Witch_CannotToggle_Berserk>发狂状态下无法主动切换形态，需要先镇压！</SD_Witch_CannotToggle_Berserk>
   <SD_Witch_NotBerserk>只有在发狂状态下才能镇压。</SD_Witch_NotBerserk>
   <SD_Witch_Suppressed>{0}被镇压了，魔女因子已重置。</SD_Witch_Suppressed>
+  <SD_Witch_NoSuppressor>没有可用的殖民者执行镇压。</SD_Witch_NoSuppressor>
+  <SD_Witch_CannotSuppress>无法镇压</SD_Witch_CannotSuppress>
+  <SD_Witch_MustBeDowned>目标必须倒地</SD_Witch_MustBeDowned>
 </LanguageData>

@@ -87,7 +87,9 @@ Current guardian: {0}</SD_GizmoMaster_Tip>
   <SD_Witch_State_Witch>Witch Form</SD_Witch_State_Witch>
   <SD_Witch_State_Berserk>Berserk</SD_Witch_State_Berserk>
   <SD_Witch_Transform>Witch Transform</SD_Witch_Transform>
+  <SD_Witch_Transform_Desc>Switch to witch form, witch factor growth accelerates.</SD_Witch_Transform_Desc>
   <SD_Witch_CancelTransform>Cancel Transform</SD_Witch_CancelTransform>
+  <SD_Witch_CancelTransform_Desc>Cancel witch form and return to normal state.</SD_Witch_CancelTransform_Desc>
   <SD_Witch_BerserkWarning>Berserk Out of Control</SD_Witch_BerserkWarning>
   <SD_Witch_Suppress>Suppress Witch</SD_Witch_Suppress>
   <SD_Witch_SuppressDesc>Suppress the berserk witch and reset witch factor.</SD_Witch_SuppressDesc>
@@ -95,4 +97,7 @@ Current guardian: {0}</SD_GizmoMaster_Tip>
   <SD_Witch_CannotToggle_Berserk>Cannot toggle form while berserk. Suppression required!</SD_Witch_CannotToggle_Berserk>
   <SD_Witch_NotBerserk>Can only suppress while berserk.</SD_Witch_NotBerserk>
   <SD_Witch_Suppressed>{0} has been suppressed. Witch factor reset.</SD_Witch_Suppressed>
+  <SD_Witch_NoSuppressor>No available colonist to perform suppression.</SD_Witch_NoSuppressor>
+  <SD_Witch_CannotSuppress>Cannot suppress</SD_Witch_CannotSuppress>
+  <SD_Witch_MustBeDowned>Target must be downed</SD_Witch_MustBeDowned>
 </LanguageData>

@@ -105,6 +105,9 @@ namespace StellarisDaughter
             // 中轴线
             GUI.DrawTexture(new Rect(mid - 1f, bar.y, 2f, bar.height), BarCenterLine);
 
+            // 量表刻度（-1000, -500, 0, +500, +1000）
+            DrawScaleMarks(bar, mid);
+
             // 数值文字
             Text.Anchor = TextAnchor.MiddleCenter;
             Text.Font   = GameFont.Tiny;
@@ -119,6 +122,34 @@ namespace StellarisDaughter
                 if (!tooltip.NullOrEmpty())
                     TooltipHandler.TipRegion(row, tooltip);
             }
+        }
+
+        /// <summary>
+        /// 绘制量表刻度线：-1000, -500, 0, +500, +1000
+        /// </summary>
+        private void DrawScaleMarks(Rect bar, float mid)
+        {
+            var markColor = new Color(0.5f, 0.5f, 0.5f, 0.6f);
+            var oldColor = GUI.color;
+            GUI.color = markColor;
+
+            float halfWidth = bar.width * 0.5f;
+            
+            // -500 刻度（左侧中点）
+            float mark500L = mid - halfWidth * 0.5f;
+            GUI.DrawTexture(new Rect(mark500L - 0.5f, bar.y, 1f, bar.height * 0.3f), BarCenterLine);
+            
+            // +500 刻度（右侧中点）
+            float mark500R = mid + halfWidth * 0.5f;
+            GUI.DrawTexture(new Rect(mark500R - 0.5f, bar.y, 1f, bar.height * 0.3f), BarCenterLine);
+            
+            // -1000 刻度（左端）
+            GUI.DrawTexture(new Rect(bar.x + 1f, bar.y, 1f, bar.height * 0.25f), BarCenterLine);
+            
+            // +1000 刻度（右端）
+            GUI.DrawTexture(new Rect(bar.xMax - 2f, bar.y, 1f, bar.height * 0.25f), BarCenterLine);
+
+            GUI.color = oldColor;
         }
     }
 }
