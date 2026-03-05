@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
-  
 
-  
+
+
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>BlowingSand</defName>
     <eventLabel>风沙</eventLabel>
@@ -11,7 +11,7 @@
     <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>DestroyedMechhive</defName>
     <eventLabel>摧毁了机械巢穴</eventLabel>
@@ -19,7 +19,7 @@
     <trustDelta>5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>DestroyedMechhiveMainPawn</defName>
     <eventLabel>摧毁了机械巢穴</eventLabel>
@@ -27,7 +27,7 @@
     <trustDelta>8</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>HotSpring</defName>
     <eventLabel>温泉</eventLabel>
@@ -35,7 +35,7 @@
     <trustDelta>4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>ToxWater</defName>
     <eventLabel>毒水</eventLabel>
@@ -43,7 +43,7 @@
     <trustDelta>-5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>MadeStatueOfMe</defName>
     <eventLabel>为我制作了雕像</eventLabel>

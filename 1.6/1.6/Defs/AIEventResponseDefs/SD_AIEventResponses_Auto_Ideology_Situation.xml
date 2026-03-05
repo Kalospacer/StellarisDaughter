@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
-  
 
-  
+
+
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>FailedConvertIdeoAttemptResentment</defName>
     <eventLabel>改信怨恨</eventLabel>
@@ -11,7 +11,7 @@
     <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>PsychicArchotechEmanator_Core</defName>
     <eventLabel>超凡科技辐射</eventLabel>
@@ -19,7 +19,7 @@
     <trustDelta>3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>PsychicArchotechEmanator_Grand</defName>
     <eventLabel>超凡科技辐射</eventLabel>
@@ -27,7 +27,7 @@
     <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>PsychicArchotechEmanator_Major</defName>
     <eventLabel>超凡科技辐射</eventLabel>
@@ -35,7 +35,7 @@
     <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>LookChangeDesired</defName>
     <eventLabel>想要改变外观</eventLabel>
@@ -43,7 +43,7 @@
     <trustDelta>-1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>MasochistWearingBodyStrap</defName>
     <eventLabel>受虐狂穿着束身带</eventLabel>
@@ -51,7 +51,7 @@
     <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>MasochistWearingCollar</defName>
     <eventLabel>受虐狂戴着项圈</eventLabel>
@@ -59,7 +59,7 @@
     <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>WearingColor_Favorite</defName>
     <eventLabel>穿着最喜欢的颜色</eventLabel>
@@ -67,7 +67,7 @@
     <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>WearingColor_Ideo</defName>
     <eventLabel>穿着信仰颜色</eventLabel>

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
-  
 
-  
+
+
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>OtherTravelerDied</defName>
     <eventLabel>旅行者死亡</eventLabel>
@@ -11,7 +11,7 @@
     <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>AteFoodInappropriateForTitle</defName>
     <eventLabel>吃了低级食物</eventLabel>
@@ -19,7 +19,7 @@
     <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>OtherTravelerArrested</defName>
     <eventLabel>旅行者被逮捕</eventLabel>
@@ -27,7 +27,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>OtherTravelerLeftBehind</defName>
     <eventLabel>旅行者被遗弃</eventLabel>
@@ -35,7 +35,7 @@
     <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>OtherTravelerSurgicallyViolated</defName>
     <eventLabel>旅行者被手术侵犯</eventLabel>
@@ -43,7 +43,7 @@
     <trustDelta>-6</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>GrandioseBestowingCeremony</defName>
     <eventLabel>盛大的授予仪式</eventLabel>
@@ -51,7 +51,7 @@
     <trustDelta>8</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>HonorableBestowingCeremony</defName>
     <eventLabel>光荣的授予仪式</eventLabel>
@@ -59,7 +59,7 @@
     <trustDelta>5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>TerribleBestowingCeremony</defName>
     <eventLabel>糟糕的授予仪式</eventLabel>
@@ -67,7 +67,7 @@
     <trustDelta>-6</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>UnimpressiveBestowingCeremony</defName>
     <eventLabel>平淡的授予仪式</eventLabel>
@@ -75,7 +75,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>ReignedInThroneroom</defName>
     <eventLabel>糟糕的王座室</eventLabel>
@@ -83,7 +83,7 @@
     <trustDelta>4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>DecreeFailed</defName>
     <eventLabel>法令失败</eventLabel>
@@ -91,7 +91,7 @@
     <trustDelta>-5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>DecreeMet</defName>
     <eventLabel>法令满足</eventLabel>
@@ -99,7 +99,7 @@
     <trustDelta>4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>Disinherited</defName>
     <eventLabel>被剥夺继承权</eventLabel>
@@ -107,7 +107,7 @@
     <trustDelta>-10</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeuroquakeEcho</defName>
     <eventLabel>神经地震回响</eventLabel>

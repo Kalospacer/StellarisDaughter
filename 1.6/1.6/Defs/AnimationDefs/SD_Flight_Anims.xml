@@ -7,11 +7,23 @@
     <keyframeParts>
       <li>
         <key>Root</key>
-        <value><workerType>AnimationWorker_Keyframes</workerType><keyframes>
-            <li><tick>0</tick><offset>(0,0,-0.025)</offset></li>
-            <li><tick>18</tick><offset>(0,0,0.025)</offset></li>
-            <li><tick>32</tick><offset>(0,0,-0.025)</offset></li>
-          </keyframes></value>
+        <value>
+          <workerType>AnimationWorker_Keyframes</workerType>
+          <keyframes>
+            <li>
+              <tick>0</tick>
+              <offset>(0,0,-0.025)</offset>
+            </li>
+            <li>
+              <tick>18</tick>
+              <offset>(0,0,0.025)</offset>
+            </li>
+            <li>
+              <tick>32</tick>
+              <offset>(0,0,-0.025)</offset>
+            </li>
+          </keyframes>
+        </value>
       </li>
     </keyframeParts>
   </AnimationDef>
@@ -21,11 +33,23 @@
     <keyframeParts>
       <li>
         <key>Root</key>
-        <value><workerType>AnimationWorker_Keyframes</workerType><keyframes>
-            <li><tick>0</tick><offset>(0,0,-0.025)</offset></li>
-            <li><tick>18</tick><offset>(0,0,0.025)</offset></li>
-            <li><tick>32</tick><offset>(0,0,-0.025)</offset></li>
-          </keyframes></value>
+        <value>
+          <workerType>AnimationWorker_Keyframes</workerType>
+          <keyframes>
+            <li>
+              <tick>0</tick>
+              <offset>(0,0,-0.025)</offset>
+            </li>
+            <li>
+              <tick>18</tick>
+              <offset>(0,0,0.025)</offset>
+            </li>
+            <li>
+              <tick>32</tick>
+              <offset>(0,0,-0.025)</offset>
+            </li>
+          </keyframes>
+        </value>
       </li>
     </keyframeParts>
   </AnimationDef>
@@ -35,11 +59,23 @@
     <keyframeParts>
       <li>
         <key>Root</key>
-        <value><workerType>AnimationWorker_Keyframes</workerType><keyframes>
-            <li><tick>0</tick><offset>(0,0,-0.025)</offset></li>
-            <li><tick>18</tick><offset>(0,0,0.025)</offset></li>
-            <li><tick>32</tick><offset>(0,0,-0.025)</offset></li>
-          </keyframes></value>
+        <value>
+          <workerType>AnimationWorker_Keyframes</workerType>
+          <keyframes>
+            <li>
+              <tick>0</tick>
+              <offset>(0,0,-0.025)</offset>
+            </li>
+            <li>
+              <tick>18</tick>
+              <offset>(0,0,0.025)</offset>
+            </li>
+            <li>
+              <tick>32</tick>
+              <offset>(0,0,-0.025)</offset>
+            </li>
+          </keyframes>
+        </value>
       </li>
     </keyframeParts>
   </AnimationDef>

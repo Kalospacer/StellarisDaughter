@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
-  
 
-  
+
+
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>CryingBaby</defName>
     <eventLabel>婴儿哭泣</eventLabel>
@@ -11,7 +11,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>GigglingBaby</defName>
     <eventLabel>婴儿咯咯笑</eventLabel>
@@ -19,7 +19,7 @@
     <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyCryingBaby</defName>
     <eventLabel>我的宝宝在哭泣</eventLabel>
@@ -27,7 +27,7 @@
     <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyGigglingBaby</defName>
     <eventLabel>我的宝宝在笑</eventLabel>
@@ -35,7 +35,7 @@
     <trustDelta>4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>Stillbirth</defName>
     <eventLabel>死产</eventLabel>
@@ -43,7 +43,7 @@
     <trustDelta>-14</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>XenogermHarvested_Prisoner</defName>
     <eventLabel>基因收取</eventLabel>
@@ -51,7 +51,7 @@
     <trustDelta>-8</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyBirthMotherDied</defName>
     <eventLabel>我的生母死了</eventLabel>
@@ -59,7 +59,7 @@
     <trustDelta>-9</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>MyBirthMotherLost</defName>
     <eventLabel>我的生母失踪了</eventLabel>
@@ -67,7 +67,7 @@
     <trustDelta>-5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>BabyBorn</defName>
     <eventLabel>健康出生</eventLabel>
@@ -75,7 +75,7 @@
     <trustDelta>8</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>WasTaught</defName>
     <eventLabel>教了我技能</eventLabel>
@@ -83,7 +83,7 @@
     <trustDelta>6</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>GaveLesson</defName>
     <eventLabel>听过我的课</eventLabel>
@@ -91,13 +91,13 @@
     <trustDelta>5</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
-  
 
-  
-  
 
-  
+
+
+
+
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>FedOn</defName>
     <eventLabel>被吸血</eventLabel>
@@ -105,7 +105,7 @@
     <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>IngestedHemogenPack</defName>
     <eventLabel>吞食了血源包</eventLabel>
@@ -113,7 +113,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>Miscarried</defName>
     <eventLabel>流产</eventLabel>
@@ -121,7 +121,7 @@
     <trustDelta>-12</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>PartnerMiscarried</defName>
     <eventLabel>伴侣流产</eventLabel>
@@ -129,7 +129,7 @@
     <trustDelta>-8</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>PregnancyEnded</defName>
     <eventLabel>妊娠结束</eventLabel>
@@ -137,7 +137,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>PregnancyTerminated</defName>
     <eventLabel>终止妊娠</eventLabel>
@@ -145,7 +145,7 @@
     <trustDelta>-6</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>PsychicBondTorn</defName>
     <eventLabel>心灵契约断裂</eventLabel>
@@ -153,10 +153,10 @@
     <trustDelta>-12</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
-  
 
-  
-  
+
+
+
+
 
 </Defs>

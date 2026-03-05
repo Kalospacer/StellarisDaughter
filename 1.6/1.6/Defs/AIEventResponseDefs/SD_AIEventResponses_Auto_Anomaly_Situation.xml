@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
-  
 
-  
+
+
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>BioferriteGenerator</defName>
     <eventLabel>活性铁瓷发电机</eventLabel>
@@ -11,7 +11,7 @@
     <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>BloodRage</defName>
     <eventLabel>怒火</eventLabel>
@@ -19,7 +19,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>CubeSculptures</defName>
     <eventLabel>魔方雕塑</eventLabel>
@@ -27,7 +27,7 @@
     <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>CubeWithdrawl</defName>
     <eventLabel>魔方戒断</eventLabel>
@@ -35,7 +35,7 @@
     <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>DeadlifeDust</defName>
     <eventLabel>死灵尘暴露</eventLabel>
@@ -43,7 +43,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>DeathPall</defName>
     <eventLabel>死灵迷雾</eventLabel>
@@ -51,7 +51,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>DeathRefusalSickness</defName>
     <eventLabel>死亡回避</eventLabel>
@@ -59,7 +59,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>DestroyedCubeSculpture</defName>
     <eventLabel>我的魔方雕塑被毁了</eventLabel>
@@ -67,7 +67,7 @@
     <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>EntityInRoom</defName>
     <eventLabel>枕边怪物</eventLabel>
@@ -75,7 +75,7 @@
     <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>FleshTentacle</defName>
     <eventLabel>血肉触手</eventLabel>
@@ -83,7 +83,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>FleshWhip</defName>
     <eventLabel>血肉触鞭</eventLabel>
@@ -91,7 +91,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>GrayPall</defName>
     <eventLabel>灰棘迷雾</eventLabel>
@@ -99,7 +99,7 @@
     <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>HarbingerScream</defName>
     <eventLabel>厄兆噬树的尖啸</eventLabel>
@@ -107,7 +107,7 @@
     <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>HateChantDrone</defName>
     <eventLabel>恶咒吟诵</eventLabel>
@@ -115,7 +115,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>ImprisonedWithEntity</defName>
     <eventLabel>被困怪物</eventLabel>
@@ -123,7 +123,7 @@
     <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>JoyousPresence</defName>
     <eventLabel>喜悦存在</eventLabel>
@@ -131,7 +131,7 @@
     <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>JuggernautSerum</defName>
     <eventLabel>霸主血清</eventLabel>
@@ -139,7 +139,7 @@
     <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>NeurosisPulse</defName>
     <eventLabel>神经质脉冲</eventLabel>
@@ -147,7 +147,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>PleasurePulse</defName>
     <eventLabel>快乐脉冲</eventLabel>
@@ -155,7 +155,7 @@
     <trustDelta>3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>ReadingTome</defName>
     <eventLabel>阅读巨著</eventLabel>
@@ -163,7 +163,7 @@
     <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>SleepSuppressor</defName>
     <eventLabel>睡眠抑制器</eventLabel>
@@ -171,7 +171,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>SpokeToDisturbingMood</defName>
     <eventLabel>不安的谈话</eventLabel>
@@ -179,7 +179,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>SwallowedByDarkness</defName>
     <eventLabel>被黑暗吞噬</eventLabel>
@@ -187,7 +187,7 @@
     <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>UnnaturalCorpse</defName>
     <eventLabel>不自然的尸体</eventLabel>
@@ -195,7 +195,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>UnnaturalDarkness</defName>
     <eventLabel>不自然的黑暗</eventLabel>
@@ -203,7 +203,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>VoidFascination</defName>
     <eventLabel>捕获实体</eventLabel>
@@ -211,7 +211,7 @@
     <trustDelta>1</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>VoidPleasure</defName>
     <eventLabel>虚空愉悦</eventLabel>
@@ -219,7 +219,7 @@
     <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>Voidsight</defName>
     <eventLabel>虚空视界</eventLabel>
@@ -227,7 +227,7 @@
     <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>WearingDreadLeather</defName>
     <eventLabel>穿戴恐惧皮革</eventLabel>
@@ -235,7 +235,7 @@
     <trustDelta>-2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>GhoulNegative</defName>
     <eventLabel>食尸鬼（负面）</eventLabel>
@@ -243,7 +243,7 @@
     <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>GhoulPositive</defName>
     <eventLabel>食尸鬼（正面）</eventLabel>
@@ -251,7 +251,7 @@
     <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>Joyous</defName>
     <eventLabel>开心果</eventLabel>
@@ -259,7 +259,7 @@
     <trustDelta>3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>SpokeToDisturbing</defName>
     <eventLabel>不安的谈话（直接）</eventLabel>

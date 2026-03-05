@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
-  
 
-  
+
+
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>BioluminescentSpores</defName>
     <eventLabel>生物发光孢子</eventLabel>
@@ -11,7 +11,7 @@
     <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>GravNausea</defName>
     <eventLabel>重力恶心</eventLabel>
@@ -19,7 +19,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>VolcanicAsh</defName>
     <eventLabel>火山灰</eventLabel>

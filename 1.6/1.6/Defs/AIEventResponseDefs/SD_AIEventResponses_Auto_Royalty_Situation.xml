@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
-  
 
-  
+
+
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>ListeningToHarp</defName>
     <eventLabel>聆听竖琴</eventLabel>
@@ -11,7 +11,7 @@
     <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>ListeningToHarpsichord</defName>
     <eventLabel>聆听大键琴</eventLabel>
@@ -19,7 +19,7 @@
     <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>ListeningToPiano</defName>
     <eventLabel>聆听钢琴</eventLabel>
@@ -27,7 +27,7 @@
     <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>AnimaScream</defName>
     <eventLabel>心灵尖叫</eventLabel>
@@ -35,7 +35,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>DecreeUnmet</defName>
     <eventLabel>法令被忽视</eventLabel>
@@ -43,7 +43,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>Joyfuzz</defName>
     <eventLabel>欢愉模糊</eventLabel>
@@ -51,7 +51,7 @@
     <trustDelta>2</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>PsychicEntropyOverloaded</defName>
     <eventLabel>轻微心灵崩溃</eventLabel>
@@ -59,7 +59,7 @@
     <trustDelta>-3</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
 
-  
+
   <StellarisDaughter.AIEventResponseDef>
     <defName>PsychicLove</defName>
     <eventLabel>心灵之爱</eventLabel>

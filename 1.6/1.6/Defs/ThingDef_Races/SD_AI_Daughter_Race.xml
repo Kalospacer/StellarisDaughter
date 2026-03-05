@@ -411,11 +411,6 @@
     <label>StellarRegulator</label>
   </StyleItemCategoryDef>
 
-  <StyleItemCategoryDef>
-    <defName>SD_Stellar_Style_Black</defName>
-    <label>StellarRegulator Black</label>
-  </StyleItemCategoryDef>
-
   <HairDef>
     <defName>SD_Daughter_Hair</defName>
     <label>StellarRegulator Hair</label>
@@ -451,10 +446,6 @@
     <label>StellarRegulator Black Hair</label>
     <hairGender>Female</hairGender>
     <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_BlackHair</texPath>
-    <category>SD_Stellar_Style_Black</category>
-    <styleTags>
-      <li>SD_Stellar_Style_Black</li>
-    </styleTags>
     <modExtensions>
       <li Class="StellarisDaughter.DefModExtension_ExtraHairNodes">
         <renderNodes>
