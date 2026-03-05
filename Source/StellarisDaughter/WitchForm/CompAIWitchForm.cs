@@ -77,69 +77,6 @@ namespace StellarisDaughter
 
         #endregion
 
-        #region FloatMenu
-
-        public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
-        {
-            // 只有在发狂状态下才显示镇压选项
-            if (!IsBerserk)
-            {
-                yield break;
-            }
-
-            // 检查目标是否倒地（镇压的前提条件）
-            if (!Pawn.Downed)
-            {
-                yield return new FloatMenuOption(
-                    "SD_Witch_CannotSuppress".Translate() + ": " + "SD_Witch_MustBeDowned".Translate(),
-                    null
-                );
-                yield break;
-            }
-
-            // 检查选中的 Pawn 是否可以到达目标
-            if (!selPawn.CanReach(Pawn, PathEndMode.Touch, Danger.Deadly))
-            {
-                yield return new FloatMenuOption(
-                    "SD_Witch_Suppress".Translate() + " (" + "NoPath".Translate() + ")",
-                    null
-                );
-                yield break;
-            }
-
-            // 检查选中的 Pawn 是否有能力执行镇压
-            if (selPawn.Dead || selPawn.Downed || selPawn.InMentalState)
-            {
-                yield return new FloatMenuOption(
-                    "SD_Witch_Suppress".Translate() + " (" + "CannotReach".Translate() + ")",
-                    null
-                );
-                yield break;
-            }
-
-            // 检查是否可以预订目标
-            if (!selPawn.CanReserve(Pawn))
-            {
-                yield return new FloatMenuOption(
-                    "SD_Witch_Suppress".Translate() + " (" + "Reserved".Translate() + ")",
-                    null
-                );
-                yield break;
-            }
-
-            // 有效的镇压选项
-            yield return new FloatMenuOption(
-                "SD_Witch_Suppress".Translate(),
-                delegate
-                {
-                    Job job = JobMaker.MakeJob(SD_DefOf.SD_SuppressWitch, Pawn);
-                    selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-                }
-            );
-        }
-
-        #endregion
-
         #region 魔女因子增长
 
         private void CalculateGrowth()
@@ -382,7 +319,7 @@ namespace StellarisDaughter
             }
 
             // 结束发狂精神状态
-            if (Pawn.InMentalState && Pawn.MentalStateDef == MentalStateDefOf.Berserk)
+            if (Pawn.InMentalState && Pawn.MentalStateDef == SD_DefOf.SD_WitchBerserk)
             {
                 Pawn.MentalState.RecoverFromState();
             }
