@@ -36,7 +36,7 @@ namespace StellarisDaughter
 
         // ── 布局 ──────────────────────────────────────────────────────
         private const float Width       = 220f;
-        private const float GizmoHeight = 58f;  // 移除按钮行后减小高度
+        private const float GizmoHeight = 75f;  // 与Gizmo_AIUpbringing对齐
         private const float Pad         = 4f;
         private const float LabelPct    = 0.28f;
 
@@ -74,7 +74,7 @@ namespace StellarisDaughter
         private void DrawStateLabel(Rect row)
         {
             Text.Font   = GameFont.Small;
-            Text.Anchor = TextAnchor.MiddleCenter;
+            Text.Anchor = TextAnchor.MiddleLeft;
 
             string stateLabel = comp.state switch
             {
@@ -166,10 +166,7 @@ namespace StellarisDaughter
             if (Mouse.IsOver(row))
             {
                 Widgets.DrawHighlight(row);
-                string tooltip = $"魔女因子：{current:F0} / {max:F0}\n" +
-                                $"状态：{comp.state}\n" +
-                                $"增长速度受信任值影响\n" +
-                                $"上限受好感度影响";
+                string tooltip = BuildDetailedTooltip();
                 TooltipHandler.TipRegion(row, tooltip);
             }
         }
@@ -198,6 +195,124 @@ namespace StellarisDaughter
             GUI.DrawTexture(new Rect(bar.xMax - 2f, bar.y, 1f, bar.height * 0.25f), BarHalfLine);
 
             GUI.color = oldColor;
+        }
+
+        /// <summary>
+        /// 构建详细的悬停提示信息
+        /// </summary>
+        private string BuildDetailedTooltip()
+        {
+            var upbringing = comp.Pawn?.GetComp<CompAIUpbringing>();
+            float affection = upbringing?.affection ?? 0f;
+            float trust = upbringing?.trust ?? 0f;
+
+            // 当前值和上限
+            float current = comp.witchFactor;
+            float max = comp.MaxWitchFactor;
+            float percentage = (current / max) * 100f;
+
+            // 计算增长率
+            float baseRate = comp.Props.baseGrowthRate;
+            float trustModifier = trust * 0.001f;
+            float modifiedBaseRate = Mathf.Max(baseRate - trustModifier, 0f);
+            
+            float actualRate = modifiedBaseRate;
+            if (comp.IsWitchForm)
+            {
+                actualRate *= comp.Props.witchFormGrowthMult;
+            }
+            else if (current >= comp.HalfMaxFactor)
+            {
+                actualRate *= comp.Props.halfMaxGrowthMult;
+            }
+
+            // 转换为每天的增长（TickRare = 250 ticks, 1天 = 60000 ticks）
+            float perDay = actualRate * (60000f / 250f);
+
+            // 构建提示文本
+            var tooltip = new System.Text.StringBuilder();
+            
+            // 标题
+            tooltip.AppendLine("═══ 魔女因子系统 ═══\n");
+            
+            // 当前状态
+            tooltip.AppendLine($"【当前状态】");
+            tooltip.AppendLine($"  数值：{current:F1} / {max:F1} ({percentage:F1}%)");
+            tooltip.AppendLine($"  状态：{GetStateDescription()}");
+            tooltip.AppendLine();
+
+            // 增长率详情
+            tooltip.AppendLine($"【增长率】");
+            tooltip.AppendLine($"  当前增长：{actualRate:F3} / TickRare ({perDay:F1} / 天)");
+            tooltip.AppendLine($"  基础速度：{baseRate:F3}");
+            tooltip.AppendLine($"  信任修正：{(trustModifier >= 0 ? "-" : "+")}{Mathf.Abs(trustModifier):F3} (信任值 {trust:F0})");
+            
+            if (comp.IsWitchForm)
+            {
+                tooltip.AppendLine($"  变身加速：×{comp.Props.witchFormGrowthMult:F1}");
+            }
+            else if (current >= comp.HalfMaxFactor)
+            {
+                tooltip.AppendLine($"  超50%减速：×{comp.Props.halfMaxGrowthMult:F1}");
+            }
+            tooltip.AppendLine();
+
+            // 上限公式
+            tooltip.AppendLine($"【上限计算】");
+            tooltip.AppendLine($"  公式：基础上限 + 好感度 × 0.1");
+            tooltip.AppendLine($"  计算：{comp.Props.baseMaxFactor:F0} + {affection:F0} × 0.1 = {max:F1}");
+            tooltip.AppendLine();
+
+            // 机制说明
+            tooltip.AppendLine($"【机制说明】");
+            tooltip.AppendLine($"  • 信任值越低，增长越快（负信任加速）");
+            tooltip.AppendLine($"  • 好感度越高，上限越高");
+            tooltip.AppendLine($"  • 未变身时，自动停在50%");
+            tooltip.AppendLine($"  • 变身后，增长速度×3");
+            tooltip.AppendLine($"  • 达到上限时，触发魔女狂暴");
+            tooltip.AppendLine();
+
+            // 操作提示
+            tooltip.AppendLine($"【操作提示】");
+            if (comp.IsBerserk)
+            {
+                tooltip.AppendLine($"  ⚠ 当前处于狂暴状态！");
+                tooltip.AppendLine($"  → 击倒后可右键选择'镇压'结束");
+            }
+            else if (current >= max * 0.9f)
+            {
+                tooltip.AppendLine($"  ⚠ 危险！接近上限，即将失控");
+                tooltip.AppendLine($"  → 建议立即解除变身");
+            }
+            else if (comp.IsWitchForm)
+            {
+                tooltip.AppendLine($"  → 点击变身按钮可解除魔女形态");
+            }
+            else if (current >= comp.HalfMaxFactor)
+            {
+                tooltip.AppendLine($"  → 点击变身按钮可进入魔女形态");
+                tooltip.AppendLine($"  → 变身后增长加速，请谨慎使用");
+            }
+            else
+            {
+                tooltip.AppendLine($"  → 因子达到50%后可手动变身");
+            }
+
+            return tooltip.ToString();
+        }
+
+        /// <summary>
+        /// 获取状态描述
+        /// </summary>
+        private string GetStateDescription()
+        {
+            return comp.state switch
+            {
+                WitchFormState.Normal => "正常形态",
+                WitchFormState.WitchForm => "魔女形态",
+                WitchFormState.Berserk => "魔女狂暴（失控）",
+                _ => "未知"
+            };
         }
     }
 }

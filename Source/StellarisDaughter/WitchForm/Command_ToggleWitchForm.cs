@@ -28,7 +28,7 @@ namespace StellarisDaughter
             {
                 defaultLabel = "SD_Witch_CancelTransform".Translate();
                 defaultDesc = "SD_Witch_CancelTransform_Desc".Translate();
-                icon = ContentFinder<Texture2D>.Get("UI/Commands/CancelConstruction", true);
+                icon = ContentFinder<Texture2D>.Get("UI/Designators/Cancel", true);
                 action = () => comp.ToggleWitchForm();
             }
             else
