@@ -62,10 +62,12 @@
   <!-- 魔女形态 Hediff：提供镰爪攻击 -->
   <HediffDef>
     <defName>SD_Hediff_WitchForm</defName>
-    <label>魔女形态</label>
+    <label>星规-渊海之形</label>
     <description>星规子单元进入了魔女形态，获得了强大的真空切割能力。</description>
     <hediffClass>HediffWithComps</hediffClass>
     <defaultLabelColor>(0.8, 0.4, 0.8)</defaultLabelColor>
+    <everCurableByItem>false</everCurableByItem>
+    <duplicationAllowed>false</duplicationAllowed>
     <isBad>false</isBad>
     <comps>
       <li Class="HediffCompProperties_VerbGiver">
@@ -83,10 +85,36 @@
           </li>
         </tools>
       </li>
+      <li Class="StellarisDaughter.HediffCompProperties_Regeneration">
+        <repairCooldownAfterDamage>600</repairCooldownAfterDamage>
+      </li>
     </comps>
     <stages>
       <li>
         <becomeVisible>true</becomeVisible>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.2</offset>
+          </li>
+        </capMods>
+        <statFactors>
+          <StaggerDurationFactor>0</StaggerDurationFactor>
+        </statFactors>
+        <statOffsets>
+          <ArmorRating_Sharp>2</ArmorRating_Sharp>
+          <ArmorRating_Blunt>2</ArmorRating_Blunt>
+          <ArmorRating_Heat>2</ArmorRating_Heat>
+          <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+          <ComfyTemperatureMax>200</ComfyTemperatureMax>
+          <AimingDelayFactor>-0.5</AimingDelayFactor>
+          <MeleeCooldownFactor>-0.5</MeleeCooldownFactor>
+          <RangedCooldownFactor>-0.5</RangedCooldownFactor>
+          <MoveSpeed>4</MoveSpeed>
+          <DecompressionResistance MayRequire="kentington.saveourship2">1</DecompressionResistance>
+          <VacuumSpeedMultiplier MayRequire="kentington.saveourship2">10</VacuumSpeedMultiplier>
+          <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
+        </statOffsets>
       </li>
     </stages>
   </HediffDef>
