@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <!-- 魔女狂暴精神状态 - 不会自动结束，只能通过镇压解除 -->
-  <MentalStateDef>
+  <!-- 魔女狂暴精神状态 - 参考原版 Berserk 实现 -->
+  <MentalStateDef ParentName="BaseMentalState">
     <defName>SD_WitchBerserk</defName>
     <stateClass>StellarisDaughter.MentalState_WitchBerserk</stateClass>
+    <label>魔女狂暴</label>
     <category>Aggro</category>
-    <nameColor>(0.65, 0.9, 0.93)</nameColor>
-    <beginLetter>魔女狂暴</beginLetter>
-    <beginLetterLabel>{0}进入了魔女狂暴状态</beginLetterLabel>
-    <beginLetterDef>NegativeEvent</beginLetterDef>
-    <baseInspectLine>精神状态：魔女狂暴</baseInspectLine>
-    <recoveryMessage>{0}的魔女狂暴状态已被镇压。</recoveryMessage>
-    <blockNormalThoughts>true</blockNormalThoughts>
+    <blockInteractionInitiationExcept>
+      <li>Insult</li>
+    </blockInteractionInitiationExcept>
+    <blockInteractionRecipientExcept>
+      <li>Insult</li>
+    </blockInteractionRecipientExcept>
     <blockRandomInteraction>true</blockRandomInteraction>
-    <allowBeatfire>false</allowBeatfire>
-    <mentalBreakGiver>false</mentalBreakGiver>
-    <colonistsOnly>false</colonistsOnly>
+    <blockNormalThoughts>true</blockNormalThoughts>
+    <nameColor>(0.65, 0.9, 0.93)</nameColor>
+    <beginLetter>{0}进入了魔女狂暴状态。\n\n[PAWN_pronoun]会攻击任何[PAWN_pronoun]看见的人。</beginLetter>
+    <beginLetterDef>ThreatSmall</beginLetterDef>
     <minTicksBeforeRecovery>99999999</minTicksBeforeRecovery>
     <maxTicksBeforeRecovery>99999999</maxTicksBeforeRecovery>
-    <recoveryThought>SD_WitchBerserkRecovered</recoveryThought>
-    <tale>KilledMajorColonyEnemy</tale>
+    <recoveryMessage>{0}的魔女狂暴状态已被镇压。</recoveryMessage>
+    <baseInspectLine>精神状态：魔女狂暴</baseInspectLine>
+    <recoverFromSleep>false</recoverFromSleep>
+    <recoverFromDowned>false</recoverFromDowned>
+    <inCaravanCanDo>true</inCaravanCanDo>
   </MentalStateDef>
 
   <!-- 恢复后的思想 -->

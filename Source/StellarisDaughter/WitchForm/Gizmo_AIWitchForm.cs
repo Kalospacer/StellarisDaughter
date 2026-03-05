@@ -36,9 +36,10 @@ namespace StellarisDaughter
 
         // ── 布局 ──────────────────────────────────────────────────────
         private const float Width       = 220f;
-        private const float GizmoHeight = 75f;  // 与Gizmo_AIUpbringing对齐
+        private const float GizmoHeight = 75f;
         private const float Pad         = 4f;
         private const float LabelPct    = 0.28f;
+        private const float RowGap      = 3f;
 
         private readonly CompAIWitchForm comp;
 
@@ -55,14 +56,15 @@ namespace StellarisDaughter
             var outer = new Rect(topLeft.x, topLeft.y, Width, GizmoHeight);
             Widgets.DrawWindowBackground(outer);
 
-            var inner = outer.ContractedBy(Pad);
+            var inner  = outer.ContractedBy(Pad);
+            float rowH = (inner.height - RowGap) / 2f;
 
             // 状态标签行
-            var stateRow = new Rect(inner.x, inner.y, inner.width, 18f);
+            var stateRow = new Rect(inner.x, inner.y,                  inner.width, rowH);
             DrawStateLabel(stateRow);
 
-            // 魔女因子条
-            var barRow = new Rect(inner.x, inner.y + 22f, inner.width, 28f);
+            // 魔女因子条（靠底部对齐）
+            var barRow   = new Rect(inner.x, inner.y + rowH + RowGap,  inner.width, rowH);
             DrawWitchFactorBar(barRow);
 
             Text.Anchor = TextAnchor.UpperLeft;
@@ -86,7 +88,7 @@ namespace StellarisDaughter
 
             GUI.color = comp.IsBerserk
                 ? Color.red
-                : (comp.IsWitchForm ? new Color(0.8f, 0.4f, 0.8f) : Color.white);
+                : (comp.IsWitchForm ? new Color(0.8f, 0.4f, 0.8f) : new Color(0.4f, 0.7f, 1.0f));
 
             Widgets.Label(row, stateLabel);
             GUI.color = Color.white;

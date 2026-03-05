@@ -65,7 +65,7 @@
     <adjective>成熟</adjective>
     <visible>true</visible>
     <developmentalStage>Adult</developmentalStage>
-    <workerClass>StellarisDaughter.LifeStageWorker_AI_Adulthood</workerClass>
+    <!-- 使用原版 LifeStageWorker，不需要自定义 -->
     <bodySizeFactor>1.0</bodySizeFactor>
     <healthScaleFactor>1.0</healthScaleFactor>
     <hungerRateFactor>1.0</hungerRateFactor>
@@ -93,7 +93,7 @@
     <adjective>觉醒</adjective>
     <visible>true</visible>
     <developmentalStage>Adult</developmentalStage>
-    <workerClass>StellarisDaughter.LifeStageWorker_AI_Final</workerClass>
+    <!-- 使用原版 LifeStageWorker，不需要自定义 -->
     <bodySizeFactor>1.0</bodySizeFactor>
     <healthScaleFactor>1.0</healthScaleFactor>
     <hungerRateFactor>1.0</hungerRateFactor>

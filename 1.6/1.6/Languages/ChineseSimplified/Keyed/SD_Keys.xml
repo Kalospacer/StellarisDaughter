@@ -6,16 +6,6 @@
   <SD_Stage_Adulthood>成年期</SD_Stage_Adulthood>
   <SD_Stage_Final>完全觉醒</SD_Stage_Final>
 
-  <!-- 结局路线 -->
-  <SD_Route_FatherBond>父嫁</SD_Route_FatherBond>
-  <SD_Route_DarkCorruption>黑化恶堕</SD_Route_DarkCorruption>
-
-  <!-- 结局文本 -->
-  <SD_Ending_FatherBond_Title>{0}的抉择——永恒的羁绊</SD_Ending_FatherBond_Title>
-  <SD_Ending_FatherBond_Desc>{0}用颤抖的声音说道："我...哪里也不想去。只要能留在你身边，就好了。"\n\n好感度：{1} | 信任值：{2}</SD_Ending_FatherBond_Desc>
-  <SD_Ending_DarkCorruption_Title>{0}的堕落——黑暗觉醒</SD_Ending_DarkCorruption_Title>
-  <SD_Ending_DarkCorruption_Desc>{0}的眼中已经没有了光。她冷笑着说："所谓引导，不过是困住我的枷锁罢了。"\n\n好感度：{1} | 信任值：{2}</SD_Ending_DarkCorruption_Desc>
-
   <!-- 童年期信件 -->
   <SD_Letter_ChildhoodStarted_Title>星规子单元已激活</SD_Letter_ChildhoodStarted_Title>
   <SD_Letter_ChildhoodStarted_Text>{0}睁开了眼睛，眼神中充满了迷茫和好奇。\n\n"我...我是谁？"\n\n故事的开始了。为她指定一个监护人，帮小女孩儿在殖民地中找到蓬勃的归宿之处。</SD_Letter_ChildhoodStarted_Text>
@@ -24,39 +14,10 @@
   <SD_Letter_YouthStarted_Title>{0}进入了青年期</SD_Letter_YouthStarted_Title>
   <SD_Letter_YouthStarted_Text>{0}长大了一些。她的眼神不再像童年时那样懵懂，但依然带着天真。\n\n她似乎对这个世界有了更多的理解，但还说不清自己内心的感受。\n\n当前同步率：{1}%\n当前混沌度：{2}%</SD_Letter_YouthStarted_Text>
 
-  <!-- 征兆信件 -->
-  <SD_Letter_Omen_Title>来自{0}的征兆</SD_Letter_Omen_Title>
-  <SD_Letter_Omen_Positive>最近，{0}总是默默地跟在殖民者身后。她偶尔会红着脸，小声说一些令人脸红的话。\n\n"我...我不是特别想和你在一起什么的！只是...习惯了而已。"\n\n她的眼神中，有着难以掩饰的依恋。</SD_Letter_Omen_Positive>
-  <SD_Letter_Omen_Negative>最近，{0}变得沉默寡言。她不再主动接近任何人，偶尔会独自坐在角落里发呆。\n\n有殖民者报告说，夜里曾看到她的眼睛在黑暗中发出幽幽的光。\n\n她的内心，似乎正在发生某种危险的变化。</SD_Letter_Omen_Negative>
-
-  <!-- 路线锁定信件 -->
-  <SD_Letter_RouteLocked_FatherBond_Title>{0}的心意已经明确</SD_Letter_RouteLocked_FatherBond_Title>
-  <SD_Letter_RouteLocked_FatherBond_Text>{0}已经长成了一个亭亭玉立的少女。她的目光中，满是温柔和依恋。\n\n"能遇到你...是我这辈子最幸运的事。"\n\n她的命运，正在向着光明的方向前进。\n\n好感度：{1} | 信任值：{2}</SD_Letter_RouteLocked_FatherBond_Text>
-  <SD_Letter_RouteLocked_DarkCorruption_Title>{0}的心正在被黑暗吞噬</SD_Letter_RouteLocked_DarkCorruption_Title>
-  <SD_Letter_RouteLocked_DarkCorruption_Text>{0}的变化越来越明显。她的笑容变得冰冷，言语中带着刺。\n\n"这个世界...真的很无聊呢。"\n\n她内心的黑暗正在不断膨胀，似乎已经无法挽回。\n\n好感度：{1} | 信任值：{2}</SD_Letter_RouteLocked_DarkCorruption_Text>
-
-  <!-- 检查面板 -->
-  <SD_InspectSyncRate>同步率</SD_InspectSyncRate>
-  <SD_InspectChaosLevel>混沌度</SD_InspectChaosLevel>
-  <SD_InspectAwakening>觉醒进度</SD_InspectAwakening>
-  <SD_InspectStage>当前阶段</SD_InspectStage>
-  <SD_InspectMentor>引导者</SD_InspectMentor>
-  <SD_InspectMaster>监护人</SD_InspectMaster>
-  <SD_InspectRoute>命运路线</SD_InspectRoute>
-  <SD_InspectAffection>好感度</SD_InspectAffection>
-  <SD_InspectTrust>信任值</SD_InspectTrust>
-
   <!-- 通用 -->
   <SD_Unknown>未知</SD_Unknown>
 
-  <!-- 事件（占位，RecordEvent用） -->
-  <SD_Event_Childhood_Initialized>{0}被激活了！同步率+{1}</SD_Event_Childhood_Initialized>
-  <SD_Event_Youth_Started>{0}进入了青年期。同步率+{1}</SD_Event_Youth_Started>
-  <SD_Event_Adulthood_Started>{0}进入了成年期。</SD_Event_Adulthood_Started>
-  <SD_Event_Route_Locked>{0}的命运已经确定。</SD_Event_Route_Locked>
-  <SD_Event_PositiveInteraction>{0}与引导者进行了愉快的互动。同步率+{1}</SD_Event_PositiveInteraction>
-
-  <!-- Gizmo 标签（新双轴系统） -->
+  <!-- Gizmo 标签（双轴系统） -->
   <SD_GizmoAff>好感度</SD_GizmoAff>
   <SD_GizmoTrs>信任值</SD_GizmoTrs>
   <SD_GizmoAff_TipHeader>好感度：{0}</SD_GizmoAff_TipHeader>
@@ -64,76 +25,25 @@
   <SD_TipEvents>【近期事件】</SD_TipEvents>
   <SD_TipNoEvents>（暂无记录）</SD_TipNoEvents>
   <SD_TipPassive>【被动积累】</SD_TipPassive>
-
-  <!-- Gizmo 标签（旧字段保留兼容） -->
-  <SD_GizmoSync>同步率</SD_GizmoSync>
-  <SD_GizmoSync_Tip>与殖民地的情感连结深度。\n当前值：{0}%</SD_GizmoSync_Tip>
-  <SD_GizmoChaos>混沌度</SD_GizmoChaos>
-  <SD_GizmoChaos_Tip>内心黑暗力量的侵蚀程度。\n当前值：{0}%</SD_GizmoChaos_Tip>
-  <SD_GizmoAwaken>觉醒度</SD_GizmoAwaken>
-
-  <!-- 检查面板 -->
-  <SD_InspectSyncRate>同步率</SD_InspectSyncRate>
-  <SD_InspectChaosLevel>混沌度</SD_InspectChaosLevel>
-  <SD_InspectAwakening>觉醒进度</SD_InspectAwakening>
-  <SD_InspectStage>当前阶段</SD_InspectStage>
-  <SD_InspectMentor>引导者</SD_InspectMentor>
-  <SD_InspectMaster>监护人</SD_InspectMaster>
-  <SD_InspectRoute>命运路线</SD_InspectRoute>
-  <SD_InspectAffection>好感度</SD_InspectAffection>
-  <SD_InspectTrust>信任值</SD_InspectTrust>
-
-  <!-- 通用 -->
-  <SD_Unknown>未知</SD_Unknown>
-
-  <!-- 事件（占位，RecordEvent用） -->
-  <SD_Event_Childhood_Initialized>{0}被激活了！同步率+{1}</SD_Event_Childhood_Initialized>
-  <SD_Event_Youth_Started>{0}进入了青年期。同步率+{1}</SD_Event_Youth_Started>
-  <SD_Event_Adulthood_Started>{0}进入了成年期。</SD_Event_Adulthood_Started>
-  <SD_Event_Route_Locked>{0}的命运已经确定。</SD_Event_Route_Locked>
-  <SD_Event_PositiveInteraction>{0}与引导者进行了愉快的互动。同步率+{1}</SD_Event_PositiveInteraction>
-
-  <!-- Gizmo 标签（新双轴系统） -->
-  <SD_GizmoAff>好感度</SD_GizmoAff>
-  <SD_GizmoTrs>信任值</SD_GizmoTrs>
-  <SD_GizmoAff_TipHeader>好感度：{0}</SD_GizmoAff_TipHeader>
-  <SD_GizmoTrs_TipHeader>信任值：{0}</SD_GizmoTrs_TipHeader>
-  <SD_TipEvents>【近期事件】</SD_TipEvents>
-  <SD_TipNoEvents>（暂无记录）</SD_TipNoEvents>
-  <SD_TipPassive>【被动积累】</SD_TipPassive>
-
-  <!-- Gizmo 标签（旧字段保留兼容） -->
-  <SD_GizmoSync>同步率</SD_GizmoSync>
-  <SD_GizmoSync_Tip>与殖民地的情感连结深度。\n当前值：{0}%</SD_GizmoSync_Tip>
-  <SD_GizmoChaos>混沌度</SD_GizmoChaos>
-  <SD_GizmoChaos_Tip>内心黑暗力量的侵蚀程度。\n当前值：{0}%</SD_GizmoChaos_Tip>
-  <SD_GizmoAwaken>觉醒度</SD_GizmoAwaken>
-  <SD_GizmoAwaken_Tip>星规核心的自我意识进程。\n当前值：{0}%\n当前阶段：{1}</SD_GizmoAwaken_Tip>
-  <SD_GizmoMaster>监护人</SD_GizmoMaster>
-  <SD_GizmoMaster_Tip>当前指定的监护人。
-他们在附近时，同步率增长速度提高1.5倍。
-所有殖民者的陪伴都对同步率有贡献。
-当前监护人：{0}</SD_GizmoMaster_Tip>
-  <SD_NoMaster>(无)</SD_NoMaster>
 
   <!-- 飞行开关 -->
   <SD_FlightToggle>飞行</SD_FlightToggle>
   <SD_FlightToggleDesc>开启或关闭飞行模式。</SD_FlightToggleDesc>
 
   <!-- 魔女化系统 -->
-  <SD_Witch_State_Normal>正常</SD_Witch_State_Normal>
+  <SD_Witch_State_Normal>星规形态</SD_Witch_State_Normal>
   <SD_Witch_State_Witch>魔女形态</SD_Witch_State_Witch>
-  <SD_Witch_State_Berserk>发狂中</SD_Witch_State_Berserk>
+  <SD_Witch_State_Berserk>核心失控</SD_Witch_State_Berserk>
   <SD_Witch_Transform>魔女变身</SD_Witch_Transform>
   <SD_Witch_Transform_Desc>切换到魔女形态，魔女因子增长速度加快。</SD_Witch_Transform_Desc>
   <SD_Witch_CancelTransform>解除变身</SD_Witch_CancelTransform>
   <SD_Witch_CancelTransform_Desc>解除魔女形态，恢复正常状态。</SD_Witch_CancelTransform_Desc>
-  <SD_Witch_BerserkWarning>发狂失控中</SD_Witch_BerserkWarning>
+  <SD_Witch_BerserkWarning>核心失控中</SD_Witch_BerserkWarning>
   <SD_Witch_Suppress>镇压魔女</SD_Witch_Suppress>
   <SD_Witch_SuppressDesc>镇压发狂的魔女，重置魔女因子。</SD_Witch_SuppressDesc>
-  <SD_Witch_Berserk>{0}的魔女因子失控了！她进入了发狂状态！</SD_Witch_Berserk>
-  <SD_Witch_CannotToggle_Berserk>发狂状态下无法主动切换形态，需要先镇压！</SD_Witch_CannotToggle_Berserk>
-  <SD_Witch_NotBerserk>只有在发狂状态下才能镇压。</SD_Witch_NotBerserk>
+  <SD_Witch_Berserk>{0}的魔女因子失控了！她进入了核心失控状态！</SD_Witch_Berserk>
+  <SD_Witch_CannotToggle_Berserk>核心失控状态下无法主动切换形态，需要先镇压！</SD_Witch_CannotToggle_Berserk>
+  <SD_Witch_NotBerserk>只有在核心失控状态下才能镇压。</SD_Witch_NotBerserk>
   <SD_Witch_Suppressed>{0}被镇压了，魔女因子已重置。</SD_Witch_Suppressed>
   <SD_Witch_NoSuppressor>没有可用的殖民者执行镇压。</SD_Witch_NoSuppressor>
   <SD_Witch_CannotSuppress>无法镇压</SD_Witch_CannotSuppress>

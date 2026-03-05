@@ -24,7 +24,7 @@
     <fixedAdultBackstories>
       <li>SD_Daughter_Adulthood_Bond</li>
     </fixedAdultBackstories>
-    <nameMaker>LBD_Stellar_NameMaker</nameMaker>
+    <nameMaker>SD_Stellar_NameMaker</nameMaker>
     <forcedTraits>
       <SD_MemoryCore>0</SD_MemoryCore>
     </forcedTraits>
