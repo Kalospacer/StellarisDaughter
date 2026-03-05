@@ -19,6 +19,9 @@ namespace StellarisDaughter
         [MayRequire("Tourswen.StellarisDaughter")]
         public static TraitDef SD_MemoryCore;
 
+        // 魔女系统Job
+        public static JobDef SD_SuppressWitch;
+
         static SD_DefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(SD_DefOf));
     }
 }

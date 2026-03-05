@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>SD_SuppressWitch</defName>
+    <driverClass>StellarisDaughter.JobDriver_SuppressWitch</driverClass>
+    <reportString>镇压魔女中。</reportString>
+    <casualInterruptible>false</casualInterruptible>
+    <alwaysShowWeapon>false</alwaysShowWeapon>
+  </JobDef>
+</Defs>

@@ -81,4 +81,18 @@ Current guardian: {0}</SD_GizmoMaster_Tip>
   <!-- Flight Toggle -->
   <SD_FlightToggle>Flight</SD_FlightToggle>
   <SD_FlightToggleDesc>Toggle flight mode on or off.</SD_FlightToggleDesc>
+
+  <!-- Witch Form System -->
+  <SD_Witch_State_Normal>Normal</SD_Witch_State_Normal>
+  <SD_Witch_State_Witch>Witch Form</SD_Witch_State_Witch>
+  <SD_Witch_State_Berserk>Berserk</SD_Witch_State_Berserk>
+  <SD_Witch_Transform>Witch Transform</SD_Witch_Transform>
+  <SD_Witch_CancelTransform>Cancel Transform</SD_Witch_CancelTransform>
+  <SD_Witch_BerserkWarning>Berserk Out of Control</SD_Witch_BerserkWarning>
+  <SD_Witch_Suppress>Suppress Witch</SD_Witch_Suppress>
+  <SD_Witch_SuppressDesc>Suppress the berserk witch and reset witch factor.</SD_Witch_SuppressDesc>
+  <SD_Witch_Berserk>{0}'s witch factor is out of control! She has entered berserk state!</SD_Witch_Berserk>
+  <SD_Witch_CannotToggle_Berserk>Cannot toggle form while berserk. Suppression required!</SD_Witch_CannotToggle_Berserk>
+  <SD_Witch_NotBerserk>Can only suppress while berserk.</SD_Witch_NotBerserk>
+  <SD_Witch_Suppressed>{0} has been suppressed. Witch factor reset.</SD_Witch_Suppressed>
 </LanguageData>

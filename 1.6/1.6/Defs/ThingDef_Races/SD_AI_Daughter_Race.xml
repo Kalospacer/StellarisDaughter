@@ -305,6 +305,16 @@
         <flyingAnimationSouth>SD_FlyEast</flyingAnimationSouth>
       </li>
       <li Class="StellarisDaughter.CompProperties_AIUpbringing" />
+      <li Class="StellarisDaughter.CompProperties_AIWitchForm">
+        <baseMaxFactor>1000</baseMaxFactor>
+        <baseGrowthRate>0.1</baseGrowthRate>
+        <witchFormGrowthMult>3</witchFormGrowthMult>
+        <halfMaxGrowthMult>0.5</halfMaxGrowthMult>
+        <normalApparelDef>SD_StellarUniform</normalApparelDef>
+        <witchApparelDef>SD_StellarBlackUniform</witchApparelDef>
+        <normalHairDef>SD_Daughter_Hair</normalHairDef>
+        <witchHairDef>SD_Daughter_Black_Hair</witchHairDef>
+      </li>
       <li Class="StellarisDaughter.CompProperties_AllSkillsMinorPassion" />
       <li Class="StellarisDaughter.CompProperties_UnitVoice">
         <voicePack>SD_VoicePack_Daughter</voicePack>
