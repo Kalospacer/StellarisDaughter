@@ -27,7 +27,7 @@
     <moveSpeed>4</moveSpeed>
     <trails>
       <li>
-        <texturePath>StellarisDaughter/Things/DroneTrail/Milira_FunnelBit_B_subProjectile_trailC</texturePath>
+        <texturePath>StellarisDaughter/Things/DroneTrail/SD_Drone_trail</texturePath>
         <width>0.15</width>
         <length>13</length>
         <minSpeed>1.2</minSpeed>
@@ -87,7 +87,7 @@
     <moveSpeed>4</moveSpeed>
     <trails>
       <li>
-        <texturePath>StellarisDaughter/Things/DroneTrail/Milira_FunnelBit_B_subProjectile_trailC</texturePath>
+        <texturePath>StellarisDaughter/Things/DroneTrail/SD_Drone_trail</texturePath>
         <width>0.15</width>
         <length>13</length>
         <minSpeed>1.2</minSpeed>

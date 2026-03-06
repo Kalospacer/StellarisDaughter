@@ -7,15 +7,16 @@
       <texPath>StellarisDaughter/SRACompat/Projectile/ChargeLanceShot</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
-      <drawSize>1.2</drawSize>
+      <drawSize>2.4</drawSize>
     </graphicData>
-    <thingClass>StellarisDaughter.Projectile_TrackingBullet</thingClass>
+    <thingClass>StellarisDaughter.Projectile_ExplosiveTrackingBullet</thingClass>
     <projectile>
       <damageDef>Bullet</damageDef>
       <damageAmountBase>12</damageAmountBase>
       <armorPenetrationBase>0.7</armorPenetrationBase>
       <stoppingPower>5</stoppingPower>
       <speed>80</speed>
+      
       <extraDamages>
         <li>
           <def>SD_Retardant</def>
@@ -33,6 +34,10 @@
       </li>
     </comps>
     <modExtensions>
+      <li Class="StellarisDaughter.ExplosiveTrackingBulletDef">
+        <explosionRadius>1.5</explosionRadius>
+        <damageDef>Bullet</damageDef>
+      </li>
       <li Class="StellarisDaughter.TrackingBulletDef">
         <!-- 追踪速度，数值越高，转向越快，追踪能力越强 -->
         <homingSpeed>0.75</homingSpeed>
