@@ -64,6 +64,7 @@ namespace StellarisDaughter
         private List<SD_DroneSlot> slots = new List<SD_DroneSlot>();
         private int lastThreatTick = -99999;
         private bool autoDeployEnabled = true;
+        private float gizmoScrollPosition;
 
         public CompProperties_SD_DroneController Props => (CompProperties_SD_DroneController)props;
 
@@ -79,6 +80,7 @@ namespace StellarisDaughter
             Scribe_Collections.Look(ref slots, "slots", LookMode.Deep);
             Scribe_Values.Look(ref lastThreatTick, "lastThreatTick", -99999);
             Scribe_Values.Look(ref autoDeployEnabled, "autoDeployEnabled", true);
+            Scribe_Values.Look(ref gizmoScrollPosition, "gizmoScrollPosition", 0f);
             if (Scribe.mode == LoadSaveMode.PostLoadInit && slots == null)
             {
                 slots = new List<SD_DroneSlot>();
@@ -148,10 +150,6 @@ namespace StellarisDaughter
                 {
                     DeployChargedDrones(showMessage: false);
                 }
-            }
-            else if (HasActiveDrones() && Find.TickManager.TicksGame - lastThreatTick >= Props.idleRecallTicks)
-            {
-                RecallAllDrones();
             }
         }
 
@@ -369,6 +367,12 @@ namespace StellarisDaughter
 
         public bool AutoDeployEnabled => autoDeployEnabled;
 
+        public float GizmoScrollPosition
+        {
+            get => gizmoScrollPosition;
+            set => gizmoScrollPosition = Mathf.Max(0f, value);
+        }
+
         public void ToggleAutoDeploy()
         {
             autoDeployEnabled = !autoDeployEnabled;
@@ -421,6 +425,7 @@ namespace StellarisDaughter
             }
 
             EnsureSlots();
+            lastThreatTick = Find.TickManager.TicksGame;
             var deployedAny = false;
             for (var i = 0; i < slots.Count; i++)
             {

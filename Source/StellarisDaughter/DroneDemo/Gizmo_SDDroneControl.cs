@@ -11,9 +11,11 @@ namespace StellarisDaughter
         private static readonly Texture2D FillCharging = SolidColorMaterials.NewSolidColorTexture(new Color(0.95f, 0.7f, 0.3f));
         private static readonly Texture2D FillActive = SolidColorMaterials.NewSolidColorTexture(new Color(0.95f, 0.4f, 0.55f));
 
-        private const float Width = 220f;
-        private const float TopHeight = 28f;
-        private const float SlotHeight = 18f;
+        private const float Width = 320f;
+        private const float BaseGizmoHeight = 75f;
+        private const float TopHeight = 46f;
+        private const float SlotHeight = 20f;
+        private const float MaxVisibleSlotArea = 124f;
         private const float Padding = 6f;
         private const float Gap = 4f;
 
@@ -33,33 +35,41 @@ namespace StellarisDaughter
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
             var slots = controller.Slots;
-            var height = Padding * 2f + TopHeight + Gap + slots.Count * SlotHeight;
-            var outer = new Rect(topLeft.x, topLeft.y, Width, height);
+            var fullSlotHeight = slots.Count * SlotHeight;
+            var visibleSlotHeight = Mathf.Min(fullSlotHeight, MaxVisibleSlotArea);
+            var height = Padding * 2f + TopHeight + Gap + visibleSlotHeight;
+            var shiftUp = Mathf.Max(0f, height - BaseGizmoHeight);
+            var outer = new Rect(topLeft.x, Mathf.Max(0f, topLeft.y - shiftUp), Width, height);
             Widgets.DrawWindowBackground(outer);
 
             var inner = outer.ContractedBy(Padding);
-            var topRow = new Rect(inner.x, inner.y, inner.width, TopHeight);
-            DrawTopRow(topRow);
+            DrawTopBlock(new Rect(inner.x, inner.y, inner.width, TopHeight));
 
-            var rowY = topRow.yMax + Gap;
-            for (var i = 0; i < slots.Count; i++)
-            {
-                var row = new Rect(inner.x, rowY + i * SlotHeight, inner.width, SlotHeight - 1f);
-                DrawSlotRow(row, slots[i]);
-            }
+            var listOutRect = new Rect(inner.x, inner.y + TopHeight + Gap, inner.width, visibleSlotHeight);
+            DrawSlotList(listOutRect, slots);
 
+            Text.Anchor = TextAnchor.UpperLeft;
+            Text.Font = GameFont.Small;
+            GUI.color = Color.white;
             return new GizmoResult(GizmoState.Clear);
         }
 
-        private void DrawTopRow(Rect row)
+        private void DrawTopBlock(Rect rect)
         {
-            var titleRect = new Rect(row.x, row.y, 70f, row.height);
-            var actionRect = new Rect(titleRect.xMax + 4f, row.y + 2f, 74f, row.height - 4f);
-            var toggleRect = new Rect(actionRect.xMax + 4f, row.y + 2f, row.xMax - (actionRect.xMax + 4f), row.height - 4f);
+            var titleRect = new Rect(rect.x, rect.y, rect.width, 16f);
+            var summaryRect = new Rect(rect.x, titleRect.yMax, rect.width, 12f);
+            var buttonsRect = new Rect(rect.x, summaryRect.yMax + 4f, rect.width, rect.yMax - summaryRect.yMax - 4f);
+            var actionRect = new Rect(buttonsRect.x, buttonsRect.y, 120f, buttonsRect.height);
+            var toggleRect = new Rect(actionRect.xMax + 4f, buttonsRect.y, buttonsRect.width - actionRect.width - 4f, buttonsRect.height);
 
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.MiddleLeft;
             Widgets.Label(titleRect, "SD_Drone_GizmoTitle".Translate());
+
+            Text.Font = GameFont.Tiny;
+            GUI.color = new Color(0.82f, 0.82f, 0.82f);
+            Widgets.Label(summaryRect, BuildSummaryText());
+            GUI.color = Color.white;
 
             var actionLabel = controller.HasActiveDrones()
                 ? "SD_Drone_RecallCommandLabel".Translate().ToString()
@@ -79,6 +89,7 @@ namespace StellarisDaughter
 
             TooltipHandler.TipRegion(toggleRect, "SD_Drone_AutoDeployToggleDesc".Translate());
             Text.Anchor = TextAnchor.UpperLeft;
+            Text.Font = GameFont.Small;
         }
 
         private void DrawSlotRow(Rect row, SD_DroneSlot slot)
@@ -86,19 +97,18 @@ namespace StellarisDaughter
             var clickable = row.ContractedBy(1f);
             Widgets.DrawHighlightIfMouseover(clickable);
 
-            var indexRect = new Rect(clickable.x, clickable.y, 22f, clickable.height);
-            var labelRect = new Rect(indexRect.xMax + 2f, clickable.y, 70f, clickable.height);
-            var statusRect = new Rect(labelRect.xMax + 2f, clickable.y, 48f, clickable.height);
-            var barRect = new Rect(statusRect.xMax + 4f, clickable.y + 3f, clickable.xMax - statusRect.xMax - 4f, clickable.height - 6f);
+            var indexRect = new Rect(clickable.x, clickable.y, 24f, clickable.height);
+            var labelRect = new Rect(indexRect.xMax + 4f, clickable.y, 134f, clickable.height);
+            var statusRect = new Rect(labelRect.xMax + 4f, clickable.y, 42f, clickable.height);
+            var barRect = new Rect(statusRect.xMax + 5f, clickable.y + 3f, clickable.xMax - statusRect.xMax - 5f, clickable.height - 6f);
 
             Text.Font = GameFont.Tiny;
             Text.Anchor = TextAnchor.MiddleLeft;
             Widgets.Label(indexRect, $"#{slot.Index + 1}");
-            Widgets.Label(labelRect, ResolveDroneTypeLabel(slot));
+            Widgets.Label(labelRect, ShortenLabel(ResolveDroneTypeLabel(slot), 22));
 
-            var stateText = controller.GetSlotShortState(slot).ToString();
             GUI.color = ResolveStateColor(slot);
-            Widgets.Label(statusRect, stateText);
+            Widgets.Label(statusRect, ShortenLabel(controller.GetSlotShortState(slot), 5));
             GUI.color = Color.white;
 
             DrawChargeBar(barRect, slot);
@@ -109,13 +119,68 @@ namespace StellarisDaughter
             }
 
             TooltipHandler.TipRegion(clickable, controller.BuildSlotDescription(slot));
-            Text.Anchor = TextAnchor.UpperLeft;
-            Text.Font = GameFont.Small;
+        }
+
+        private void DrawSlotList(Rect outRect, System.Collections.Generic.IReadOnlyList<SD_DroneSlot> slots)
+        {
+            var viewRect = new Rect(0f, 0f, outRect.width - 16f, slots.Count * SlotHeight);
+            var scrollPosition = new Vector2(0f, controller.GizmoScrollPosition);
+            Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect);
+
+            for (var i = 0; i < slots.Count; i++)
+            {
+                var row = new Rect(0f, i * SlotHeight, viewRect.width, SlotHeight - 1f);
+                DrawSlotRow(row, slots[i]);
+            }
+
+            Widgets.EndScrollView();
+            controller.GizmoScrollPosition = scrollPosition.y;
+        }
+
+        private string BuildSummaryText()
+        {
+            var ready = 0;
+            var active = 0;
+            var charging = 0;
+            var slots = controller.Slots;
+
+            for (var i = 0; i < slots.Count; i++)
+            {
+                if (slots[i].Drone != null && !slots[i].Drone.Destroyed)
+                {
+                    active++;
+                }
+                else if (slots[i].IsCharged)
+                {
+                    ready++;
+                }
+                else if (slots[i].State == SD_DroneSlotState.Charging)
+                {
+                    charging++;
+                }
+            }
+
+            return "SD_Drone_GizmoSummary".Translate(ready, active, charging).ToString();
         }
 
         private static string ResolveDroneTypeLabel(SD_DroneSlot slot)
         {
             return slot.DroneType?.label ?? slot.DroneType?.defName ?? "None";
+        }
+
+        private static string ShortenLabel(string text, int maxChars)
+        {
+            if (string.IsNullOrEmpty(text) || text.Length <= maxChars)
+            {
+                return text;
+            }
+
+            if (maxChars <= 3)
+            {
+                return text.Substring(0, maxChars);
+            }
+
+            return text.Substring(0, maxChars - 3) + "...";
         }
 
         private static Color ResolveStateColor(SD_DroneSlot slot)
