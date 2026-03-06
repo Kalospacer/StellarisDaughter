@@ -1,16 +1,15 @@
 using HarmonyLib;
-using RimWorld;
 using Verse;
 
 namespace StellarisDaughter
 {
-    [HarmonyPatch(typeof(Bullet), "Impact")]
-    public static class Patch_Bullet_Impact
+    [HarmonyPatch(typeof(Projectile), "Impact")]
+    public static class Patch_Projectile_Impact
     {
-        [HarmonyPostfix]
-        public static void Postfix(Bullet __instance)
+        [HarmonyPrefix]
+        public static void Prefix(Projectile __instance)
         {
-            if (__instance?.Destroyed == true)
+            if (__instance == null)
             {
                 return;
             }

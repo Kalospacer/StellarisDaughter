@@ -253,10 +253,9 @@ namespace StellarisDaughter
             var ownerMaxDistance = ResolveMaxOwnerDistance(droneType, ownerMinDistance, fallbackOrbitRadius);
             var targetMinDistance = ResolveMinTargetDistance(droneType, preferredDistance, jitter, fallbackOrbitRadius);
             var targetMaxDistance = ResolveMaxTargetDistance(droneType, targetMinDistance, preferredDistance, jitter, fallbackOrbitRadius);
-            var layerSlotCount = Mathf.Max(GetLayerSlotCount(drone.OrbitLayer), 1);
-            var layerSlotOrder = GetLayerSlotOrder(drone.SlotIndex, drone.OrbitLayer);
-            var startAngle = (360f / layerSlotCount) * layerSlotOrder
-                + (360f / Mathf.Max(drone.SquadronSize, 1)) * drone.SquadronMemberIndex
+            var layerDroneCount = Mathf.Max(GetLayerDroneCount(drone.OrbitLayer), 1);
+            var layerDroneOrder = GetLayerDroneOrder(drone.SlotIndex, drone.SquadronMemberIndex, drone.OrbitLayer);
+            var startAngle = (360f / layerDroneCount) * layerDroneOrder
                 + drone.OrbitLayer * 18f
                 + Find.TickManager.TicksGame * 3f;
             var bestPreferred = Vector3.zero;
@@ -269,7 +268,7 @@ namespace StellarisDaughter
                 var angle = startAngle + i * 15f;
                 var radius = ResolveCandidateTargetRadius(targetMinDistance, targetMaxDistance, preferredDistance, jitter);
                 var candidate = targetCenter + new Vector3(0f, 0f, radius).RotatedBy(angle);
-                candidate += GetSquadronAttackOffset(droneType, drone.SquadronMemberIndex, drone.SquadronSize, drone.SlotIndex, drone.OrbitLayer);
+                candidate += GetAttackSpreadOffset(droneType, drone.SquadronMemberIndex, drone.SlotIndex, drone.OrbitLayer);
                 var cell = candidate.ToIntVec3();
                 if (!cell.InBounds(wearer.Map) || cell.Impassable(wearer.Map))
                 {
@@ -335,8 +334,7 @@ namespace StellarisDaughter
                 return Vector3.zero;
             }
 
-            var anchor = GetSquadronAnchorPosition(slotIndex, droneType, orbitLayer, false);
-            var pos = anchor + GetSquadronMemberOffset(droneType, squadronMemberIndex, squadronSize, slotIndex, orbitLayer, false);
+            var pos = GetIndependentOrbitPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer, false);
             pos.y = wearer.DrawPos.y;
             return pos;
         }
@@ -349,8 +347,7 @@ namespace StellarisDaughter
                 return Vector3.zero;
             }
 
-            var anchor = GetSquadronAnchorPosition(slotIndex, droneType, orbitLayer, true);
-            var pos = anchor + GetSquadronMemberOffset(droneType, squadronMemberIndex, squadronSize, slotIndex, orbitLayer, true);
+            var pos = GetIndependentOrbitPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer, true);
             pos.y = wearer.DrawPos.y;
             return pos;
         }
@@ -471,6 +468,23 @@ namespace StellarisDaughter
             return slot?.ActiveDroneCount ?? 0;
         }
 
+        public bool IsOwnerForcedAttackTarget(Thing target)
+        {
+            var wearer = Wearer;
+            if (wearer?.Map == null || target == null || target.Destroyed || !target.Spawned)
+            {
+                return false;
+            }
+
+            var forcedTarget = wearer.CurJob?.targetA.Thing;
+            if (forcedTarget == null)
+            {
+                return false;
+            }
+
+            return forcedTarget == target && wearer.HostileTo(target);
+        }
+
         private Thing GetPrimaryThreatTarget()
         {
             var wearer = Wearer;
@@ -540,6 +554,11 @@ namespace StellarisDaughter
             if (!IsPotentialThreatTarget(wearer, target))
             {
                 return false;
+            }
+
+            if (IsOwnerForcedAttackTarget(target))
+            {
+                return true;
             }
 
             if (!GenSight.LineOfSight(drone.Position, target.Position, wearer.Map))
@@ -739,7 +758,7 @@ namespace StellarisDaughter
             slot.Drones.RemoveAll(existing => existing == null || existing == drone || existing.Destroyed);
         }
 
-        private int GetLayerSlotOrder(int slotIndex, int orbitLayer)
+        private int GetLayerDroneOrder(int slotIndex, int squadronMemberIndex, int orbitLayer)
         {
             var order = 0;
             for (var i = 0; i < slots.Count; i++)
@@ -749,20 +768,29 @@ namespace StellarisDaughter
                     continue;
                 }
 
+                var squadronSize = Mathf.Max(slots[i].SquadronSize, 1);
                 if (slots[i].Index == slotIndex)
                 {
-                    return order;
+                    return order + Mathf.Clamp(squadronMemberIndex, 0, squadronSize - 1);
                 }
 
-                order++;
+                order += squadronSize;
             }
 
-            return Mathf.Max(slotIndex, 0);
+            return Mathf.Max(slotIndex + squadronMemberIndex, 0);
         }
 
-        private int GetLayerSlotCount(int orbitLayer)
+        private int GetLayerDroneCount(int orbitLayer)
         {
-            var count = slots.Count(slot => slot.OrbitLayer == orbitLayer);
+            var count = 0;
+            for (var i = 0; i < slots.Count; i++)
+            {
+                if (slots[i].OrbitLayer == orbitLayer)
+                {
+                    count += Mathf.Max(slots[i].SquadronSize, 1);
+                }
+            }
+
             return Mathf.Max(count, 1);
         }
 
@@ -781,7 +809,7 @@ namespace StellarisDaughter
             return Mathf.Max(Props.orbitRadius + orbitLayer * 1.6f, 0.8f);
         }
 
-        private Vector3 GetSquadronAnchorPosition(int slotIndex, SD_DroneTypeDef droneType, int orbitLayer, bool docked)
+        private Vector3 GetIndependentOrbitPosition(int slotIndex, SD_DroneTypeDef droneType, int squadronMemberIndex, int squadronSize, int orbitLayer, bool docked)
         {
             var wearer = Wearer;
             if (wearer == null)
@@ -789,13 +817,15 @@ namespace StellarisDaughter
                 return Vector3.zero;
             }
 
-            var countOnLayer = Mathf.Max(GetLayerSlotCount(orbitLayer), 1);
-            var layerOrder = GetLayerSlotOrder(slotIndex, orbitLayer);
+            var countOnLayer = Mathf.Max(GetLayerDroneCount(orbitLayer), 1);
+            var layerOrder = GetLayerDroneOrder(slotIndex, squadronMemberIndex, orbitLayer);
             var radius = ResolveLayerRadius(orbitLayer, droneType);
             if (docked)
             {
                 radius *= 0.45f;
             }
+
+            radius += GetLayerRadialOffset(droneType, squadronMemberIndex, squadronSize, orbitLayer, docked);
 
             var angle = (360f / countOnLayer) * layerOrder + orbitLayer * 12f;
             if (!docked)
@@ -809,12 +839,12 @@ namespace StellarisDaughter
             return pos;
         }
 
-        private Vector3 GetSquadronMemberOffset(SD_DroneTypeDef droneType, int squadronMemberIndex, int squadronSize, int slotIndex, int orbitLayer, bool docked)
+        private float GetLayerRadialOffset(SD_DroneTypeDef droneType, int squadronMemberIndex, int squadronSize, int orbitLayer, bool docked)
         {
             var count = Mathf.Max(squadronSize, 1);
             if (count <= 1)
             {
-                return Vector3.zero;
+                return 0f;
             }
 
             var spreadRadius = Mathf.Max(droneType?.squadronSpreadRadius ?? 0.65f, 0.05f);
@@ -823,18 +853,15 @@ namespace StellarisDaughter
                 spreadRadius *= 0.55f;
             }
 
-            var angle = (360f / count) * squadronMemberIndex + slotIndex * 17f + orbitLayer * 29f;
-            if (!docked)
-            {
-                angle += Find.TickManager.TicksGame * 4.5f;
-            }
-
-            return new Vector3(0f, 0f, spreadRadius).RotatedBy(angle);
+            var midpoint = (count - 1) * 0.5f;
+            return (squadronMemberIndex - midpoint) * spreadRadius;
         }
 
-        private Vector3 GetSquadronAttackOffset(SD_DroneTypeDef droneType, int squadronMemberIndex, int squadronSize, int slotIndex, int orbitLayer)
+        private Vector3 GetAttackSpreadOffset(SD_DroneTypeDef droneType, int squadronMemberIndex, int slotIndex, int orbitLayer)
         {
-            return GetSquadronMemberOffset(droneType, squadronMemberIndex, squadronSize, slotIndex, orbitLayer, false) * 0.65f;
+            var spread = Mathf.Max((droneType?.squadronSpreadRadius ?? 0.65f) * 0.28f, 0.04f);
+            var angle = slotIndex * 29f + squadronMemberIndex * 131f + orbitLayer * 17f;
+            return new Vector3(0f, 0f, spread).RotatedBy(angle);
         }
 
         private float ResolveMinOwnerDistance(SD_DroneTypeDef droneType, float fallbackOrbitRadius)

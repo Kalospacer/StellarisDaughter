@@ -528,6 +528,11 @@ namespace StellarisDaughter
                 return false;
             }
 
+            if (Controller?.IsOwnerForcedAttackTarget(target) == true)
+            {
+                return true;
+            }
+
             var maxRange = ResolveMaxRange();
             if (maxRange <= 0f)
             {
