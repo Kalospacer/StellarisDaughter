@@ -25,10 +25,32 @@
     <maxTargetDistance>6.2</maxTargetDistance>
     <squadronSpreadRadius>0.55</squadronSpreadRadius>
     <moveSpeed>4</moveSpeed>
-    <trailTexturePath>StellarisDaughter/SRACompat/Projectile/ChargeLanceShot</trailTexturePath>
-    <trailWidth>0.2</trailWidth>
-    <trailMaxSegments>8</trailMaxSegments>
-    <trailPointSpacing>0.14</trailPointSpacing>
+    <trails>
+      <li>
+        <texturePath>StellarisDaughter/Things/DroneTrail/Milira_FunnelBit_B_subProjectile_trailC</texturePath>
+        <width>0.15</width>
+        <length>13</length>
+        <minSpeed>1.2</minSpeed>
+        <cutoffSpeed>0.2</cutoffSpeed>
+        <uvScale>1.0</uvScale>
+        <localOffset>(0, 0, -0.2)</localOffset>
+        <widthCurve>
+          <points>
+            <li>(0, 0)</li>
+            <li>(0.8, 1)</li>
+            <li>(1, 0)</li>
+          </points>
+        </widthCurve>
+        <alphaCurve>
+          <points>
+            <li>(0, 0)</li>
+            <li>(0.5, 1)</li>
+            <li>(0.8, 1)</li>
+            <li>(1, 0)</li>
+          </points>
+        </alphaCurve>
+      </li>
+    </trails>
     <deployTicks>28</deployTicks>
     <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
     <preferredTargetDistance>5</preferredTargetDistance>
@@ -63,10 +85,32 @@
     <maxTargetDistance>6.4</maxTargetDistance>
     <squadronSpreadRadius>0.9</squadronSpreadRadius>
     <moveSpeed>4</moveSpeed>
-    <trailTexturePath>StellarisDaughter/SRACompat/Projectile/ChargeLanceShot</trailTexturePath>
-    <trailWidth>0.28</trailWidth>
-    <trailMaxSegments>10</trailMaxSegments>
-    <trailPointSpacing>0.18</trailPointSpacing>
+    <trails>
+      <li>
+        <texturePath>StellarisDaughter/Things/DroneTrail/Milira_FunnelBit_B_subProjectile_trailC</texturePath>
+        <width>0.15</width>
+        <length>13</length>
+        <minSpeed>1.2</minSpeed>
+        <cutoffSpeed>0.2</cutoffSpeed>
+        <uvScale>1.0</uvScale>
+        <localOffset>(0, 0, -0.2)</localOffset>
+        <widthCurve>
+          <points>
+            <li>(0, 0)</li>
+            <li>(0.8, 1)</li>
+            <li>(1, 0)</li>
+          </points>
+        </widthCurve>
+        <alphaCurve>
+          <points>
+            <li>(0, 0)</li>
+            <li>(0.5, 1)</li>
+            <li>(0.8, 1)</li>
+            <li>(1, 0)</li>
+          </points>
+        </alphaCurve>
+      </li>
+    </trails>
     <deployTicks>30</deployTicks>
     <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
     <preferredTargetDistance>6</preferredTargetDistance>

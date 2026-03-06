@@ -28,7 +28,7 @@
     <tickerType>Normal</tickerType>
     <statBases>
       <Mass>0.1</Mass>
-      <MaxHitPoints>1</MaxHitPoints>
+      <MaxHitPoints>500</MaxHitPoints>
       <Flammability>0</Flammability>
     </statBases>
   </ThingDef>

@@ -43,7 +43,8 @@ namespace StellarisDaughter
         private Vector3 pathEnd;
         private int pathTicksElapsed;
         private int pathTicksTotal;
-        private readonly List<Vector3> trailPoints = new List<Vector3>();
+        private Vector3 velocity;
+        private List<SD_DroneTrailRenderer> trailRenderers;
 
         private CompSD_DroneController Controller => controllerThing?.TryGetComp<CompSD_DroneController>();
 
@@ -60,6 +61,10 @@ namespace StellarisDaughter
         public int OrbitLayer => orbitLayer;
 
         public SD_DroneTypeDef DroneType => droneType;
+
+        public Vector3 RealDir => realDir;
+
+        public Vector3 Velocity => velocity;
 
         public VerbTracker VerbTracker => verbTracker ??= new VerbTracker(this);
 
@@ -87,7 +92,14 @@ namespace StellarisDaughter
 
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
-            DrawTrail(drawLoc);
+            if (trailRenderers != null)
+            {
+                for (var i = 0; i < trailRenderers.Count; i++)
+                {
+                    trailRenderers[i].Draw(drawLoc);
+                }
+            }
+
             var direction = realDir.Yto0();
             var extraRotation = direction == Vector3.zero ? 0f : direction.AngleFlat();
             Graphic.Draw(drawLoc, flip ? Rotation.Opposite : Rotation, this, extraRotation);
@@ -120,7 +132,8 @@ namespace StellarisDaughter
             {
                 realDir = Vector3.forward;
             }
-            ResetTrail();
+            velocity = Vector3.zero;
+            InitializeTrails();
 
             BeginLaunch();
         }
@@ -157,6 +170,7 @@ namespace StellarisDaughter
         protected override void Tick()
         {
             base.Tick();
+            var previousRealPos = realPos;
 
             var controller = Controller;
             var owner = Owner;
@@ -196,7 +210,15 @@ namespace StellarisDaughter
                     break;
             }
 
-            UpdateTrail();
+            velocity = (realPos - previousRealPos).Yto0();
+            if (trailRenderers != null)
+            {
+                for (var i = 0; i < trailRenderers.Count; i++)
+                {
+                    trailRenderers[i].Tick();
+                }
+            }
+
             Position = realPos.ToIntVec3();
         }
 
@@ -432,7 +454,6 @@ namespace StellarisDaughter
             currentTarget = null;
             completedAttackCycles = 0;
             loiterTicksLeft = ResolveLoiterTicks();
-            ResetTrail();
         }
 
         private void BeginLoiter()
@@ -600,85 +621,22 @@ namespace StellarisDaughter
             return false;
         }
 
-        private void UpdateTrail()
+        private void InitializeTrails()
         {
-            if (Map == null || droneType == null || string.IsNullOrEmpty(droneType.trailTexturePath))
+            if (droneType?.trails == null || droneType.trails.Count == 0)
             {
+                trailRenderers = null;
                 return;
             }
 
-            var minMove = Mathf.Max(droneType.trailMinMovePerTick, 0.001f);
-            var direction = realDir.Yto0();
-            if (direction.magnitude < minMove)
+            trailRenderers = new List<SD_DroneTrailRenderer>(droneType.trails.Count);
+            for (var i = 0; i < droneType.trails.Count; i++)
             {
-                return;
-            }
-
-            if (trailPoints.Count == 0)
-            {
-                trailPoints.Add(realPos);
-                return;
-            }
-
-            var spacing = Mathf.Max(droneType.trailPointSpacing, minMove);
-            if ((realPos - trailPoints[trailPoints.Count - 1]).Yto0().magnitude < spacing)
-            {
-                trailPoints[trailPoints.Count - 1] = realPos;
-            }
-            else
-            {
-                trailPoints.Add(realPos);
-            }
-
-            var maxPoints = Mathf.Max(droneType.trailMaxSegments + 1, 2);
-            while (trailPoints.Count > maxPoints)
-            {
-                trailPoints.RemoveAt(0);
-            }
-        }
-
-        private void ResetTrail()
-        {
-            trailPoints.Clear();
-            trailPoints.Add(realPos);
-        }
-
-        private void DrawTrail(Vector3 drawLoc)
-        {
-            if (Map == null || droneType == null || string.IsNullOrEmpty(droneType.trailTexturePath) || trailPoints.Count < 2)
-            {
-                return;
-            }
-
-            var baseMaterial = MaterialPool.MatFrom(droneType.trailTexturePath, ShaderDatabase.MoteGlow);
-            if (baseMaterial == null || baseMaterial == BaseContent.BadMat)
-            {
-                return;
-            }
-
-            var baseWidth = Mathf.Max(droneType.trailWidth, 0.04f);
-            var altitude = drawLoc.y - 0.004f;
-            var segmentCount = trailPoints.Count - 1;
-            for (var i = 0; i < segmentCount; i++)
-            {
-                var start = trailPoints[trailPoints.Count - 1 - i];
-                var end = trailPoints[trailPoints.Count - 2 - i];
-                var delta = (end - start).Yto0();
-                var length = delta.magnitude;
-                if (length < 0.01f)
+                var trail = droneType.trails[i];
+                if (trail != null)
                 {
-                    continue;
+                    trailRenderers.Add(new SD_DroneTrailRenderer(this, trail));
                 }
-
-                var ageFactor = 1f - i / (float)segmentCount;
-                var alpha = Mathf.Clamp01(ageFactor * ageFactor * 0.9f);
-                var width = Mathf.Max(baseWidth * ageFactor, 0.03f);
-                var center = (start + end) * 0.5f;
-                center.y = altitude;
-                var rotation = Quaternion.AngleAxis(delta.AngleFlat(), Vector3.up);
-                var scale = new Vector3(width, 1f, length + width * 0.75f);
-                var fadedMaterial = FadedMaterialPool.FadedVersionOf(baseMaterial, alpha);
-                Graphics.DrawMesh(MeshPool.plane10, Matrix4x4.TRS(center, rotation, scale), fadedMaterial, 0);
             }
         }
 

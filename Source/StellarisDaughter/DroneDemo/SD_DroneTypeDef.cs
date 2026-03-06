@@ -18,11 +18,7 @@ namespace StellarisDaughter
         public float preferredTargetDistance = 4f;
         public float targetDistanceJitter = 0.6f;
         public float squadronSpreadRadius = 0.65f;
-        public string trailTexturePath = "StellarisDaughter/SRACompat/Projectile/ChargeLanceShot";
-        public float trailWidth = 0.28f;
-        public int trailMaxSegments = 7;
-        public float trailPointSpacing = 0.18f;
-        public float trailMinMovePerTick = 0.02f;
+        public List<SD_DroneTrailProperties> trails;
         public int preAttackAimTicks = 0;
         public int postAttackWaitTicks = 18;
         public int loiterTicksWithoutTarget = 1200;

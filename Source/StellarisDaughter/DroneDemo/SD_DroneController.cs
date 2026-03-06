@@ -25,6 +25,7 @@ namespace StellarisDaughter
         public int OrbitLayer;
         public SD_DroneTypeDef DroneType;
         public List<SD_DroneEntity> Drones = new List<SD_DroneEntity>();
+        public List<int> ReplacementTicksRemaining = new List<int>();
 
         public bool IsCharged => State == SD_DroneSlotState.Docked && ChargeTicksRemaining <= 0;
 
@@ -40,9 +41,15 @@ namespace StellarisDaughter
             Scribe_Values.Look(ref OrbitLayer, "orbitLayer", 0);
             Scribe_Defs.Look(ref DroneType, "droneType");
             Scribe_Collections.Look(ref Drones, "drones", LookMode.Reference);
+            Scribe_Collections.Look(ref ReplacementTicksRemaining, "replacementTicksRemaining", LookMode.Value);
             if (Scribe.mode == LoadSaveMode.PostLoadInit && Drones == null)
             {
                 Drones = new List<SD_DroneEntity>();
+            }
+
+            if (Scribe.mode == LoadSaveMode.PostLoadInit && ReplacementTicksRemaining == null)
+            {
+                ReplacementTicksRemaining = new List<int>();
             }
         }
     }
@@ -130,6 +137,7 @@ namespace StellarisDaughter
             {
                 var slot = slots[i];
                 NormalizeSlotDrones(slot);
+                TickReplacementQueue(slot);
 
                 if (slot.State == SD_DroneSlotState.Charging)
                 {
@@ -146,6 +154,11 @@ namespace StellarisDaughter
                 }
                 else if ((slot.State == SD_DroneSlotState.Deployed || slot.State == SD_DroneSlotState.Returning) && slot.ActiveDroneCount <= 0)
                 {
+                    if (slot.State == SD_DroneSlotState.Deployed && HasPendingReplacements(slot))
+                    {
+                        continue;
+                    }
+
                     StartCharging(slot);
                 }
             }
@@ -378,8 +391,18 @@ namespace StellarisDaughter
 
             var slot = slots[slotIndex];
             RemoveDroneReference(slot, drone);
+            if (slot.State == SD_DroneSlotState.Deployed)
+            {
+                QueueReplacement(slot);
+            }
+
             if (slot.ActiveDroneCount <= 0)
             {
+                if (slot.State == SD_DroneSlotState.Deployed && HasPendingReplacements(slot))
+                {
+                    return;
+                }
+
                 StartCharging(slot);
             }
         }
@@ -639,6 +662,7 @@ namespace StellarisDaughter
             slot.DroneType = droneType;
             slot.ChargeTicksRemaining = 0;
             slot.ChargeTicksTotal = 0;
+            slot.ReplacementTicksRemaining.Clear();
             return true;
         }
 
@@ -673,6 +697,7 @@ namespace StellarisDaughter
             slot.ChargeTicksTotal = Mathf.Max(rechargeTicks, 1);
             slot.ChargeTicksRemaining = slot.ChargeTicksTotal;
             slot.Drones.Clear();
+            slot.ReplacementTicksRemaining.Clear();
         }
 
         private SD_DroneTypeDef ResolveDroneTypeForSlot(int slotIndex)
@@ -745,6 +770,10 @@ namespace StellarisDaughter
             }
 
             slot.Drones.RemoveAll(drone => drone == null || drone.Destroyed);
+            if (slot.ReplacementTicksRemaining == null)
+            {
+                slot.ReplacementTicksRemaining = new List<int>();
+            }
         }
 
         private void RemoveDroneReference(SD_DroneSlot slot, SD_DroneEntity drone)
@@ -756,6 +785,116 @@ namespace StellarisDaughter
             }
 
             slot.Drones.RemoveAll(existing => existing == null || existing == drone || existing.Destroyed);
+        }
+
+        private void TickReplacementQueue(SD_DroneSlot slot)
+        {
+            if (slot.ReplacementTicksRemaining == null || slot.ReplacementTicksRemaining.Count == 0)
+            {
+                return;
+            }
+
+            for (var i = 0; i < slot.ReplacementTicksRemaining.Count; i++)
+            {
+                if (slot.ReplacementTicksRemaining[i] > 0)
+                {
+                    slot.ReplacementTicksRemaining[i]--;
+                }
+            }
+
+            if (slot.State != SD_DroneSlotState.Deployed)
+            {
+                return;
+            }
+
+            while (slot.ActiveDroneCount < Mathf.Max(slot.SquadronSize, 1))
+            {
+                var readyIndex = slot.ReplacementTicksRemaining.FindIndex(ticks => ticks <= 0);
+                if (readyIndex < 0)
+                {
+                    break;
+                }
+
+                if (!TryDeployReplacementDrone(slot))
+                {
+                    break;
+                }
+
+                slot.ReplacementTicksRemaining.RemoveAt(readyIndex);
+            }
+        }
+
+        private void QueueReplacement(SD_DroneSlot slot)
+        {
+            if (slot.ReplacementTicksRemaining == null)
+            {
+                slot.ReplacementTicksRemaining = new List<int>();
+            }
+
+            var droneType = slot.DroneType ?? ResolveDroneTypeForSlot(slot.Index);
+            var rechargeTicks = droneType?.rechargeTicks > 0 ? droneType.rechargeTicks : Props.rechargeTicks;
+            slot.ReplacementTicksRemaining.Add(Mathf.Max(rechargeTicks, 1));
+        }
+
+        private bool HasPendingReplacements(SD_DroneSlot slot)
+        {
+            return slot.ReplacementTicksRemaining != null && slot.ReplacementTicksRemaining.Count > 0;
+        }
+
+        private bool TryDeployReplacementDrone(SD_DroneSlot slot)
+        {
+            var wearer = Wearer;
+            var droneType = slot.DroneType ?? ResolveDroneTypeForSlot(slot.Index);
+            if (wearer?.Map == null || droneType?.droneDef == null)
+            {
+                return false;
+            }
+
+            var memberIndex = ResolveAvailableMemberIndex(slot);
+            var squadronSize = Mathf.Max(slot.SquadronSize, 1);
+            var drone = GenSpawn.Spawn(droneType.droneDef, wearer.Position, wearer.Map) as SD_DroneEntity;
+            if (drone == null)
+            {
+                return false;
+            }
+
+            slot.Drones.Add(drone);
+            drone.Initialize(parent, slot.Index, droneType, memberIndex, squadronSize, slot.OrbitLayer);
+            slot.State = SD_DroneSlotState.Deployed;
+            return true;
+        }
+
+        private int ResolveAvailableMemberIndex(SD_DroneSlot slot)
+        {
+            var squadronSize = Mathf.Max(slot.SquadronSize, 1);
+            var used = new bool[squadronSize];
+            if (slot.Drones != null)
+            {
+                for (var i = 0; i < slot.Drones.Count; i++)
+                {
+                    var drone = slot.Drones[i];
+                    if (drone == null || drone.Destroyed)
+                    {
+                        continue;
+                    }
+
+                    var memberIndex = drone.SquadronMemberIndex;
+                    if (memberIndex >= 0 && memberIndex < squadronSize)
+                    {
+                        used[memberIndex] = true;
+                    }
+                }
+            }
+
+            for (var i = 0; i < used.Length; i++)
+            {
+                if (!used[i])
+                {
+                    return i;
+                }
+            }
+
+            return Mathf.Clamp(slot.ActiveDroneCount, 0, squadronSize - 1);
         }
 
         private int GetLayerDroneOrder(int slotIndex, int squadronMemberIndex, int orbitLayer)

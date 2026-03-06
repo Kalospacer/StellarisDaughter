@@ -24,7 +24,7 @@ namespace StellarisDaughter
         public Gizmo_SDDroneControl(CompSD_DroneController controller)
         {
             this.controller = controller;
-            Order = -97f;
+            Order = -200f;
         }
 
         public override float GetWidth(float maxWidth)
