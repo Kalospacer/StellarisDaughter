@@ -36,6 +36,7 @@
   <SD_Witch_State_Berserk>Berserk</SD_Witch_State_Berserk>
   <SD_Witch_Transform>Witch Transform</SD_Witch_Transform>
   <SD_Witch_Transform_Desc>Switch to witch form, witch factor growth accelerates.</SD_Witch_Transform_Desc>
+  <SD_Witch_TransformThreshold>Current witch factor is too low. Reach at least {0}% ({1}) before transforming.</SD_Witch_TransformThreshold>
   <SD_Witch_CancelTransform>Cancel Transform</SD_Witch_CancelTransform>
   <SD_Witch_CancelTransform_Desc>Cancel witch form and return to normal state.</SD_Witch_CancelTransform_Desc>
   <SD_Witch_BerserkWarning>Berserk Out of Control</SD_Witch_BerserkWarning>

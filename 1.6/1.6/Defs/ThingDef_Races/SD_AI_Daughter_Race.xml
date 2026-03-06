@@ -349,9 +349,16 @@
       <li Class="StellarisDaughter.CompProperties_AIUpbringing" />
       <li Class="StellarisDaughter.CompProperties_AIWitchForm">
         <baseMaxFactor>1000</baseMaxFactor>
+        <affectionToMaxFactor>0.1</affectionToMaxFactor>
         <baseGrowthRate>0.1</baseGrowthRate>
+        <negativeTrustGrowthFactor>0.001</negativeTrustGrowthFactor>
+        <positiveTrustDecayFactor>0.00002</positiveTrustDecayFactor>
+        <positiveTrustDecayMaxBaseFraction>0.2</positiveTrustDecayMaxBaseFraction>
+        <transformThresholdBaseRatio>0.5</transformThresholdBaseRatio>
+        <transformThresholdMaxRatio>0.9</transformThresholdMaxRatio>
+        <affectionForMaxThreshold>1000</affectionForMaxThreshold>
         <witchFormGrowthMult>10</witchFormGrowthMult>
-        <halfMaxGrowthMult>0.5</halfMaxGrowthMult>
+        <halfMaxGrowthMult>0.2</halfMaxGrowthMult>
         <normalApparelDef>SD_StellarUniform</normalApparelDef>
         <witchApparelDef>SD_StellarBlackUniform</witchApparelDef>
         <normalHairDef>SD_Daughter_Hair</normalHairDef>

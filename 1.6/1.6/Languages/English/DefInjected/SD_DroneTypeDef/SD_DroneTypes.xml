@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_DroneType_Minipulser.label>Minipulser Drone</SD_DroneType_Minipulser.label>
+  <SD_DroneType_Minipulser.description>A drone pattern built for high-rate pulse suppression against close and mid-range targets.</SD_DroneType_Minipulser.description>
+  <SD_DroneType_Laser.label>Laser Drone</SD_DroneType_Laser.label>
+  <SD_DroneType_Laser.description>A drone pattern equipped with a sustained laser weapon, favoring accurate long-range strikes.</SD_DroneType_Laser.description>
+</LanguageData>

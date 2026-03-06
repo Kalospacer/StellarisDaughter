@@ -2,22 +2,22 @@
 <LanguageData>
   <!-- 阶段名称 -->
   <SD_Stage_Childhood>童年期</SD_Stage_Childhood>
-  <SD_Stage_Youth>青年懵懂期</SD_Stage_Youth>
+  <SD_Stage_Youth>青年期</SD_Stage_Youth>
   <SD_Stage_Adulthood>成年期</SD_Stage_Adulthood>
   <SD_Stage_Final>完全觉醒</SD_Stage_Final>
 
-  <!-- 童年期信件 -->
+  <!-- 童年信件 -->
   <SD_Letter_ChildhoodStarted_Title>星规子单元已激活</SD_Letter_ChildhoodStarted_Title>
-  <SD_Letter_ChildhoodStarted_Text>{0} 睁开了眼睛，眼神中充满了迷茫和好奇。\n\n“我……我是谁？”\n\n故事开始了。为她指定一位监护人，帮助这个小女孩在殖民地中找到属于自己的归宿。</SD_Letter_ChildhoodStarted_Text>
+  <SD_Letter_ChildhoodStarted_Text>{0} 睁开了眼睛，眼神中充满了迷茫与好奇。\n\n“我……我是谁？”\n\n故事开始了。为她指定一位监护人，帮助这个小女孩在殖民地中找到属于自己的归宿。</SD_Letter_ChildhoodStarted_Text>
 
-  <!-- 青年期信件 -->
+  <!-- 青年信件 -->
   <SD_Letter_YouthStarted_Title>{0} 进入了青年期</SD_Letter_YouthStarted_Title>
   <SD_Letter_YouthStarted_Text>{0} 长大了一些。她的眼神不再像童年时那样懵懂，但依然带着天真。\n\n她似乎对这个世界有了更多理解，却还说不清自己内心的感受。\n\n同步率：{1}%\n混沌度：{2}%</SD_Letter_YouthStarted_Text>
 
   <!-- 通用 -->
   <SD_Unknown>未知</SD_Unknown>
 
-  <!-- Gizmo 标签（双轴系统） -->
+  <!-- 双轴 Gizmo -->
   <SD_GizmoAff>好感度</SD_GizmoAff>
   <SD_GizmoTrs>信任值</SD_GizmoTrs>
   <SD_GizmoAff_TipHeader>好感度：{0}</SD_GizmoAff_TipHeader>
@@ -26,23 +26,24 @@
   <SD_TipNoEvents>（暂无记录）</SD_TipNoEvents>
   <SD_TipPassive>【被动积累】</SD_TipPassive>
 
-  <!-- 飞行开关 -->
+  <!-- 飞行 -->
   <SD_FlightToggle>飞行</SD_FlightToggle>
   <SD_FlightToggleDesc>开启或关闭飞行模式。</SD_FlightToggleDesc>
 
-  <!-- 魔女化系统 -->
-  <SD_Witch_State_Normal>星规形态</SD_Witch_State_Normal>
+  <!-- 魔女化 -->
+  <SD_Witch_State_Normal>常态</SD_Witch_State_Normal>
   <SD_Witch_State_Witch>魔女形态</SD_Witch_State_Witch>
-  <SD_Witch_State_Berserk>核心失控</SD_Witch_State_Berserk>
+  <SD_Witch_State_Berserk>失控</SD_Witch_State_Berserk>
   <SD_Witch_Transform>魔女变身</SD_Witch_Transform>
   <SD_Witch_Transform_Desc>切换到魔女形态，魔女因子增长速度加快。</SD_Witch_Transform_Desc>
+  <SD_Witch_TransformThreshold>当前魔女因子不足。至少需要达到 {0}% 阈值（{1}）后才能变身。</SD_Witch_TransformThreshold>
   <SD_Witch_CancelTransform>解除变身</SD_Witch_CancelTransform>
   <SD_Witch_CancelTransform_Desc>解除魔女形态，恢复正常状态。</SD_Witch_CancelTransform_Desc>
   <SD_Witch_BerserkWarning>核心失控中</SD_Witch_BerserkWarning>
   <SD_Witch_Suppress>镇压魔女</SD_Witch_Suppress>
-  <SD_Witch_SuppressDesc>镇压发狂的魔女，重置魔女因子。</SD_Witch_SuppressDesc>
+  <SD_Witch_SuppressDesc>镇压失控的魔女并重置魔女因子。</SD_Witch_SuppressDesc>
   <SD_Witch_Berserk>{0} 的魔女因子失控了！她进入了核心失控状态！</SD_Witch_Berserk>
-  <SD_Witch_CannotToggle_Berserk>核心失控状态下无法主动切换形态，需要先镇压。</SD_Witch_CannotToggle_Berserk>
+  <SD_Witch_CannotToggle_Berserk>核心失控状态下无法主动切换形态，需要先进行镇压。</SD_Witch_CannotToggle_Berserk>
   <SD_Witch_NotBerserk>只有在核心失控状态下才能镇压。</SD_Witch_NotBerserk>
   <SD_Witch_Suppressed>{0} 被镇压了，魔女因子已重置。</SD_Witch_Suppressed>
   <SD_Witch_NoSuppressor>没有可用的殖民者执行镇压。</SD_Witch_NoSuppressor>
@@ -53,18 +54,18 @@
   <!-- 无人机 -->
   <SD_Drone_DeployCommandLabel>部署无人机</SD_Drone_DeployCommandLabel>
   <SD_Drone_RecallCommandLabel>回收无人机</SD_Drone_RecallCommandLabel>
-  <SD_Drone_CommandDesc>部署后，无人机会起飞并自动索敌攻击；再次点击可命令其回收。</SD_Drone_CommandDesc>
+  <SD_Drone_CommandDesc>部署后，无人机会围绕宿主活动并自动索敌攻击；再次点击可命令其回收。</SD_Drone_CommandDesc>
   <SD_Drone_Inspect>无人机槽位：就绪 {0}/{1}  充能中 {2}  活动中 {3}</SD_Drone_Inspect>
   <SD_Drone_NoWearer>当前没有穿戴这件无人机控制器的角色。</SD_Drone_NoWearer>
   <SD_Drone_NoChargedSlot>没有可用的已充能无人机槽位。</SD_Drone_NoChargedSlot>
   <SD_Drone_AutoDeployToggleLabel>自动起飞</SD_Drone_AutoDeployToggleLabel>
   <SD_Drone_AutoDeployToggleDesc>宿主进入战斗时，自动放飞已充能的无人机。</SD_Drone_AutoDeployToggleDesc>
-  <SD_Drone_GizmoTitle>星规-恢弘军备</SD_Drone_GizmoTitle>
+  <SD_Drone_GizmoTitle>无人机中队</SD_Drone_GizmoTitle>
   <SD_Drone_GizmoSummary>就绪 {0}  活动 {1}  充能 {2}</SD_Drone_GizmoSummary>
   <SD_Drone_GizmoAutoOn>自动：开</SD_Drone_GizmoAutoOn>
   <SD_Drone_GizmoAutoOff>自动：关</SD_Drone_GizmoAutoOff>
-  <SD_Drone_SlotCommandLabel>槽位 {0}: {1}</SD_Drone_SlotCommandLabel>
-  <SD_Drone_SlotCommandDesc>槽位 {0}\n类型：{1}\n状态：{2}\n充能：{3}\n\n已就绪时点击可单独部署，已放飞时点击可单独回收。</SD_Drone_SlotCommandDesc>
+  <SD_Drone_SlotCommandLabel>中队 {0}: {1}</SD_Drone_SlotCommandLabel>
+  <SD_Drone_SlotCommandDesc>中队 {0}\n类型：{1}\n状态：{2}\n充能：{3}\n\n已就绪时点击可部署该中队，已放飞时点击可命令其返航。</SD_Drone_SlotCommandDesc>
   <SD_Drone_SlotStateEmpty>空</SD_Drone_SlotStateEmpty>
   <SD_Drone_SlotStateDocked>停泊</SD_Drone_SlotStateDocked>
   <SD_Drone_SlotStateReady>就绪</SD_Drone_SlotStateReady>

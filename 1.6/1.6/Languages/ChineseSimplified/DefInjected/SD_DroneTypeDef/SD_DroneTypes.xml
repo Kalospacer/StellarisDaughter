@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_DroneType_Minipulser.label>脉冲压制无人机</SD_DroneType_Minipulser.label>
+  <SD_DroneType_Minipulser.description>以高速脉冲弹幕进行持续压制的无人机型号，适合处理中近距离目标。</SD_DroneType_Minipulser.description>
+  <SD_DroneType_Laser.label>激光狙击无人机</SD_DroneType_Laser.label>
+  <SD_DroneType_Laser.description>搭载持续激光武装的无人机型号，倾向于在较远距离进行精确打击。</SD_DroneType_Laser.description>
+</LanguageData>

@@ -12,7 +12,7 @@
     <thingClass>StellarisDaughter.Projectile_ExplosiveTrackingBullet</thingClass>
     <projectile>
       <damageDef>Bullet</damageDef>
-      <damageAmountBase>32</damageAmountBase>
+      <damageAmountBase>12</damageAmountBase>
       <armorPenetrationBase>1.0</armorPenetrationBase>
       <stoppingPower>5</stoppingPower>
       <speed>80</speed>

@@ -8,58 +8,51 @@ using Verse.AI;
 namespace StellarisDaughter
 {
     /// <summary>
-    /// 魔女化系统核心组件
+    /// 魔女化系统核心组件。
     /// </summary>
     public class CompAIWitchForm : ThingComp
     {
-        #region 核心数据
-
-        /// <summary> 当前魔女因子值 </summary>
         public float witchFactor = 0f;
-
-        /// <summary> 当前状态 </summary>
         public WitchFormState state = WitchFormState.Normal;
 
-        #endregion
-
-        #region 属性
-
         public CompProperties_AIWitchForm Props => (CompProperties_AIWitchForm)props;
-
         public Pawn Pawn => parent as Pawn;
-
-        /// <summary> 当前是否在魔女形态（包括发狂） </summary>
         public bool IsWitchForm => state == WitchFormState.WitchForm || state == WitchFormState.Berserk;
-
-        /// <summary> 是否处于发狂状态 </summary>
         public bool IsBerserk => state == WitchFormState.Berserk;
 
-        /// <summary> 动态上限 </summary>
         public float MaxWitchFactor
         {
             get
             {
                 var upbringing = Pawn?.GetComp<CompAIUpbringing>();
-                float affectionBonus = upbringing?.affection ?? 0f;
-                return Props.baseMaxFactor + affectionBonus * 0.1f;
+                var affectionBonus = upbringing?.affection ?? 0f;
+                return Props.baseMaxFactor + affectionBonus * Props.affectionToMaxFactor;
             }
         }
 
-        /// <summary> 半值点 </summary>
-        public float HalfMaxFactor => MaxWitchFactor * 0.5f;
+        public float TransformThresholdRatio
+        {
+            get
+            {
+                var affection = Mathf.Max(Pawn?.GetComp<CompAIUpbringing>()?.affection ?? 0f, 0f);
+                var maxAffection = Mathf.Max(Props.affectionForMaxThreshold, 0.01f);
+                var normalizedAffection = Mathf.Clamp01(affection / maxAffection);
+                return Props.transformThresholdBaseRatio
+                    + normalizedAffection * (Props.transformThresholdMaxRatio - Props.transformThresholdBaseRatio);
+            }
+        }
 
-        #endregion
-
-        #region 生命周期
+        public float TransformThresholdFactor => MaxWitchFactor * TransformThresholdRatio;
 
         public override void CompTickRare()
         {
             base.CompTickRare();
 
-            if (Current.ProgramState != ProgramState.Playing) return;
-            if (Pawn == null) return;
+            if (Current.ProgramState != ProgramState.Playing || Pawn == null)
+            {
+                return;
+            }
 
-            // 状态同步检查：如果精神状态结束但我们还在Berserk，自动恢复
             if (IsBerserk && !Pawn.InMentalState)
             {
                 Log.Warning($"[StellarisDaughter] {Pawn.NameShortColored} Berserk state ended externally, resetting witch state");
@@ -68,71 +61,57 @@ namespace StellarisDaughter
                 SwitchAppearance(false);
             }
 
-            // 计算增长
             CalculateGrowth();
-
-            // 检查是否发狂
             CheckBerserk();
         }
 
-        #endregion
-
-        #region 魔女因子增长
-
         private void CalculateGrowth()
         {
-            float growthRate = GetGrowthRate();
-            if (growthRate <= 0f) return;
-
-            float newFactor = witchFactor + growthRate;
-            float max = MaxWitchFactor;
-
-            // 未变身且低于50%时，只增长到50%
-            if (!IsWitchForm && witchFactor < HalfMaxFactor && newFactor >= HalfMaxFactor)
+            var growthRate = GetGrowthRate();
+            if (Mathf.Approximately(growthRate, 0f))
             {
-                newFactor = HalfMaxFactor;
+                return;
             }
 
-            // 上限限制
-            witchFactor = Mathf.Clamp(newFactor, 0f, max);
+            var newFactor = witchFactor + growthRate;
+            witchFactor = Mathf.Clamp(newFactor, 0f, MaxWitchFactor);
         }
 
         private float GetGrowthRate()
         {
-            float baseRate = Props.baseGrowthRate;
+            var baseRate = Props.baseGrowthRate;
+            var trust = Pawn?.GetComp<CompAIUpbringing>()?.trust ?? 0f;
 
-            // 信任值影响基础速度（负信任加快，正信任减慢）
-            var upbringing = Pawn?.GetComp<CompAIUpbringing>();
-            float trustModifier = upbringing?.trust ?? 0f;
-            baseRate -= trustModifier * 0.001f;
+            if (trust < 0f)
+            {
+                baseRate -= trust * Props.negativeTrustGrowthFactor;
+            }
 
-            // 确保基础速度不为负
             baseRate = Mathf.Max(baseRate, 0f);
 
-            // 变身状态快速增长
             if (IsWitchForm)
             {
                 return baseRate * Props.witchFormGrowthMult;
             }
 
-            // 超过50%后减慢
-            if (witchFactor >= HalfMaxFactor)
+            if (trust > 0f && witchFactor > 0f)
             {
-                return baseRate * Props.halfMaxGrowthMult;
+                return -Mathf.Min(
+                    trust * Props.positiveTrustDecayFactor,
+                    Props.baseGrowthRate * Props.positiveTrustDecayMaxBaseFraction);
             }
 
-            return baseRate;
+            if (witchFactor < TransformThresholdFactor)
+            {
+                return 0f;
+            }
+
+            return baseRate * Props.halfMaxGrowthMult;
         }
-
-        #endregion
-
-        #region 发狂检测
 
         private void CheckBerserk()
         {
-            if (IsBerserk) return;
-
-            if (witchFactor >= MaxWitchFactor)
+            if (!IsBerserk && witchFactor >= MaxWitchFactor)
             {
                 EnterBerserk();
             }
@@ -140,22 +119,17 @@ namespace StellarisDaughter
 
         private void EnterBerserk()
         {
-            // 先检查当前是否在魔女形态（在修改state之前）
-            bool wasInWitchForm = (state == WitchFormState.WitchForm);
-
-            // 设置发狂状态
+            var wasInWitchForm = state == WitchFormState.WitchForm;
             state = WitchFormState.Berserk;
 
-            // 如果之前不在魔女形态，强制切换外观
             if (!wasInWitchForm)
             {
                 SwitchAppearance(true);
             }
 
-            // 触发魔女狂暴精神状态（不会自动结束）
             if (Pawn.mindState != null && !Pawn.InMentalState)
             {
-                bool success = Pawn.mindState.mentalStateHandler.TryStartMentalState(SD_DefOf.SD_WitchBerserk, null, forceWake: true);
+                var success = Pawn.mindState.mentalStateHandler.TryStartMentalState(SD_DefOf.SD_WitchBerserk, null, forceWake: true);
                 if (!success)
                 {
                     Log.Warning($"[StellarisDaughter] Failed to start WitchBerserk mental state for {Pawn.NameShortColored}");
@@ -165,11 +139,6 @@ namespace StellarisDaughter
             Messages.Message("SD_Witch_Berserk".Translate(Pawn.NameShortColored), Pawn, MessageTypeDefOf.NegativeEvent);
         }
 
-        #endregion
-
-        #region 形态切换
-
-        /// <summary> 主动切换形态 </summary>
         public void ToggleWitchForm()
         {
             if (IsBerserk)
@@ -190,63 +159,50 @@ namespace StellarisDaughter
             }
         }
 
-        /// <summary> 切换外观装备和头发 </summary>
         private void SwitchAppearance(bool toWitchForm)
         {
-            if (Pawn?.apparel == null || Pawn.story == null) return;
+            if (Pawn?.apparel == null || Pawn.story == null)
+            {
+                return;
+            }
 
-            // 脱下非专属装备（丢到地上）
             DropNonExclusiveApparel();
-
-            // 销毁当前专属衣服并穿上新的
             SwitchExclusiveApparel(toWitchForm);
-
-            // 切换头发
             SwitchHair(toWitchForm);
-
-            // 添加/移除魔女形态 Hediff（提供镰爪攻击）
             SwitchWitchFormHediff(toWitchForm);
-
-            // 刷新渲染
             Pawn.Drawer?.renderer?.SetAllGraphicsDirty();
         }
 
-        /// <summary> 添加或移除魔女形态 Hediff </summary>
         private void SwitchWitchFormHediff(bool toWitchForm)
         {
-            if (Pawn?.health?.hediffSet == null) return;
+            if (Pawn?.health?.hediffSet == null)
+            {
+                return;
+            }
 
             var existingHediff = Pawn.health.hediffSet.GetFirstHediffOfDef(SD_DefOf.SD_Hediff_WitchForm);
-
             if (toWitchForm)
             {
-                // 进入魔女形态：添加 Hediff（如果还没有）
                 if (existingHediff == null)
                 {
-                    Hediff hediff = HediffMaker.MakeHediff(SD_DefOf.SD_Hediff_WitchForm, Pawn);
+                    var hediff = HediffMaker.MakeHediff(SD_DefOf.SD_Hediff_WitchForm, Pawn);
                     Pawn.health.AddHediff(hediff);
                 }
             }
-            else
+            else if (existingHediff != null)
             {
-                // 退出魔女形态：移除 Hediff
-                if (existingHediff != null)
-                {
-                    Pawn.health.RemoveHediff(existingHediff);
-                }
+                Pawn.health.RemoveHediff(existingHediff);
             }
         }
 
         private void DropNonExclusiveApparel()
         {
-            // 专属装备（会被销毁重建）
             var exclusiveDefs = new HashSet<ThingDef>
             {
                 Props.normalApparelDef,
                 Props.witchApparelDef
             };
 
-            // 白名单装备（保留不脱下）
             var keepDefs = new HashSet<ThingDef>();
             if (Props.keepApparelDefs != null)
             {
@@ -268,23 +224,19 @@ namespace StellarisDaughter
 
         private void SwitchExclusiveApparel(bool toWitchForm)
         {
-            // 销毁当前专属衣服
             var exclusiveDefs = new HashSet<ThingDef>
             {
                 Props.normalApparelDef,
                 Props.witchApparelDef
             };
 
-            var currentExclusive = Pawn.apparel.WornApparel
-                .FirstOrDefault(a => exclusiveDefs.Contains(a.def));
-
+            var currentExclusive = Pawn.apparel.WornApparel.FirstOrDefault(a => exclusiveDefs.Contains(a.def));
             if (currentExclusive != null)
             {
                 Pawn.apparel.Remove(currentExclusive);
                 currentExclusive.Destroy(DestroyMode.Vanish);
             }
 
-            // 穿上新衣服
             var newApparelDef = toWitchForm ? Props.witchApparelDef : Props.normalApparelDef;
             if (newApparelDef != null)
             {
@@ -305,11 +257,6 @@ namespace StellarisDaughter
             }
         }
 
-        #endregion
-
-        #region 镇压系统
-
-        /// <summary> 镇压发狂状态，重置因子 </summary>
         public void ApplySuppression()
         {
             if (!IsBerserk)
@@ -318,25 +265,16 @@ namespace StellarisDaughter
                 return;
             }
 
-            // 结束发狂精神状态
             if (Pawn.InMentalState && Pawn.MentalStateDef == SD_DefOf.SD_WitchBerserk)
             {
                 Pawn.MentalState.RecoverFromState();
             }
 
-            // 重置因子
             witchFactor = 0f;
-
-            // 恢复正常形态
             state = WitchFormState.Normal;
             SwitchAppearance(false);
-
             Messages.Message("SD_Witch_Suppressed".Translate(Pawn.NameShortColored), MessageTypeDefOf.PositiveEvent);
         }
-
-        #endregion
-
-        #region 存档
 
         public override void PostExposeData()
         {
@@ -345,21 +283,12 @@ namespace StellarisDaughter
             Scribe_Values.Look(ref state, "state", WitchFormState.Normal);
         }
 
-        #endregion
-
-        #region Gizmos
-
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             yield return new Gizmo_AIWitchForm(this);
-
-            // 魔女变身切换按钮（Ability风格）
             yield return new Command_ToggleWitchForm(this);
 
-
-
-            // 开发模式调试按钮
-            if (Prefs.DevMode)
+            if (DebugSettings.godMode)
             {
                 yield return new Command_Action
                 {
@@ -388,19 +317,14 @@ namespace StellarisDaughter
             }
         }
 
-        #endregion
-
-        #region 调试
-
         public string GetDebugInfo()
         {
+            var trust = Pawn.GetComp<CompAIUpbringing>()?.trust ?? 0f;
             return $"=== 魔女化系统 ===\n" +
                    $"因子值: {witchFactor:F1} / {MaxWitchFactor:F1}\n" +
                    $"状态: {state}\n" +
                    $"好感影响: {(Pawn.GetComp<CompAIUpbringing>()?.affection ?? 0f) * 0.1f:F1}\n" +
-                   $"信任影响: {(Pawn.GetComp<CompAIUpbringing>()?.trust ?? 0f) * 0.001f:F1}";
+                   $"信任值: {trust:F1}";
         }
-
-        #endregion
     }
 }
