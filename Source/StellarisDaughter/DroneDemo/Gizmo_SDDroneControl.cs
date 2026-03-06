@@ -98,14 +98,16 @@ namespace StellarisDaughter
             Widgets.DrawHighlightIfMouseover(clickable);
 
             var indexRect = new Rect(clickable.x, clickable.y, 24f, clickable.height);
-            var labelRect = new Rect(indexRect.xMax + 4f, clickable.y, 134f, clickable.height);
-            var statusRect = new Rect(labelRect.xMax + 4f, clickable.y, 42f, clickable.height);
+            var labelRect = new Rect(indexRect.xMax + 4f, clickable.y, 112f, clickable.height);
+            var countRect = new Rect(labelRect.xMax + 4f, clickable.y, 30f, clickable.height);
+            var statusRect = new Rect(countRect.xMax + 4f, clickable.y, 42f, clickable.height);
             var barRect = new Rect(statusRect.xMax + 5f, clickable.y + 3f, clickable.xMax - statusRect.xMax - 5f, clickable.height - 6f);
 
             Text.Font = GameFont.Tiny;
             Text.Anchor = TextAnchor.MiddleLeft;
             Widgets.Label(indexRect, $"#{slot.Index + 1}");
-            Widgets.Label(labelRect, ShortenLabel(ResolveDroneTypeLabel(slot), 22));
+            Widgets.Label(labelRect, ShortenLabel(ResolveDroneTypeLabel(slot), 16));
+            Widgets.Label(countRect, $"{controller.GetActiveDroneCount(slot)}/{controller.GetSquadronSize(slot)}");
 
             GUI.color = ResolveStateColor(slot);
             Widgets.Label(statusRect, ShortenLabel(controller.GetSlotShortState(slot), 5));
@@ -146,7 +148,7 @@ namespace StellarisDaughter
 
             for (var i = 0; i < slots.Count; i++)
             {
-                if (slots[i].Drone != null && !slots[i].Drone.Destroyed)
+                if (controller.GetActiveDroneCount(slots[i]) > 0)
                 {
                     active++;
                 }
@@ -207,7 +209,7 @@ namespace StellarisDaughter
 
             var fillPercent = slot.State == SD_DroneSlotState.Charging && slot.ChargeTicksTotal > 0
                 ? 1f - Mathf.Clamp01(slot.ChargeTicksRemaining / (float)slot.ChargeTicksTotal)
-                : slot.IsCharged || slot.Drone != null ? 1f : 0f;
+                : slot.IsCharged ? 1f : slot.ActiveDroneCount > 0 ? slot.ActiveDroneCount / (float)Mathf.Max(slot.SquadronSize, 1) : 0f;
 
             if (fillPercent > 0f)
             {
@@ -224,7 +226,7 @@ namespace StellarisDaughter
                 return FillCharging;
             }
 
-            if (slot.Drone != null && !slot.Drone.Destroyed)
+            if (slot.ActiveDroneCount > 0)
             {
                 return FillActive;
             }

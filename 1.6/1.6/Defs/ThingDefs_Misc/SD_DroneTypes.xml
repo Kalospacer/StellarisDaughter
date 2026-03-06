@@ -18,11 +18,12 @@
       </li>
     </verbs>
     <rechargeTicks>0</rechargeTicks>
-    <orbitRadius>2.4</orbitRadius>
-    <minOwnerDistance>1.6</minOwnerDistance>
-    <maxOwnerDistance>3.4</maxOwnerDistance>
+    <orbitRadius>3.2</orbitRadius>
+    <minOwnerDistance>2.4</minOwnerDistance>
+    <maxOwnerDistance>4.2</maxOwnerDistance>
     <minTargetDistance>3.8</minTargetDistance>
     <maxTargetDistance>6.2</maxTargetDistance>
+    <squadronSpreadRadius>0.55</squadronSpreadRadius>
     <moveSpeed>0.17</moveSpeed>
     <deployTicks>28</deployTicks>
     <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
@@ -31,17 +32,17 @@
   </StellarisDaughter.SD_DroneTypeDef>
 
   <StellarisDaughter.SD_DroneTypeDef>
-    <defName>SD_DroneType_ScytheB</defName>
+    <defName>SD_DroneType_Laser</defName>
     <droneDef>SD_Demo_DroneEntity</droneDef>
     <verbs>
       <li>
         <verbClass>StellarisDaughter.Verb_SD_ShootSustained</verbClass>
-        <defaultProjectile>SD_Bullet_ScytheB</defaultProjectile>
+        <defaultProjectile>SD_Bullet_Laser</defaultProjectile>
         <hasStandardCommand>true</hasStandardCommand>
         <warmupTime>1</warmupTime>
         <range>48</range>
         <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
-        <burstShotCount>4</burstShotCount>
+        <burstShotCount>1</burstShotCount>
         <soundCast>Shot_BeamRepeater</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>5</muzzleFlashScale>
@@ -51,12 +52,13 @@
       </li>
     </verbs>
     <rechargeTicks>0</rechargeTicks>
-    <orbitRadius>16.2</orbitRadius>
-    <minOwnerDistance>3.2</minOwnerDistance>
-    <maxOwnerDistance>6.8</maxOwnerDistance>
+    <orbitRadius>6.4</orbitRadius>
+    <minOwnerDistance>5.2</minOwnerDistance>
+    <maxOwnerDistance>7.8</maxOwnerDistance>
     <minTargetDistance>4.2</minTargetDistance>
     <maxTargetDistance>6.4</maxTargetDistance>
-    <moveSpeed>0.5</moveSpeed>
+    <squadronSpreadRadius>0.9</squadronSpreadRadius>
+    <moveSpeed>0.2</moveSpeed>
     <deployTicks>30</deployTicks>
     <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
     <preferredTargetDistance>6</preferredTargetDistance>

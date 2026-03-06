@@ -20,6 +20,9 @@ namespace StellarisDaughter
     {
         private Thing controllerThing;
         private int slotIndex = -1;
+        private int squadronMemberIndex;
+        private int squadronSize = 1;
+        private int orbitLayer;
         private SD_DroneRuntimeState state = SD_DroneRuntimeState.Launching;
         private SD_DroneTypeDef droneType;
         private VerbTracker verbTracker;
@@ -49,6 +52,12 @@ namespace StellarisDaughter
 
         public int SlotIndex => slotIndex;
 
+        public int SquadronMemberIndex => squadronMemberIndex;
+
+        public int SquadronSize => squadronSize;
+
+        public int OrbitLayer => orbitLayer;
+
         public SD_DroneTypeDef DroneType => droneType;
 
         public VerbTracker VerbTracker => verbTracker ??= new VerbTracker(this);
@@ -75,10 +84,21 @@ namespace StellarisDaughter
             }
         }
 
-        public void Initialize(Thing parentThing, int newSlotIndex, SD_DroneTypeDef newDroneType)
+        protected override void DrawAt(Vector3 drawLoc, bool flip = false)
+        {
+            var direction = realDir.Yto0();
+            var extraRotation = direction == Vector3.zero ? 0f : direction.AngleFlat();
+            Graphic.Draw(drawLoc, flip ? Rotation.Opposite : Rotation, this, extraRotation);
+            Comps_PostDraw();
+        }
+
+        public void Initialize(Thing parentThing, int newSlotIndex, SD_DroneTypeDef newDroneType, int newSquadronMemberIndex, int newSquadronSize, int newOrbitLayer)
         {
             controllerThing = parentThing;
             slotIndex = newSlotIndex;
+            squadronMemberIndex = Mathf.Max(newSquadronMemberIndex, 0);
+            squadronSize = Mathf.Max(newSquadronSize, 1);
+            orbitLayer = Mathf.Max(newOrbitLayer, 0);
             droneType = newDroneType;
             notifiedController = false;
             currentTarget = null;
@@ -91,7 +111,7 @@ namespace StellarisDaughter
             EnsureVerbCasters();
 
             var controller = Controller;
-            realPos = controller?.GetDockPosition(slotIndex, droneType) ?? Position.ToVector3Shifted();
+            realPos = controller?.GetDockPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer) ?? Position.ToVector3Shifted();
             Position = realPos.ToIntVec3();
             realDir = ((Owner?.DrawPos ?? realPos) - realPos).Yto0();
             if (realDir == Vector3.zero)
@@ -107,6 +127,9 @@ namespace StellarisDaughter
             base.ExposeData();
             Scribe_References.Look(ref controllerThing, "controllerThing");
             Scribe_Values.Look(ref slotIndex, "slotIndex", -1);
+            Scribe_Values.Look(ref squadronMemberIndex, "squadronMemberIndex", 0);
+            Scribe_Values.Look(ref squadronSize, "squadronSize", 1);
+            Scribe_Values.Look(ref orbitLayer, "orbitLayer", 0);
             Scribe_Values.Look(ref state, "state", SD_DroneRuntimeState.Launching);
             Scribe_Defs.Look(ref droneType, "droneType");
             Scribe_Values.Look(ref realPos, "realPos");
@@ -228,7 +251,7 @@ namespace StellarisDaughter
                 return;
             }
 
-            TickLinearMove(controller.GetOrbitPosition(slotIndex, droneType), ResolveMoveSpeed());
+            TickLinearMove(controller.GetOrbitPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer), ResolveMoveSpeed());
 
             if (TryAcquireTargetAndDestination())
             {
@@ -382,7 +405,7 @@ namespace StellarisDaughter
         {
             var controller = Controller;
             var owner = Owner;
-            var start = controller?.GetDockPosition(slotIndex, droneType) ?? realPos;
+            var start = controller?.GetDockPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer) ?? realPos;
             var dockDir = owner == null ? Vector3.forward : (start - owner.DrawPos).Yto0().normalized;
             if (dockDir == Vector3.zero)
             {
@@ -390,7 +413,7 @@ namespace StellarisDaughter
             }
 
             var tangent = new Vector3(-dockDir.z, 0f, dockDir.x);
-            var end = controller?.GetOrbitPosition(slotIndex, droneType) ?? start;
+            var end = controller?.GetOrbitPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer) ?? start;
             var forwardDistance = droneType?.launchForwardDistance ?? 0.9f;
             var sideOffset = droneType?.launchSideOffset ?? 0.45f;
 
@@ -431,7 +454,7 @@ namespace StellarisDaughter
                 return;
             }
 
-            var end = controller.GetDockPosition(slotIndex, droneType);
+            var end = controller.GetDockPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer);
             var toDock = (end - realPos).Yto0();
             var tangent = toDock == Vector3.zero ? realDir.Yto0().normalized : toDock.normalized;
             if (tangent == Vector3.zero)
@@ -516,7 +539,19 @@ namespace StellarisDaughter
 
         private float ResolveMoveSpeed()
         {
-            return droneType?.moveSpeed > 0f ? droneType.moveSpeed : Controller?.Props.moveSpeed ?? 0.18f;
+            var configuredMultiplier = droneType?.moveSpeed > 0f ? droneType.moveSpeed : Controller?.Props.moveSpeed ?? 1f;
+            var owner = Owner;
+            if (owner != null)
+            {
+                var ownerTilesPerSecond = owner.GetStatValue(StatDefOf.MoveSpeed);
+                if (ownerTilesPerSecond > 0f)
+                {
+                    var ownerTilesPerTick = ownerTilesPerSecond / 60f;
+                    return Mathf.Max(ownerTilesPerTick * configuredMultiplier, 0.02f);
+                }
+            }
+
+            return Mathf.Max(0.18f * configuredMultiplier, 0.02f);
         }
 
         private int ResolveLoiterTicks()

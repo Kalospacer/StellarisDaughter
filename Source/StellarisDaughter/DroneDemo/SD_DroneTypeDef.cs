@@ -17,6 +17,7 @@ namespace StellarisDaughter
         public float maxTargetDistance = -1f;
         public float preferredTargetDistance = 4f;
         public float targetDistanceJitter = 0.6f;
+        public float squadronSpreadRadius = 0.65f;
         public int preAttackAimTicks = 0;
         public int postAttackWaitTicks = 18;
         public int loiterTicksWithoutTarget = 1200;

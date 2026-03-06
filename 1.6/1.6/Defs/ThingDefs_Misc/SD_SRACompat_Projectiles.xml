@@ -50,8 +50,8 @@
   </ThingDef>
 
   <ThingDef ParentName="BaseBullet">
-    <defName>SD_Bullet_ScytheB</defName>
-    <label>scythe beam burst</label>
+    <defName>SD_Bullet_Laser</defName>
+    <label>laser beam</label>
     <thingClass>StellarisDaughter.Projectile_SD_MultiExplosiveBeam</thingClass>
     <graphicData>
       <texPath>Things/Projectile/Bullet_Small</texPath>

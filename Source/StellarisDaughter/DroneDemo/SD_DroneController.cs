@@ -21,10 +21,14 @@ namespace StellarisDaughter
         public SD_DroneSlotState State = SD_DroneSlotState.Docked;
         public int ChargeTicksRemaining;
         public int ChargeTicksTotal;
+        public int SquadronSize = 1;
+        public int OrbitLayer;
         public SD_DroneTypeDef DroneType;
-        public SD_DroneEntity Drone;
+        public List<SD_DroneEntity> Drones = new List<SD_DroneEntity>();
 
         public bool IsCharged => State == SD_DroneSlotState.Docked && ChargeTicksRemaining <= 0;
+
+        public int ActiveDroneCount => Drones?.Count(drone => drone != null && !drone.Destroyed) ?? 0;
 
         public void ExposeData()
         {
@@ -32,8 +36,14 @@ namespace StellarisDaughter
             Scribe_Values.Look(ref State, "state", SD_DroneSlotState.Docked);
             Scribe_Values.Look(ref ChargeTicksRemaining, "chargeTicksRemaining", 0);
             Scribe_Values.Look(ref ChargeTicksTotal, "chargeTicksTotal", 0);
+            Scribe_Values.Look(ref SquadronSize, "squadronSize", 1);
+            Scribe_Values.Look(ref OrbitLayer, "orbitLayer", 0);
             Scribe_Defs.Look(ref DroneType, "droneType");
-            Scribe_References.Look(ref Drone, "drone");
+            Scribe_Collections.Look(ref Drones, "drones", LookMode.Reference);
+            if (Scribe.mode == LoadSaveMode.PostLoadInit && Drones == null)
+            {
+                Drones = new List<SD_DroneEntity>();
+            }
         }
     }
 
@@ -42,6 +52,9 @@ namespace StellarisDaughter
         public int maxSlots = 4;
         public List<SD_DroneTypeDef> droneTypes;
         public List<SD_DroneTypeDef> slotDroneTypes;
+        public List<int> slotSquadronSizes;
+        public List<int> slotOrbitLayers;
+        public List<float> orbitLayerRadii;
         public int rechargeTicks = 180;
         public float orbitRadius = 1.8f;
         public float moveSpeed = 0.18f;
@@ -73,6 +86,14 @@ namespace StellarisDaughter
         public Pawn Wearer => Apparel?.Wearer;
 
         public IReadOnlyList<SD_DroneSlot> Slots => slots;
+
+        public bool AutoDeployEnabled => autoDeployEnabled;
+
+        public float GizmoScrollPosition
+        {
+            get => gizmoScrollPosition;
+            set => gizmoScrollPosition = Mathf.Max(0f, value);
+        }
 
         public override void PostExposeData()
         {
@@ -108,30 +129,24 @@ namespace StellarisDaughter
             for (var i = 0; i < slots.Count; i++)
             {
                 var slot = slots[i];
+                NormalizeSlotDrones(slot);
 
-                if (slot.Drone != null && slot.Drone.Destroyed)
+                if (slot.State == SD_DroneSlotState.Charging)
                 {
-                    slot.Drone = null;
-                    if (slot.State == SD_DroneSlotState.Deployed || slot.State == SD_DroneSlotState.Returning)
+                    if (slot.ChargeTicksRemaining > 0)
                     {
-                        StartCharging(slot);
+                        slot.ChargeTicksRemaining--;
+                    }
+
+                    if (slot.ChargeTicksRemaining <= 0)
+                    {
+                        slot.ChargeTicksRemaining = 0;
+                        slot.State = SD_DroneSlotState.Docked;
                     }
                 }
-
-                if (slot.State != SD_DroneSlotState.Charging)
+                else if ((slot.State == SD_DroneSlotState.Deployed || slot.State == SD_DroneSlotState.Returning) && slot.ActiveDroneCount <= 0)
                 {
-                    continue;
-                }
-
-                if (slot.ChargeTicksRemaining > 0)
-                {
-                    slot.ChargeTicksRemaining--;
-                }
-
-                if (slot.ChargeTicksRemaining <= 0)
-                {
-                    slot.ChargeTicksRemaining = 0;
-                    slot.State = SD_DroneSlotState.Docked;
+                    StartCharging(slot);
                 }
             }
 
@@ -148,7 +163,7 @@ namespace StellarisDaughter
                 lastThreatTick = Find.TickManager.TicksGame;
                 if (autoDeployEnabled)
                 {
-                    DeployChargedDrones(showMessage: false);
+                    DeployChargedDrones(false);
                 }
             }
         }
@@ -158,7 +173,7 @@ namespace StellarisDaughter
             EnsureSlots();
             var docked = slots.Count(slot => slot.State == SD_DroneSlotState.Docked);
             var charging = slots.Count(slot => slot.State == SD_DroneSlotState.Charging);
-            var deployed = slots.Count(slot => slot.State == SD_DroneSlotState.Deployed);
+            var deployed = slots.Count(slot => slot.ActiveDroneCount > 0);
             return "SD_Drone_Inspect".Translate(docked, slots.Count, charging, deployed);
         }
 
@@ -180,7 +195,7 @@ namespace StellarisDaughter
 
         public void DeployAllChargedDrones()
         {
-            DeployChargedDrones(showMessage: true);
+            DeployChargedDrones(true);
         }
 
         public void RecallAllDrones()
@@ -188,14 +203,7 @@ namespace StellarisDaughter
             EnsureSlots();
             for (var i = 0; i < slots.Count; i++)
             {
-                var slot = slots[i];
-                if (slot.Drone == null || slot.Drone.Destroyed)
-                {
-                    continue;
-                }
-
-                slot.State = SD_DroneSlotState.Returning;
-                slot.Drone.StartReturn();
+                RecallSlot(slots[i]);
             }
         }
 
@@ -237,7 +245,7 @@ namespace StellarisDaughter
 
             var droneType = drone.DroneType;
             var ownerCenter = wearer.DrawPos;
-            var fallbackOrbitRadius = droneType?.orbitRadius > 0f ? droneType.orbitRadius : Props.orbitRadius;
+            var fallbackOrbitRadius = ResolveLayerRadius(drone.OrbitLayer, droneType);
             var preferredDistance = Mathf.Max(1.5f, droneType?.preferredTargetDistance ?? fallbackOrbitRadius);
             var jitter = Mathf.Max(0f, droneType?.targetDistanceJitter ?? 0.6f);
             var targetCenter = target.DrawPos;
@@ -245,7 +253,12 @@ namespace StellarisDaughter
             var ownerMaxDistance = ResolveMaxOwnerDistance(droneType, ownerMinDistance, fallbackOrbitRadius);
             var targetMinDistance = ResolveMinTargetDistance(droneType, preferredDistance, jitter, fallbackOrbitRadius);
             var targetMaxDistance = ResolveMaxTargetDistance(droneType, targetMinDistance, preferredDistance, jitter, fallbackOrbitRadius);
-            var startAngle = (360f / Mathf.Max(Props.maxSlots, 1)) * drone.SlotIndex + Find.TickManager.TicksGame * 3f;
+            var layerSlotCount = Mathf.Max(GetLayerSlotCount(drone.OrbitLayer), 1);
+            var layerSlotOrder = GetLayerSlotOrder(drone.SlotIndex, drone.OrbitLayer);
+            var startAngle = (360f / layerSlotCount) * layerSlotOrder
+                + (360f / Mathf.Max(drone.SquadronSize, 1)) * drone.SquadronMemberIndex
+                + drone.OrbitLayer * 18f
+                + Find.TickManager.TicksGame * 3f;
             var bestPreferred = Vector3.zero;
             var bestPreferredScore = float.MaxValue;
             var bestFallback = Vector3.zero;
@@ -256,6 +269,7 @@ namespace StellarisDaughter
                 var angle = startAngle + i * 15f;
                 var radius = ResolveCandidateTargetRadius(targetMinDistance, targetMaxDistance, preferredDistance, jitter);
                 var candidate = targetCenter + new Vector3(0f, 0f, radius).RotatedBy(angle);
+                candidate += GetSquadronAttackOffset(droneType, drone.SquadronMemberIndex, drone.SquadronSize, drone.SlotIndex, drone.OrbitLayer);
                 var cell = candidate.ToIntVec3();
                 if (!cell.InBounds(wearer.Map) || cell.Impassable(wearer.Map))
                 {
@@ -313,70 +327,7 @@ namespace StellarisDaughter
             return false;
         }
 
-        private float ResolveMinOwnerDistance(SD_DroneTypeDef droneType, float fallbackOrbitRadius)
-        {
-            var configured = droneType?.minOwnerDistance ?? -1f;
-            if (configured >= 0f)
-            {
-                return configured;
-            }
-
-            return Mathf.Max(0.75f, fallbackOrbitRadius * 0.7f);
-        }
-
-        private float ResolveMaxOwnerDistance(SD_DroneTypeDef droneType, float resolvedMinOwnerDistance, float fallbackOrbitRadius)
-        {
-            var configured = droneType?.maxOwnerDistance ?? -1f;
-            if (configured >= 0f)
-            {
-                return Mathf.Max(configured, resolvedMinOwnerDistance);
-            }
-
-            return Mathf.Max(resolvedMinOwnerDistance, fallbackOrbitRadius * 1.35f);
-        }
-
-        private float ResolveMinTargetDistance(SD_DroneTypeDef droneType, float preferredDistance, float jitter, float fallbackOrbitRadius)
-        {
-            var configured = droneType?.minTargetDistance ?? -1f;
-            if (configured >= 0f)
-            {
-                return configured;
-            }
-
-            return Mathf.Max(1.5f, preferredDistance - Mathf.Max(jitter, fallbackOrbitRadius * 0.2f));
-        }
-
-        private float ResolveMaxTargetDistance(SD_DroneTypeDef droneType, float resolvedMinTargetDistance, float preferredDistance, float jitter, float fallbackOrbitRadius)
-        {
-            var configured = droneType?.maxTargetDistance ?? -1f;
-            if (configured >= 0f)
-            {
-                return Mathf.Max(configured, resolvedMinTargetDistance);
-            }
-
-            return Mathf.Max(resolvedMinTargetDistance, preferredDistance + Mathf.Max(jitter, fallbackOrbitRadius * 0.2f));
-        }
-
-        private float ResolveCandidateTargetRadius(float minTargetDistance, float maxTargetDistance, float preferredDistance, float jitter)
-        {
-            var min = Mathf.Min(minTargetDistance, maxTargetDistance);
-            var max = Mathf.Max(minTargetDistance, maxTargetDistance);
-            if (Mathf.Approximately(min, max))
-            {
-                return min;
-            }
-
-            var preferredMin = Mathf.Clamp(preferredDistance - jitter, min, max);
-            var preferredMax = Mathf.Clamp(preferredDistance + jitter, min, max);
-            if (preferredMin <= preferredMax && Rand.Chance(0.7f))
-            {
-                return Rand.Range(preferredMin, preferredMax);
-            }
-
-            return Rand.Range(min, max);
-        }
-
-        public Vector3 GetOrbitPosition(int slotIndex, SD_DroneTypeDef droneType = null)
+        public Vector3 GetOrbitPosition(int slotIndex, SD_DroneTypeDef droneType = null, int squadronMemberIndex = 0, int squadronSize = 1, int orbitLayer = 0)
         {
             var wearer = Wearer;
             if (wearer == null)
@@ -384,16 +335,13 @@ namespace StellarisDaughter
                 return Vector3.zero;
             }
 
-            var count = Mathf.Max(Props.maxSlots, 1);
-            var orbitRadius = droneType?.orbitRadius > 0f ? droneType.orbitRadius : Props.orbitRadius;
-            var angle = (360f / count) * slotIndex + Find.TickManager.TicksGame * 2.2f;
-            var offset = new Vector3(0f, 0f, orbitRadius).RotatedBy(angle);
-            var pos = wearer.DrawPos + offset;
+            var anchor = GetSquadronAnchorPosition(slotIndex, droneType, orbitLayer, false);
+            var pos = anchor + GetSquadronMemberOffset(droneType, squadronMemberIndex, squadronSize, slotIndex, orbitLayer, false);
             pos.y = wearer.DrawPos.y;
             return pos;
         }
 
-        public Vector3 GetDockPosition(int slotIndex, SD_DroneTypeDef droneType = null)
+        public Vector3 GetDockPosition(int slotIndex, SD_DroneTypeDef droneType = null, int squadronMemberIndex = 0, int squadronSize = 1, int orbitLayer = 0)
         {
             var wearer = Wearer;
             if (wearer == null)
@@ -401,11 +349,8 @@ namespace StellarisDaughter
                 return Vector3.zero;
             }
 
-            var count = Mathf.Max(Props.maxSlots, 1);
-            var orbitRadius = droneType?.orbitRadius > 0f ? droneType.orbitRadius : Props.orbitRadius;
-            var angle = (360f / count) * slotIndex;
-            var offset = new Vector3(0f, 0f, orbitRadius * 0.45f).RotatedBy(angle);
-            var pos = wearer.DrawPos + offset;
+            var anchor = GetSquadronAnchorPosition(slotIndex, droneType, orbitLayer, true);
+            var pos = anchor + GetSquadronMemberOffset(droneType, squadronMemberIndex, squadronSize, slotIndex, orbitLayer, true);
             pos.y = wearer.DrawPos.y;
             return pos;
         }
@@ -419,12 +364,11 @@ namespace StellarisDaughter
             }
 
             var slot = slots[slotIndex];
-            if (slot.Drone == drone)
+            RemoveDroneReference(slot, drone);
+            if (slot.ActiveDroneCount <= 0)
             {
-                slot.Drone = null;
+                StartCharging(slot);
             }
-
-            StartCharging(slot);
         }
 
         public void NotifyDroneLost(int slotIndex, SD_DroneEntity drone)
@@ -436,25 +380,16 @@ namespace StellarisDaughter
             }
 
             var slot = slots[slotIndex];
-            if (slot.Drone == drone)
+            RemoveDroneReference(slot, drone);
+            if (slot.ActiveDroneCount <= 0)
             {
-                slot.Drone = null;
+                StartCharging(slot);
             }
-
-            StartCharging(slot);
         }
 
         public bool HasActiveDrones()
         {
-            return slots.Any(slot => slot.Drone != null && !slot.Drone.Destroyed);
-        }
-
-        public bool AutoDeployEnabled => autoDeployEnabled;
-
-        public float GizmoScrollPosition
-        {
-            get => gizmoScrollPosition;
-            set => gizmoScrollPosition = Mathf.Max(0f, value);
+            return slots.Any(slot => slot.ActiveDroneCount > 0);
         }
 
         public void ToggleAutoDeploy()
@@ -470,7 +405,7 @@ namespace StellarisDaughter
             }
             else
             {
-                DeployChargedDrones(showMessage: true);
+                DeployChargedDrones(true);
             }
         }
 
@@ -483,51 +418,15 @@ namespace StellarisDaughter
             }
 
             var slot = slots[slotIndex];
-            if (slot.Drone != null && !slot.Drone.Destroyed)
+            if (slot.ActiveDroneCount > 0)
             {
-                slot.State = SD_DroneSlotState.Returning;
-                slot.Drone.StartReturn();
+                RecallSlot(slot);
                 return;
             }
 
             if (slot.IsCharged)
             {
                 TryDeploySlot(slot);
-            }
-        }
-
-        private void DeployChargedDrones(bool showMessage)
-        {
-            var wearer = Wearer;
-            if (wearer == null || !wearer.Spawned)
-            {
-                if (showMessage)
-                {
-                    Messages.Message("SD_Drone_NoWearer".Translate(), MessageTypeDefOf.RejectInput, historical: false);
-                }
-                return;
-            }
-
-            EnsureSlots();
-            lastThreatTick = Find.TickManager.TicksGame;
-            var deployedAny = false;
-            for (var i = 0; i < slots.Count; i++)
-            {
-                var slot = slots[i];
-                if (!slot.IsCharged || slot.Drone != null)
-                {
-                    continue;
-                }
-
-                if (TryDeploySlot(slot))
-                {
-                    deployedAny = true;
-                }
-            }
-
-            if (!deployedAny && showMessage)
-            {
-                Messages.Message("SD_Drone_NoChargedSlot".Translate(), MessageTypeDefOf.RejectInput, historical: false);
             }
         }
 
@@ -555,7 +454,21 @@ namespace StellarisDaughter
             var chargeText = slot.State == SD_DroneSlotState.Charging
                 ? slot.ChargeTicksRemaining.ToStringTicksToPeriod()
                 : "SD_Drone_SlotChargeReady".Translate().ToString();
-            return "SD_Drone_SlotCommandDesc".Translate(slot.Index + 1, droneTypeLabel, GetSlotShortState(slot), chargeText);
+            return "SD_Drone_SlotCommandDesc".Translate(slot.Index + 1, droneTypeLabel, GetSlotShortState(slot), chargeText)
+                + "\n"
+                + $"Squadron: {slot.ActiveDroneCount}/{Mathf.Max(slot.SquadronSize, 1)}"
+                + "\n"
+                + $"Layer: {slot.OrbitLayer + 1}";
+        }
+
+        public int GetSquadronSize(SD_DroneSlot slot)
+        {
+            return Mathf.Max(slot?.SquadronSize ?? 1, 1);
+        }
+
+        public int GetActiveDroneCount(SD_DroneSlot slot)
+        {
+            return slot?.ActiveDroneCount ?? 0;
         }
 
         private Thing GetPrimaryThreatTarget()
@@ -637,6 +550,42 @@ namespace StellarisDaughter
             return (drone.DrawPos - target.DrawPos).Yto0().sqrMagnitude <= attackRange * attackRange;
         }
 
+        private void DeployChargedDrones(bool showMessage)
+        {
+            var wearer = Wearer;
+            if (wearer == null || !wearer.Spawned)
+            {
+                if (showMessage)
+                {
+                    Messages.Message("SD_Drone_NoWearer".Translate(), MessageTypeDefOf.RejectInput, false);
+                }
+
+                return;
+            }
+
+            EnsureSlots();
+            lastThreatTick = Find.TickManager.TicksGame;
+            var deployedAny = false;
+            for (var i = 0; i < slots.Count; i++)
+            {
+                var slot = slots[i];
+                if (!slot.IsCharged || slot.ActiveDroneCount > 0)
+                {
+                    continue;
+                }
+
+                if (TryDeploySlot(slot))
+                {
+                    deployedAny = true;
+                }
+            }
+
+            if (!deployedAny && showMessage)
+            {
+                Messages.Message("SD_Drone_NoChargedSlot".Translate(), MessageTypeDefOf.RejectInput, false);
+            }
+        }
+
         private bool TryDeploySlot(SD_DroneSlot slot)
         {
             var wearer = Wearer;
@@ -646,18 +595,31 @@ namespace StellarisDaughter
                 return false;
             }
 
-            var drone = GenSpawn.Spawn(droneType.droneDef, wearer.Position, wearer.Map) as SD_DroneEntity;
-            if (drone == null)
+            NormalizeSlotDrones(slot);
+            var squadronSize = Mathf.Max(slot.SquadronSize, 1);
+            var deployedAny = false;
+            for (var memberIndex = 0; memberIndex < squadronSize; memberIndex++)
+            {
+                var drone = GenSpawn.Spawn(droneType.droneDef, wearer.Position, wearer.Map) as SD_DroneEntity;
+                if (drone == null)
+                {
+                    continue;
+                }
+
+                slot.Drones.Add(drone);
+                drone.Initialize(parent, slot.Index, droneType, memberIndex, squadronSize, slot.OrbitLayer);
+                deployedAny = true;
+            }
+
+            if (!deployedAny)
             {
                 return false;
             }
 
             slot.State = SD_DroneSlotState.Deployed;
             slot.DroneType = droneType;
-            slot.Drone = drone;
             slot.ChargeTicksRemaining = 0;
             slot.ChargeTicksTotal = 0;
-            drone.Initialize(parent, slot.Index, droneType);
             return true;
         }
 
@@ -669,10 +631,18 @@ namespace StellarisDaughter
                 var index = slots.Count;
                 slots.Add(new SD_DroneSlot
                 {
-                    Index = index,
-                    State = SD_DroneSlotState.Docked,
-                    DroneType = ResolveDroneTypeForIndex(index)
+                    Index = index
                 });
+            }
+
+            for (var i = 0; i < slots.Count; i++)
+            {
+                var slot = slots[i];
+                slot.Index = i;
+                slot.DroneType = ResolveDroneTypeForIndex(i);
+                slot.SquadronSize = ResolveSquadronSizeForIndex(i);
+                slot.OrbitLayer = ResolveOrbitLayerForIndex(i);
+                NormalizeSlotDrones(slot);
             }
         }
 
@@ -683,6 +653,7 @@ namespace StellarisDaughter
             slot.State = SD_DroneSlotState.Charging;
             slot.ChargeTicksTotal = Mathf.Max(rechargeTicks, 1);
             slot.ChargeTicksRemaining = slot.ChargeTicksTotal;
+            slot.Drones.Clear();
         }
 
         private SD_DroneTypeDef ResolveDroneTypeForSlot(int slotIndex)
@@ -703,6 +674,230 @@ namespace StellarisDaughter
             }
 
             return null;
+        }
+
+        private int ResolveSquadronSizeForIndex(int slotIndex)
+        {
+            if (Props.slotSquadronSizes != null && slotIndex >= 0 && slotIndex < Props.slotSquadronSizes.Count)
+            {
+                return Mathf.Max(Props.slotSquadronSizes[slotIndex], 1);
+            }
+
+            return 1;
+        }
+
+        private int ResolveOrbitLayerForIndex(int slotIndex)
+        {
+            if (Props.slotOrbitLayers != null && slotIndex >= 0 && slotIndex < Props.slotOrbitLayers.Count)
+            {
+                return Mathf.Max(Props.slotOrbitLayers[slotIndex], 0);
+            }
+
+            return 0;
+        }
+
+        private void RecallSlot(SD_DroneSlot slot)
+        {
+            NormalizeSlotDrones(slot);
+            if (slot.ActiveDroneCount <= 0)
+            {
+                return;
+            }
+
+            slot.State = SD_DroneSlotState.Returning;
+            for (var i = 0; i < slot.Drones.Count; i++)
+            {
+                var drone = slot.Drones[i];
+                if (drone == null || drone.Destroyed)
+                {
+                    continue;
+                }
+
+                drone.StartReturn();
+            }
+        }
+
+        private void NormalizeSlotDrones(SD_DroneSlot slot)
+        {
+            if (slot.Drones == null)
+            {
+                slot.Drones = new List<SD_DroneEntity>();
+                return;
+            }
+
+            slot.Drones.RemoveAll(drone => drone == null || drone.Destroyed);
+        }
+
+        private void RemoveDroneReference(SD_DroneSlot slot, SD_DroneEntity drone)
+        {
+            if (slot.Drones == null)
+            {
+                slot.Drones = new List<SD_DroneEntity>();
+                return;
+            }
+
+            slot.Drones.RemoveAll(existing => existing == null || existing == drone || existing.Destroyed);
+        }
+
+        private int GetLayerSlotOrder(int slotIndex, int orbitLayer)
+        {
+            var order = 0;
+            for (var i = 0; i < slots.Count; i++)
+            {
+                if (slots[i].OrbitLayer != orbitLayer)
+                {
+                    continue;
+                }
+
+                if (slots[i].Index == slotIndex)
+                {
+                    return order;
+                }
+
+                order++;
+            }
+
+            return Mathf.Max(slotIndex, 0);
+        }
+
+        private int GetLayerSlotCount(int orbitLayer)
+        {
+            var count = slots.Count(slot => slot.OrbitLayer == orbitLayer);
+            return Mathf.Max(count, 1);
+        }
+
+        private float ResolveLayerRadius(int orbitLayer, SD_DroneTypeDef droneType)
+        {
+            if (Props.orbitLayerRadii != null && orbitLayer >= 0 && orbitLayer < Props.orbitLayerRadii.Count)
+            {
+                return Mathf.Max(Props.orbitLayerRadii[orbitLayer], 0.8f);
+            }
+
+            if (droneType?.orbitRadius > 0f)
+            {
+                return droneType.orbitRadius;
+            }
+
+            return Mathf.Max(Props.orbitRadius + orbitLayer * 1.6f, 0.8f);
+        }
+
+        private Vector3 GetSquadronAnchorPosition(int slotIndex, SD_DroneTypeDef droneType, int orbitLayer, bool docked)
+        {
+            var wearer = Wearer;
+            if (wearer == null)
+            {
+                return Vector3.zero;
+            }
+
+            var countOnLayer = Mathf.Max(GetLayerSlotCount(orbitLayer), 1);
+            var layerOrder = GetLayerSlotOrder(slotIndex, orbitLayer);
+            var radius = ResolveLayerRadius(orbitLayer, droneType);
+            if (docked)
+            {
+                radius *= 0.45f;
+            }
+
+            var angle = (360f / countOnLayer) * layerOrder + orbitLayer * 12f;
+            if (!docked)
+            {
+                angle += Find.TickManager.TicksGame * (2.2f + orbitLayer * 0.15f);
+            }
+
+            var offset = new Vector3(0f, 0f, radius).RotatedBy(angle);
+            var pos = wearer.DrawPos + offset;
+            pos.y = wearer.DrawPos.y;
+            return pos;
+        }
+
+        private Vector3 GetSquadronMemberOffset(SD_DroneTypeDef droneType, int squadronMemberIndex, int squadronSize, int slotIndex, int orbitLayer, bool docked)
+        {
+            var count = Mathf.Max(squadronSize, 1);
+            if (count <= 1)
+            {
+                return Vector3.zero;
+            }
+
+            var spreadRadius = Mathf.Max(droneType?.squadronSpreadRadius ?? 0.65f, 0.05f);
+            if (docked)
+            {
+                spreadRadius *= 0.55f;
+            }
+
+            var angle = (360f / count) * squadronMemberIndex + slotIndex * 17f + orbitLayer * 29f;
+            if (!docked)
+            {
+                angle += Find.TickManager.TicksGame * 4.5f;
+            }
+
+            return new Vector3(0f, 0f, spreadRadius).RotatedBy(angle);
+        }
+
+        private Vector3 GetSquadronAttackOffset(SD_DroneTypeDef droneType, int squadronMemberIndex, int squadronSize, int slotIndex, int orbitLayer)
+        {
+            return GetSquadronMemberOffset(droneType, squadronMemberIndex, squadronSize, slotIndex, orbitLayer, false) * 0.65f;
+        }
+
+        private float ResolveMinOwnerDistance(SD_DroneTypeDef droneType, float fallbackOrbitRadius)
+        {
+            var configured = droneType?.minOwnerDistance ?? -1f;
+            if (configured >= 0f)
+            {
+                return configured;
+            }
+
+            return Mathf.Max(0.75f, fallbackOrbitRadius * 0.7f);
+        }
+
+        private float ResolveMaxOwnerDistance(SD_DroneTypeDef droneType, float resolvedMinOwnerDistance, float fallbackOrbitRadius)
+        {
+            var configured = droneType?.maxOwnerDistance ?? -1f;
+            if (configured >= 0f)
+            {
+                return Mathf.Max(configured, resolvedMinOwnerDistance);
+            }
+
+            return Mathf.Max(resolvedMinOwnerDistance, fallbackOrbitRadius * 1.35f);
+        }
+
+        private float ResolveMinTargetDistance(SD_DroneTypeDef droneType, float preferredDistance, float jitter, float fallbackOrbitRadius)
+        {
+            var configured = droneType?.minTargetDistance ?? -1f;
+            if (configured >= 0f)
+            {
+                return configured;
+            }
+
+            return Mathf.Max(1.5f, preferredDistance - Mathf.Max(jitter, fallbackOrbitRadius * 0.2f));
+        }
+
+        private float ResolveMaxTargetDistance(SD_DroneTypeDef droneType, float resolvedMinTargetDistance, float preferredDistance, float jitter, float fallbackOrbitRadius)
+        {
+            var configured = droneType?.maxTargetDistance ?? -1f;
+            if (configured >= 0f)
+            {
+                return Mathf.Max(configured, resolvedMinTargetDistance);
+            }
+
+            return Mathf.Max(resolvedMinTargetDistance, preferredDistance + Mathf.Max(jitter, fallbackOrbitRadius * 0.2f));
+        }
+
+        private float ResolveCandidateTargetRadius(float minTargetDistance, float maxTargetDistance, float preferredDistance, float jitter)
+        {
+            var min = Mathf.Min(minTargetDistance, maxTargetDistance);
+            var max = Mathf.Max(minTargetDistance, maxTargetDistance);
+            if (Mathf.Approximately(min, max))
+            {
+                return min;
+            }
+
+            var preferredMin = Mathf.Clamp(preferredDistance - jitter, min, max);
+            var preferredMax = Mathf.Clamp(preferredDistance + jitter, min, max);
+            if (preferredMin <= preferredMax && Rand.Chance(0.7f))
+            {
+                return Rand.Range(preferredMin, preferredMax);
+            }
+
+            return Rand.Range(min, max);
         }
     }
 }

@@ -7,7 +7,7 @@
     <category>Item</category>
     <graphicData>
       <texPath>StellarisDaughter/Things/Drone/SD_DroneEntity</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
+      <graphicClass>Graphic_Single</graphicClass>
       <shaderType>Transparent</shaderType>
       <drawSize>0.9</drawSize>
     </graphicData>
