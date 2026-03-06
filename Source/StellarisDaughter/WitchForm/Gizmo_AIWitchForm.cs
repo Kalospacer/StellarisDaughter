@@ -1,3 +1,4 @@
+using System.Text;
 using UnityEngine;
 using Verse;
 
@@ -15,6 +16,7 @@ namespace StellarisDaughter
         private static readonly Texture2D BarFillPurpleDark = SolidColorMaterials.NewSolidColorTexture(new Color(0.50f, 0.25f, 0.65f));
         private static readonly Texture2D BarFillPink = SolidColorMaterials.NewSolidColorTexture(new Color(0.85f, 0.45f, 0.70f));
         private static readonly Texture2D BarHalfLine = SolidColorMaterials.NewSolidColorTexture(new Color(0.6f, 0.6f, 0.6f, 0.9f));
+        private static readonly Texture2D BarBorder = SolidColorMaterials.NewSolidColorTexture(new Color(0.45f, 0.22f, 0.58f, 0.9f));
 
         private const float Width = 220f;
         private const float GizmoHeight = 75f;
@@ -78,12 +80,12 @@ namespace StellarisDaughter
 
             var bar = new Rect(labelRect.xMax, row.y + 2f, row.width - labelRect.width, row.height - 4f);
             GUI.DrawTexture(bar, BarBg);
-            Widgets.DrawBox(bar, 1);
+            Widgets.DrawBoxSolid(bar, new Color(0f, 0f, 0f, 0.15f));
+            DrawBorder(bar);
 
             var max = comp.MaxWitchFactor;
             var current = comp.witchFactor;
-            var fillPct = Mathf.Clamp01(current / max);
-
+            var fillPct = max > 0f ? Mathf.Clamp01(current / max) : 0f;
             var thresholdPct = Mathf.Clamp01(comp.TransformThresholdRatio);
 
             if (fillPct > 0f)
@@ -116,8 +118,8 @@ namespace StellarisDaughter
                 }
             }
 
-            var halfX = bar.x + bar.width * thresholdPct;
-            GUI.DrawTexture(new Rect(halfX - 1f, bar.y, 2f, bar.height), BarHalfLine);
+            var thresholdX = bar.x + bar.width * thresholdPct;
+            GUI.DrawTexture(new Rect(thresholdX - 1f, bar.y, 2f, bar.height), BarHalfLine);
             DrawScaleMarks(bar);
 
             Text.Anchor = TextAnchor.MiddleCenter;
@@ -131,6 +133,14 @@ namespace StellarisDaughter
                 Widgets.DrawHighlight(row);
                 TooltipHandler.TipRegion(row, BuildDetailedTooltip());
             }
+        }
+
+        private void DrawBorder(Rect rect)
+        {
+            GUI.DrawTexture(new Rect(rect.x, rect.y, rect.width, 1f), BarBorder);
+            GUI.DrawTexture(new Rect(rect.x, rect.yMax - 1f, rect.width, 1f), BarBorder);
+            GUI.DrawTexture(new Rect(rect.x, rect.y, 1f, rect.height), BarBorder);
+            GUI.DrawTexture(new Rect(rect.xMax - 1f, rect.y, 1f, rect.height), BarBorder);
         }
 
         private void DrawScaleMarks(Rect bar)
@@ -151,7 +161,7 @@ namespace StellarisDaughter
             var trust = upbringing?.trust ?? 0f;
             var current = comp.witchFactor;
             var max = comp.MaxWitchFactor;
-            var percentage = (current / max) * 100f;
+            var percentage = max > 0f ? (current / max) * 100f : 0f;
             var baseRate = comp.Props.baseGrowthRate;
 
             float actualRate;
@@ -186,7 +196,7 @@ namespace StellarisDaughter
             }
 
             var perDay = actualRate * (60000f / 250f);
-            var tooltip = new System.Text.StringBuilder();
+            var tooltip = new StringBuilder();
             tooltip.AppendLine("═══ 魔女因子系统 ═══");
             tooltip.AppendLine();
             tooltip.AppendLine("【当前状态】");
@@ -208,8 +218,8 @@ namespace StellarisDaughter
 
             tooltip.AppendLine();
             tooltip.AppendLine("【上限计算】");
-            tooltip.AppendLine("  公式：基础上限 + 好感度 × 0.1");
-            tooltip.AppendLine($"  计算：{comp.Props.baseMaxFactor:F0} + {affection:F0} × 0.1 = {max:F1}");
+            tooltip.AppendLine($"  公式：基础上限 + 好感度 × {comp.Props.affectionToMaxFactor:F2}");
+            tooltip.AppendLine($"  计算：{comp.Props.baseMaxFactor:F0} + {affection:F0} × {comp.Props.affectionToMaxFactor:F2} = {max:F1}");
             tooltip.AppendLine();
             tooltip.AppendLine("【机制说明】");
             tooltip.AppendLine("  • 负信任越高，魔女因子增长越快");

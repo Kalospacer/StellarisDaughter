@@ -31,7 +31,7 @@
   <SD_FlightToggleDesc>开启或关闭飞行模式。</SD_FlightToggleDesc>
 
   <!-- 魔女化 -->
-  <SD_Witch_State_Normal>常态</SD_Witch_State_Normal>
+  <SD_Witch_State_Normal>星规形态</SD_Witch_State_Normal>
   <SD_Witch_State_Witch>魔女形态</SD_Witch_State_Witch>
   <SD_Witch_State_Berserk>失控</SD_Witch_State_Berserk>
   <SD_Witch_Transform>魔女变身</SD_Witch_Transform>
@@ -60,7 +60,7 @@
   <SD_Drone_NoChargedSlot>没有可用的已充能无人机槽位。</SD_Drone_NoChargedSlot>
   <SD_Drone_AutoDeployToggleLabel>自动起飞</SD_Drone_AutoDeployToggleLabel>
   <SD_Drone_AutoDeployToggleDesc>宿主进入战斗时，自动放飞已充能的无人机。</SD_Drone_AutoDeployToggleDesc>
-  <SD_Drone_GizmoTitle>无人机中队</SD_Drone_GizmoTitle>
+  <SD_Drone_GizmoTitle>星规-恢弘军备</SD_Drone_GizmoTitle>
   <SD_Drone_GizmoSummary>就绪 {0}  活动 {1}  充能 {2}</SD_Drone_GizmoSummary>
   <SD_Drone_GizmoAutoOn>自动：开</SD_Drone_GizmoAutoOn>
   <SD_Drone_GizmoAutoOff>自动：关</SD_Drone_GizmoAutoOff>
