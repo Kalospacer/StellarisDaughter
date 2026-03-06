@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <StellarisDaughter.SD_DroneTypeDef>
+    <defName>SD_DroneType_Assault</defName>
+    <droneDef>SD_Demo_DroneEntity</droneDef>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>SD_Demo_DroneShot</defaultProjectile>
+        <range>24.9</range>
+        <warmupTime>0</warmupTime>
+        <defaultCooldownTime>0.75</defaultCooldownTime>
+        <soundCast>Shot_ChargeBlaster</soundCast>
+      </li>
+    </verbs>
+    <rechargeTicks>180</rechargeTicks>
+    <orbitRadius>1.8</orbitRadius>
+    <moveSpeed>0.18</moveSpeed>
+    <deployTicks>24</deployTicks>
+  </StellarisDaughter.SD_DroneTypeDef>
+
+  <StellarisDaughter.SD_DroneTypeDef>
+    <defName>SD_DroneType_Heavy</defName>
+    <droneDef>SD_Demo_DroneEntity</droneDef>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>SD_Demo_DroneShot</defaultProjectile>
+        <range>20.9</range>
+        <warmupTime>0</warmupTime>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <defaultCooldownTime>1.15</defaultCooldownTime>
+        <soundCast>Shot_ChargeBlaster</soundCast>
+      </li>
+    </verbs>
+    <rechargeTicks>240</rechargeTicks>
+    <orbitRadius>2.2</orbitRadius>
+    <moveSpeed>0.14</moveSpeed>
+    <deployTicks>32</deployTicks>
+  </StellarisDaughter.SD_DroneTypeDef>
+</Defs>

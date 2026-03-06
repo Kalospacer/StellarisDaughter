@@ -249,6 +249,22 @@
           </li>
         </renderNodes>
       </li>
+      <li Class="StellarisDaughter.CompProperties_SD_DroneController">
+        <maxSlots>4</maxSlots>
+        <droneTypes>
+          <li>SD_DroneType_Assault</li>
+          <li>SD_DroneType_Heavy</li>
+        </droneTypes>
+        <slotDroneTypes>
+          <li>SD_DroneType_Assault</li>
+          <li>SD_DroneType_Heavy</li>
+          <li>SD_DroneType_Assault</li>
+          <li>SD_DroneType_Heavy</li>
+        </slotDroneTypes>
+        <deployCommandLabel>SD_Drone_DeployCommandLabel</deployCommandLabel>
+        <recallCommandLabel>SD_Drone_RecallCommandLabel</recallCommandLabel>
+        <commandDesc>SD_Drone_CommandDesc</commandDesc>
+      </li>
     </comps>
   </ThingDef>
 </Defs>

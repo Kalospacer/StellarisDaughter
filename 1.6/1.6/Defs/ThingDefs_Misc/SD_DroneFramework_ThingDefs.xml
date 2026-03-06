@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BaseItem">
+    <defName>SD_Demo_DroneEntity</defName>
+    <label>SD_Demo_DroneEntity</label>
+    <description>SD_Demo_DroneEntity_description</description>
+    <graphicData>
+      <texPath>SRA/Pawn/Mechanoid/SRA_Mech_WarUnit_S</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <drawSize>0.9</drawSize>
+    </graphicData>
+    <thingClass>StellarisDaughter.SD_DroneEntity</thingClass>
+    <thingCategories Inherit="False" />
+    <tradeability>None</tradeability>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToMake>1</WorkToMake>
+      <Mass>0.1</Mass>
+      <MaxHitPoints>1</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+  </ThingDef>
+</Defs>

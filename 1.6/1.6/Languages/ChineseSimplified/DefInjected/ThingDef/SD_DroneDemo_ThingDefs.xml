@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_Demo_DroneHalo.label>星规攻击无人机环（demo）</SD_Demo_DroneHalo.label>
+  <SD_Demo_DroneHalo.description>最小可运行的攻击无人机控制器样衣。穿戴后可通过 gizmo 手动发射无人机。</SD_Demo_DroneHalo.description>
+  <SD_Demo_DroneEntity.label>星规攻击无人机</SD_Demo_DroneEntity.label>
+  <SD_Demo_DroneEntity.description>部署后会围绕宿主巡航并自动攻击敌人的最小常驻无人机实体。</SD_Demo_DroneEntity.description>
+  <SD_Demo_DroneShot.label>无人机子弹</SD_Demo_DroneShot.label>
+  <SD_Demo_DroneShot.description>星规攻击无人机发射的子弹。</SD_Demo_DroneShot.description>
+</LanguageData>

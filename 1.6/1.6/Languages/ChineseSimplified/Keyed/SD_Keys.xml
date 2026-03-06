@@ -49,4 +49,10 @@
   <SD_Witch_CannotSuppress>无法镇压</SD_Witch_CannotSuppress>
   <SD_Witch_MustBeDowned>目标必须倒地</SD_Witch_MustBeDowned>
   <SD_BodyWeapon_CannotUse>{0} 当前无法使用身体武器</SD_BodyWeapon_CannotUse>
+  <SD_Drone_DeployCommandLabel>部署无人机</SD_Drone_DeployCommandLabel>
+  <SD_Drone_RecallCommandLabel>回收无人机</SD_Drone_RecallCommandLabel>
+  <SD_Drone_CommandDesc>部署后，无人机会围绕宿主巡航并自动索敌攻击；再次点击可回收。</SD_Drone_CommandDesc>
+  <SD_Drone_Inspect>无人机槽位: {0}/{1} 已就绪  充能中: {2}  已部署: {3}</SD_Drone_Inspect>
+  <SD_Drone_NoWearer>无人机控制器当前没有穿戴者。</SD_Drone_NoWearer>
+  <SD_Drone_NoChargedSlot>没有可用的已充能无人机槽位。</SD_Drone_NoChargedSlot>
 </LanguageData>

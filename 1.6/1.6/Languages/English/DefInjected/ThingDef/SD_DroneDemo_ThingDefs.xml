@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_Demo_DroneHalo.label>Stellar attack drone halo (demo)</SD_Demo_DroneHalo.label>
+  <SD_Demo_DroneHalo.description>A minimal wearable drone controller for demo purposes. It grants a gizmo that manually launches an attack drone.</SD_Demo_DroneHalo.description>
+  <SD_Demo_DroneEntity.label>Stellar attack drone</SD_Demo_DroneEntity.label>
+  <SD_Demo_DroneEntity.description>A minimal persistent drone entity that orbits its wearer and automatically attacks enemies.</SD_Demo_DroneEntity.description>
+  <SD_Demo_DroneShot.label>Drone round</SD_Demo_DroneShot.label>
+  <SD_Demo_DroneShot.description>The projectile fired by a stellar attack drone.</SD_Demo_DroneShot.description>
+</LanguageData>

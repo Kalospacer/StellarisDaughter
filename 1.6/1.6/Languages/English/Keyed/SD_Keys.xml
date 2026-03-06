@@ -49,4 +49,10 @@
   <SD_Witch_CannotSuppress>Cannot suppress</SD_Witch_CannotSuppress>
   <SD_Witch_MustBeDowned>Target must be downed</SD_Witch_MustBeDowned>
   <SD_BodyWeapon_CannotUse>{0} cannot use body weapon right now</SD_BodyWeapon_CannotUse>
+  <SD_Drone_DeployCommandLabel>Deploy Drones</SD_Drone_DeployCommandLabel>
+  <SD_Drone_RecallCommandLabel>Recall Drones</SD_Drone_RecallCommandLabel>
+  <SD_Drone_CommandDesc>Deploy drones to orbit the wearer and automatically attack enemies. Click again to recall them.</SD_Drone_CommandDesc>
+  <SD_Drone_Inspect>Drone slots: {0}/{1} ready  Charging: {2}  Deployed: {3}</SD_Drone_Inspect>
+  <SD_Drone_NoWearer>The drone controller currently has no wearer.</SD_Drone_NoWearer>
+  <SD_Drone_NoChargedSlot>No charged drone slot is available.</SD_Drone_NoChargedSlot>
 </LanguageData>
