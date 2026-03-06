@@ -25,6 +25,10 @@
     <maxTargetDistance>6.2</maxTargetDistance>
     <squadronSpreadRadius>0.55</squadronSpreadRadius>
     <moveSpeed>4</moveSpeed>
+    <trailTexturePath>StellarisDaughter/SRACompat/Projectile/ChargeLanceShot</trailTexturePath>
+    <trailWidth>0.2</trailWidth>
+    <trailMaxSegments>8</trailMaxSegments>
+    <trailPointSpacing>0.14</trailPointSpacing>
     <deployTicks>28</deployTicks>
     <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
     <preferredTargetDistance>5</preferredTargetDistance>
@@ -59,6 +63,10 @@
     <maxTargetDistance>6.4</maxTargetDistance>
     <squadronSpreadRadius>0.9</squadronSpreadRadius>
     <moveSpeed>4</moveSpeed>
+    <trailTexturePath>StellarisDaughter/SRACompat/Projectile/ChargeLanceShot</trailTexturePath>
+    <trailWidth>0.28</trailWidth>
+    <trailMaxSegments>10</trailMaxSegments>
+    <trailPointSpacing>0.18</trailPointSpacing>
     <deployTicks>30</deployTicks>
     <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
     <preferredTargetDistance>6</preferredTargetDistance>

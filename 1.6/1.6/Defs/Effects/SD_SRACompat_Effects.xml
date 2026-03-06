@@ -49,6 +49,22 @@
   </ThingDef>
 
   <ThingDef ParentName="MoteBase">
+    <defName>SD_Mote_DroneTrail</defName>
+    <graphicData>
+      <texPath>StellarisDaughter/SRACompat/Projectile/ChargeLanceShot</texPath>
+      <shaderType>MoteGlow</shaderType>
+    </graphicData>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <mote>
+      <fadeInTime>0</fadeInTime>
+      <solidTime>0.05</solidTime>
+      <fadeOutTime>0.12</fadeOutTime>
+      <growthRate>-0.4</growthRate>
+      <rotateTowardsMoveDirection>true</rotateTowardsMoveDirection>
+    </mote>
+  </ThingDef>
+
+  <ThingDef ParentName="MoteBase">
     <defName>SD_Mote_Pulse_Beam_Weapon</defName>
     <thingClass>MoteDualAttached</thingClass>
     <altitudeLayer>MoteOverhead</altitudeLayer>
