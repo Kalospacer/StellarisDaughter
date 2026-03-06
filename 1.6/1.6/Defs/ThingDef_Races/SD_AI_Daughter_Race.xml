@@ -489,14 +489,28 @@
             <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
             <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
             <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_Hair_behind</texPath>
-            <parentTagDef>Head</parentTagDef>
+            <parentTagDef>ApparelHead</parentTagDef>
             <useSkinShader>false</useSkinShader>
             <useRottenColor>false</useRottenColor>
             <rotDrawMode>Fresh, Rotting</rotDrawMode>
             <visibleFacing>
-              <li>North</li>
+              <li>South</li>
             </visibleFacing>
-            <baseLayer>-5</baseLayer>
+            <drawData>
+              <dataEast>
+                <layer>-99999</layer>
+              </dataEast>
+              <dataWest>
+                <layer>-99999</layer>
+              </dataWest>
+              <dataNorth>
+                <layer>-99999</layer>
+              </dataNorth>
+              <dataSouth>
+                <layer>-10</layer>
+                <offset>(0, 0, 0)</offset>
+              </dataSouth>
+            </drawData>
           </li>
         </renderNodes>
       </li>
@@ -515,14 +529,28 @@
             <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
             <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
             <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_BlackHair_behind</texPath>
-            <parentTagDef>Head</parentTagDef>
+            <parentTagDef>ApparelHead</parentTagDef>
             <useSkinShader>false</useSkinShader>
             <useRottenColor>false</useRottenColor>
             <rotDrawMode>Fresh, Rotting</rotDrawMode>
             <visibleFacing>
-              <li>North</li>
+              <li>South</li>
             </visibleFacing>
-            <baseLayer>-5</baseLayer>
+            <drawData>
+              <dataEast>
+                <layer>-99999</layer>
+              </dataEast>
+              <dataWest>
+                <layer>-99999</layer>
+              </dataWest>
+              <dataNorth>
+                <layer>-99999</layer>
+              </dataNorth>
+              <dataSouth>
+                <layer>-10</layer>
+                <offset>(0, 0, 0)</offset>
+              </dataSouth>
+            </drawData>
           </li>
         </renderNodes>
       </li>
