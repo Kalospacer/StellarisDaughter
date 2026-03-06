@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef>
+    <defName>SD_Retardant</defName>
+    <label>retardant</label>
+    <description>Slows the target for a short time.</description>
+    <hediffClass>StellarisDaughter.HediffWithSeverityLabel</hediffClass>
+    <isBad>false</isBad>
+    <defaultLabelColor>(255,0,0)</defaultLabelColor>
+    <initialSeverity>0.01</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerSecond">
+        <severityPerSecond>-0.2</severityPerSecond>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactorsBySeverity>
+          <li>
+            <stat>MoveSpeed</stat>
+            <valueBySeverity>
+              <points>
+                <li>(0,1)</li>
+                <li>(1,0)</li>
+              </points>
+            </valueBySeverity>
+          </li>
+        </statFactorsBySeverity>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

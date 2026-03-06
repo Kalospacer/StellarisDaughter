@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <DamageDef>
+    <defName>SD_Retardant</defName>
+    <label>retardant</label>
+    <harmsHealth>false</harmsHealth>
+    <makesBlood>false</makesBlood>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} was stunned to death.</deathMessage>
+    <defaultDamage>20</defaultDamage>
+    <defaultArmorPenetration>20</defaultArmorPenetration>
+    <additionalHediffs>
+      <li>
+        <hediff>SD_Retardant</hediff>
+        <severityFixed>0.2</severityFixed>
+        <inverseStatScaling>true</inverseStatScaling>
+        <victimSeverityScalingByInvBodySize>true</victimSeverityScalingByInvBodySize>
+      </li>
+    </additionalHediffs>
+    <impactSoundType>Electric</impactSoundType>
+  </DamageDef>
+</Defs>

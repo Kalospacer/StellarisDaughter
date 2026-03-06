@@ -58,6 +58,7 @@
   <SD_Drone_AutoDeployToggleLabel>Auto Deploy</SD_Drone_AutoDeployToggleLabel>
   <SD_Drone_AutoDeployToggleDesc>Automatically launch charged drones when the wearer enters combat.</SD_Drone_AutoDeployToggleDesc>
   <SD_Drone_GizmoTitle>Drones</SD_Drone_GizmoTitle>
+  <SD_Drone_GizmoSummary>Ready {0}  Active {1}  Charging {2}</SD_Drone_GizmoSummary>
   <SD_Drone_GizmoAutoOn>Auto: On</SD_Drone_GizmoAutoOn>
   <SD_Drone_GizmoAutoOff>Auto: Off</SD_Drone_GizmoAutoOff>
   <SD_Drone_SlotCommandLabel>Slot {0}: {1}</SD_Drone_SlotCommandLabel>

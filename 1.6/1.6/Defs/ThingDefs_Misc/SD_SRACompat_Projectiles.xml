@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BaseBullet">
+    <defName>SD_Bullet_Minipulser</defName>
+    <label>minipulser bolt</label>
+    <graphicData>
+      <texPath>StellarisDaughter/SRACompat/Projectile/ChargeLanceShot</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <thingClass>ArachnaeSwarm.Projectile_TrackingBullet</thingClass>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>12</damageAmountBase>
+      <armorPenetrationBase>0.7</armorPenetrationBase>
+      <stoppingPower>5</stoppingPower>
+      <speed>80</speed>
+      <extraDamages>
+        <li>
+          <def>SD_Retardant</def>
+          <amount>24</amount>
+        </li>
+        <li>
+          <def>EMP</def>
+          <amount>8</amount>
+        </li>
+      </extraDamages>
+    </projectile>
+    <comps>
+      <li Class="StellarisDaughter.CompProperties_SD_ProjectileImpactEffect">
+        <impactEffecter>SD_Minipulser_Hit</impactEffecter>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="StellarisDaughter.TrackingBulletDef">
+        <!-- 追踪速度，数值越高，转向越快，追踪能力越强 -->
+        <homingSpeed>0.75</homingSpeed>
+
+        <!-- 初始发射时的随机散射角度（左右各多少度） -->
+        <initRotateAngle>35</initRotateAngle>
+
+        <!-- 失去目标后多少 Tick 后自毁，可以是一个范围，如 "120~180" -->
+        <destroyTicksAfterLosingTrack>150</destroyTicksAfterLosingTrack>
+
+        <!-- 子弹离目标多近时就直接判定为命中 -->
+        <impactThreshold>2.1</impactThreshold>
+      </li>
+    </modExtensions>
+  </ThingDef>
+</Defs>

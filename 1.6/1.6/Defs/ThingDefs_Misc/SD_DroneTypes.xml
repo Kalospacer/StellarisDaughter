@@ -1,6 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <StellarisDaughter.SD_DroneTypeDef>
+    <defName>SD_DroneType_Minipulser</defName>
+    <droneDef>SD_Demo_DroneEntity</droneDef>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>SD_Bullet_Minipulser</defaultProjectile>
+        <hasStandardCommand>true</hasStandardCommand>
+        <warmupTime>0.1</warmupTime>
+        <range>48</range>
+        <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+        <burstShotCount>4</burstShotCount>
+        <soundCast>AgonyPulse_Cast</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>5</muzzleFlashScale>
+      </li>
+    </verbs>
+    <rechargeTicks>0</rechargeTicks>
+    <orbitRadius>2.4</orbitRadius>
+    <moveSpeed>0.17</moveSpeed>
+    <deployTicks>28</deployTicks>
+    <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
+    <preferredTargetDistance>5</preferredTargetDistance>
+    <targetDistanceJitter>0.8</targetDistanceJitter>
+  </StellarisDaughter.SD_DroneTypeDef>
+
+  <StellarisDaughter.SD_DroneTypeDef>
     <defName>SD_DroneType_Assault</defName>
     <droneDef>SD_Demo_DroneEntity</droneDef>
     <verbs>
@@ -14,8 +40,8 @@
       </li>
     </verbs>
     <rechargeTicks>0</rechargeTicks>
-    <orbitRadius>1.8</orbitRadius>
-    <moveSpeed>0.18</moveSpeed>
+    <orbitRadius>5.8</orbitRadius>
+    <moveSpeed>0.5</moveSpeed>
     <deployTicks>24</deployTicks>
     <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
   </StellarisDaughter.SD_DroneTypeDef>
@@ -36,8 +62,8 @@
       </li>
     </verbs>
     <rechargeTicks>0</rechargeTicks>
-    <orbitRadius>2.2</orbitRadius>
-    <moveSpeed>0.14</moveSpeed>
+    <orbitRadius>6.2</orbitRadius>
+    <moveSpeed>0.5</moveSpeed>
     <deployTicks>32</deployTicks>
     <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
   </StellarisDaughter.SD_DroneTypeDef>

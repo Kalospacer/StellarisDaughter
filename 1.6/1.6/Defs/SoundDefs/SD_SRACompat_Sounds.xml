@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <SoundDef>
+    <defName>SD_Minipulser</defName>
+    <context>MapOnly</context>
+    <eventNames />
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>StellarisDaughter/SRACompat/Minipulser</clipPath>
+          </li>
+        </grains>
+        <volumeRange>
+          <min>99</min>
+          <max>100</max>
+        </volumeRange>
+        <pitchRange>
+          <min>1.0</min>
+          <max>1.5</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+</Defs>
