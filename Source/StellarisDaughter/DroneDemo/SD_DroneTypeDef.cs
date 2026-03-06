@@ -15,6 +15,7 @@ namespace StellarisDaughter
         public float targetDistanceJitter = 0.6f;
         public int preAttackAimTicks = 0;
         public int postAttackWaitTicks = 18;
+        public int loiterTicksWithoutTarget = 1200;
         public int maxAttackCycles = -1;
         public float returnSpeedMultiplier = 1.25f;
         public float launchForwardDistance = 0.9f;

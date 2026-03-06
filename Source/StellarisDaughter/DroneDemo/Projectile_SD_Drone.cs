@@ -9,6 +9,7 @@ namespace StellarisDaughter
     public enum SD_DroneRuntimeState
     {
         Launching,
+        Loitering,
         MovingToAttackCell,
         Attacking,
         PostAttackWaiting,
@@ -29,6 +30,7 @@ namespace StellarisDaughter
         private int attackCooldownTicksLeft;
         private int preAttackAimTicksLeft;
         private int postAttackWaitTicksLeft;
+        private int loiterTicksLeft;
         private int completedAttackCycles;
         private bool notifiedController;
 
@@ -83,6 +85,7 @@ namespace StellarisDaughter
             attackCooldownTicksLeft = 0;
             preAttackAimTicksLeft = 0;
             postAttackWaitTicksLeft = 0;
+            loiterTicksLeft = 0;
             completedAttackCycles = 0;
             verbTracker = new VerbTracker(this);
             EnsureVerbCasters();
@@ -113,6 +116,7 @@ namespace StellarisDaughter
             Scribe_Values.Look(ref attackCooldownTicksLeft, "attackCooldownTicksLeft", 0);
             Scribe_Values.Look(ref preAttackAimTicksLeft, "preAttackAimTicksLeft", 0);
             Scribe_Values.Look(ref postAttackWaitTicksLeft, "postAttackWaitTicksLeft", 0);
+            Scribe_Values.Look(ref loiterTicksLeft, "loiterTicksLeft", 0);
             Scribe_Values.Look(ref completedAttackCycles, "completedAttackCycles", 0);
             Scribe_Values.Look(ref notifiedController, "notifiedController", false);
             Scribe_Values.Look(ref pathStart, "pathStart");
@@ -148,6 +152,9 @@ namespace StellarisDaughter
             {
                 case SD_DroneRuntimeState.Launching:
                     TickLaunching();
+                    break;
+                case SD_DroneRuntimeState.Loitering:
+                    TickLoitering();
                     break;
                 case SD_DroneRuntimeState.MovingToAttackCell:
                     TickMovingToAttackCell();
@@ -207,9 +214,36 @@ namespace StellarisDaughter
                 }
                 else
                 {
-                    state = SD_DroneRuntimeState.Attacking;
-                    preAttackAimTicksLeft = 0;
+                    BeginLoiter();
                 }
+            }
+        }
+
+        private void TickLoitering()
+        {
+            var controller = Controller;
+            if (controller == null)
+            {
+                BeginReturn();
+                return;
+            }
+
+            TickLinearMove(controller.GetOrbitPosition(slotIndex, droneType), ResolveMoveSpeed());
+
+            if (TryAcquireTargetAndDestination())
+            {
+                BeginMoveToAttackCell(attackDestination);
+                return;
+            }
+
+            if (loiterTicksLeft > 0)
+            {
+                loiterTicksLeft--;
+            }
+
+            if (loiterTicksLeft <= 0)
+            {
+                BeginReturn();
             }
         }
 
@@ -244,7 +278,7 @@ namespace StellarisDaughter
                 }
                 else
                 {
-                    BeginReturn();
+                    BeginLoiter();
                 }
 
                 return;
@@ -271,7 +305,7 @@ namespace StellarisDaughter
                 }
                 else
                 {
-                    BeginReturn();
+                    BeginLoiter();
                 }
 
                 return;
@@ -313,7 +347,7 @@ namespace StellarisDaughter
                 }
                 else
                 {
-                    BeginReturn();
+                    BeginLoiter();
                 }
 
                 return;
@@ -370,6 +404,16 @@ namespace StellarisDaughter
             state = SD_DroneRuntimeState.Launching;
             currentTarget = null;
             completedAttackCycles = 0;
+            loiterTicksLeft = ResolveLoiterTicks();
+        }
+
+        private void BeginLoiter()
+        {
+            currentTarget = null;
+            preAttackAimTicksLeft = 0;
+            postAttackWaitTicksLeft = 0;
+            loiterTicksLeft = ResolveLoiterTicks();
+            state = SD_DroneRuntimeState.Loitering;
         }
 
         private void BeginMoveToAttackCell(Vector3 destination)
@@ -473,6 +517,11 @@ namespace StellarisDaughter
         private float ResolveMoveSpeed()
         {
             return droneType?.moveSpeed > 0f ? droneType.moveSpeed : Controller?.Props.moveSpeed ?? 0.18f;
+        }
+
+        private int ResolveLoiterTicks()
+        {
+            return Mathf.Max(droneType?.loiterTicksWithoutTarget ?? 1200, 0);
         }
 
         private float ResolveMaxRange()

@@ -177,42 +177,7 @@ namespace StellarisDaughter
                 yield break;
             }
 
-            yield return new Command_Action
-            {
-                defaultLabel = HasActiveDrones()
-                    ? Props.recallCommandLabel.Translate()
-                    : Props.deployCommandLabel.Translate(),
-                defaultDesc = Props.commandDesc.Translate(),
-                icon = TexCommand.Attack,
-                action = delegate
-                {
-                    if (HasActiveDrones())
-                    {
-                        RecallAllDrones();
-                    }
-                    else
-                    {
-                        DeployChargedDrones(showMessage: true);
-                    }
-                }
-            };
-
-            yield return new Command_Toggle
-            {
-                defaultLabel = "SD_Drone_AutoDeployToggleLabel".Translate(),
-                defaultDesc = "SD_Drone_AutoDeployToggleDesc".Translate(),
-                icon = TexCommand.Attack,
-                isActive = () => autoDeployEnabled,
-                toggleAction = delegate
-                {
-                    autoDeployEnabled = !autoDeployEnabled;
-                }
-            };
-
-            for (var i = 0; i < slots.Count; i++)
-            {
-                yield return CreateSlotCommand(slots[i]);
-            }
+            yield return new Gizmo_SDDroneControl(this);
         }
 
         public void DeployAllChargedDrones()
@@ -402,35 +367,45 @@ namespace StellarisDaughter
             return slots.Any(slot => slot.Drone != null && !slot.Drone.Destroyed);
         }
 
-        private Gizmo CreateSlotCommand(SD_DroneSlot slot)
+        public bool AutoDeployEnabled => autoDeployEnabled;
+
+        public void ToggleAutoDeploy()
         {
-            var command = new Command_Action
-            {
-                defaultLabel = "SD_Drone_SlotCommandLabel".Translate(slot.Index + 1, GetSlotShortState(slot)),
-                defaultDesc = BuildSlotDescription(slot),
-                icon = TexCommand.Attack,
-                action = delegate
-                {
-                    if (slot.Drone != null && !slot.Drone.Destroyed)
-                    {
-                        slot.State = SD_DroneSlotState.Returning;
-                        slot.Drone.StartReturn();
-                        return;
-                    }
+            autoDeployEnabled = !autoDeployEnabled;
+        }
 
-                    if (slot.IsCharged)
-                    {
-                        TryDeploySlot(slot);
-                    }
-                }
-            };
-
-            if (!slot.IsCharged && (slot.Drone == null || slot.Drone.Destroyed))
+        public void ToggleAllDrones()
+        {
+            if (HasActiveDrones())
             {
-                command.Disable(BuildSlotDescription(slot));
+                RecallAllDrones();
+            }
+            else
+            {
+                DeployChargedDrones(showMessage: true);
+            }
+        }
+
+        public void ToggleSlot(int slotIndex)
+        {
+            EnsureSlots();
+            if (slotIndex < 0 || slotIndex >= slots.Count)
+            {
+                return;
             }
 
-            return command;
+            var slot = slots[slotIndex];
+            if (slot.Drone != null && !slot.Drone.Destroyed)
+            {
+                slot.State = SD_DroneSlotState.Returning;
+                slot.Drone.StartReturn();
+                return;
+            }
+
+            if (slot.IsCharged)
+            {
+                TryDeploySlot(slot);
+            }
         }
 
         private void DeployChargedDrones(bool showMessage)
@@ -467,7 +442,7 @@ namespace StellarisDaughter
             }
         }
 
-        private string GetSlotShortState(SD_DroneSlot slot)
+        public string GetSlotShortState(SD_DroneSlot slot)
         {
             switch (slot.State)
             {
@@ -484,7 +459,7 @@ namespace StellarisDaughter
             }
         }
 
-        private string BuildSlotDescription(SD_DroneSlot slot)
+        public string BuildSlotDescription(SD_DroneSlot slot)
         {
             var droneType = slot.DroneType ?? ResolveDroneTypeForIndex(slot.Index);
             var droneTypeLabel = droneType?.label ?? droneType?.defName ?? "None";

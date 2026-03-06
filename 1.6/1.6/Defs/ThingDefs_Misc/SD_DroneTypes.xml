@@ -13,10 +13,11 @@
         <soundCast>Shot_ChargeBlaster</soundCast>
       </li>
     </verbs>
-    <rechargeTicks>180</rechargeTicks>
+    <rechargeTicks>0</rechargeTicks>
     <orbitRadius>1.8</orbitRadius>
     <moveSpeed>0.18</moveSpeed>
     <deployTicks>24</deployTicks>
+    <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
   </StellarisDaughter.SD_DroneTypeDef>
 
   <StellarisDaughter.SD_DroneTypeDef>
@@ -34,9 +35,10 @@
         <soundCast>Shot_ChargeBlaster</soundCast>
       </li>
     </verbs>
-    <rechargeTicks>240</rechargeTicks>
+    <rechargeTicks>0</rechargeTicks>
     <orbitRadius>2.2</orbitRadius>
     <moveSpeed>0.14</moveSpeed>
     <deployTicks>32</deployTicks>
+    <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
   </StellarisDaughter.SD_DroneTypeDef>
 </Defs>
