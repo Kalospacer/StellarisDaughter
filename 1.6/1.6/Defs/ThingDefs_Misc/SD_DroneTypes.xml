@@ -6,7 +6,7 @@
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
-        <defaultProjectile>SD_Demo_DroneShot</defaultProjectile>
+        <defaultProjectile>Bullet_ChargeBlasterHeavy</defaultProjectile>
         <range>24.9</range>
         <warmupTime>0</warmupTime>
         <defaultCooldownTime>0.75</defaultCooldownTime>
@@ -25,7 +25,7 @@
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
-        <defaultProjectile>SD_Demo_DroneShot</defaultProjectile>
+        <defaultProjectile>Bullet_ChargeBlasterHeavy</defaultProjectile>
         <range>20.9</range>
         <warmupTime>0</warmupTime>
         <burstShotCount>3</burstShotCount>

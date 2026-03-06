@@ -55,4 +55,15 @@
   <SD_Drone_Inspect>Drone slots: {0}/{1} ready  Charging: {2}  Deployed: {3}</SD_Drone_Inspect>
   <SD_Drone_NoWearer>The drone controller currently has no wearer.</SD_Drone_NoWearer>
   <SD_Drone_NoChargedSlot>No charged drone slot is available.</SD_Drone_NoChargedSlot>
+  <SD_Drone_AutoDeployToggleLabel>Auto Deploy</SD_Drone_AutoDeployToggleLabel>
+  <SD_Drone_AutoDeployToggleDesc>Automatically launch charged drones when the wearer enters combat.</SD_Drone_AutoDeployToggleDesc>
+  <SD_Drone_SlotCommandLabel>Slot {0}: {1}</SD_Drone_SlotCommandLabel>
+  <SD_Drone_SlotCommandDesc>Slot {0}\nType: {1}\nState: {2}\nCharge: {3}\n\nClick to deploy this slot if ready, or recall it if currently active.</SD_Drone_SlotCommandDesc>
+  <SD_Drone_SlotStateEmpty>Empty</SD_Drone_SlotStateEmpty>
+  <SD_Drone_SlotStateDocked>Docked</SD_Drone_SlotStateDocked>
+  <SD_Drone_SlotStateReady>Ready</SD_Drone_SlotStateReady>
+  <SD_Drone_SlotStateDeployed>Deployed</SD_Drone_SlotStateDeployed>
+  <SD_Drone_SlotStateReturning>Returning</SD_Drone_SlotStateReturning>
+  <SD_Drone_SlotStateCharging>Charging</SD_Drone_SlotStateCharging>
+  <SD_Drone_SlotChargeReady>Ready</SD_Drone_SlotChargeReady>
 </LanguageData>

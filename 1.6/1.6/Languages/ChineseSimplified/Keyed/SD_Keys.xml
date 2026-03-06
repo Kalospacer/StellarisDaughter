@@ -55,4 +55,15 @@
   <SD_Drone_Inspect>无人机槽位: {0}/{1} 已就绪  充能中: {2}  已部署: {3}</SD_Drone_Inspect>
   <SD_Drone_NoWearer>无人机控制器当前没有穿戴者。</SD_Drone_NoWearer>
   <SD_Drone_NoChargedSlot>没有可用的已充能无人机槽位。</SD_Drone_NoChargedSlot>
+  <SD_Drone_AutoDeployToggleLabel>自动起飞</SD_Drone_AutoDeployToggleLabel>
+  <SD_Drone_AutoDeployToggleDesc>宿主进入战斗时，自动放飞已充能的无人机。</SD_Drone_AutoDeployToggleDesc>
+  <SD_Drone_SlotCommandLabel>槽位 {0}: {1}</SD_Drone_SlotCommandLabel>
+  <SD_Drone_SlotCommandDesc>槽位 {0}\n类型: {1}\n状态: {2}\n充能: {3}\n\n已就绪时点击可单独部署，已放飞时点击可单独回收。</SD_Drone_SlotCommandDesc>
+  <SD_Drone_SlotStateEmpty>空</SD_Drone_SlotStateEmpty>
+  <SD_Drone_SlotStateDocked>停泊</SD_Drone_SlotStateDocked>
+  <SD_Drone_SlotStateReady>就绪</SD_Drone_SlotStateReady>
+  <SD_Drone_SlotStateDeployed>已部署</SD_Drone_SlotStateDeployed>
+  <SD_Drone_SlotStateReturning>返航中</SD_Drone_SlotStateReturning>
+  <SD_Drone_SlotStateCharging>充能中</SD_Drone_SlotStateCharging>
+  <SD_Drone_SlotChargeReady>就绪</SD_Drone_SlotChargeReady>
 </LanguageData>

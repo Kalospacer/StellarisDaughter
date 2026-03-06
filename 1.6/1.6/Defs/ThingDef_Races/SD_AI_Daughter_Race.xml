@@ -65,9 +65,6 @@
               <drawSize>1</drawSize>
               <alignWithHead>true</alignWithHead>
               <scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
-              <useSkipFlags>
-                <li>Stellar halo</li>
-              </useSkipFlags>
               <conditions>
                 <BodyPart>
                   <bodyPart>Head</bodyPart>

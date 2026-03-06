@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -37,7 +37,6 @@ namespace StellarisDaughter
         }
     }
 
-    // 鉁?娌愰洩鍐欑殑鍝
     public class CompProperties_SD_DroneController : CompProperties
     {
         public int maxSlots = 4;
@@ -47,6 +46,9 @@ namespace StellarisDaughter
         public float orbitRadius = 1.8f;
         public float moveSpeed = 0.18f;
         public int deployTicks = 24;
+        public bool autoDeployOnThreat = true;
+        public int idleRecallTicks = 90;
+        public int targetScanIntervalTicks = 15;
         public string deployCommandLabel = "SD_Drone_DeployCommandLabel";
         public string recallCommandLabel = "SD_Drone_RecallCommandLabel";
         public string commandDesc = "SD_Drone_CommandDesc";
@@ -57,10 +59,11 @@ namespace StellarisDaughter
         }
     }
 
-    // 鉁?娌愰洩鍐欑殑鍝
     public class CompSD_DroneController : ThingComp
     {
         private List<SD_DroneSlot> slots = new List<SD_DroneSlot>();
+        private int lastThreatTick = -99999;
+        private bool autoDeployEnabled = true;
 
         public CompProperties_SD_DroneController Props => (CompProperties_SD_DroneController)props;
 
@@ -74,6 +77,8 @@ namespace StellarisDaughter
         {
             base.PostExposeData();
             Scribe_Collections.Look(ref slots, "slots", LookMode.Deep);
+            Scribe_Values.Look(ref lastThreatTick, "lastThreatTick", -99999);
+            Scribe_Values.Look(ref autoDeployEnabled, "autoDeployEnabled", true);
             if (Scribe.mode == LoadSaveMode.PostLoadInit && slots == null)
             {
                 slots = new List<SD_DroneSlot>();
@@ -83,6 +88,7 @@ namespace StellarisDaughter
         public override void PostPostMake()
         {
             base.PostPostMake();
+            autoDeployEnabled = Props.autoDeployOnThreat;
             EnsureSlots();
         }
 
@@ -131,6 +137,21 @@ namespace StellarisDaughter
             if (wearer == null || !wearer.Spawned || wearer.Dead)
             {
                 RecallAllDrones();
+                return;
+            }
+
+            var threat = GetPrimaryThreatTarget();
+            if (threat != null)
+            {
+                lastThreatTick = Find.TickManager.TicksGame;
+                if (autoDeployEnabled)
+                {
+                    DeployChargedDrones(showMessage: false);
+                }
+            }
+            else if (HasActiveDrones() && Find.TickManager.TicksGame - lastThreatTick >= Props.idleRecallTicks)
+            {
+                RecallAllDrones();
             }
         }
 
@@ -171,41 +192,32 @@ namespace StellarisDaughter
                     }
                     else
                     {
-                        DeployAllChargedDrones();
+                        DeployChargedDrones(showMessage: true);
                     }
                 }
             };
+
+            yield return new Command_Toggle
+            {
+                defaultLabel = "SD_Drone_AutoDeployToggleLabel".Translate(),
+                defaultDesc = "SD_Drone_AutoDeployToggleDesc".Translate(),
+                icon = TexCommand.Attack,
+                isActive = () => autoDeployEnabled,
+                toggleAction = delegate
+                {
+                    autoDeployEnabled = !autoDeployEnabled;
+                }
+            };
+
+            for (var i = 0; i < slots.Count; i++)
+            {
+                yield return CreateSlotCommand(slots[i]);
+            }
         }
 
         public void DeployAllChargedDrones()
         {
-            var wearer = Wearer;
-            if (wearer == null || !wearer.Spawned)
-            {
-                Messages.Message("SD_Drone_NoWearer".Translate(), MessageTypeDefOf.RejectInput, historical: false);
-                return;
-            }
-
-            EnsureSlots();
-            var deployedAny = false;
-            for (var i = 0; i < slots.Count; i++)
-            {
-                var slot = slots[i];
-                if (!slot.IsCharged || slot.Drone != null)
-                {
-                    continue;
-                }
-
-                if (TryDeploySlot(slot))
-                {
-                    deployedAny = true;
-                }
-            }
-
-            if (!deployedAny)
-            {
-                Messages.Message("SD_Drone_NoChargedSlot".Translate(), MessageTypeDefOf.RejectInput, historical: false);
-            }
+            DeployChargedDrones(showMessage: true);
         }
 
         public void RecallAllDrones()
@@ -238,39 +250,83 @@ namespace StellarisDaughter
                 return null;
             }
 
+            var primaryTarget = GetPrimaryThreatTarget();
+            if (IsValidAttackTarget(drone, wearer, primaryTarget, attackRange))
+            {
+                return primaryTarget;
+            }
+
             return GenClosest.ClosestThing_Global(
                 wearer.Position,
                 wearer.Map.attackTargetsCache.GetPotentialTargetsFor(wearer),
                 attackRange,
-                target =>
-                {
-                    if (target == null || target.Destroyed || !target.Spawned)
-                    {
-                        return false;
-                    }
-
-                    if (target == wearer || !wearer.HostileTo(target))
-                    {
-                        return false;
-                    }
-
-                    if (!GenSight.LineOfSight(drone.Position, target.Position, wearer.Map))
-                    {
-                        return false;
-                    }
-
-                    return (drone.DrawPos - target.DrawPos).Yto0().sqrMagnitude <= attackRange * attackRange;
-                });
+                target => IsValidAttackTarget(drone, wearer, target, attackRange));
         }
 
-        private float ResolveAttackRange(SD_DroneTypeDef droneType)
+        public bool TryFindAttackDestination(SD_DroneEntity drone, Thing target, out Vector3 result)
         {
-            if (droneType?.verbs.NullOrEmpty() ?? true)
+            result = Vector3.zero;
+            var wearer = Wearer;
+            if (wearer?.Map == null || target == null || target.Destroyed || !target.Spawned)
             {
-                return 0f;
+                return false;
             }
 
-            return droneType.verbs.Max(v => v.range);
+            var droneType = drone.DroneType;
+            var preferredDistance = Mathf.Max(1.5f, droneType?.preferredTargetDistance ?? 4f);
+            var jitter = Mathf.Max(0f, droneType?.targetDistanceJitter ?? 0.6f);
+            var targetCenter = target.DrawPos;
+            var startAngle = (360f / Mathf.Max(Props.maxSlots, 1)) * drone.SlotIndex + Find.TickManager.TicksGame * 3f;
+            var bestPreferred = Vector3.zero;
+            var bestPreferredScore = float.MaxValue;
+            var bestFallback = Vector3.zero;
+            var bestFallbackScore = float.MaxValue;
+
+            for (var i = 0; i < 12; i++)
+            {
+                var angle = startAngle + i * 30f;
+                var radius = preferredDistance + Rand.Range(-jitter, jitter);
+                var candidate = targetCenter + new Vector3(0f, 0f, radius).RotatedBy(angle);
+                var cell = candidate.ToIntVec3();
+                if (!cell.InBounds(wearer.Map) || cell.Impassable(wearer.Map))
+                {
+                    continue;
+                }
+
+                var losTarget = target.OccupiedRect().ClosestCellTo(cell);
+                if (!GenSight.LineOfSight(cell, losTarget, wearer.Map, skipFirstCell: true))
+                {
+                    continue;
+                }
+
+                var score = (drone.DrawPos - candidate).Yto0().sqrMagnitude;
+                var distanceError = Mathf.Abs((candidate - targetCenter).Yto0().magnitude - preferredDistance);
+                if (distanceError <= 1.25f && score < bestPreferredScore)
+                {
+                    bestPreferred = candidate;
+                    bestPreferredScore = score;
+                }
+
+                if (score < bestFallbackScore)
+                {
+                    bestFallback = candidate;
+                    bestFallbackScore = score;
+                }
+            }
+
+            if (bestPreferredScore < float.MaxValue)
+            {
+                result = bestPreferred;
+                return true;
+            }
+
+            if (bestFallbackScore < float.MaxValue)
+            {
+                result = bestFallback;
+                return true;
+            }
+
+            return false;
         }
 
         public Vector3 GetOrbitPosition(int slotIndex, SD_DroneTypeDef droneType = null)
@@ -346,6 +402,177 @@ namespace StellarisDaughter
             return slots.Any(slot => slot.Drone != null && !slot.Drone.Destroyed);
         }
 
+        private Gizmo CreateSlotCommand(SD_DroneSlot slot)
+        {
+            var command = new Command_Action
+            {
+                defaultLabel = "SD_Drone_SlotCommandLabel".Translate(slot.Index + 1, GetSlotShortState(slot)),
+                defaultDesc = BuildSlotDescription(slot),
+                icon = TexCommand.Attack,
+                action = delegate
+                {
+                    if (slot.Drone != null && !slot.Drone.Destroyed)
+                    {
+                        slot.State = SD_DroneSlotState.Returning;
+                        slot.Drone.StartReturn();
+                        return;
+                    }
+
+                    if (slot.IsCharged)
+                    {
+                        TryDeploySlot(slot);
+                    }
+                }
+            };
+
+            if (!slot.IsCharged && (slot.Drone == null || slot.Drone.Destroyed))
+            {
+                command.Disable(BuildSlotDescription(slot));
+            }
+
+            return command;
+        }
+
+        private void DeployChargedDrones(bool showMessage)
+        {
+            var wearer = Wearer;
+            if (wearer == null || !wearer.Spawned)
+            {
+                if (showMessage)
+                {
+                    Messages.Message("SD_Drone_NoWearer".Translate(), MessageTypeDefOf.RejectInput, historical: false);
+                }
+                return;
+            }
+
+            EnsureSlots();
+            var deployedAny = false;
+            for (var i = 0; i < slots.Count; i++)
+            {
+                var slot = slots[i];
+                if (!slot.IsCharged || slot.Drone != null)
+                {
+                    continue;
+                }
+
+                if (TryDeploySlot(slot))
+                {
+                    deployedAny = true;
+                }
+            }
+
+            if (!deployedAny && showMessage)
+            {
+                Messages.Message("SD_Drone_NoChargedSlot".Translate(), MessageTypeDefOf.RejectInput, historical: false);
+            }
+        }
+
+        private string GetSlotShortState(SD_DroneSlot slot)
+        {
+            switch (slot.State)
+            {
+                case SD_DroneSlotState.Docked:
+                    return slot.IsCharged ? "SD_Drone_SlotStateReady".Translate().ToString() : "SD_Drone_SlotStateDocked".Translate().ToString();
+                case SD_DroneSlotState.Deployed:
+                    return "SD_Drone_SlotStateDeployed".Translate().ToString();
+                case SD_DroneSlotState.Returning:
+                    return "SD_Drone_SlotStateReturning".Translate().ToString();
+                case SD_DroneSlotState.Charging:
+                    return "SD_Drone_SlotStateCharging".Translate().ToString();
+                default:
+                    return "SD_Drone_SlotStateEmpty".Translate().ToString();
+            }
+        }
+
+        private string BuildSlotDescription(SD_DroneSlot slot)
+        {
+            var droneType = slot.DroneType ?? ResolveDroneTypeForIndex(slot.Index);
+            var droneTypeLabel = droneType?.label ?? droneType?.defName ?? "None";
+            var chargeText = slot.State == SD_DroneSlotState.Charging
+                ? slot.ChargeTicksRemaining.ToStringTicksToPeriod()
+                : "SD_Drone_SlotChargeReady".Translate().ToString();
+            return "SD_Drone_SlotCommandDesc".Translate(slot.Index + 1, droneTypeLabel, GetSlotShortState(slot), chargeText);
+        }
+
+        private Thing GetPrimaryThreatTarget()
+        {
+            var wearer = Wearer;
+            if (wearer?.Map == null)
+            {
+                return null;
+            }
+
+            var wearerTarget = wearer.CurJob?.targetA.Thing ?? wearer.mindState?.enemyTarget;
+            if (IsPotentialThreatTarget(wearer, wearerTarget))
+            {
+                return wearerTarget;
+            }
+
+            var maxRange = ResolveMaxRange();
+            if (maxRange <= 0f)
+            {
+                return null;
+            }
+
+            return GenClosest.ClosestThing_Global(
+                wearer.Position,
+                wearer.Map.attackTargetsCache.GetPotentialTargetsFor(wearer),
+                maxRange,
+                target => IsPotentialThreatTarget(wearer, target));
+        }
+
+        private bool IsPotentialThreatTarget(Pawn wearer, Thing target)
+        {
+            if (wearer?.Map == null || target == null || target.Destroyed || !target.Spawned)
+            {
+                return false;
+            }
+
+            if (target == wearer || !wearer.HostileTo(target))
+            {
+                return false;
+            }
+
+            return !target.Position.Fogged(wearer.Map);
+        }
+
+        private float ResolveAttackRange(SD_DroneTypeDef droneType)
+        {
+            if (droneType?.verbs.NullOrEmpty() ?? true)
+            {
+                return 0f;
+            }
+
+            return droneType.verbs.Max(v => v.range);
+        }
+
+        private float ResolveMaxRange()
+        {
+            var maxRange = 0f;
+            for (var i = 0; i < slots.Count; i++)
+            {
+                var droneType = slots[i].DroneType ?? ResolveDroneTypeForIndex(i);
+                maxRange = Mathf.Max(maxRange, ResolveAttackRange(droneType));
+            }
+
+            return maxRange;
+        }
+
+        private bool IsValidAttackTarget(SD_DroneEntity drone, Pawn wearer, Thing target, float attackRange)
+        {
+            if (!IsPotentialThreatTarget(wearer, target))
+            {
+                return false;
+            }
+
+            if (!GenSight.LineOfSight(drone.Position, target.Position, wearer.Map))
+            {
+                return false;
+            }
+
+            return (drone.DrawPos - target.DrawPos).Yto0().sqrMagnitude <= attackRange * attackRange;
+        }
+
         private bool TryDeploySlot(SD_DroneSlot slot)
         {
             var wearer = Wearer;
@@ -415,4 +642,3 @@ namespace StellarisDaughter
         }
     }
 }
-

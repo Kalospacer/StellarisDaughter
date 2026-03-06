@@ -170,6 +170,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
+    <tickerType>Normal</tickerType>
     <generateCommonality>0.0001</generateCommonality>
     <costStuffCount>0</costStuffCount>
     <smeltable>false</smeltable>
