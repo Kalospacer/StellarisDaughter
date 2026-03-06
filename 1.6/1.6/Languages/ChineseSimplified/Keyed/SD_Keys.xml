@@ -59,7 +59,7 @@
   <SD_Drone_NoChargedSlot>没有可用的已充能无人机槽位。</SD_Drone_NoChargedSlot>
   <SD_Drone_AutoDeployToggleLabel>自动起飞</SD_Drone_AutoDeployToggleLabel>
   <SD_Drone_AutoDeployToggleDesc>宿主进入战斗时，自动放飞已充能的无人机。</SD_Drone_AutoDeployToggleDesc>
-  <SD_Drone_GizmoTitle>无人机</SD_Drone_GizmoTitle>
+  <SD_Drone_GizmoTitle>星规-恢弘军备</SD_Drone_GizmoTitle>
   <SD_Drone_GizmoSummary>就绪 {0}  活动 {1}  充能 {2}</SD_Drone_GizmoSummary>
   <SD_Drone_GizmoAutoOn>自动：开</SD_Drone_GizmoAutoOn>
   <SD_Drone_GizmoAutoOff>自动：关</SD_Drone_GizmoAutoOff>

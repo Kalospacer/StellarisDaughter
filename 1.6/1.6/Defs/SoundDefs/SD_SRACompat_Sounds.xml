@@ -8,7 +8,7 @@
       <li>
         <grains>
           <li Class="AudioGrain_Clip">
-            <clipPath>StellarisDaughter/SRACompat/Minipulser</clipPath>
+            <clipPath>StellarisDaughter/Minipulser</clipPath>
           </li>
         </grains>
         <volumeRange>
@@ -24,14 +24,14 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>SD_SRABulle_Railgun_Explosion</defName>
+    <defName>SD_Railgun_Explosion</defName>
     <context>MapOnly</context>
     <eventNames />
     <subSounds>
       <li>
         <grains>
           <li Class="AudioGrain_Clip">
-            <clipPath>StellarisDaughter/SRACompat/SRABulle_Railgun_Explosion</clipPath>
+            <clipPath>StellarisDaughter/SD_Railgun_Explosion</clipPath>
           </li>
         </grains>
         <volumeRange>

@@ -16,8 +16,8 @@
       <armorPenetrationBase>1.0</armorPenetrationBase>
       <stoppingPower>5</stoppingPower>
       <speed>80</speed>
-      <soundExplode>SD_SRABulle_Railgun_Explosion</soundExplode>
-      <explosionEffect>SD_Railgun_Hit</explosionEffect>
+      <soundExplode>SD_Railgun_Explosion</soundExplode>
+      <explosionEffect>SD_SRABulle_Railgun_Hit</explosionEffect>
       <explosionEffectLifetimeTicks>360</explosionEffectLifetimeTicks>
       
       <extraDamages>
