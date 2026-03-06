@@ -11,6 +11,10 @@ namespace StellarisDaughter
         public float orbitRadius = 1.8f;
         public float moveSpeed = 0.18f;
         public int deployTicks = 24;
+        public float minOwnerDistance = -1f;
+        public float maxOwnerDistance = -1f;
+        public float minTargetDistance = -1f;
+        public float maxTargetDistance = -1f;
         public float preferredTargetDistance = 4f;
         public float targetDistanceJitter = 0.6f;
         public int preAttackAimTicks = 0;

@@ -19,6 +19,10 @@
     </verbs>
     <rechargeTicks>0</rechargeTicks>
     <orbitRadius>2.4</orbitRadius>
+    <minOwnerDistance>1.6</minOwnerDistance>
+    <maxOwnerDistance>3.4</maxOwnerDistance>
+    <minTargetDistance>3.8</minTargetDistance>
+    <maxTargetDistance>6.2</maxTargetDistance>
     <moveSpeed>0.17</moveSpeed>
     <deployTicks>28</deployTicks>
     <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
@@ -27,44 +31,35 @@
   </StellarisDaughter.SD_DroneTypeDef>
 
   <StellarisDaughter.SD_DroneTypeDef>
-    <defName>SD_DroneType_Assault</defName>
+    <defName>SD_DroneType_ScytheB</defName>
     <droneDef>SD_Demo_DroneEntity</droneDef>
     <verbs>
       <li>
-        <verbClass>Verb_Shoot</verbClass>
-        <defaultProjectile>Bullet_ChargeBlasterHeavy</defaultProjectile>
-        <range>24.9</range>
-        <warmupTime>0</warmupTime>
-        <defaultCooldownTime>0.75</defaultCooldownTime>
-        <soundCast>Shot_ChargeBlaster</soundCast>
+        <verbClass>StellarisDaughter.Verb_SD_ShootSustained</verbClass>
+        <defaultProjectile>SD_Bullet_ScytheB</defaultProjectile>
+        <hasStandardCommand>true</hasStandardCommand>
+        <warmupTime>1</warmupTime>
+        <range>48</range>
+        <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+        <burstShotCount>4</burstShotCount>
+        <soundCast>Shot_BeamRepeater</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>5</muzzleFlashScale>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
       </li>
     </verbs>
     <rechargeTicks>0</rechargeTicks>
-    <orbitRadius>5.8</orbitRadius>
+    <orbitRadius>16.2</orbitRadius>
+    <minOwnerDistance>3.2</minOwnerDistance>
+    <maxOwnerDistance>6.8</maxOwnerDistance>
+    <minTargetDistance>4.2</minTargetDistance>
+    <maxTargetDistance>6.4</maxTargetDistance>
     <moveSpeed>0.5</moveSpeed>
-    <deployTicks>24</deployTicks>
+    <deployTicks>30</deployTicks>
     <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
-  </StellarisDaughter.SD_DroneTypeDef>
-
-  <StellarisDaughter.SD_DroneTypeDef>
-    <defName>SD_DroneType_Heavy</defName>
-    <droneDef>SD_Demo_DroneEntity</droneDef>
-    <verbs>
-      <li>
-        <verbClass>Verb_Shoot</verbClass>
-        <defaultProjectile>Bullet_ChargeBlasterHeavy</defaultProjectile>
-        <range>20.9</range>
-        <warmupTime>0</warmupTime>
-        <burstShotCount>3</burstShotCount>
-        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-        <defaultCooldownTime>1.15</defaultCooldownTime>
-        <soundCast>Shot_ChargeBlaster</soundCast>
-      </li>
-    </verbs>
-    <rechargeTicks>0</rechargeTicks>
-    <orbitRadius>6.2</orbitRadius>
-    <moveSpeed>0.5</moveSpeed>
-    <deployTicks>32</deployTicks>
-    <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
+    <preferredTargetDistance>6</preferredTargetDistance>
+    <targetDistanceJitter>1</targetDistanceJitter>
   </StellarisDaughter.SD_DroneTypeDef>
 </Defs>

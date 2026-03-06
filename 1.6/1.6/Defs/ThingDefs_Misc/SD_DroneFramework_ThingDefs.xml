@@ -12,6 +12,16 @@
       <drawSize>0.9</drawSize>
     </graphicData>
     <thingClass>StellarisDaughter.SD_DroneEntity</thingClass>
+    <modExtensions>
+      <li Class="StellarisDaughter.ModExtension_SD_ShootWithOffset">
+        <offsets>
+          <li>(-0.18,0.14)</li>
+          <li>(0.18,0.14)</li>
+          <li>(-0.18,-0.02)</li>
+          <li>(0.18,-0.02)</li>
+        </offsets>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False" />
     <tradeability>None</tradeability>
     <selectable>false</selectable>
