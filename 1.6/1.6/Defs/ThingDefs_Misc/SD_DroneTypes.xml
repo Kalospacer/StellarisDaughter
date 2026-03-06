@@ -18,11 +18,8 @@
       </li>
     </verbs>
     <rechargeTicks>0</rechargeTicks>
+    <alertRange>48</alertRange>
     <orbitRadius>3.2</orbitRadius>
-    <minOwnerDistance>2.4</minOwnerDistance>
-    <maxOwnerDistance>4.2</maxOwnerDistance>
-    <minTargetDistance>3.8</minTargetDistance>
-    <maxTargetDistance>6.2</maxTargetDistance>
     <squadronSpreadRadius>0.55</squadronSpreadRadius>
     <moveSpeed>4</moveSpeed>
     <trails>
@@ -53,8 +50,6 @@
     </trails>
     <deployTicks>28</deployTicks>
     <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
-    <preferredTargetDistance>5</preferredTargetDistance>
-    <targetDistanceJitter>0.8</targetDistanceJitter>
   </StellarisDaughter.SD_DroneTypeDef>
 
   <StellarisDaughter.SD_DroneTypeDef>
@@ -78,11 +73,8 @@
       </li>
     </verbs>
     <rechargeTicks>0</rechargeTicks>
+    <alertRange>48</alertRange>
     <orbitRadius>6.4</orbitRadius>
-    <minOwnerDistance>5.2</minOwnerDistance>
-    <maxOwnerDistance>7.8</maxOwnerDistance>
-    <minTargetDistance>4.2</minTargetDistance>
-    <maxTargetDistance>6.4</maxTargetDistance>
     <squadronSpreadRadius>0.9</squadronSpreadRadius>
     <moveSpeed>4</moveSpeed>
     <trails>
@@ -113,7 +105,5 @@
     </trails>
     <deployTicks>30</deployTicks>
     <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
-    <preferredTargetDistance>6</preferredTargetDistance>
-    <targetDistanceJitter>1</targetDistanceJitter>
   </StellarisDaughter.SD_DroneTypeDef>
 </Defs>

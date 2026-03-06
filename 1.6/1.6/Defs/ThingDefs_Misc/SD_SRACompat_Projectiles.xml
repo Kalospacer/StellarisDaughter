@@ -12,10 +12,13 @@
     <thingClass>StellarisDaughter.Projectile_ExplosiveTrackingBullet</thingClass>
     <projectile>
       <damageDef>Bullet</damageDef>
-      <damageAmountBase>12</damageAmountBase>
-      <armorPenetrationBase>0.7</armorPenetrationBase>
+      <damageAmountBase>32</damageAmountBase>
+      <armorPenetrationBase>1.0</armorPenetrationBase>
       <stoppingPower>5</stoppingPower>
       <speed>80</speed>
+      <soundExplode>SD_SRABulle_Railgun_Explosion</soundExplode>
+      <explosionEffect>SD_Railgun_Hit</explosionEffect>
+      <explosionEffectLifetimeTicks>360</explosionEffectLifetimeTicks>
       
       <extraDamages>
         <li>
@@ -67,7 +70,7 @@
       <damageAmountBase>16</damageAmountBase>
       <beamMoteDef>SD_Mote_Pulse_Beam_Weapon</beamMoteDef>
       <beamStartOffset>0</beamStartOffset>
-      <armorPenetrationBase>8</armorPenetrationBase>
+      <armorPenetrationBase>1</armorPenetrationBase>
     </projectile>
     <modExtensions>
       <li Class="StellarisDaughter.SD_MultiExplosiveBeamExtension">
@@ -76,7 +79,7 @@
             <radius>1</radius>
             <damageDef>SD_SpearOfSRA_Burn</damageDef>
             <damageAmount>32</damageAmount>
-            <armorPenetration>8</armorPenetration>
+            <armorPenetration>1</armorPenetration>
             <explosionSound>Explosion_EMP</explosionSound>
             <explosionDamageFalloff>true</explosionDamageFalloff>
             <onlyAntiHostile>true</onlyAntiHostile>
@@ -85,7 +88,7 @@
             <radius>2</radius>
             <damageDef>EMP</damageDef>
             <damageAmount>32</damageAmount>
-            <armorPenetration>8</armorPenetration>
+            <armorPenetration>1</armorPenetration>
             <explosionSound>Explosion_EMP</explosionSound>
             <explosionDamageFalloff>true</explosionDamageFalloff>
             <onlyAntiHostile>true</onlyAntiHostile>
@@ -94,7 +97,7 @@
             <radius>2</radius>
             <damageDef>Bomb</damageDef>
             <damageAmount>16</damageAmount>
-            <armorPenetration>4</armorPenetration>
+            <armorPenetration>1</armorPenetration>
             <explosionSound>Explosion_Bomb</explosionSound>
             <explosionEffect>SD_Railgun_Hit</explosionEffect>
             <explosionEffectLifetimeTicks>360</explosionEffectLifetimeTicks>

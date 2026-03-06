@@ -228,14 +228,14 @@ namespace StellarisDaughter
                 return null;
             }
 
-            var attackRange = ResolveAttackRange(drone.DroneType);
-            if (attackRange <= 0f)
+            var alertRange = ResolveAlertRange(drone.DroneType);
+            if (alertRange <= 0f)
             {
                 return null;
             }
 
             var primaryTarget = GetPrimaryThreatTarget();
-            if (IsValidAttackTarget(drone, wearer, primaryTarget, attackRange))
+            if (IsValidAttackTarget(drone, wearer, primaryTarget, alertRange))
             {
                 return primaryTarget;
             }
@@ -243,8 +243,8 @@ namespace StellarisDaughter
             return GenClosest.ClosestThing_Global(
                 wearer.Position,
                 wearer.Map.attackTargetsCache.GetPotentialTargetsFor(wearer),
-                attackRange,
-                target => IsValidAttackTarget(drone, wearer, target, attackRange));
+                alertRange,
+                target => IsValidAttackTarget(drone, wearer, target, alertRange));
         }
 
         public bool TryFindAttackDestination(SD_DroneEntity drone, Thing target, out Vector3 result)
@@ -258,14 +258,18 @@ namespace StellarisDaughter
 
             var droneType = drone.DroneType;
             var ownerCenter = wearer.DrawPos;
-            var fallbackOrbitRadius = ResolveLayerRadius(drone.OrbitLayer, droneType);
-            var preferredDistance = Mathf.Max(1.5f, droneType?.preferredTargetDistance ?? fallbackOrbitRadius);
-            var jitter = Mathf.Max(0f, droneType?.targetDistanceJitter ?? 0.6f);
+            var weaponRange = ResolveAttackRange(droneType);
+            var alertRange = ResolveAlertRange(droneType);
+            if (weaponRange <= 0f || alertRange <= 0f)
+            {
+                return false;
+            }
+
             var targetCenter = target.DrawPos;
-            var ownerMinDistance = ResolveMinOwnerDistance(droneType, fallbackOrbitRadius);
-            var ownerMaxDistance = ResolveMaxOwnerDistance(droneType, ownerMinDistance, fallbackOrbitRadius);
-            var targetMinDistance = ResolveMinTargetDistance(droneType, preferredDistance, jitter, fallbackOrbitRadius);
-            var targetMaxDistance = ResolveMaxTargetDistance(droneType, targetMinDistance, preferredDistance, jitter, fallbackOrbitRadius);
+            var ownerMaxDistance = alertRange;
+            var preferredDistance = Mathf.Max(1.5f, Mathf.Min(weaponRange * 0.7f, alertRange * 0.9f));
+            var targetMinDistance = Mathf.Max(1.25f, Mathf.Min(weaponRange * 0.55f, alertRange * 0.7f));
+            var targetMaxDistance = Mathf.Max(targetMinDistance, Mathf.Min(weaponRange * 0.85f, alertRange));
             var layerDroneCount = Mathf.Max(GetLayerDroneCount(drone.OrbitLayer), 1);
             var layerDroneOrder = GetLayerDroneOrder(drone.SlotIndex, drone.SquadronMemberIndex, drone.OrbitLayer);
             var startAngle = (360f / layerDroneCount) * layerDroneOrder
@@ -279,7 +283,7 @@ namespace StellarisDaughter
             for (var i = 0; i < 24; i++)
             {
                 var angle = startAngle + i * 15f;
-                var radius = ResolveCandidateTargetRadius(targetMinDistance, targetMaxDistance, preferredDistance, jitter);
+                var radius = ResolveCandidateTargetRadius(targetMinDistance, targetMaxDistance, preferredDistance);
                 var candidate = targetCenter + new Vector3(0f, 0f, radius).RotatedBy(angle);
                 candidate += GetAttackSpreadOffset(droneType, drone.SquadronMemberIndex, drone.SlotIndex, drone.OrbitLayer);
                 var cell = candidate.ToIntVec3();
@@ -289,7 +293,7 @@ namespace StellarisDaughter
                 }
 
                 var ownerDistance = (candidate - ownerCenter).Yto0().magnitude;
-                if (ownerDistance < ownerMinDistance || ownerDistance > ownerMaxDistance)
+                if (ownerDistance > ownerMaxDistance)
                 {
                     continue;
                 }
@@ -308,9 +312,8 @@ namespace StellarisDaughter
 
                 var moveCost = (drone.DrawPos - candidate).Yto0().sqrMagnitude;
                 var preferredTargetError = Mathf.Abs(targetDistance - preferredDistance);
-                var ownerBandCenter = (ownerMinDistance + ownerMaxDistance) * 0.5f;
-                var ownerDistanceError = Mathf.Abs(ownerDistance - ownerBandCenter);
-                var combinedScore = moveCost + preferredTargetError * 4f + ownerDistanceError * 2f;
+                var ownerDistanceError = Mathf.Abs(ownerDistance - ownerMaxDistance * 0.65f);
+                var combinedScore = moveCost + preferredTargetError * 4f + ownerDistanceError;
                 if (preferredTargetError <= 1.25f && combinedScore < bestPreferredScore)
                 {
                     bestPreferred = candidate;
@@ -522,8 +525,8 @@ namespace StellarisDaughter
                 return wearerTarget;
             }
 
-            var maxRange = ResolveMaxRange();
-            if (maxRange <= 0f)
+            var alertRange = ResolveMaxAlertRange();
+            if (alertRange <= 0f)
             {
                 return null;
             }
@@ -531,7 +534,7 @@ namespace StellarisDaughter
             return GenClosest.ClosestThing_Global(
                 wearer.Position,
                 wearer.Map.attackTargetsCache.GetPotentialTargetsFor(wearer),
-                maxRange,
+                alertRange,
                 target => IsPotentialThreatTarget(wearer, target));
         }
 
@@ -560,13 +563,13 @@ namespace StellarisDaughter
             return droneType.verbs.Max(v => v.range);
         }
 
-        private float ResolveMaxRange()
+        private float ResolveMaxAlertRange()
         {
             var maxRange = 0f;
             for (var i = 0; i < slots.Count; i++)
             {
                 var droneType = slots[i].DroneType ?? ResolveDroneTypeForIndex(i);
-                maxRange = Mathf.Max(maxRange, ResolveAttackRange(droneType));
+                maxRange = Mathf.Max(maxRange, ResolveAlertRange(droneType));
             }
 
             return maxRange;
@@ -590,6 +593,22 @@ namespace StellarisDaughter
             }
 
             return (drone.DrawPos - target.DrawPos).Yto0().sqrMagnitude <= attackRange * attackRange;
+        }
+
+        private float ResolveAlertRange(SD_DroneTypeDef droneType)
+        {
+            if (droneType == null)
+            {
+                return 0f;
+            }
+
+            if (droneType.alertRange > 0f)
+            {
+                return droneType.alertRange;
+            }
+
+            var attackRange = ResolveAttackRange(droneType);
+            return attackRange > 0f ? attackRange : 0f;
         }
 
         private void DeployChargedDrones(bool showMessage)
@@ -1003,51 +1022,7 @@ namespace StellarisDaughter
             return new Vector3(0f, 0f, spread).RotatedBy(angle);
         }
 
-        private float ResolveMinOwnerDistance(SD_DroneTypeDef droneType, float fallbackOrbitRadius)
-        {
-            var configured = droneType?.minOwnerDistance ?? -1f;
-            if (configured >= 0f)
-            {
-                return configured;
-            }
-
-            return Mathf.Max(0.75f, fallbackOrbitRadius * 0.7f);
-        }
-
-        private float ResolveMaxOwnerDistance(SD_DroneTypeDef droneType, float resolvedMinOwnerDistance, float fallbackOrbitRadius)
-        {
-            var configured = droneType?.maxOwnerDistance ?? -1f;
-            if (configured >= 0f)
-            {
-                return Mathf.Max(configured, resolvedMinOwnerDistance);
-            }
-
-            return Mathf.Max(resolvedMinOwnerDistance, fallbackOrbitRadius * 1.35f);
-        }
-
-        private float ResolveMinTargetDistance(SD_DroneTypeDef droneType, float preferredDistance, float jitter, float fallbackOrbitRadius)
-        {
-            var configured = droneType?.minTargetDistance ?? -1f;
-            if (configured >= 0f)
-            {
-                return configured;
-            }
-
-            return Mathf.Max(1.5f, preferredDistance - Mathf.Max(jitter, fallbackOrbitRadius * 0.2f));
-        }
-
-        private float ResolveMaxTargetDistance(SD_DroneTypeDef droneType, float resolvedMinTargetDistance, float preferredDistance, float jitter, float fallbackOrbitRadius)
-        {
-            var configured = droneType?.maxTargetDistance ?? -1f;
-            if (configured >= 0f)
-            {
-                return Mathf.Max(configured, resolvedMinTargetDistance);
-            }
-
-            return Mathf.Max(resolvedMinTargetDistance, preferredDistance + Mathf.Max(jitter, fallbackOrbitRadius * 0.2f));
-        }
-
-        private float ResolveCandidateTargetRadius(float minTargetDistance, float maxTargetDistance, float preferredDistance, float jitter)
+        private float ResolveCandidateTargetRadius(float minTargetDistance, float maxTargetDistance, float preferredDistance)
         {
             var min = Mathf.Min(minTargetDistance, maxTargetDistance);
             var max = Mathf.Max(minTargetDistance, maxTargetDistance);
@@ -1056,8 +1031,9 @@ namespace StellarisDaughter
                 return min;
             }
 
-            var preferredMin = Mathf.Clamp(preferredDistance - jitter, min, max);
-            var preferredMax = Mathf.Clamp(preferredDistance + jitter, min, max);
+            var spread = Mathf.Max((max - min) * 0.25f, 0.35f);
+            var preferredMin = Mathf.Clamp(preferredDistance - spread, min, max);
+            var preferredMax = Mathf.Clamp(preferredDistance + spread, min, max);
             if (preferredMin <= preferredMax && Rand.Chance(0.7f))
             {
                 return Rand.Range(preferredMin, preferredMax);
