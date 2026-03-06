@@ -9,7 +9,7 @@
       <shaderType>TransparentPostLight</shaderType>
       <drawSize>1.2</drawSize>
     </graphicData>
-    <thingClass>ArachnaeSwarm.Projectile_TrackingBullet</thingClass>
+    <thingClass>StellarisDaughter.Projectile_TrackingBullet</thingClass>
     <projectile>
       <damageDef>Bullet</damageDef>
       <damageAmountBase>12</damageAmountBase>
@@ -45,6 +45,58 @@
 
         <!-- 子弹离目标多近时就直接判定为命中 -->
         <impactThreshold>2.1</impactThreshold>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>SD_Bullet_ScytheB</defName>
+    <label>scythe beam burst</label>
+    <thingClass>StellarisDaughter.Projectile_SD_MultiExplosiveBeam</thingClass>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>SD_SpearOfSRA_Burn</damageDef>
+      <damageAmountBase>16</damageAmountBase>
+      <beamMoteDef>SD_Mote_Pulse_Beam_Weapon</beamMoteDef>
+      <beamStartOffset>0</beamStartOffset>
+      <armorPenetrationBase>8</armorPenetrationBase>
+    </projectile>
+    <modExtensions>
+      <li Class="StellarisDaughter.SD_MultiExplosiveBeamExtension">
+        <multiExplosiveBeams>
+          <li>
+            <radius>1</radius>
+            <damageDef>SD_SpearOfSRA_Burn</damageDef>
+            <damageAmount>32</damageAmount>
+            <armorPenetration>8</armorPenetration>
+            <explosionSound>Explosion_EMP</explosionSound>
+            <explosionDamageFalloff>true</explosionDamageFalloff>
+            <onlyAntiHostile>true</onlyAntiHostile>
+          </li>
+          <li>
+            <radius>2</radius>
+            <damageDef>EMP</damageDef>
+            <damageAmount>32</damageAmount>
+            <armorPenetration>8</armorPenetration>
+            <explosionSound>Explosion_EMP</explosionSound>
+            <explosionDamageFalloff>true</explosionDamageFalloff>
+            <onlyAntiHostile>true</onlyAntiHostile>
+          </li>
+          <li>
+            <radius>2</radius>
+            <damageDef>Bomb</damageDef>
+            <damageAmount>16</damageAmount>
+            <armorPenetration>4</armorPenetration>
+            <explosionSound>Explosion_Bomb</explosionSound>
+            <explosionEffect>SD_Railgun_Hit</explosionEffect>
+            <explosionEffectLifetimeTicks>360</explosionEffectLifetimeTicks>
+            <explosionDamageFalloff>true</explosionDamageFalloff>
+            <onlyAntiHostile>true</onlyAntiHostile>
+          </li>
+        </multiExplosiveBeams>
       </li>
     </modExtensions>
   </ThingDef>
