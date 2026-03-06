@@ -2,6 +2,8 @@
 <Defs>
   <StellarisDaughter.SD_DroneTypeDef>
     <defName>SD_DroneType_Minipulser</defName>
+    <label>浮翼-艾琳伊丝</label>
+    <description>以高速脉冲弹幕进行持续压制的无人机型号，适合处理中近距离目标。</description>
     <droneDef>SD_Demo_DroneEntity</droneDef>
     <verbs>
       <li>
@@ -54,6 +56,8 @@
 
   <StellarisDaughter.SD_DroneTypeDef>
     <defName>SD_DroneType_Laser</defName>
+    <label>浮翼-萨诺里安</label>
+    <description>搭载持续激光武装的无人机型号，倾向于在较远距离进行精确打击。</description>
     <droneDef>SD_Demo_DroneEntity</droneDef>
     <verbs>
       <li>

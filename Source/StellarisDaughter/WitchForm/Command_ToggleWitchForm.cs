@@ -35,7 +35,7 @@ namespace StellarisDaughter
             {
                 defaultLabel = "SD_Witch_Transform".Translate();
                 defaultDesc = "SD_Witch_Transform_Desc".Translate();
-                icon = ContentFinder<Texture2D>.Get("UI/Commands/Attack", true);
+                icon = ContentFinder<Texture2D>.Get("StellarisDaughter/UI/Commands/WitchTransform", true);
                 action = () => comp.ToggleWitchForm();
             }
 

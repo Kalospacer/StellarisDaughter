@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <SD_DroneType_Minipulser.label>脉冲压制无人机</SD_DroneType_Minipulser.label>
+  <SD_DroneType_Minipulser.label>浮翼-艾琳伊丝</SD_DroneType_Minipulser.label>
   <SD_DroneType_Minipulser.description>以高速脉冲弹幕进行持续压制的无人机型号，适合处理中近距离目标。</SD_DroneType_Minipulser.description>
-  <SD_DroneType_Laser.label>激光狙击无人机</SD_DroneType_Laser.label>
+  <SD_DroneType_Laser.label>浮翼-萨诺里安</SD_DroneType_Laser.label>
   <SD_DroneType_Laser.description>搭载持续激光武装的无人机型号，倾向于在较远距离进行精确打击。</SD_DroneType_Laser.description>
+  <SD_DroneType_Laser1.label>浮翼-库图卡诺斯</SD_DroneType_Laser1.label>
+  <SD_DroneType_Laser1.description>搭载持续激光武装的无人机型号，倾向于在较远距离进行精确打击。</SD_DroneType_Laser1.description>
+  <SD_DroneType_Laser2.label>浮翼-埃泽纳尔</SD_DroneType_Laser2.label>
+  <SD_DroneType_Laser2.description>搭载持续激光武装的无人机型号，倾向于在较远距离进行精确打击。</SD_DroneType_Laser2.description>
 </LanguageData>

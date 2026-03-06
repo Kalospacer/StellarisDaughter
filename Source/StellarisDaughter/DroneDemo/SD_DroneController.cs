@@ -478,7 +478,7 @@ namespace StellarisDaughter
         public string BuildSlotDescription(SD_DroneSlot slot)
         {
             var droneType = slot.DroneType ?? ResolveDroneTypeForIndex(slot.Index);
-            var droneTypeLabel = droneType?.label ?? droneType?.defName ?? "None";
+            var droneTypeLabel = string.IsNullOrWhiteSpace(droneType?.label) ? "未命名无人机" : droneType.label;
             var chargeText = slot.State == SD_DroneSlotState.Charging
                 ? slot.ChargeTicksRemaining.ToStringTicksToPeriod()
                 : "SD_Drone_SlotChargeReady".Translate().ToString();
