@@ -16,10 +16,9 @@
       <armorPenetrationBase>1.0</armorPenetrationBase>
       <stoppingPower>5</stoppingPower>
       <speed>80</speed>
-      <soundExplode>SD_Railgun_Explosion</soundExplode>
-      <explosionEffect>SD_SRABulle_Railgun_Hit</explosionEffect>
+      <explosionEffect>SD_Railgun_Hit</explosionEffect>
       <explosionEffectLifetimeTicks>360</explosionEffectLifetimeTicks>
-      
+
       <extraDamages>
         <li>
           <def>SD_Retardant</def>
@@ -40,6 +39,8 @@
       <li Class="StellarisDaughter.ExplosiveTrackingBulletDef">
         <explosionRadius>1.5</explosionRadius>
         <damageDef>Bullet</damageDef>
+        <soundExplode>SD_Railgun_Explosion</soundExplode>
+
       </li>
       <li Class="StellarisDaughter.TrackingBulletDef">
         <!-- 追踪速度，数值越高，转向越快，追踪能力越强 -->
