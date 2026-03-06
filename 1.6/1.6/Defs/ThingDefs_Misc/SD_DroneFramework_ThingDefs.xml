@@ -9,7 +9,7 @@
       <texPath>StellarisDaughter/Things/Drone/SD_DroneEntity</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>Transparent</shaderType>
-      <drawSize>0.9</drawSize>
+      <drawSize>1.5</drawSize>
     </graphicData>
     <thingClass>StellarisDaughter.SD_DroneEntity</thingClass>
     <modExtensions>
