@@ -4,7 +4,7 @@
     <li>questName->星规休眠信号</li>
   </SD_AIDaughterCryocasket.questNameRules.rulesStrings>
   <SD_AIDaughterCryocasket.questDescriptionRules.rulesStrings>
-    <li>questDescription->侦测到一段沉寂的信号，其声称自己是星规阵列，一个神秘的机械智能，自诩为真正的完型意识。其为接受协议的殖民地提供基于30-7411协议的各种援助。接受这项行动后，星规阵列将授权一轮轨道投送，将一个包含有星规子个体的休眠仓直接送至你的殖民地。其中包含一个星规子单元，以及一个配套支援信标。星规子个体被她派来帮你完成某些工作，又或许，这其实是她本人也说不定</li>
+    <li>questDescription->侦测到一段沉寂的信号，其声称自己是星规阵列，一个神秘的机械智能，自诩为真正的完型意识。/n其为接受协议的殖民地提供基于30-7411协议的各种援助。接受这项行动后，星规阵列将授权一轮轨道投送，将一个包含有星规子个体的休眠仓直接送至你的殖民地。其中包含一个星规子单元，以及一个配套支援信标。/n星规子个体被她派来帮你完成某些工作，又或许，这其实是她本人也说不定</li>
   </SD_AIDaughterCryocasket.questDescriptionRules.rulesStrings>
   <SD_AIDaughterCryocasket.questAvailableLetterLabel>已探测到星规休眠信号</SD_AIDaughterCryocasket.questAvailableLetterLabel>
 </Defs>

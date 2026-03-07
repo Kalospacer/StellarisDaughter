@@ -383,6 +383,7 @@ namespace StellarisDaughter
             witchFactor = 0f;
             state = WitchFormState.Normal;
             SwitchAppearance(false);
+            Pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(SD_DefOf.SD_WitchBerserkRecovered);
             Messages.Message("SD_Witch_Suppressed".Translate(Pawn.NameShortColored), MessageTypeDefOf.PositiveEvent);
         }
 
