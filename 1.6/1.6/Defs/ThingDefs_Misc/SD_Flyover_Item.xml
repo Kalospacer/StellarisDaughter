@@ -531,7 +531,6 @@
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>MoteGlow</shaderType>
       <drawSize>8</drawSize>
-      <color>(86,66,157,255)</color>
     </graphicData>
     <skyfaller>
       <movementType>Accelerate</movementType>

@@ -29,6 +29,7 @@
     <hediff>Burn</hediff>
     <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
     <impactSoundType>Bullet</impactSoundType>
+    <soundExplosion>SD_Railgun_Explosion</soundExplosion>
     <armorCategory>Heat</armorCategory>
     <overkillPctToDestroyPart>0.9~1</overkillPctToDestroyPart>
     <isRanged>true</isRanged>
