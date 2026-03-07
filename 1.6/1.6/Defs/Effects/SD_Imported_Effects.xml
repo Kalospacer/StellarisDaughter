@@ -12,7 +12,7 @@
       <graphicClass>Graphic_FleckPulse</graphicClass>
       <texPath>Things/Mote/Black</texPath>
       <shaderType>MoteLargeDistortionWave</shaderType>
-      <color>(218,255,200,255)</color>
+      <color>(100, 150, 255, 255)</color>
       <shaderParameters>
         <_DistortionTex>/Things/Mote/PsychicDistortionCurrents</_DistortionTex>
         <_NoiseTex>/Things/Mote/PsycastNoise</_NoiseTex>
@@ -34,7 +34,7 @@
       <graphicClass>Graphic_FleckPulse</graphicClass>
       <texPath>Things/Mote/PowerBeam</texPath>
       <shaderType>MoteGlow</shaderType>
-      <color>(147, 116, 201, 255)</color>
+      <color>(80, 130, 255, 255)</color>
       <shaderParameters>
         <_NoiseTex>/Things/Mote/PsycastNoise</_NoiseTex>
         <_NoiseIntensity>100</_NoiseIntensity>

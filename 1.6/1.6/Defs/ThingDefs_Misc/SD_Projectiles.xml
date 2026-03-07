@@ -21,10 +21,6 @@
 
       <extraDamages>
         <li>
-          <def>SD_Retardant</def>
-          <amount>24</amount>
-        </li>
-        <li>
           <def>EMP</def>
           <amount>8</amount>
         </li>
@@ -76,10 +72,6 @@
       <speed>80</speed>
 
       <extraDamages>
-        <li>
-          <def>SD_Retardant</def>
-          <amount>24</amount>
-        </li>
         <li>
           <def>EMP</def>
           <amount>8</amount>
