@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <!-- 好奇特性 -->
-  <TraitDef>
-    <defName>SD_Curious</defName>
-    <commonality>0</commonality>
-    <degreeDatas>
-      <li>
-        <label>好奇</label>
-        <description>{PAWN_nameDef}对这个世界充满了好奇心，学习速度更快。</description>
-        <degree>0</degree>
-        <statOffsets>
-          <GlobalLearningFactor>0.5</GlobalLearningFactor>
-          <ResearchSpeed>0.2</ResearchSpeed>
-        </statOffsets>
-      </li>
-    </degreeDatas>
-  </TraitDef>
 
   <!-- 独立版“记忆核心”（不依赖 Anomaly），实际效果由 Harmony 补丁实现 -->
   <TraitDef>

@@ -30,4 +30,15 @@ namespace StellarisDaughter
 
         static SD_DefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(SD_DefOf));
     }
+
+    [DefOf]
+    public static class SD_DamageDefOf
+    {
+        public static DamageDef SD_DarkMatterFlame;
+
+        static SD_DamageDefOf()
+        {
+            DefOfHelper.EnsureInitializedInCtor(typeof(SD_DamageDefOf));
+        }
+    }
 }
