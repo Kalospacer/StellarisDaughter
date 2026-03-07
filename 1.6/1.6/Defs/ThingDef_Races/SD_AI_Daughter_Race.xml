@@ -173,7 +173,7 @@
           </points>
         </growthFactorByAge>
         <!-- 额外特质 -->
-        <additionalTraits>1</additionalTraits>
+        <additionalTraits>0</additionalTraits>
       </generalSettings>
 
       <!-- 图形 -->

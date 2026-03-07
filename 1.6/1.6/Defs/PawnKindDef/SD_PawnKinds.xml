@@ -27,6 +27,9 @@
     <nameMaker>SD_Stellar_NameMaker</nameMaker>
     <forcedTraits>
       <SD_MemoryCore>0</SD_MemoryCore>
+      <SD_kind>0</SD_kind>
+      <Bloodlust>0</Bloodlust>
+      <Neurotic>1</Neurotic>
     </forcedTraits>
     <forcedHairColor>(255,255,255,255)</forcedHairColor>
     <xenotypeSet>
