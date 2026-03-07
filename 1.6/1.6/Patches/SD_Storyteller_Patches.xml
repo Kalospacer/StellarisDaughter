@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/StorytellerDef[@Name='BaseStoryteller']/comps</xpath>
+    <value>
+      <li Class="StorytellerCompProperties_ImportantQuest">
+        <fireAfterDaysPassed>0</fireAfterDaysPassed>
+        <questIncident>SD_GiveQuest_AIDaughterCryocasket</questIncident>
+        <questDef>SD_AIDaughterCryocasket</questDef>
+        <allowedTargetTags>
+          <li>Map_PlayerHome</li>
+        </allowedTargetTags>
+      </li>
+    </value>
+  </Operation>
+</Patch>

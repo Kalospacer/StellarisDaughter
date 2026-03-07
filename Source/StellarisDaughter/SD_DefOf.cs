@@ -7,6 +7,10 @@ namespace StellarisDaughter
     [DefOf]
     public static class SD_DefOf
     {
+        public static PawnKindDef SD_AI_Daughter;
+        public static ThingDef SD_Fake_Spear_Of_Galaxy_Zenith_Beacon_Building;
+        public static ThingDef SD_Quest_AIDaughterCryptosleepCasket;
+
         // 生命阶段
         public static LifeStageDef SD_AI_Childhood;
         public static LifeStageDef SD_AI_Youth;

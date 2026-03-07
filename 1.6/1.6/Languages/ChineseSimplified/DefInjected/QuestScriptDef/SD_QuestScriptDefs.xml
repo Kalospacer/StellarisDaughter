@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <SD_AIDaughterCryocasket.questNameRules.rulesStrings>
+    <li>questName->星规休眠信号</li>
+  </SD_AIDaughterCryocasket.questNameRules.rulesStrings>
+  <SD_AIDaughterCryocasket.questDescriptionRules.rulesStrings>
+    <li>questDescription->侦测到一段沉寂的信号，源头来自一具密封休眠仓。接受这项行动后，将授权一轮轨道投送，把休眠仓直接送至你的殖民地。扫描显示其中包含一个星规子单元，以及一个配套支援信标。</li>
+  </SD_AIDaughterCryocasket.questDescriptionRules.rulesStrings>
+  <SD_AIDaughterCryocasket.questAvailableLetterLabel>已探测到星规休眠信号</SD_AIDaughterCryocasket.questAvailableLetterLabel>
+</Defs>

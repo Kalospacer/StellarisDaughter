@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_Quest_AIDaughterCryocasket_OpenLabel>开启休眠仓</SD_Quest_AIDaughterCryocasket_OpenLabel>
+  <SD_Quest_AIDaughterCryocasket_OpenDesc>开启这个任务休眠仓，释放其中的内容物。</SD_Quest_AIDaughterCryocasket_OpenDesc>
+  <SD_Quest_AIDaughterCryocasket_DropLetterLabel>休眠仓正在坠入</SD_Quest_AIDaughterCryocasket_DropLetterLabel>
+  <SD_Quest_AIDaughterCryocasket_DropLetterText>一具密封休眠仓正朝殖民地坠落而来，其中的内容物已经开始响应。</SD_Quest_AIDaughterCryocasket_DropLetterText>
+</LanguageData>

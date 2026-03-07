@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_Quest_AIDaughterCryocasket_OpenLabel>Open cryptosleep casket</SD_Quest_AIDaughterCryocasket_OpenLabel>
+  <SD_Quest_AIDaughterCryocasket_OpenDesc>Open the quest cryptosleep casket and release its contents.</SD_Quest_AIDaughterCryocasket_OpenDesc>
+  <SD_Quest_AIDaughterCryocasket_DropLetterLabel>Cryptosleep casket incoming</SD_Quest_AIDaughterCryocasket_DropLetterLabel>
+  <SD_Quest_AIDaughterCryocasket_DropLetterText>A sealed cryptosleep casket is descending toward the colony. Its contents are beginning to respond.</SD_Quest_AIDaughterCryocasket_DropLetterText>
+</LanguageData>

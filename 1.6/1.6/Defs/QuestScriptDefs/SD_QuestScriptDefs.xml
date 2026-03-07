@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <QuestScriptDef>
+    <defName>SD_AIDaughterCryocasket</defName>
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->stellar cryptosleep signal</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->A dormant stellar regulator signal has been isolated in a sealed cryptosleep casket. Accepting this operation will authorize an orbital delivery to your colony. The casket appears to contain a stellar unit and an attached support beacon.</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    <questAvailableLetterLabel>Stellar cryptosleep signal detected</questAvailableLetterLabel>
+    <questAvailableLetterTextIsDescription>true</questAvailableLetterTextIsDescription>
+    <root Class="StellarisDaughter.QuestNode_Root_SDAIDaughterCryocasket" />
+  </QuestScriptDef>
+</Defs>
