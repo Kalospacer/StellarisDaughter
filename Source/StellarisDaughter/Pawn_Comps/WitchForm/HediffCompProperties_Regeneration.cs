@@ -61,10 +61,10 @@ namespace StellarisDaughter
             {
                 return cachedState switch
                 {
-                    RegenState.Repairing => "修复中",
-                    RegenState.Cooldown => "冷却",
-                    RegenState.Disabled => "关闭",
-                    _ => "待机"
+                    RegenState.Repairing => "SD_Regeneration_State_Repairing".Translate(),
+                    RegenState.Cooldown => "SD_Regeneration_State_Cooldown".Translate(),
+                    RegenState.Disabled => "SD_Regeneration_State_Disabled".Translate(),
+                    _ => "SD_Regeneration_State_Idle".Translate()
                 };
             }
         }
@@ -75,10 +75,10 @@ namespace StellarisDaughter
             {
                 return cachedState switch
                 {
-                    RegenState.Repairing => "再生状态：修复中",
-                    RegenState.Cooldown => "再生状态：冷却中（剩余 " + TicksToSeconds(cachedCooldownTicks) + " 秒）",
-                    RegenState.Disabled => "再生状态：已关闭",
-                    _ => "再生状态：待机（无可修复损伤）"
+                    RegenState.Repairing => "SD_Regeneration_Tip_Repairing".Translate(),
+                    RegenState.Cooldown => "SD_Regeneration_Tip_Cooldown".Translate(TicksToSeconds(cachedCooldownTicks)),
+                    RegenState.Disabled => "SD_Regeneration_Tip_Disabled".Translate(),
+                    _ => "SD_Regeneration_Tip_Idle".Translate()
                 };
             }
         }

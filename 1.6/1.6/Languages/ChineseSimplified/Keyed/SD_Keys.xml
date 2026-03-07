@@ -73,4 +73,74 @@
   <SD_Drone_SlotStateReturning>返航中</SD_Drone_SlotStateReturning>
   <SD_Drone_SlotStateCharging>充能中</SD_Drone_SlotStateCharging>
   <SD_Drone_SlotChargeReady>就绪</SD_Drone_SlotChargeReady>
+
+  <!-- 魔女因子系统 -->
+  <SD_Witch_Gizmo_Label>魔女因子</SD_Witch_Gizmo_Label>
+  <SD_Witch_TransformCooldownRemaining>开启变身冷却中：剩余 {0}</SD_Witch_TransformCooldownRemaining>
+  <SD_Witch_CancelCooldownRemaining>关闭变身冷却中：剩余 {0}</SD_Witch_CancelCooldownRemaining>
+  <SD_Witch_TransformCooldown>开启变身冷却：{0}</SD_Witch_TransformCooldown>
+  <SD_Witch_CancelCooldown>关闭变身冷却：{0}</SD_Witch_CancelCooldown>
+
+  <SD_Witch_Debug_AddFactor_Label>DEV: +100 因子</SD_Witch_Debug_AddFactor_Label>
+  <SD_Witch_Debug_AddFactor_Desc>增加 100 点魔女因子用于测试。</SD_Witch_Debug_AddFactor_Desc>
+  <SD_Witch_Debug_ResetFactor_Label>DEV: 重置因子</SD_Witch_Debug_ResetFactor_Label>
+  <SD_Witch_Debug_ResetFactor_Desc>将魔女因子重置为 0。</SD_Witch_Debug_ResetFactor_Desc>
+  <SD_Witch_Debug_ForceBerserk_Label>DEV: 强制狂暴</SD_Witch_Debug_ForceBerserk_Label>
+  <SD_Witch_Debug_ForceBerserk_Desc>强制进入狂暴状态。</SD_Witch_Debug_ForceBerserk_Desc>
+  <SD_Witch_Debug_Info>=== 魔女化系统 ===\n因子：{0} / {1}\n状态：{2}\n好感影响：{3}\n信任值：{4}</SD_Witch_Debug_Info>
+
+  <SD_Witch_Tooltip_Header>【魔女因子系统】</SD_Witch_Tooltip_Header>
+  <SD_Witch_Tooltip_CurrentState_Section>【当前状态】</SD_Witch_Tooltip_CurrentState_Section>
+  <SD_Witch_Tooltip_CurrentValue>  数值：{0} / {1} ({2}%)</SD_Witch_Tooltip_CurrentValue>
+  <SD_Witch_Tooltip_CurrentState>  状态：{0}</SD_Witch_Tooltip_CurrentState>
+  <SD_Witch_Tooltip_Growth_Section>【增长率】</SD_Witch_Tooltip_Growth_Section>
+  <SD_Witch_Tooltip_CurrentRate>  当前变化：{0} / TickRare ({1} / 天)</SD_Witch_Tooltip_CurrentRate>
+  <SD_Witch_Tooltip_BaseRate>  基础速度：{0}</SD_Witch_Tooltip_BaseRate>
+  <SD_Witch_Tooltip_TrustRule>  信任规则：{0}</SD_Witch_Tooltip_TrustRule>
+  <SD_Witch_Tooltip_WitchMult>  变身倍率：×{0}</SD_Witch_Tooltip_WitchMult>
+  <SD_Witch_Tooltip_HalfMult>  后半段倍率：×{0}</SD_Witch_Tooltip_HalfMult>
+  <SD_Witch_Tooltip_MaxCalc_Section>【上限计算】</SD_Witch_Tooltip_MaxCalc_Section>
+  <SD_Witch_Tooltip_MaxFormula>  公式：基础上限 + 好感度 × {0}</SD_Witch_Tooltip_MaxFormula>
+  <SD_Witch_Tooltip_MaxFormulaValue>  计算：{0} + {1} × {2} = {3}</SD_Witch_Tooltip_MaxFormulaValue>
+  <SD_Witch_Tooltip_Mechanic_Section>【机制说明】</SD_Witch_Tooltip_Mechanic_Section>
+  <SD_Witch_Tooltip_Mechanic_NegativeTrust>  - 负信任越高，魔女因子增长越快</SD_Witch_Tooltip_Mechanic_NegativeTrust>
+  <SD_Witch_Tooltip_Mechanic_Affection>  - 好感度越高，魔女因子上限越高</SD_Witch_Tooltip_Mechanic_Affection>
+  <SD_Witch_Tooltip_Mechanic_Threshold>  - 未变身且低于 {0}% 阈值时，不会自然增长</SD_Witch_Tooltip_Mechanic_Threshold>
+  <SD_Witch_Tooltip_Mechanic_PositiveTrust>  - 正信任时，未变身状态会缓慢降低魔女因子</SD_Witch_Tooltip_Mechanic_PositiveTrust>
+  <SD_Witch_Tooltip_Mechanic_Berserk>  - 达到上限时，会触发魔女狂暴</SD_Witch_Tooltip_Mechanic_Berserk>
+  <SD_Witch_Tooltip_Mechanic_Cooldown>  - 变身与解除可分别配置独立冷却</SD_Witch_Tooltip_Mechanic_Cooldown>
+  <SD_Witch_Tooltip_Cooldown_Section>【切换冷却】</SD_Witch_Tooltip_Cooldown_Section>
+  <SD_Witch_Tooltip_TransformCooldown>  开启变身冷却：{0}</SD_Witch_Tooltip_TransformCooldown>
+  <SD_Witch_Tooltip_CancelCooldown>  关闭变身冷却：{0}</SD_Witch_Tooltip_CancelCooldown>
+  <SD_Witch_Tooltip_TransformCooldownRemaining>  当前开启剩余：{0}</SD_Witch_Tooltip_TransformCooldownRemaining>
+  <SD_Witch_Tooltip_CancelCooldownRemaining>  当前关闭剩余：{0}</SD_Witch_Tooltip_CancelCooldownRemaining>
+  <SD_Witch_Tooltip_Action_Section>【操作提示】</SD_Witch_Tooltip_Action_Section>
+  <SD_Witch_Tooltip_Action_Berserk1>  - 当前处于狂暴状态</SD_Witch_Tooltip_Action_Berserk1>
+  <SD_Witch_Tooltip_Action_Berserk2>  - 击倒后可右键选择“镇压”结束</SD_Witch_Tooltip_Action_Berserk2>
+  <SD_Witch_Tooltip_Action_Danger1>  - 危险：接近上限，即将失控</SD_Witch_Tooltip_Action_Danger1>
+  <SD_Witch_Tooltip_Action_Danger2>  - 建议立即解除变身</SD_Witch_Tooltip_Action_Danger2>
+  <SD_Witch_Tooltip_Action_Cancel>  - 点击变身按钮可解除魔女形态</SD_Witch_Tooltip_Action_Cancel>
+  <SD_Witch_Tooltip_Action_Transform1>  - 点击变身按钮可进入魔女形态</SD_Witch_Tooltip_Action_Transform1>
+  <SD_Witch_Tooltip_Action_Transform2>  - 变身后因子增长会明显加快</SD_Witch_Tooltip_Action_Transform2>
+  <SD_Witch_Tooltip_Action_Threshold>  - 因子达到 {0}% 后可手动变身</SD_Witch_Tooltip_Action_Threshold>
+
+  <SD_Witch_Tooltip_TrustRule_NegativeActive>负信任加速：+{0}（信任值 {1}）</SD_Witch_Tooltip_TrustRule_NegativeActive>
+  <SD_Witch_Tooltip_TrustRule_PositiveActive>正信任在变身时不再抑制增长（信任值 {0}）</SD_Witch_Tooltip_TrustRule_PositiveActive>
+  <SD_Witch_Tooltip_TrustRule_PositiveDecay>正信任衰减：{0}（信任值 {1}）</SD_Witch_Tooltip_TrustRule_PositiveDecay>
+  <SD_Witch_Tooltip_TrustRule_BelowThreshold>未变身且低于阈值 {0}% 时不增长（信任值 {1}）</SD_Witch_Tooltip_TrustRule_BelowThreshold>
+  <SD_Witch_Tooltip_TrustRule_NegativePassive>负信任加速：+{0}（信任值 {1}）</SD_Witch_Tooltip_TrustRule_NegativePassive>
+  <SD_Witch_Tooltip_TrustRule_PassiveGrowth>后半段按缓速增长（信任值 {0}）</SD_Witch_Tooltip_TrustRule_PassiveGrowth>
+
+  <SD_Witch_StateDesc_Normal>正常形态</SD_Witch_StateDesc_Normal>
+  <SD_Witch_StateDesc_Witch>魔女形态</SD_Witch_StateDesc_Witch>
+  <SD_Witch_StateDesc_Berserk>魔女狂暴（失控）</SD_Witch_StateDesc_Berserk>
+
+  <SD_Regeneration_State_Repairing>修复中</SD_Regeneration_State_Repairing>
+  <SD_Regeneration_State_Cooldown>冷却</SD_Regeneration_State_Cooldown>
+  <SD_Regeneration_State_Disabled>关闭</SD_Regeneration_State_Disabled>
+  <SD_Regeneration_State_Idle>待机</SD_Regeneration_State_Idle>
+  <SD_Regeneration_Tip_Repairing>再生状态：修复中</SD_Regeneration_Tip_Repairing>
+  <SD_Regeneration_Tip_Cooldown>再生状态：冷却中（剩余 {0} 秒）</SD_Regeneration_Tip_Cooldown>
+  <SD_Regeneration_Tip_Disabled>再生状态：已关闭</SD_Regeneration_Tip_Disabled>
+  <SD_Regeneration_Tip_Idle>再生状态：待机（无可修复损伤）</SD_Regeneration_Tip_Idle>
 </LanguageData>

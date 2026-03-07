@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_Witch_Gizmo_Label>Witch Factor</SD_Witch_Gizmo_Label>
+  <SD_Witch_TransformCooldownRemaining>Transform cooldown active: {0} remaining</SD_Witch_TransformCooldownRemaining>
+  <SD_Witch_CancelCooldownRemaining>Cancel cooldown active: {0} remaining</SD_Witch_CancelCooldownRemaining>
+  <SD_Witch_TransformCooldown>Transform cooldown: {0}</SD_Witch_TransformCooldown>
+  <SD_Witch_CancelCooldown>Cancel cooldown: {0}</SD_Witch_CancelCooldown>
+
+  <SD_Witch_Debug_AddFactor_Label>DEV: +100 Factor</SD_Witch_Debug_AddFactor_Label>
+  <SD_Witch_Debug_AddFactor_Desc>Add 100 witch factor for testing.</SD_Witch_Debug_AddFactor_Desc>
+  <SD_Witch_Debug_ResetFactor_Label>DEV: Reset Factor</SD_Witch_Debug_ResetFactor_Label>
+  <SD_Witch_Debug_ResetFactor_Desc>Reset witch factor to 0.</SD_Witch_Debug_ResetFactor_Desc>
+  <SD_Witch_Debug_ForceBerserk_Label>DEV: Force Berserk</SD_Witch_Debug_ForceBerserk_Label>
+  <SD_Witch_Debug_ForceBerserk_Desc>Force entry into berserk state.</SD_Witch_Debug_ForceBerserk_Desc>
+  <SD_Witch_Debug_Info>=== Witch Form System ===\nFactor: {0} / {1}\nState: {2}\nAffection bonus: {3}\nTrust: {4}</SD_Witch_Debug_Info>
+
+  <SD_Witch_Tooltip_Header>═══ Witch Factor System ═══</SD_Witch_Tooltip_Header>
+  <SD_Witch_Tooltip_CurrentState_Section>[Current State]</SD_Witch_Tooltip_CurrentState_Section>
+  <SD_Witch_Tooltip_CurrentValue>  Value: {0} / {1} ({2}%)</SD_Witch_Tooltip_CurrentValue>
+  <SD_Witch_Tooltip_CurrentState>  State: {0}</SD_Witch_Tooltip_CurrentState>
+  <SD_Witch_Tooltip_Growth_Section>[Growth]</SD_Witch_Tooltip_Growth_Section>
+  <SD_Witch_Tooltip_CurrentRate>  Current change: {0} / TickRare ({1} / day)</SD_Witch_Tooltip_CurrentRate>
+  <SD_Witch_Tooltip_BaseRate>  Base rate: {0}</SD_Witch_Tooltip_BaseRate>
+  <SD_Witch_Tooltip_TrustRule>  Trust rule: {0}</SD_Witch_Tooltip_TrustRule>
+  <SD_Witch_Tooltip_WitchMult>  Transform multiplier: ×{0}</SD_Witch_Tooltip_WitchMult>
+  <SD_Witch_Tooltip_HalfMult>  Late-stage multiplier: ×{0}</SD_Witch_Tooltip_HalfMult>
+  <SD_Witch_Tooltip_MaxCalc_Section>[Max Calculation]</SD_Witch_Tooltip_MaxCalc_Section>
+  <SD_Witch_Tooltip_MaxFormula>  Formula: base max + affection × {0}</SD_Witch_Tooltip_MaxFormula>
+  <SD_Witch_Tooltip_MaxFormulaValue>  Calculation: {0} + {1} × {2} = {3}</SD_Witch_Tooltip_MaxFormulaValue>
+  <SD_Witch_Tooltip_Mechanic_Section>[Mechanics]</SD_Witch_Tooltip_Mechanic_Section>
+  <SD_Witch_Tooltip_Mechanic_NegativeTrust>  • Lower trust increases witch factor growth</SD_Witch_Tooltip_Mechanic_NegativeTrust>
+  <SD_Witch_Tooltip_Mechanic_Affection>  • Higher affection increases witch factor cap</SD_Witch_Tooltip_Mechanic_Affection>
+  <SD_Witch_Tooltip_Mechanic_Threshold>  • No natural growth below the {0}% threshold while untransformed</SD_Witch_Tooltip_Mechanic_Threshold>
+  <SD_Witch_Tooltip_Mechanic_PositiveTrust>  • Positive trust slowly reduces witch factor while untransformed</SD_Witch_Tooltip_Mechanic_PositiveTrust>
+  <SD_Witch_Tooltip_Mechanic_Berserk>  • Reaching the cap triggers berserk</SD_Witch_Tooltip_Mechanic_Berserk>
+  <SD_Witch_Tooltip_Mechanic_Cooldown>  • Transform and cancel can have separate XML-configured cooldowns</SD_Witch_Tooltip_Mechanic_Cooldown>
+  <SD_Witch_Tooltip_Cooldown_Section>[Toggle Cooldowns]</SD_Witch_Tooltip_Cooldown_Section>
+  <SD_Witch_Tooltip_TransformCooldown>  Transform cooldown: {0}</SD_Witch_Tooltip_TransformCooldown>
+  <SD_Witch_Tooltip_CancelCooldown>  Cancel cooldown: {0}</SD_Witch_Tooltip_CancelCooldown>
+  <SD_Witch_Tooltip_TransformCooldownRemaining>  Transform remaining: {0}</SD_Witch_Tooltip_TransformCooldownRemaining>
+  <SD_Witch_Tooltip_CancelCooldownRemaining>  Cancel remaining: {0}</SD_Witch_Tooltip_CancelCooldownRemaining>
+  <SD_Witch_Tooltip_Action_Section>[Actions]</SD_Witch_Tooltip_Action_Section>
+  <SD_Witch_Tooltip_Action_Berserk1>  • Currently berserk</SD_Witch_Tooltip_Action_Berserk1>
+  <SD_Witch_Tooltip_Action_Berserk2>  • Down the pawn and right-click to suppress</SD_Witch_Tooltip_Action_Berserk2>
+  <SD_Witch_Tooltip_Action_Danger1>  • Danger: close to cap, loss of control imminent</SD_Witch_Tooltip_Action_Danger1>
+  <SD_Witch_Tooltip_Action_Danger2>  • Consider cancelling transform immediately</SD_Witch_Tooltip_Action_Danger2>
+  <SD_Witch_Tooltip_Action_Cancel>  • Click the transform button to cancel witch form</SD_Witch_Tooltip_Action_Cancel>
+  <SD_Witch_Tooltip_Action_Transform1>  • Click the transform button to enter witch form</SD_Witch_Tooltip_Action_Transform1>
+  <SD_Witch_Tooltip_Action_Transform2>  • Growth increases significantly after transformation</SD_Witch_Tooltip_Action_Transform2>
+  <SD_Witch_Tooltip_Action_Threshold>  • Reach {0}% factor to manually transform</SD_Witch_Tooltip_Action_Threshold>
+
+  <SD_Witch_Tooltip_TrustRule_NegativeActive>Negative trust acceleration: +{0} (trust {1})</SD_Witch_Tooltip_TrustRule_NegativeActive>
+  <SD_Witch_Tooltip_TrustRule_PositiveActive>Positive trust no longer suppresses growth while transformed (trust {0})</SD_Witch_Tooltip_TrustRule_PositiveActive>
+  <SD_Witch_Tooltip_TrustRule_PositiveDecay>Positive trust decay: {0} (trust {1})</SD_Witch_Tooltip_TrustRule_PositiveDecay>
+  <SD_Witch_Tooltip_TrustRule_BelowThreshold>No growth below the {0}% threshold while untransformed (trust {1})</SD_Witch_Tooltip_TrustRule_BelowThreshold>
+  <SD_Witch_Tooltip_TrustRule_NegativePassive>Negative trust acceleration: +{0} (trust {1})</SD_Witch_Tooltip_TrustRule_NegativePassive>
+  <SD_Witch_Tooltip_TrustRule_PassiveGrowth>Late-stage passive growth applies (trust {0})</SD_Witch_Tooltip_TrustRule_PassiveGrowth>
+
+  <SD_Witch_StateDesc_Normal>Normal Form</SD_Witch_StateDesc_Normal>
+  <SD_Witch_StateDesc_Witch>Witch Form</SD_Witch_StateDesc_Witch>
+  <SD_Witch_StateDesc_Berserk>Witch Berserk (Out of Control)</SD_Witch_StateDesc_Berserk>
+
+  <SD_Regeneration_State_Repairing>Repairing</SD_Regeneration_State_Repairing>
+  <SD_Regeneration_State_Cooldown>Cooldown</SD_Regeneration_State_Cooldown>
+  <SD_Regeneration_State_Disabled>Disabled</SD_Regeneration_State_Disabled>
+  <SD_Regeneration_State_Idle>Idle</SD_Regeneration_State_Idle>
+  <SD_Regeneration_Tip_Repairing>Regeneration: repairing</SD_Regeneration_Tip_Repairing>
+  <SD_Regeneration_Tip_Cooldown>Regeneration: cooling down ({0} seconds remaining)</SD_Regeneration_Tip_Cooldown>
+  <SD_Regeneration_Tip_Disabled>Regeneration: disabled</SD_Regeneration_Tip_Disabled>
+  <SD_Regeneration_Tip_Idle>Regeneration: idle (no damage to repair)</SD_Regeneration_Tip_Idle>
+</LanguageData>

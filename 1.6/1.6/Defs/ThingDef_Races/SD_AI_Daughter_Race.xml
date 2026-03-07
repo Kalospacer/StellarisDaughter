@@ -359,6 +359,8 @@
         <affectionForMaxThreshold>1000</affectionForMaxThreshold>
         <witchFormGrowthMult>10</witchFormGrowthMult>
         <halfMaxGrowthMult>0.2</halfMaxGrowthMult>
+        <transformCooldownTicks>60000</transformCooldownTicks>
+        <cancelTransformCooldownTicks>180</cancelTransformCooldownTicks>
         <normalApparelDef>SD_StellarUniform</normalApparelDef>
         <witchApparelDef>SD_StellarBlackUniform</witchApparelDef>
         <normalHairDef>SD_Daughter_Hair</normalHairDef>
