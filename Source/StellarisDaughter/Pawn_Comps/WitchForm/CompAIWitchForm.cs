@@ -76,6 +76,12 @@ namespace StellarisDaughter
             CheckBerserk();
         }
 
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            base.PostSpawnSetup(respawningAfterLoad);
+            EnsureApparelLockState();
+        }
+
         private void CalculateGrowth()
         {
             var growthRate = GetGrowthRate();
@@ -280,6 +286,7 @@ namespace StellarisDaughter
             SwitchExclusiveApparel(toWitchForm);
             SwitchHair(toWitchForm);
             SwitchWitchFormHediff(toWitchForm);
+            EnsureApparelLockState();
             Pawn.Drawer?.renderer?.SetAllGraphicsDirty();
         }
 
@@ -367,6 +374,28 @@ namespace StellarisDaughter
             }
         }
 
+        private void EnsureApparelLockState()
+        {
+            if (Pawn?.apparel == null)
+            {
+                return;
+            }
+
+            foreach (var apparel in Pawn.apparel.WornApparel)
+            {
+                if (apparel.def == Props.normalApparelDef || apparel.def == Props.witchApparelDef)
+                {
+                    Pawn.apparel.Lock(apparel);
+                    continue;
+                }
+
+                if (Props.keepApparelDefs != null && Props.keepApparelDefs.Contains(apparel.def))
+                {
+                    Pawn.apparel.Unlock(apparel);
+                }
+            }
+        }
+
         public void ApplySuppression()
         {
             if (!IsBerserk)
@@ -394,6 +423,10 @@ namespace StellarisDaughter
             Scribe_Values.Look(ref state, "state", WitchFormState.Normal);
             Scribe_Values.Look(ref nextTransformAllowedTick, "nextTransformAllowedTick", 0);
             Scribe_Values.Look(ref nextCancelTransformAllowedTick, "nextCancelTransformAllowedTick", 0);
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                EnsureApparelLockState();
+            }
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
