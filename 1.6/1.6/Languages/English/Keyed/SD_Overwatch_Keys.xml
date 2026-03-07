@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_AIOverwatch_Label>P.I.A is controlling orbital defense!</SD_AIOverwatch_Label>
+  <SD_AIOverwatch_Desc>P.I.A has taken control of the orbital defense system and is continuously scanning for hostile targets.\n\nIf enemies appear and there is no friendly fire risk, the orbital fleet will automatically strike.\n\nTime remaining: {0} seconds</SD_AIOverwatch_Desc>
+  <SD_AIOverwatch_AlreadyActive>P.I.A orbital overwatch is already active ({0} seconds remaining). Request ignored.</SD_AIOverwatch_AlreadyActive>
+  <SD_AIOverwatch_Engaged>P.I.A orbital overwatch engaged for {0} seconds.</SD_AIOverwatch_Engaged>
+  <SD_AIOverwatch_Disengaged>P.I.A orbital overwatch disengaged.</SD_AIOverwatch_Disengaged>
+  <SD_AIOverwatch_SystemActive>[P.I.A Overwatch] System active. Time remaining: {0} seconds.</SD_AIOverwatch_SystemActive>
+  <SD_AIOverwatch_FriendlyFireAbort>[P.I.A Overwatch] Strike on {0} aborted due to friendly fire risk.</SD_AIOverwatch_FriendlyFireAbort>
+  <SD_AIOverwatch_MassiveCluster>[P.I.A Overwatch] Massive hostile cluster detected ({0} targets). Combined strike incoming.</SD_AIOverwatch_MassiveCluster>
+  <SD_AIOverwatch_EngagingLance>[P.I.A Overwatch] Firing lance at hostile cluster ({0} targets).</SD_AIOverwatch_EngagingLance>
+  <SD_AIOverwatch_EngagingCannon>[P.I.A Overwatch] Firing cannon salvo at hostile cluster ({0} targets).</SD_AIOverwatch_EngagingCannon>
+  <SD_AIOverwatch_EngagingMinigun>[P.I.A Overwatch] Firing minigun strafe at hostile group ({0} targets).</SD_AIOverwatch_EngagingMinigun>
+  <SD_AIOverwatch_FleetCalled>[P.I.A Overwatch] Fleet has arrived in orbit.</SD_AIOverwatch_FleetCalled>
+  <SD_AIOverwatch_FleetCleared>[P.I.A Overwatch] Flight path cleared.</SD_AIOverwatch_FleetCleared>
+  <SD_AIOverwatch_EngagingBuilding>[P.I.A Overwatch] Bombarding hostile building/turret.</SD_AIOverwatch_EngagingBuilding>
+</LanguageData>
