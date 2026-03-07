@@ -300,7 +300,15 @@ namespace StellarisDaughter
         {
             if (!ValidateCurrentTarget())
             {
-                BeginReturn();
+                if (TryAcquireTargetAndDestination())
+                {
+                    BeginMoveToAttackCell(attackDestination);
+                }
+                else
+                {
+                    BeginLoiter();
+                }
+
                 return;
             }
 
@@ -366,6 +374,14 @@ namespace StellarisDaughter
                 {
                     BeginMoveToAttackCell(fallbackDestination);
                 }
+                else if (TryAcquireTargetAndDestination())
+                {
+                    BeginMoveToAttackCell(attackDestination);
+                }
+                else
+                {
+                    BeginLoiter();
+                }
 
                 return;
             }
@@ -404,7 +420,16 @@ namespace StellarisDaughter
 
             if (droneType != null && droneType.maxAttackCycles > 0 && completedAttackCycles >= droneType.maxAttackCycles)
             {
-                BeginReturn();
+                completedAttackCycles = 0;
+                if (TryAcquireTargetAndDestination())
+                {
+                    BeginMoveToAttackCell(attackDestination);
+                }
+                else
+                {
+                    BeginLoiter();
+                }
+
                 return;
             }
 
@@ -412,9 +437,13 @@ namespace StellarisDaughter
             {
                 BeginMoveToAttackCell(destination);
             }
+            else if (TryAcquireTargetAndDestination())
+            {
+                BeginMoveToAttackCell(attackDestination);
+            }
             else
             {
-                BeginReturn();
+                BeginLoiter();
             }
         }
 

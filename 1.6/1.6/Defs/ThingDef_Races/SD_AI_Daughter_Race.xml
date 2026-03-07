@@ -349,9 +349,16 @@
       <li Class="StellarisDaughter.CompProperties_AIUpbringing" />
       <li Class="StellarisDaughter.CompProperties_AIWitchForm">
         <baseMaxFactor>1000</baseMaxFactor>
+        <affectionToMaxFactor>0.1</affectionToMaxFactor>
         <baseGrowthRate>0.1</baseGrowthRate>
+        <negativeTrustGrowthFactor>0.001</negativeTrustGrowthFactor>
+        <positiveTrustDecayFactor>0.00002</positiveTrustDecayFactor>
+        <positiveTrustDecayMaxBaseFraction>0.2</positiveTrustDecayMaxBaseFraction>
+        <transformThresholdBaseRatio>0.5</transformThresholdBaseRatio>
+        <transformThresholdMaxRatio>0.9</transformThresholdMaxRatio>
+        <affectionForMaxThreshold>1000</affectionForMaxThreshold>
         <witchFormGrowthMult>10</witchFormGrowthMult>
-        <halfMaxGrowthMult>0.5</halfMaxGrowthMult>
+        <halfMaxGrowthMult>0.2</halfMaxGrowthMult>
         <normalApparelDef>SD_StellarUniform</normalApparelDef>
         <witchApparelDef>SD_StellarBlackUniform</witchApparelDef>
         <normalHairDef>SD_Daughter_Hair</normalHairDef>
@@ -482,14 +489,28 @@
             <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
             <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
             <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_Hair_behind</texPath>
-            <parentTagDef>Head</parentTagDef>
+            <parentTagDef>ApparelHead</parentTagDef>
             <useSkinShader>false</useSkinShader>
             <useRottenColor>false</useRottenColor>
             <rotDrawMode>Fresh, Rotting</rotDrawMode>
             <visibleFacing>
-              <li>North</li>
+              <li>South</li>
             </visibleFacing>
-            <baseLayer>-5</baseLayer>
+            <drawData>
+              <dataEast>
+                <layer>-99999</layer>
+              </dataEast>
+              <dataWest>
+                <layer>-99999</layer>
+              </dataWest>
+              <dataNorth>
+                <layer>-99999</layer>
+              </dataNorth>
+              <dataSouth>
+                <layer>-10</layer>
+                <offset>(0, 0, 0)</offset>
+              </dataSouth>
+            </drawData>
           </li>
         </renderNodes>
       </li>
@@ -508,14 +529,28 @@
             <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
             <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
             <texPath>StellarisDaughter/Things/SD/Hair/StellarisDaughter_BlackHair_behind</texPath>
-            <parentTagDef>Head</parentTagDef>
+            <parentTagDef>ApparelHead</parentTagDef>
             <useSkinShader>false</useSkinShader>
             <useRottenColor>false</useRottenColor>
             <rotDrawMode>Fresh, Rotting</rotDrawMode>
             <visibleFacing>
-              <li>North</li>
+              <li>South</li>
             </visibleFacing>
-            <baseLayer>-5</baseLayer>
+            <drawData>
+              <dataEast>
+                <layer>-99999</layer>
+              </dataEast>
+              <dataWest>
+                <layer>-99999</layer>
+              </dataWest>
+              <dataNorth>
+                <layer>-99999</layer>
+              </dataNorth>
+              <dataSouth>
+                <layer>-10</layer>
+                <offset>(0, 0, 0)</offset>
+              </dataSouth>
+            </drawData>
           </li>
         </renderNodes>
       </li>

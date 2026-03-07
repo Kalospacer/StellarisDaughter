@@ -1,3 +1,4 @@
+using System.Text;
 using UnityEngine;
 using Verse;
 
@@ -5,41 +6,23 @@ namespace StellarisDaughter
 {
     // ✨ 沐雪写的哦~
     /// <summary>
-    /// 魔女化Gizmo - 显示魔女因子条和变身按钮
+    /// 魔女因子 Gizmo。
     /// </summary>
     [StaticConstructorOnStartup]
     public class Gizmo_AIWitchForm : Gizmo
     {
-        // ── 颜色 ──────────────────────────────────────────────────────
-        private static readonly Texture2D BarBg =
-            SolidColorMaterials.NewSolidColorTexture(GenUI.FillableBar_Empty);
+        private static readonly Texture2D BarBg = SolidColorMaterials.NewSolidColorTexture(GenUI.FillableBar_Empty);
+        private static readonly Texture2D BarFillPurple = SolidColorMaterials.NewSolidColorTexture(new Color(0.60f, 0.35f, 0.75f));
+        private static readonly Texture2D BarFillPurpleDark = SolidColorMaterials.NewSolidColorTexture(new Color(0.50f, 0.25f, 0.65f));
+        private static readonly Texture2D BarFillPink = SolidColorMaterials.NewSolidColorTexture(new Color(0.85f, 0.45f, 0.70f));
+        private static readonly Texture2D BarHalfLine = SolidColorMaterials.NewSolidColorTexture(new Color(0.6f, 0.6f, 0.6f, 0.9f));
+        private static readonly Texture2D BarBorder = SolidColorMaterials.NewSolidColorTexture(new Color(0.45f, 0.22f, 0.58f, 0.9f));
 
-        // 紫色到粉色渐变系统
-        private static readonly Texture2D BarFillPurpleLight =
-            SolidColorMaterials.NewSolidColorTexture(new Color(0.75f, 0.50f, 0.85f)); // 淡紫色
-
-        private static readonly Texture2D BarFillPurple =
-            SolidColorMaterials.NewSolidColorTexture(new Color(0.60f, 0.35f, 0.75f)); // 中紫色
-
-        private static readonly Texture2D BarFillPurpleDark =
-            SolidColorMaterials.NewSolidColorTexture(new Color(0.50f, 0.25f, 0.65f)); // 深紫色
-
-        private static readonly Texture2D BarFillPink =
-            SolidColorMaterials.NewSolidColorTexture(new Color(0.85f, 0.45f, 0.70f)); // 粉紫色
-
-        private static readonly Texture2D BarHalfLine =
-            SolidColorMaterials.NewSolidColorTexture(new Color(0.6f, 0.6f, 0.6f, 0.9f));
-
-        private static readonly Texture2D BarBorder =
-            SolidColorMaterials.NewSolidColorTexture(new Color(0.4f, 0.2f, 0.5f, 0.8f)); // 紫色边框
-
-
-        // ── 布局 ──────────────────────────────────────────────────────
-        private const float Width       = 220f;
+        private const float Width = 220f;
         private const float GizmoHeight = 75f;
-        private const float Pad         = 4f;
-        private const float LabelPct    = 0.28f;
-        private const float RowGap      = 3f;
+        private const float Pad = 4f;
+        private const float LabelPct = 0.28f;
+        private const float RowGap = 3f;
 
         private readonly CompAIWitchForm comp;
 
@@ -56,256 +39,223 @@ namespace StellarisDaughter
             var outer = new Rect(topLeft.x, topLeft.y, Width, GizmoHeight);
             Widgets.DrawWindowBackground(outer);
 
-            var inner  = outer.ContractedBy(Pad);
-            float rowH = (inner.height - RowGap) / 2f;
+            var inner = outer.ContractedBy(Pad);
+            var rowH = (inner.height - RowGap) / 2f;
 
-            // 状态标签行
-            var stateRow = new Rect(inner.x, inner.y,                  inner.width, rowH);
-            DrawStateLabel(stateRow);
-
-            // 魔女因子条（靠底部对齐）
-            var barRow   = new Rect(inner.x, inner.y + rowH + RowGap,  inner.width, rowH);
-            DrawWitchFactorBar(barRow);
+            DrawStateLabel(new Rect(inner.x, inner.y, inner.width, rowH));
+            DrawWitchFactorBar(new Rect(inner.x, inner.y + rowH + RowGap, inner.width, rowH));
 
             Text.Anchor = TextAnchor.UpperLeft;
-            Text.Font   = GameFont.Small;
-
+            Text.Font = GameFont.Small;
             return new GizmoResult(GizmoState.Clear);
         }
 
         private void DrawStateLabel(Rect row)
         {
-            Text.Font   = GameFont.Small;
+            Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.MiddleLeft;
 
             string stateLabel = comp.state switch
             {
-                WitchFormState.Normal    => "SD_Witch_State_Normal".Translate(),
+                WitchFormState.Normal => "SD_Witch_State_Normal".Translate(),
                 WitchFormState.WitchForm => "SD_Witch_State_Witch".Translate(),
-                WitchFormState.Berserk   => "SD_Witch_State_Berserk".Translate(),
-                _                        => "Unknown"
+                WitchFormState.Berserk => "SD_Witch_State_Berserk".Translate(),
+                _ => "Unknown"
             };
 
             GUI.color = comp.IsBerserk
                 ? Color.red
-                : (comp.IsWitchForm ? new Color(0.8f, 0.4f, 0.8f) : new Color(0.4f, 0.7f, 1.0f));
-
+                : comp.IsWitchForm ? new Color(0.8f, 0.4f, 0.8f) : new Color(0.4f, 0.7f, 1f);
             Widgets.Label(row, stateLabel);
             GUI.color = Color.white;
         }
 
         private void DrawWitchFactorBar(Rect row)
         {
-            // 标签
             var labelRect = new Rect(row.x, row.y, row.width * LabelPct, row.height);
-            Text.Font   = GameFont.Small;
+            Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.MiddleLeft;
             Widgets.Label(labelRect, "魔女因子");
             Text.Anchor = TextAnchor.UpperLeft;
 
-            // 进度条背景
             var bar = new Rect(labelRect.xMax, row.y + 2f, row.width - labelRect.width, row.height - 4f);
             GUI.DrawTexture(bar, BarBg);
-            
-            // 绘制紫色边框
-            Widgets.DrawBox(bar, 1);
-            GUI.color = new Color(0.5f, 0.3f, 0.6f, 0.8f);
-            Widgets.DrawBox(bar, 1);
-            GUI.color = Color.white;
+            Widgets.DrawBoxSolid(bar, new Color(0f, 0f, 0f, 0.15f));
+            DrawBorder(bar);
 
-            // 填充 - 紫色到粉色渐变效果
-            float max     = comp.MaxWitchFactor;
-            float current = comp.witchFactor;
-            float fillPct = Mathf.Clamp01(current / max);
+            var max = comp.MaxWitchFactor;
+            var current = comp.witchFactor;
+            var fillPct = max > 0f ? Mathf.Clamp01(current / max) : 0f;
+            var thresholdPct = Mathf.Clamp01(comp.TransformThresholdRatio);
 
-            // 渐变填充：分段绘制实现平滑过渡
             if (fillPct > 0f)
             {
-                float fillWidth = bar.width * fillPct;
-                
-                // 第一段：0-50% 使用中紫色
-                if (fillPct > 0f)
+                var fillWidth = bar.width * fillPct;
+                var firstWidth = Mathf.Min(fillWidth, bar.width * thresholdPct);
+                if (firstWidth > 0f)
                 {
-                    float segment1Width = Mathf.Min(fillWidth, bar.width * 0.5f);
-                    var rect1 = new Rect(bar.x, bar.y, segment1Width, bar.height);
-                    GUI.DrawTexture(rect1, BarFillPurple);
+                    GUI.DrawTexture(new Rect(bar.x, bar.y, firstWidth, bar.height), BarFillPurple);
                 }
-                
-                // 第二段：50-90% 使用深紫色（渐变过渡）
-                if (fillPct > 0.5f)
+
+                if (fillPct > thresholdPct)
                 {
-                    float segment2Start = bar.width * 0.5f;
-                    float segment2Width = Mathf.Min(fillWidth - segment2Start, bar.width * 0.4f);
-                    var rect2 = new Rect(bar.x + segment2Start, bar.y, segment2Width, bar.height);
-                    GUI.DrawTexture(rect2, BarFillPurpleDark);
+                    var secondStart = bar.width * thresholdPct;
+                    var secondWidth = Mathf.Min(fillWidth - secondStart, bar.width * Mathf.Max(0.9f - thresholdPct, 0f));
+                    if (secondWidth > 0f)
+                    {
+                        GUI.DrawTexture(new Rect(bar.x + secondStart, bar.y, secondWidth, bar.height), BarFillPurpleDark);
+                    }
                 }
-                
-                // 第三段：90-100% 使用粉紫色（危险区域）
+
                 if (fillPct > 0.9f)
                 {
-                    float segment3Start = bar.width * 0.9f;
-                    float segment3Width = fillWidth - segment3Start;
-                    var rect3 = new Rect(bar.x + segment3Start, bar.y, segment3Width, bar.height);
-                    GUI.DrawTexture(rect3, BarFillPink);
+                    var thirdStart = bar.width * 0.9f;
+                    var thirdWidth = fillWidth - thirdStart;
+                    if (thirdWidth > 0f)
+                    {
+                        GUI.DrawTexture(new Rect(bar.x + thirdStart, bar.y, thirdWidth, bar.height), BarFillPink);
+                    }
                 }
             }
 
-            // 50%标记线
-            float halfX = bar.x + bar.width * 0.5f;
-            GUI.DrawTexture(new Rect(halfX - 1f, bar.y, 2f, bar.height), BarHalfLine);
-
-            // 量表刻度（0%, 25%, 50%, 75%, 100%）
+            var thresholdX = bar.x + bar.width * thresholdPct;
+            GUI.DrawTexture(new Rect(thresholdX - 1f, bar.y, 2f, bar.height), BarHalfLine);
             DrawScaleMarks(bar);
 
-            // 数值文字
             Text.Anchor = TextAnchor.MiddleCenter;
-            Text.Font   = GameFont.Tiny;
+            Text.Font = GameFont.Tiny;
             Widgets.Label(bar, $"{current:F0} / {max:F0}");
             Text.Anchor = TextAnchor.UpperLeft;
-            Text.Font   = GameFont.Small;
+            Text.Font = GameFont.Small;
 
-            // 高亮 + Tooltip
             if (Mouse.IsOver(row))
             {
                 Widgets.DrawHighlight(row);
-                string tooltip = BuildDetailedTooltip();
-                TooltipHandler.TipRegion(row, tooltip);
+                TooltipHandler.TipRegion(row, BuildDetailedTooltip());
             }
         }
 
-        /// <summary>
-        /// 绘制量表刻度线：0%, 25%, 50%, 75%, 100%
-        /// </summary>
+        private void DrawBorder(Rect rect)
+        {
+            GUI.DrawTexture(new Rect(rect.x, rect.y, rect.width, 1f), BarBorder);
+            GUI.DrawTexture(new Rect(rect.x, rect.yMax - 1f, rect.width, 1f), BarBorder);
+            GUI.DrawTexture(new Rect(rect.x, rect.y, 1f, rect.height), BarBorder);
+            GUI.DrawTexture(new Rect(rect.xMax - 1f, rect.y, 1f, rect.height), BarBorder);
+        }
+
         private void DrawScaleMarks(Rect bar)
         {
-            var markColor = new Color(0.5f, 0.4f, 0.6f, 0.6f); // 紫色调刻度
             var oldColor = GUI.color;
-            GUI.color = markColor;
-
-            // 25% 刻度
-            float mark25 = bar.x + bar.width * 0.25f;
-            GUI.DrawTexture(new Rect(mark25 - 0.5f, bar.y, 1f, bar.height * 0.3f), BarHalfLine);
-            
-            // 75% 刻度
-            float mark75 = bar.x + bar.width * 0.75f;
-            GUI.DrawTexture(new Rect(mark75 - 0.5f, bar.y, 1f, bar.height * 0.3f), BarHalfLine);
-            
-            // 0% 刻度（左端）
+            GUI.color = new Color(0.5f, 0.4f, 0.6f, 0.6f);
+            GUI.DrawTexture(new Rect(bar.x + bar.width * 0.25f - 0.5f, bar.y, 1f, bar.height * 0.3f), BarHalfLine);
+            GUI.DrawTexture(new Rect(bar.x + bar.width * 0.75f - 0.5f, bar.y, 1f, bar.height * 0.3f), BarHalfLine);
             GUI.DrawTexture(new Rect(bar.x + 1f, bar.y, 1f, bar.height * 0.25f), BarHalfLine);
-            
-            // 100% 刻度（右端）
             GUI.DrawTexture(new Rect(bar.xMax - 2f, bar.y, 1f, bar.height * 0.25f), BarHalfLine);
-
             GUI.color = oldColor;
         }
 
-        /// <summary>
-        /// 构建详细的悬停提示信息
-        /// </summary>
         private string BuildDetailedTooltip()
         {
             var upbringing = comp.Pawn?.GetComp<CompAIUpbringing>();
-            float affection = upbringing?.affection ?? 0f;
-            float trust = upbringing?.trust ?? 0f;
+            var affection = upbringing?.affection ?? 0f;
+            var trust = upbringing?.trust ?? 0f;
+            var current = comp.witchFactor;
+            var max = comp.MaxWitchFactor;
+            var percentage = max > 0f ? (current / max) * 100f : 0f;
+            var baseRate = comp.Props.baseGrowthRate;
 
-            // 当前值和上限
-            float current = comp.witchFactor;
-            float max = comp.MaxWitchFactor;
-            float percentage = (current / max) * 100f;
-
-            // 计算增长率
-            float baseRate = comp.Props.baseGrowthRate;
-            float trustModifier = trust * 0.001f;
-            float modifiedBaseRate = Mathf.Max(baseRate - trustModifier, 0f);
-            
-            float actualRate = modifiedBaseRate;
+            float actualRate;
+            string trustRuleText;
             if (comp.IsWitchForm)
             {
-                actualRate *= comp.Props.witchFormGrowthMult;
+                var hostileTrustBonus = trust < 0f ? -trust * comp.Props.negativeTrustGrowthFactor : 0f;
+                actualRate = Mathf.Max(baseRate + hostileTrustBonus, 0f) * comp.Props.witchFormGrowthMult;
+                trustRuleText = trust < 0f
+                    ? $"负信任加速：+{hostileTrustBonus:F3}（信任值 {trust:F0}）"
+                    : $"正信任在变身时不再抑制增长（信任值 {trust:F0}）";
             }
-            else if (current >= comp.HalfMaxFactor)
+            else if (trust > 0f && current > 0f)
             {
-                actualRate *= comp.Props.halfMaxGrowthMult;
+                actualRate = -Mathf.Min(
+                    trust * comp.Props.positiveTrustDecayFactor,
+                    comp.Props.baseGrowthRate * comp.Props.positiveTrustDecayMaxBaseFraction);
+                trustRuleText = $"正信任缓降：{Mathf.Abs(actualRate):F3}（信任值 {trust:F0}）";
+            }
+            else if (current < comp.TransformThresholdFactor)
+            {
+                actualRate = 0f;
+                trustRuleText = $"未变身且低于阈值 {comp.TransformThresholdRatio * 100f:F0}% 时不增长（信任值 {trust:F0}）";
+            }
+            else
+            {
+                var hostileTrustBonus = trust < 0f ? -trust * comp.Props.negativeTrustGrowthFactor : 0f;
+                actualRate = Mathf.Max(baseRate + hostileTrustBonus, 0f) * comp.Props.halfMaxGrowthMult;
+                trustRuleText = trust < 0f
+                    ? $"负信任加速：+{hostileTrustBonus:F3}（信任值 {trust:F0}）"
+                    : $"后半段按缓速增长（信任值 {trust:F0}）";
             }
 
-            // 转换为每天的增长（TickRare = 250 ticks, 1天 = 60000 ticks）
-            float perDay = actualRate * (60000f / 250f);
-
-            // 构建提示文本
-            var tooltip = new System.Text.StringBuilder();
-            
-            // 标题
-            tooltip.AppendLine("═══ 魔女因子系统 ═══\n");
-            
-            // 当前状态
-            tooltip.AppendLine($"【当前状态】");
+            var perDay = actualRate * (60000f / 250f);
+            var tooltip = new StringBuilder();
+            tooltip.AppendLine("═══ 魔女因子系统 ═══");
+            tooltip.AppendLine();
+            tooltip.AppendLine("【当前状态】");
             tooltip.AppendLine($"  数值：{current:F1} / {max:F1} ({percentage:F1}%)");
             tooltip.AppendLine($"  状态：{GetStateDescription()}");
             tooltip.AppendLine();
-
-            // 增长率详情
-            tooltip.AppendLine($"【增长率】");
-            tooltip.AppendLine($"  当前增长：{actualRate:F3} / TickRare ({perDay:F1} / 天)");
+            tooltip.AppendLine("【增长率】");
+            tooltip.AppendLine($"  当前变化：{actualRate:F3} / TickRare ({perDay:F1} / 天)");
             tooltip.AppendLine($"  基础速度：{baseRate:F3}");
-            tooltip.AppendLine($"  信任修正：{(trustModifier >= 0 ? "-" : "+")}{Mathf.Abs(trustModifier):F3} (信任值 {trust:F0})");
-            
+            tooltip.AppendLine($"  信任规则：{trustRuleText}");
             if (comp.IsWitchForm)
             {
                 tooltip.AppendLine($"  变身加速：×{comp.Props.witchFormGrowthMult:F1}");
             }
-            else if (current >= comp.HalfMaxFactor)
+            else if (current >= comp.TransformThresholdFactor)
             {
-                tooltip.AppendLine($"  超50%减速：×{comp.Props.halfMaxGrowthMult:F1}");
+                tooltip.AppendLine($"  后半段倍率：×{comp.Props.halfMaxGrowthMult:F1}");
             }
-            tooltip.AppendLine();
 
-            // 上限公式
-            tooltip.AppendLine($"【上限计算】");
-            tooltip.AppendLine($"  公式：基础上限 + 好感度 × 0.1");
-            tooltip.AppendLine($"  计算：{comp.Props.baseMaxFactor:F0} + {affection:F0} × 0.1 = {max:F1}");
             tooltip.AppendLine();
-
-            // 机制说明
-            tooltip.AppendLine($"【机制说明】");
-            tooltip.AppendLine($"  • 信任值越低，增长越快（负信任加速）");
-            tooltip.AppendLine($"  • 好感度越高，上限越高");
-            tooltip.AppendLine($"  • 未变身时，自动停在50%");
-            tooltip.AppendLine($"  • 变身后，增长速度×3");
-            tooltip.AppendLine($"  • 达到上限时，触发魔女狂暴");
+            tooltip.AppendLine("【上限计算】");
+            tooltip.AppendLine($"  公式：基础上限 + 好感度 × {comp.Props.affectionToMaxFactor:F2}");
+            tooltip.AppendLine($"  计算：{comp.Props.baseMaxFactor:F0} + {affection:F0} × {comp.Props.affectionToMaxFactor:F2} = {max:F1}");
             tooltip.AppendLine();
-
-            // 操作提示
-            tooltip.AppendLine($"【操作提示】");
+            tooltip.AppendLine("【机制说明】");
+            tooltip.AppendLine("  • 负信任越高，魔女因子增长越快");
+            tooltip.AppendLine("  • 好感度越高，魔女因子上限越高");
+            tooltip.AppendLine($"  • 未变身且低于 {comp.TransformThresholdRatio * 100f:F0}% 阈值时，不会自然增长");
+            tooltip.AppendLine("  • 信任为正时，未变身状态会缓慢降低魔女因子");
+            tooltip.AppendLine("  • 达到上限时，会触发魔女狂暴");
+            tooltip.AppendLine();
+            tooltip.AppendLine("【操作提示】");
             if (comp.IsBerserk)
             {
-                tooltip.AppendLine($"  ⚠ 当前处于狂暴状态！");
-                tooltip.AppendLine($"  → 击倒后可右键选择'镇压'结束");
+                tooltip.AppendLine("  • 当前处于狂暴状态");
+                tooltip.AppendLine("  • 击倒后可右键选择“镇压”结束");
             }
             else if (current >= max * 0.9f)
             {
-                tooltip.AppendLine($"  ⚠ 危险！接近上限，即将失控");
-                tooltip.AppendLine($"  → 建议立即解除变身");
+                tooltip.AppendLine("  • 危险：接近上限，即将失控");
+                tooltip.AppendLine("  • 建议立即解除变身");
             }
             else if (comp.IsWitchForm)
             {
-                tooltip.AppendLine($"  → 点击变身按钮可解除魔女形态");
+                tooltip.AppendLine("  • 点击变身按钮可解除魔女形态");
             }
-            else if (current >= comp.HalfMaxFactor)
+            else if (current >= comp.TransformThresholdFactor)
             {
-                tooltip.AppendLine($"  → 点击变身按钮可进入魔女形态");
-                tooltip.AppendLine($"  → 变身后增长加速，请谨慎使用");
+                tooltip.AppendLine("  • 点击变身按钮可进入魔女形态");
+                tooltip.AppendLine("  • 变身后因子增长会明显加快");
             }
             else
             {
-                tooltip.AppendLine($"  → 因子达到50%后可手动变身");
+                tooltip.AppendLine($"  • 因子达到 {comp.TransformThresholdRatio * 100f:F0}% 后可手动变身");
             }
 
             return tooltip.ToString();
         }
 
-        /// <summary>
-        /// 获取状态描述
-        /// </summary>
         private string GetStateDescription()
         {
             return comp.state switch

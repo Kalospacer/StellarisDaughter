@@ -12,7 +12,7 @@ namespace StellarisDaughter
         {
             var harmony = new Harmony("tourswen.stellarisdaughter");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
-            Log.Message("[StellarisDaughter] 星规之女模组已加载");
+            Log.Message("[StellarisDaughter] 地砖的女儿模组已加载");
         }
     }
 }

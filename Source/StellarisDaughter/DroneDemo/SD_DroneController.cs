@@ -267,9 +267,10 @@ namespace StellarisDaughter
 
             var targetCenter = target.DrawPos;
             var ownerMaxDistance = alertRange;
-            var preferredDistance = Mathf.Max(1.5f, Mathf.Min(weaponRange * 0.7f, alertRange * 0.9f));
-            var targetMinDistance = Mathf.Max(1.25f, Mathf.Min(weaponRange * 0.55f, alertRange * 0.7f));
-            var targetMaxDistance = Mathf.Max(targetMinDistance, Mathf.Min(weaponRange * 0.85f, alertRange));
+            var preferredDistance = Mathf.Max(1.5f, Mathf.Min(weaponRange * 0.6f, alertRange * 0.7f));
+            var targetMinDistance = Mathf.Max(1.25f, Mathf.Min(weaponRange * 0.4f, alertRange * 0.45f));
+            var targetMaxDistance = Mathf.Max(targetMinDistance, Mathf.Min(weaponRange * 0.75f, alertRange * 0.8f));
+            var ownerPreferredDistance = Mathf.Max(1.5f, Mathf.Min(alertRange * 0.45f, preferredDistance));
             var layerDroneCount = Mathf.Max(GetLayerDroneCount(drone.OrbitLayer), 1);
             var layerDroneOrder = GetLayerDroneOrder(drone.SlotIndex, drone.SquadronMemberIndex, drone.OrbitLayer);
             var startAngle = (360f / layerDroneCount) * layerDroneOrder
@@ -312,8 +313,12 @@ namespace StellarisDaughter
 
                 var moveCost = (drone.DrawPos - candidate).Yto0().sqrMagnitude;
                 var preferredTargetError = Mathf.Abs(targetDistance - preferredDistance);
-                var ownerDistanceError = Mathf.Abs(ownerDistance - ownerMaxDistance * 0.65f);
-                var combinedScore = moveCost + preferredTargetError * 4f + ownerDistanceError;
+                var ownerDistanceError = Mathf.Abs(ownerDistance - ownerPreferredDistance);
+                var ownerDistanceRatio = ownerMaxDistance > 0.01f ? ownerDistance / ownerMaxDistance : 1f;
+                var combinedScore = moveCost
+                    + preferredTargetError * 5f
+                    + ownerDistanceError * 6f
+                    + ownerDistanceRatio * ownerDistanceRatio * 8f;
                 if (preferredTargetError <= 1.25f && combinedScore < bestPreferredScore)
                 {
                     bestPreferred = candidate;
@@ -473,7 +478,7 @@ namespace StellarisDaughter
         public string BuildSlotDescription(SD_DroneSlot slot)
         {
             var droneType = slot.DroneType ?? ResolveDroneTypeForIndex(slot.Index);
-            var droneTypeLabel = droneType?.label ?? droneType?.defName ?? "None";
+            var droneTypeLabel = string.IsNullOrWhiteSpace(droneType?.label) ? "未命名无人机" : droneType.label;
             var chargeText = slot.State == SD_DroneSlotState.Charging
                 ? slot.ChargeTicksRemaining.ToStringTicksToPeriod()
                 : "SD_Drone_SlotChargeReady".Translate().ToString();

@@ -1,15 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <StellarisDaughter.SD_DroneTypeDef>
-    <defName>SD_DroneType_Minipulser</defName>
+    <defName>SD_DroneType_Cannonpulser</defName>
+    <label>浮翼-艾琳伊丝</label>
+    <description>以高速脉冲弹幕进行持续压制的无人机型号，适合处理中近距离目标。</description>
     <droneDef>SD_Demo_DroneEntity</droneDef>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
-        <defaultProjectile>SD_Bullet_Minipulser</defaultProjectile>
+        <defaultProjectile>SD_Bullet_MinipulserEX</defaultProjectile>
         <hasStandardCommand>true</hasStandardCommand>
         <warmupTime>0.1</warmupTime>
-        <range>48</range>
+        <range>36</range>
         <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
         <burstShotCount>4</burstShotCount>
         <soundCast>AgonyPulse_Cast</soundCast>
@@ -18,7 +20,7 @@
       </li>
     </verbs>
     <rechargeTicks>0</rechargeTicks>
-    <alertRange>48</alertRange>
+    <alertRange>36</alertRange>
     <orbitRadius>3.2</orbitRadius>
     <squadronSpreadRadius>0.55</squadronSpreadRadius>
     <moveSpeed>4</moveSpeed>
@@ -54,6 +56,8 @@
 
   <StellarisDaughter.SD_DroneTypeDef>
     <defName>SD_DroneType_Laser</defName>
+    <label>浮翼-萨诺里安</label>
+    <description>搭载持续激光武装的无人机型号，倾向于在较远距离进行精确打击。</description>
     <droneDef>SD_Demo_DroneEntity</droneDef>
     <verbs>
       <li>
@@ -104,6 +108,114 @@
       </li>
     </trails>
     <deployTicks>30</deployTicks>
+    <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
+  </StellarisDaughter.SD_DroneTypeDef>
+
+  <StellarisDaughter.SD_DroneTypeDef>
+    <defName>SD_DroneType_Cannon</defName>
+    <label>浮翼-库图卡诺斯</label>
+    <description>搭载远距离能量团发射器武装的无人机型号，倾向于在较远距离进行精确打击。</description>
+    <droneDef>SD_Demo_DroneEntity</droneDef>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>SD_Bullet_Cannon</defaultProjectile>
+        <hasStandardCommand>true</hasStandardCommand>
+        <range>60</range>
+        <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+        <burstShotCount>1</burstShotCount>
+        <defaultCooldownTime>8</defaultCooldownTime>
+        <soundCast>AgonyPulse_Cast</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>5</muzzleFlashScale>
+      </li>
+    </verbs>
+    <rechargeTicks>0</rechargeTicks>
+    <alertRange>60</alertRange>
+    <orbitRadius>6.4</orbitRadius>
+    <squadronSpreadRadius>0.9</squadronSpreadRadius>
+    <moveSpeed>4</moveSpeed>
+    <trails>
+      <li>
+        <texturePath>StellarisDaughter/Things/DroneTrail/SD_Drone_trail</texturePath>
+        <width>0.15</width>
+        <length>13</length>
+        <minSpeed>1.2</minSpeed>
+        <cutoffSpeed>0.2</cutoffSpeed>
+        <uvScale>1.0</uvScale>
+        <localOffset>(0, 0, -0.2)</localOffset>
+        <widthCurve>
+          <points>
+            <li>(0, 0)</li>
+            <li>(0.8, 1)</li>
+            <li>(1, 0)</li>
+          </points>
+        </widthCurve>
+        <alphaCurve>
+          <points>
+            <li>(0, 0)</li>
+            <li>(0.5, 1)</li>
+            <li>(0.8, 1)</li>
+            <li>(1, 0)</li>
+          </points>
+        </alphaCurve>
+      </li>
+    </trails>
+    <deployTicks>30</deployTicks>
+    <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
+  </StellarisDaughter.SD_DroneTypeDef>
+
+  <StellarisDaughter.SD_DroneTypeDef>
+    <defName>SD_DroneType_Minipulser</defName>
+    <label>浮翼-埃泽纳尔</label>
+    <description>以高速脉冲弹幕进行持续压制的无人机型号，适合处理中近距离目标。</description>
+    <droneDef>SD_Demo_DroneEntity</droneDef>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>SD_Bullet_Minipulser</defaultProjectile>
+        <hasStandardCommand>true</hasStandardCommand>
+        <range>24</range>
+				<ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+				<burstShotCount>16</burstShotCount>
+        <defaultCooldownTime>2</defaultCooldownTime>
+				<soundCast>SD_Minipulser</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>5</muzzleFlashScale>
+      </li>
+    </verbs>
+    <rechargeTicks>0</rechargeTicks>
+    <alertRange>24</alertRange>
+    <orbitRadius>3.2</orbitRadius>
+    <squadronSpreadRadius>0.55</squadronSpreadRadius>
+    <moveSpeed>4</moveSpeed>
+    <trails>
+      <li>
+        <texturePath>StellarisDaughter/Things/DroneTrail/SD_Drone_trail</texturePath>
+        <width>0.15</width>
+        <length>13</length>
+        <minSpeed>1.2</minSpeed>
+        <cutoffSpeed>0.2</cutoffSpeed>
+        <uvScale>1.0</uvScale>
+        <localOffset>(0, 0, -0.2)</localOffset>
+        <widthCurve>
+          <points>
+            <li>(0, 0)</li>
+            <li>(0.8, 1)</li>
+            <li>(1, 0)</li>
+          </points>
+        </widthCurve>
+        <alphaCurve>
+          <points>
+            <li>(0, 0)</li>
+            <li>(0.5, 1)</li>
+            <li>(0.8, 1)</li>
+            <li>(1, 0)</li>
+          </points>
+        </alphaCurve>
+      </li>
+    </trails>
+    <deployTicks>28</deployTicks>
     <loiterTicksWithoutTarget>1200</loiterTicksWithoutTarget>
   </StellarisDaughter.SD_DroneTypeDef>
 </Defs>
