@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <SD_AIOverwatch_Label>P.I.A 正在接管轨道防御！</SD_AIOverwatch_Label>
-  <SD_AIOverwatch_Desc>P.I.A 已经接管了轨道防御系统，正在持续扫描敌对目标。\n\n如果有敌人出现且无误伤风险，轨道舰队将自动进行打击。\n\n剩余时间：{0} 秒</SD_AIOverwatch_Desc>
-  <SD_AIOverwatch_AlreadyActive>P.I.A 轨道监视协议已处于激活状态（剩余 {0} 秒）。请求被忽略。</SD_AIOverwatch_AlreadyActive>
-  <SD_AIOverwatch_Engaged>P.I.A 轨道监视协议：已启动，持续 {0} 秒。</SD_AIOverwatch_Engaged>
-  <SD_AIOverwatch_Disengaged>P.I.A 轨道监视协议：已解除。</SD_AIOverwatch_Disengaged>
-  <SD_AIOverwatch_SystemActive>[P.I.A 轨道监视] 系统运行中。剩余时间：{0} 秒。</SD_AIOverwatch_SystemActive>
-  <SD_AIOverwatch_FriendlyFireAbort>[P.I.A 轨道监视] 目标 {0} 打击中止：友军误伤风险。</SD_AIOverwatch_FriendlyFireAbort>
-  <SD_AIOverwatch_MassiveCluster>[P.I.A 轨道监视] 发现超大型敌群（{0} 个目标）！执行联合打击！</SD_AIOverwatch_MassiveCluster>
-  <SD_AIOverwatch_EngagingLance>[P.I.A 轨道监视] 对敌群（{0} 个目标）发射光矛。</SD_AIOverwatch_EngagingLance>
-  <SD_AIOverwatch_EngagingCannon>[P.I.A 轨道监视] 对敌群（{0} 个目标）发射副炮齐射。</SD_AIOverwatch_EngagingCannon>
-  <SD_AIOverwatch_EngagingMinigun>[P.I.A 轨道监视] 对敌方（{0} 个目标）发射链炮扫射。</SD_AIOverwatch_EngagingMinigun>
-  <SD_AIOverwatch_FleetCalled>[P.I.A 轨道监视] 帝国舰队已抵达轨道。</SD_AIOverwatch_FleetCalled>
-  <SD_AIOverwatch_FleetCleared>[P.I.A 轨道监视] 航道已净空。</SD_AIOverwatch_FleetCleared>
-  <SD_AIOverwatch_EngagingBuilding>[P.I.A 轨道监视] 对敌方建筑/炮台发射炮击。</SD_AIOverwatch_EngagingBuilding>
+  <SD_AIOverwatch_Label>星穹之矛正在封锁星域！</SD_AIOverwatch_Label>
+  <SD_AIOverwatch_Desc>星穹之矛已经接管了轨道防御，正在持续扫描敌对目标。\n\n如果有敌人出现且无误伤风险，轨道舰队将自动进行打击。\n\n剩余时间：{0} 秒</SD_AIOverwatch_Desc>
+  <SD_AIOverwatch_AlreadyActive>星穹之矛轨道封锁已处于激活状态（剩余 {0} 秒）。请求被忽略。</SD_AIOverwatch_AlreadyActive>
+  <SD_AIOverwatch_Engaged>星穹之矛轨道封锁：已启动，持续 {0} 秒。</SD_AIOverwatch_Engaged>
+  <SD_AIOverwatch_Disengaged>星穹之矛轨道封锁：已解除。</SD_AIOverwatch_Disengaged>
+  <SD_AIOverwatch_SystemActive>[星穹之矛] 系统运行中。剩余时间：{0} 秒。</SD_AIOverwatch_SystemActive>
+  <SD_AIOverwatch_FriendlyFireAbort>[星穹之矛] 目标 {0} 打击中止：友军误伤风险。</SD_AIOverwatch_FriendlyFireAbort>
+  <SD_AIOverwatch_MassiveCluster>[星穹之矛] 发现超大型敌群（{0} 个目标）！执行联合打击！</SD_AIOverwatch_MassiveCluster>
+  <SD_AIOverwatch_EngagingLance>[星穹之矛] 对敌群（{0} 个目标）发射光矛。</SD_AIOverwatch_EngagingLance>
+  <SD_AIOverwatch_EngagingCannon>[星穹之矛] 对敌群（{0} 个目标）发射副炮齐射。</SD_AIOverwatch_EngagingCannon>
+  <SD_AIOverwatch_EngagingMinigun>[星穹之矛] 对敌方（{0} 个目标）发射链炮扫射。</SD_AIOverwatch_EngagingMinigun>
+  <SD_AIOverwatch_FleetCalled>[星穹之矛] 帝国舰队已抵达轨道。</SD_AIOverwatch_FleetCalled>
+  <SD_AIOverwatch_FleetCleared>[星穹之矛] 航道已净空。</SD_AIOverwatch_FleetCleared>
+  <SD_AIOverwatch_EngagingBuilding>[星穹之矛] 对敌方建筑/炮台发射炮击。</SD_AIOverwatch_EngagingBuilding>
 </LanguageData>
