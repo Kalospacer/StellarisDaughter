@@ -2,7 +2,7 @@
 <Defs>
   <HediffDef>
     <defName>SD_Retardant</defName>
-    <label>retardant</label>
+    <label>星规-相位迟滞</label>
     <description>Slows the target for a short time.</description>
     <hediffClass>StellarisDaughter.HediffWithSeverityLabel</hediffClass>
     <isBad>false</isBad>
@@ -33,7 +33,7 @@
 
   <HediffDef ParentName="DiseaseBase">
     <defName>SD_RailgunDebuff</defName>
-    <label>railgun overload</label>
+    <label>星规-相位过载</label>
     <description>Incoming damage and ranged handling are destabilized for a short time.</description>
     <hediffClass>StellarisDaughter.HediffWithSeverityLabel</hediffClass>
     <isBad>false</isBad>

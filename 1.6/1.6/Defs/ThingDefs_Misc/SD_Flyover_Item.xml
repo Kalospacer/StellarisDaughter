@@ -11,7 +11,7 @@
       <texPath>StellarisDaughter/Things/FlyOverThing/SD_Spear_Of_Galaxy_Zenith_Shadow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
-      <drawSize>(100,250)</drawSize>
+      <drawSize>(250,250)</drawSize>
       <color>(195,195,195,45)</color>
     </graphicData>
     <skyfaller>
@@ -32,9 +32,9 @@
         <maxShadowScale>0</maxShadowScale>
 
         <!-- 淡入淡出开关 -->
-        <useFadeEffects>false</useFadeEffects>      <!-- 完全禁用淡入淡出 -->
-        <useFadeIn>false</useFadeIn>                <!-- 仅禁用淡入 -->
-        <useFadeOut>false</useFadeOut>              <!-- 仅禁用淡出 -->
+        <useFadeEffects>false</useFadeEffects>        <!-- 完全禁用淡入淡出 -->
+        <useFadeIn>false</useFadeIn>        <!-- 仅禁用淡入 -->
+        <useFadeOut>false</useFadeOut>        <!-- 仅禁用淡出 -->
         <useApproachAnimation>true</useApproachAnimation>
         <approachDuration>1</approachDuration>
         <approachOffsetDistance>50</approachOffsetDistance>
@@ -51,13 +51,13 @@
       </li>
       <!-- 入场信封信息 -->
       <li Class="StellarisDaughter.CompProperties_SendLetterAfterTicks">
-        <ticksDelay>60</ticksDelay> <!-- 2秒后发送 -->
+        <ticksDelay>60</ticksDelay>        <!-- 2秒后发送 -->
         <letterLabel>星穹之矛已跃迁抵达</letterLabel>
         <letterText>星穹之矛响应星规的指令，跃迁抵达殖民地星域上空</letterText>
         <letterDef>PositiveEvent</letterDef>
         <onlySendOnce>true</onlySendOnce>
         <requireOnMap>true</requireOnMap>
-        <destroyAfterSending>false</destroyAfterSending> <!-- 发送后销毁flyover -->
+        <destroyAfterSending>false</destroyAfterSending>        <!-- 发送后销毁flyover -->
       </li>
       <li Class="StellarisDaughter.CompProperties_FlyOverFacilities">
         <availableFacilities>
@@ -69,44 +69,88 @@
       </li>
       <!-- 新增冷却组件 -->
       <li Class="StellarisDaughter.CompProperties_FlyOverCooldown">
-        <baseCooldownTicks>60000</baseCooldownTicks> <!-- 1天 -->
+        <baseCooldownTicks>60000</baseCooldownTicks>        <!-- 1天 -->
       </li>
       <!-- 伴飞 -->
-      <li Class="StellarisDaughter.CompProperties_FlyOverEscort">
+      <li Class="WulaFallenEmpire.CompProperties_FlyOverEscort">
         <escortFlyOverDef>SD_Cruiser_Escort</escortFlyOverDef>
-        
+
         <!-- 生成配置 -->
-        <spawnIntervalTicks>1350</spawnIntervalTicks> <!-- 5秒 -->
-        <maxEscorts>10</maxEscorts>
+        <spawnIntervalTicks>1000</spawnIntervalTicks>        <!-- 5秒 -->
+        <maxEscorts>20</maxEscorts>
         <spawnCount>1</spawnCount>
-        
+
         <!-- 位置配置 -->
         <spawnDistance>0</spawnDistance>
-        <lateralOffset>130</lateralOffset>
+        <lateralOffset>100</lateralOffset>
         <verticalOffset>5</verticalOffset>
         <useRandomOffset>true</useRandomOffset>
-        <minSafeDistanceBetweenEscorts>10</minSafeDistanceBetweenEscorts> <!-- 伴飞物之间的距离 -->
-        <minSafeDistanceFromMain>70</minSafeDistanceFromMain> <!-- 与主飞行物的距离检查 -->
-        
+        <minSafeDistanceBetweenEscorts>10</minSafeDistanceBetweenEscorts>        <!-- 伴飞物之间的距离 -->
+        <minSafeDistanceFromMain>70</minSafeDistanceFromMain>        <!-- 与主飞行物的距离检查 -->
+
         <!-- 飞行配置 -->
-        <escortSpeedMultiplier>15</escortSpeedMultiplier> <!-- 比主舰稍快 -->
-        <escortAltitudeOffset>10</escortAltitudeOffset> <!-- 比主舰稍高 -->
+        <escortSpeedMultiplier>25</escortSpeedMultiplier>        <!-- 比主舰稍快 -->
+        <escortAltitudeOffset>10</escortAltitudeOffset>        <!-- 比主舰稍高 -->
         <mirrorMovement>false</mirrorMovement>
-        
+
         <!-- 行为配置 -->
         <spawnOnStart>true</spawnOnStart>
         <destroyWithParent>false</destroyWithParent>
         <continuousSpawning>true</continuousSpawning>
-        
+
         <!-- 外观配置 -->
         <useParentRotation>true</useParentRotation>
-      
+
         <!-- 缩放区间配置 -->
         <escortScaleRange>
           <min>0.3</min>
           <max>0.6</max>
         </escortScaleRange>
-        
+
+        <!-- 高度遮罩配置 -->
+        <useHeightMask>true</useHeightMask>
+        <heightMaskAlphaRange>
+          <min>0.6</min>
+          <max>0.8</max>
+        </heightMaskAlphaRange>
+        <heightMaskColor>(0.7,0.85,1.0,1.0)</heightMaskColor>
+        <heightMaskScaleMultiplier>1.3</heightMaskScaleMultiplier>
+      </li>
+      <li Class="StellarisDaughter.CompProperties_FlyOverEscort">
+        <escortFlyOverDef>SD_Cruiser_Escort</escortFlyOverDef>
+
+        <!-- 生成配置 -->
+        <spawnIntervalTicks>1350</spawnIntervalTicks>        <!-- 5秒 -->
+        <maxEscorts>10</maxEscorts>
+        <spawnCount>1</spawnCount>
+
+        <!-- 位置配置 -->
+        <spawnDistance>0</spawnDistance>
+        <lateralOffset>130</lateralOffset>
+        <verticalOffset>5</verticalOffset>
+        <useRandomOffset>true</useRandomOffset>
+        <minSafeDistanceBetweenEscorts>10</minSafeDistanceBetweenEscorts>        <!-- 伴飞物之间的距离 -->
+        <minSafeDistanceFromMain>70</minSafeDistanceFromMain>        <!-- 与主飞行物的距离检查 -->
+
+        <!-- 飞行配置 -->
+        <escortSpeedMultiplier>15</escortSpeedMultiplier>        <!-- 比主舰稍快 -->
+        <escortAltitudeOffset>10</escortAltitudeOffset>        <!-- 比主舰稍高 -->
+        <mirrorMovement>false</mirrorMovement>
+
+        <!-- 行为配置 -->
+        <spawnOnStart>true</spawnOnStart>
+        <destroyWithParent>false</destroyWithParent>
+        <continuousSpawning>true</continuousSpawning>
+
+        <!-- 外观配置 -->
+        <useParentRotation>true</useParentRotation>
+
+        <!-- 缩放区间配置 -->
+        <escortScaleRange>
+          <min>0.3</min>
+          <max>0.6</max>
+        </escortScaleRange>
+
         <!-- 高度遮罩配置 -->
         <useHeightMask>true</useHeightMask>
         <heightMaskAlphaRange>
@@ -118,39 +162,39 @@
       </li>
       <li Class="StellarisDaughter.CompProperties_FlyOverEscort">
         <escortFlyOverDef>SD_Executor_Escort</escortFlyOverDef>
-        
+
         <!-- 生成配置 -->
-        <spawnIntervalTicks>1350</spawnIntervalTicks> <!-- 5秒 -->
+        <spawnIntervalTicks>1350</spawnIntervalTicks>        <!-- 5秒 -->
         <maxEscorts>4</maxEscorts>
         <spawnCount>1</spawnCount>
-        
+
         <!-- 位置配置 -->
         <spawnDistance>0</spawnDistance>
         <lateralOffset>120</lateralOffset>
         <verticalOffset>5</verticalOffset>
         <useRandomOffset>true</useRandomOffset>
-        <minSafeDistanceBetweenEscorts>30</minSafeDistanceBetweenEscorts> <!-- 伴飞物之间的距离 -->
-        <minSafeDistanceFromMain>80</minSafeDistanceFromMain> <!-- 与主飞行物的距离检查 -->
-        
+        <minSafeDistanceBetweenEscorts>30</minSafeDistanceBetweenEscorts>        <!-- 伴飞物之间的距离 -->
+        <minSafeDistanceFromMain>80</minSafeDistanceFromMain>        <!-- 与主飞行物的距离检查 -->
+
         <!-- 飞行配置 -->
-        <escortSpeedMultiplier>7</escortSpeedMultiplier> <!-- 比主舰稍快 -->
-        <escortAltitudeOffset>10</escortAltitudeOffset> <!-- 比主舰稍高 -->
+        <escortSpeedMultiplier>7</escortSpeedMultiplier>        <!-- 比主舰稍快 -->
+        <escortAltitudeOffset>10</escortAltitudeOffset>        <!-- 比主舰稍高 -->
         <mirrorMovement>false</mirrorMovement>
-        
+
         <!-- 行为配置 -->
         <spawnOnStart>true</spawnOnStart>
         <destroyWithParent>false</destroyWithParent>
         <continuousSpawning>true</continuousSpawning>
-        
+
         <!-- 外观配置 -->
         <useParentRotation>true</useParentRotation>
-      
+
         <!-- 缩放区间配置 -->
         <escortScaleRange>
           <min>0.3</min>
           <max>0.6</max>
         </escortScaleRange>
-        
+
         <!-- 高度遮罩配置 -->
         <useHeightMask>true</useHeightMask>
         <heightMaskAlphaRange>
@@ -161,10 +205,10 @@
         <heightMaskScaleMultiplier>1.3</heightMaskScaleMultiplier>
       </li>
     </comps>
-  </ThingDef> 
+  </ThingDef>
 
   <!-- 伴飞类 -->
-   <ThingDef ParentName="EtherealThingBase">
+  <ThingDef ParentName="EtherealThingBase">
     <defName>SD_Cruiser_Escort</defName>
     <label>星规巡航单元（伴飞）</label>
     <thingClass>StellarisDaughter.FlyOver</thingClass>
@@ -175,7 +219,7 @@
       <texPath>StellarisDaughter/Things/FlyOverThing/SD_Cruiser_Shadow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
-      <drawSize>(30,15)</drawSize>
+      <drawSize>(30,30)</drawSize>
       <color>(255,255,255,45)</color>
     </graphicData>
     <castEdgeShadows>false</castEdgeShadows>
@@ -218,7 +262,7 @@
       <texPath>StellarisDaughter/Things/FlyOverThing/SD_Executor_Shadow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
-      <drawSize>(70,100)</drawSize>
+      <drawSize>(100,100)</drawSize>
       <color>(195,195,195,45)</color>
     </graphicData>
     <skyfaller>
@@ -239,9 +283,9 @@
         <maxShadowScale>0</maxShadowScale>
 
         <!-- 淡入淡出开关 -->
-        <useFadeEffects>false</useFadeEffects>      <!-- 完全禁用淡入淡出 -->
-        <useFadeIn>false</useFadeIn>                <!-- 仅禁用淡入 -->
-        <useFadeOut>false</useFadeOut>              <!-- 仅禁用淡出 -->
+        <useFadeEffects>false</useFadeEffects>        <!-- 完全禁用淡入淡出 -->
+        <useFadeIn>false</useFadeIn>        <!-- 仅禁用淡入 -->
+        <useFadeOut>false</useFadeOut>        <!-- 仅禁用淡出 -->
         <useApproachAnimation>true</useApproachAnimation>
         <approachDuration>1</approachDuration>
         <approachOffsetDistance>50</approachOffsetDistance>
@@ -260,10 +304,10 @@
       </li>
       <!-- 新增冷却组件 -->
       <li Class="StellarisDaughter.CompProperties_FlyOverCooldown">
-        <baseCooldownTicks>60000</baseCooldownTicks> <!-- 1天 -->
+        <baseCooldownTicks>60000</baseCooldownTicks>        <!-- 1天 -->
       </li>
     </comps>
-  </ThingDef> 
+  </ThingDef>
 
   <!-- 全域封锁舰队 -->
   <ThingDef ParentName="EtherealThingBase">
@@ -276,7 +320,7 @@
       <texPath>StellarisDaughter/Things/FlyOverThing/SD_Spear_Of_Galaxy_Zenith_Shadow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
-      <drawSize>(100,250)</drawSize>
+      <drawSize>(250,250)</drawSize>
       <color>(195,195,195,45)</color>
     </graphicData>
     <skyfaller>
@@ -297,9 +341,9 @@
         <maxShadowScale>0</maxShadowScale>
 
         <!-- 淡入淡出开关 -->
-        <useFadeEffects>false</useFadeEffects>      <!-- 完全禁用淡入淡出 -->
-        <useFadeIn>false</useFadeIn>                <!-- 仅禁用淡入 -->
-        <useFadeOut>false</useFadeOut>              <!-- 仅禁用淡出 -->
+        <useFadeEffects>false</useFadeEffects>        <!-- 完全禁用淡入淡出 -->
+        <useFadeIn>false</useFadeIn>        <!-- 仅禁用淡入 -->
+        <useFadeOut>false</useFadeOut>        <!-- 仅禁用淡出 -->
         <useApproachAnimation>true</useApproachAnimation>
         <approachDuration>1</approachDuration>
         <approachOffsetDistance>50</approachOffsetDistance>
@@ -317,39 +361,39 @@
       </li>
       <li Class="StellarisDaughter.CompProperties_FlyOverEscort">
         <escortFlyOverDef>SD_Executor_Planet_Interdiction</escortFlyOverDef>
-        
+
         <!-- 生成配置 -->
-        <spawnIntervalTicks>1350</spawnIntervalTicks> <!-- 5秒 -->
+        <spawnIntervalTicks>1350</spawnIntervalTicks>        <!-- 5秒 -->
         <maxEscorts>4</maxEscorts>
         <spawnCount>1</spawnCount>
-        
+
         <!-- 位置配置 -->
         <spawnDistance>0</spawnDistance>
         <lateralOffset>70</lateralOffset>
         <verticalOffset>5</verticalOffset>
         <useRandomOffset>true</useRandomOffset>
-        <minSafeDistanceBetweenEscorts>30</minSafeDistanceBetweenEscorts> <!-- 伴飞物之间的距离 -->
-        <minSafeDistanceFromMain>80</minSafeDistanceFromMain> <!-- 与主飞行物的距离检查 -->
-        
+        <minSafeDistanceBetweenEscorts>30</minSafeDistanceBetweenEscorts>        <!-- 伴飞物之间的距离 -->
+        <minSafeDistanceFromMain>80</minSafeDistanceFromMain>        <!-- 与主飞行物的距离检查 -->
+
         <!-- 飞行配置 -->
-        <escortSpeedMultiplier>10</escortSpeedMultiplier> <!-- 比主舰稍快 -->
-        <escortAltitudeOffset>10</escortAltitudeOffset> <!-- 比主舰稍高 -->
+        <escortSpeedMultiplier>10</escortSpeedMultiplier>        <!-- 比主舰稍快 -->
+        <escortAltitudeOffset>10</escortAltitudeOffset>        <!-- 比主舰稍高 -->
         <mirrorMovement>false</mirrorMovement>
-        
+
         <!-- 行为配置 -->
         <spawnOnStart>true</spawnOnStart>
         <destroyWithParent>false</destroyWithParent>
         <continuousSpawning>true</continuousSpawning>
-        
+
         <!-- 外观配置 -->
         <useParentRotation>true</useParentRotation>
-      
+
         <!-- 缩放区间配置 -->
         <escortScaleRange>
           <min>0.3</min>
           <max>0.6</max>
         </escortScaleRange>
-        
+
         <!-- 高度遮罩配置 -->
         <useHeightMask>true</useHeightMask>
         <heightMaskAlphaRange>
@@ -365,13 +409,13 @@
         <attackRadius>65</attackRadius>
         <skyfallerDef>SD_Firepower_Cannon_Salvo_Skyfaller</skyfallerDef>
         <shellsPerVolley>12</shellsPerVolley>
-        
+
         <!-- 新增派系甄别配置 -->
         <useFactionDiscrimination>true</useFactionDiscrimination>
         <useMicroTracking>true</useMicroTracking>
       </li>
     </comps>
-  </ThingDef> 
+  </ThingDef>
   <ThingDef ParentName="EtherealThingBase">
     <defName>SD_Executor_Planet_Interdiction</defName>
     <label>星规执行单元（炮击）</label>
@@ -382,7 +426,7 @@
       <texPath>StellarisDaughter/Things/FlyOverThing/SD_Executor_Shadow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
-      <drawSize>(70,100)</drawSize>
+      <drawSize>(100,100)</drawSize>
       <color>(195,195,195,45)</color>
     </graphicData>
     <skyfaller>
@@ -403,9 +447,9 @@
         <maxShadowScale>0</maxShadowScale>
 
         <!-- 淡入淡出开关 -->
-        <useFadeEffects>false</useFadeEffects>      <!-- 完全禁用淡入淡出 -->
-        <useFadeIn>false</useFadeIn>                <!-- 仅禁用淡入 -->
-        <useFadeOut>false</useFadeOut>              <!-- 仅禁用淡出 -->
+        <useFadeEffects>false</useFadeEffects>        <!-- 完全禁用淡入淡出 -->
+        <useFadeIn>false</useFadeIn>        <!-- 仅禁用淡入 -->
+        <useFadeOut>false</useFadeOut>        <!-- 仅禁用淡出 -->
         <useApproachAnimation>true</useApproachAnimation>
         <approachDuration>1</approachDuration>
         <approachOffsetDistance>50</approachOffsetDistance>
@@ -423,7 +467,7 @@
         <attackRadius>65</attackRadius>
         <skyfallerDef>SD_Firepower_Cannon_Salvo_Skyfaller</skyfallerDef>
         <shellsPerVolley>12</shellsPerVolley>
-        
+
         <!-- 新增派系甄别配置 -->
         <useFactionDiscrimination>true</useFactionDiscrimination>
         <useMicroTracking>true</useMicroTracking>
@@ -465,7 +509,7 @@
         </points>
       </angleCurve>
       <explosionRadius>4</explosionRadius>
-      <explosionDamage>SD_SpearOfSRA_Burn</explosionDamage>
+      <explosionDamage>SD_SRA_Burn</explosionDamage>
       <explosionDamageFactor>0.1</explosionDamageFactor>
     </skyfaller>
     <comps>
@@ -487,7 +531,6 @@
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>MoteGlow</shaderType>
       <drawSize>8</drawSize>
-      <color>(86,66,157,255)</color>
     </graphicData>
     <skyfaller>
       <movementType>Accelerate</movementType>
@@ -512,7 +555,7 @@
         </points>
       </angleCurve>
       <explosionRadius>6</explosionRadius>
-      <explosionDamage>SD_SpearOfSRA_Burn</explosionDamage>
+      <explosionDamage>SD_SRA_Burn</explosionDamage>
       <explosionDamageFactor>0.5</explosionDamageFactor>
     </skyfaller>
     <comps>
@@ -621,13 +664,13 @@
   <ThingDef ParentName="EtherealThingBase">
     <defName>SD_EnergyLance_Base</defName>
     <label>星规-归虚之光</label>
-    <description>一束从乌拉帝国战舰上发射的纯净能量光束，将点燃路径上的一切活物。</description>
+    <description>一束从星穹之矛上发射的纯净能量光束，将点燃路径上的一切活物。</description>
     <thingClass>StellarisDaughter.EnergyLance</thingClass>
     <tickerType>Normal</tickerType>
     <drawerType>RealtimeOnly</drawerType>
     <drawOffscreen>true</drawOffscreen>
     <seeThroughFog>true</seeThroughFog>
-    
+
     <modExtensions>
       <li Class="StellarisDaughter.EnergyLanceExtension">
         <moteSpawnInterval>9999</moteSpawnInterval>
@@ -635,8 +678,15 @@
         <firesPerTick>2</firesPerTick>
         <effectRadius>15</effectRadius>
 
+        <!-- 伤害配置 -->
+        <flameDamageMin>65</flameDamageMin>
+        <flameDamageMax>100</flameDamageMax>
+        <corpseDamageMin>5</corpseDamageMin>
+        <corpseDamageMax>10</corpseDamageMax>
+        <!-- <damageDef>SD_DarkMatterFlame</damageDef> 不填则使用默认值 -->
+
         <flightSpeed>3</flightSpeed>
-        <acceleration>2</acceleration> 
+        <acceleration>2</acceleration>
         <maxSpeed>5</maxSpeed>
         <turnSpeed>90</turnSpeed>
 
@@ -657,21 +707,21 @@
       <!-- 光束视觉效果 -->
       <li Class="CompProperties_OrbitalBeam">
         <width>6</width>
-        <color>(147, 116, 201, 212)</color>
+        <color>(100, 150, 255, 212)</color>
         <!-- <sound>OrbitalBeam</sound> -->
       </li>
-      
+
       <!-- 相机震动 -->
       <li Class="CompProperties_CameraShaker">
         <mag>0.02</mag>
       </li>
-      
+
       <!-- 天空效果 -->
       <li Class="CompProperties_AffectsSky">
         <skyColors>
-          <sky>(147, 116, 201)</sky>
-          <shadow>(147, 116, 185)</shadow>
-          <overlay>(147, 116, 150)</overlay>
+          <sky>(100, 150, 255)</sky>
+          <shadow>(100, 150, 230)</shadow>
+          <overlay>(100, 150, 200)</overlay>
           <saturation>1.5</saturation>
         </skyColors>
       </li>
@@ -793,14 +843,14 @@
     </building>
     <comps>
       <li Class="StellarisDaughter.CompProperties_EnergyLanceTurret">
-          <energyLanceDef>SD_EnergyLance_Surveillance</energyLanceDef>
-          <energyLanceDuration>600</energyLanceDuration>
-          <energyLanceMoveDistance>25</energyLanceMoveDistance>
-          <detectionRange>36</detectionRange>
-          <targetUpdateInterval>30</targetUpdateInterval>
-          <targetSwitchRange>20</targetSwitchRange>
-          <warmupTicks>45</warmupTicks>
-          <cooldownTicks>180</cooldownTicks>
+        <energyLanceDef>SD_EnergyLance_Surveillance</energyLanceDef>
+        <energyLanceDuration>600</energyLanceDuration>
+        <energyLanceMoveDistance>25</energyLanceMoveDistance>
+        <detectionRange>36</detectionRange>
+        <targetUpdateInterval>30</targetUpdateInterval>
+        <targetSwitchRange>20</targetSwitchRange>
+        <warmupTicks>45</warmupTicks>
+        <cooldownTicks>180</cooldownTicks>
       </li>
       <li Class="StellarisDaughter.CompProperties_FactionSetter">
         <!-- <factionDef>Mechanoid</factionDef>  不写默认玩家派系-->
@@ -825,7 +875,7 @@
     <drawerType>RealtimeOnly</drawerType>
     <drawOffscreen>true</drawOffscreen>
     <seeThroughFog>true</seeThroughFog>
-    
+
     <!-- 比扫射用的光束结算更密集范围更小 -->
     <modExtensions>
       <li Class="StellarisDaughter.EnergyLanceExtension">
@@ -834,8 +884,15 @@
         <firesPerTick>1</firesPerTick>
         <effectRadius>10</effectRadius>
 
+        <!-- 伤害配置 -->
+        <flameDamageMin>65</flameDamageMin>
+        <flameDamageMax>100</flameDamageMax>
+        <corpseDamageMin>5</corpseDamageMin>
+        <corpseDamageMax>10</corpseDamageMax>
+        <!-- <damageDef>SD_DarkMatterFlame</damageDef> 不填则使用默认值 -->
+
         <flightSpeed>3</flightSpeed>
-        <acceleration>2</acceleration> 
+        <acceleration>2</acceleration>
         <maxSpeed>5</maxSpeed>
         <turnSpeed>90</turnSpeed>
 
@@ -856,21 +913,21 @@
       <!-- 光束视觉效果 -->
       <li Class="CompProperties_OrbitalBeam">
         <width>6</width>
-        <color>(147, 116, 201, 212)</color>
+        <color>(100, 150, 255, 212)</color>
         <!-- <sound>OrbitalBeam</sound> -->
       </li>
-      
+
       <!-- 相机震动 -->
       <li Class="CompProperties_CameraShaker">
         <mag>0.02</mag>
       </li>
-      
+
       <!-- 天空效果 -->
       <li Class="CompProperties_AffectsSky">
         <skyColors>
-          <sky>(147, 116, 201)</sky>
-          <shadow>(147, 116, 185)</shadow>
-          <overlay>(147, 116, 150)</overlay>
+          <sky>(100, 150, 255)</sky>
+          <shadow>(100, 150, 230)</shadow>
+          <overlay>(100, 150, 200)</overlay>
           <saturation>1.5</saturation>
         </skyColors>
       </li>
@@ -882,7 +939,7 @@
   </ThingDef>
   <ThingDef ParentName="SkyfallerBase">
     <defName>SD_Firepower_Primary_Cannon_Strafe_Skyfaller</defName>
-    <label>星规-虚空撕裂重型能量团炮弹</label>
+    <label>星规-寰宇追迹之火能量鱼雷</label>
     <size>(1, 1)</size>
     <graphicData>
       <texPath>StellarisDaughter/SRACompat/Projectile/SRA_Photon_Missile</texPath>
@@ -939,8 +996,51 @@
     </graphicData>
   </ThingDef>
   <ThingDef ParentName="SkyfallerBase">
-    <defName>SD_Firepower_Primary_Cannon_EMP_Surveillance_Skyfaller</defName>
-    <label>主炮EMP监视信标</label>
+    <defName>SD_Firepower_Primary_Cannon_EMP_Skyfaller</defName>
+    <label>EMP主炮炮弹</label>
+    <size>(1, 1)</size>
+    <graphicData>
+      <texPath>StellarisDaughter/Imported/SD_Bullet_Plasma_Yellow</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>15</drawSize>
+      <color>(13,88,195,255)</color>
+    </graphicData>
+    <skyfaller>
+      <movementType>Accelerate</movementType>
+      <shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
+      <shadowSize>(5, 5)</shadowSize>
+      <anticipationSound>DropPod_Fall</anticipationSound>
+      <anticipationSoundTicks>100</anticipationSoundTicks>
+      <impactSound>Explosion_EMP</impactSound>
+      <moteSpawnTime>0.05</moteSpawnTime>
+      <motesPerCell>1</motesPerCell>
+      <cameraShake>1</cameraShake>
+      <rotationCurve>
+        <points>
+          <li>(0,150)</li>
+          <li>(1, 151)</li>
+        </points>
+      </rotationCurve>
+      <angleCurve>
+        <points>
+          <li>(0,-30)</li>
+          <li>(1, -31)</li>
+        </points>
+      </angleCurve>
+      <explosionRadius>35</explosionRadius>
+      <explosionDamage>EMP</explosionDamage>
+      <explosionDamageFactor>10</explosionDamageFactor>
+    </skyfaller>
+    <comps>
+      <li Class="StellarisDaughter.CompProperties_PlaySoundOnSpawn">
+        <sound>SD_PrimaryCannon_Fire</sound>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="SkyfallerBase">
+    <defName>SD_Firepower_Primary_Cannon_Surveillance_Skyfaller</defName>
+    <label>星规-寰宇追迹之火监视信标</label>
     <size>(1,1)</size>
     <graphicData>
       <texPath>StellarisDaughter/Imported/SD_Surveillance_Building</texPath>
@@ -968,13 +1068,13 @@
           <li>(1, 1)</li>
         </points>
       </angleCurve>
-      <spawnThing>SD_Firepower_Primary_Cannon_EMP_Surveillance_Beacon</spawnThing>
+      <spawnThing>SD_Firepower_Primary_Cannon_Surveillance_Beacon</spawnThing>
     </skyfaller>
   </ThingDef>
   <ThingDef ParentName="BuildingBase">
-    <defName>SD_Firepower_Primary_Cannon_EMP_Surveillance_Beacon</defName>
-    <label>主炮EMP监视信标</label>
-    <description>一枚标定监视区的轰炸信标，进入此处的敌对势力都会被星穹之锚的对舰武装狠狠打击。</description>
+    <defName>SD_Firepower_Primary_Cannon_Surveillance_Beacon</defName>
+    <label>星规-寰宇追迹之火监视信标</label>
+    <description>一枚标定监视区的轰炸信标，进入此处的敌对势力都会被星穹之矛的对舰武装狠狠打击。</description>
     <uiIconPath>StellarisDaughter/Imported/SD_WeaponArmor_Producer</uiIconPath>
     <tickerType>Normal</tickerType>
     <selectable>false</selectable>
@@ -1019,7 +1119,7 @@
         <innerBurstIntervalTicks>15</innerBurstIntervalTicks>
         <burstIntervalTicks>240</burstIntervalTicks>
         <randomOffset>6</randomOffset>
-        <skyfallerDef>SD_Firepower_Primary_Cannon_EMP_Skyfaller</skyfallerDef>
+        <skyfallerDef>SD_Firepower_Primary_Cannon_Strafe_Skyfaller</skyfallerDef>
       </li>
       <li Class="StellarisDaughter.CompProperties_FactionSetter">
         <!-- <factionDef>Mechanoid</factionDef>  不写默认玩家派系-->
@@ -1035,47 +1135,5 @@
       </li>
     </comps>
   </ThingDef>
-  <ThingDef ParentName="SkyfallerBase">
-    <defName>SD_Firepower_Primary_Cannon_EMP_Skyfaller</defName>
-    <label>EMP主炮炮弹</label>
-    <size>(1, 1)</size>
-    <graphicData>
-      <texPath>StellarisDaughter/Imported/SD_Bullet_Plasma_Yellow</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>MoteGlow</shaderType>
-      <drawSize>15</drawSize>
-      <color>(13,88,195,255)</color>
-    </graphicData>
-    <skyfaller>
-      <movementType>Accelerate</movementType>
-      <shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
-      <shadowSize>(5, 5)</shadowSize>
-      <anticipationSound>DropPod_Fall</anticipationSound>
-      <anticipationSoundTicks>100</anticipationSoundTicks>
-      <impactSound>Explosion_EMP</impactSound>
-      <moteSpawnTime>0.05</moteSpawnTime>
-      <motesPerCell>1</motesPerCell>
-      <cameraShake>1</cameraShake>
-      <rotationCurve>
-        <points>
-          <li>(0,150)</li>
-          <li>(1, 151)</li>
-        </points>
-      </rotationCurve>
-      <angleCurve>
-        <points>
-          <li>(0,-30)</li>
-          <li>(1, -31)</li>
-        </points>
-      </angleCurve>
-      <explosionRadius>35</explosionRadius>
-      <explosionDamage>EMP</explosionDamage>
-      <explosionDamageFactor>10</explosionDamageFactor>
-    </skyfaller>
-    <comps>
-      <li Class="StellarisDaughter.CompProperties_PlaySoundOnSpawn">
-        <sound>SD_PrimaryCannon_Fire</sound>
-      </li>
-    </comps>
-  </ThingDef>
+  
 </Defs>

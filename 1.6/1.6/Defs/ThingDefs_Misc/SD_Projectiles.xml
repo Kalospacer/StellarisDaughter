@@ -11,7 +11,7 @@
     </graphicData>
     <thingClass>StellarisDaughter.Projectile_ExplosiveTrackingBullet</thingClass>
     <projectile>
-      <damageDef>Bullet</damageDef>
+      <damageDef>SD_SRA_Burn</damageDef>
       <damageAmountBase>12</damageAmountBase>
       <armorPenetrationBase>1.0</armorPenetrationBase>
       <stoppingPower>5</stoppingPower>
@@ -20,10 +20,6 @@
       <explosionEffectLifetimeTicks>360</explosionEffectLifetimeTicks>
 
       <extraDamages>
-        <li>
-          <def>SD_Retardant</def>
-          <amount>24</amount>
-        </li>
         <li>
           <def>EMP</def>
           <amount>8</amount>
@@ -38,7 +34,7 @@
     <modExtensions>
       <li Class="StellarisDaughter.ExplosiveTrackingBulletDef">
         <explosionRadius>1.5</explosionRadius>
-        <damageDef>Bullet</damageDef>
+        <damageDef>SD_SRA_Burn</damageDef>
         <soundExplode>SD_Railgun_Explosion</soundExplode>
 
       </li>
@@ -69,17 +65,13 @@
     </graphicData>
     <thingClass>StellarisDaughter.Projectile_TrackingBullet</thingClass>
     <projectile>
-      <damageDef>Bullet</damageDef>
+      <damageDef>SD_SRA_Burn</damageDef>
       <damageAmountBase>12</damageAmountBase>
       <armorPenetrationBase>1.0</armorPenetrationBase>
       <stoppingPower>5</stoppingPower>
       <speed>80</speed>
 
       <extraDamages>
-        <li>
-          <def>SD_Retardant</def>
-          <amount>24</amount>
-        </li>
         <li>
           <def>EMP</def>
           <amount>8</amount>
@@ -117,7 +109,7 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <projectile>
-      <damageDef>SD_SpearOfSRA_Burn</damageDef>
+      <damageDef>SD_SRA_Burn</damageDef>
       <damageAmountBase>16</damageAmountBase>
       <beamMoteDef>SD_Mote_Pulse_Beam_Weapon</beamMoteDef>
       <beamStartOffset>0</beamStartOffset>
@@ -128,7 +120,7 @@
         <multiExplosiveBeams>
           <li>
             <radius>1</radius>
-            <damageDef>SD_SpearOfSRA_Burn</damageDef>
+            <damageDef>SD_SRA_Burn</damageDef>
             <damageAmount>32</damageAmount>
             <armorPenetration>1</armorPenetration>
             <explosionSound>Explosion_EMP</explosionSound>
@@ -171,7 +163,7 @@
       <drawSize>1.5</drawSize>
     </graphicData>
     <projectile>
-      <damageDef>Bomb</damageDef>
+      <damageDef>SD_SRA_Burn</damageDef>
       <damageAmountBase>64</damageAmountBase>
       <armorPenetrationBase>4</armorPenetrationBase>
       <stoppingPower>8</stoppingPower>
@@ -195,7 +187,7 @@
           </li>
           <li>
             <radius>1</radius>
-            <damageDef>SD_SpearOfSRA_Burn</damageDef>
+            <damageDef>SD_SRA_Burn</damageDef>
             <damageAmount>64</damageAmount>
             <armorPenetration>8</armorPenetration>
             <explosionSound>Explosion_EMP</explosionSound>

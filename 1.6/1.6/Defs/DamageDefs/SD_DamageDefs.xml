@@ -1,23 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <DamageDef ParentName="Flame">
+  
+  <DamageDef Name="SD_SRA_Burn">
+    <defName>SD_SRA_Burn</defName>
+    <label>相位崩解</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} was annihilated.</deathMessage>
+    <hediff>Burn</hediff>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <defaultDamage>800</defaultDamage>
+    <defaultStoppingPower>1.5</defaultStoppingPower>
+    <defaultArmorPenetration>4</defaultArmorPenetration>
+    <buildingDamageFactorImpassable>10</buildingDamageFactorImpassable>
+    <buildingDamageFactorPassable>10</buildingDamageFactorPassable>
+    <impactSoundType>Electric</impactSoundType>
+    <soundExplosion>SD_Railgun_Explosion</soundExplosion>
+    <armorCategory>Heat</armorCategory>
+    <overkillPctToDestroyPart>0.9~1</overkillPctToDestroyPart>
+    <isRanged>true</isRanged>
+    <makesAnimalsFlee>true</makesAnimalsFlee>
+    <ignoreShields>true</ignoreShields>
+    <plantDamageFactor>2</plantDamageFactor>
+    <explosionHeatEnergyPerCell>20</explosionHeatEnergyPerCell>
+    <explosionCellFleck>BlastEMP</explosionCellFleck>
+    <minDamageToFragment>15</minDamageToFragment>
+    <explosionColorCenter>(1, 1, 1)</explosionColorCenter>
+    <explosionColorEdge>(0.7, 0.8, 0.8, 0.8)</explosionColorEdge>
+    <expolosionPropagationSpeed>0.3</expolosionPropagationSpeed>
+    <hasForcefulImpact>true</hasForcefulImpact>
+    <corpseDamageFactor>0.1</corpseDamageFactor>
+    <additionalHediffs>
+      <li>
+        <hediff>SD_RailgunDebuff</hediff>
+        <severityPerDamageDealt>0.005</severityPerDamageDealt>
+        <inverseStatScaling>true</inverseStatScaling>
+        <victimSeverityScalingByInvBodySize>true</victimSeverityScalingByInvBodySize>
+      </li>
+      <li>
+        <hediff>SD_Retardant</hediff>
+        <severityFixed>0.2</severityFixed>
+        <inverseStatScaling>true</inverseStatScaling>
+        <victimSeverityScalingByInvBodySize>true</victimSeverityScalingByInvBodySize>
+      </li>
+    </additionalHediffs>
+  </DamageDef>
+
+  <DamageDef ParentName="SD_SRA_Burn">
     <defName>SD_DarkMatterFlame</defName>
-    <label>暗物质湮灭</label>
-    <deathMessage>{0} 被暗物质湮灭带来的高能射流蒸发。</deathMessage>
+    <label>相位崩解</label>
+    <deathMessage>{0} 被相位崩解。</deathMessage>
     <defaultDamage>15</defaultDamage>
     <defaultArmorPenetration>2</defaultArmorPenetration>
     <buildingDamageFactorImpassable>50</buildingDamageFactorImpassable>
     <buildingDamageFactorPassable>50</buildingDamageFactorPassable>
   </DamageDef>
-  <DamageDef ParentName="Bomb">
+  <DamageDef ParentName="SD_SRA_Burn">
     <defName>SD_DarkMatterBomb</defName>
-    <label>暗物质湮灭爆炸</label>
+    <label>相位崩解</label>
     <defaultDamage>550</defaultDamage>
     <defaultStoppingPower>2.0</defaultStoppingPower>
     <defaultArmorPenetration>1.30</defaultArmorPenetration>
     <explosionCenterEffecter>SD_DarkMatterBomb_Shockwave</explosionCenterEffecter>
     <explosionCellFleck>BlastEMP</explosionCellFleck>
-    <explosionColorEdge>(0.8, 0.8, 0.8, 0.8)</explosionColorEdge>
+    <explosionColorEdge>(0.7, 0.8, 0.8, 0.8)</explosionColorEdge>
   </DamageDef>
   <EffecterDef>
     <defName>SD_DarkMatterBomb_Shockwave</defName>
@@ -67,7 +113,7 @@
       <graphicClass>Graphic_FleckPulse</graphicClass>
       <texPath>Things/Mote/Black</texPath>
       <shaderType>MoteLargeDistortionWave</shaderType>
-      <color>(218,255,200,255)</color>
+      <color>(100, 150, 255, 255)</color>
       <shaderParameters>
         <_DistortionTex>/Things/Mote/PsychicDistortionCurrents</_DistortionTex>
         <_NoiseTex>/Things/Mote/PsycastNoise</_NoiseTex>
