@@ -775,7 +775,7 @@
     <label>星规-归虚之光监视信标</label>
     <size>(1,1)</size>
     <graphicData>
-      <texPath>StellarisDaughter/Imported/SD_Surveillance_Building</texPath>
+      <texPath>StellarisDaughter/Things/FlyOverThing/SD_Surveillance_Building</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
       <drawSize>(72,72)</drawSize>
@@ -807,14 +807,14 @@
     <defName>SD_Firepower_EnergyLance_Surveillance_Beacon</defName>
     <label>星规-归虚之光监视信标</label>
     <description>一枚标定监视区的轰炸信标，进入此处的敌对势力都会被星穹之矛的对舰武装狠狠打击。</description>
-    <uiIconPath>StellarisDaughter/Imported/SD_WeaponArmor_Producer</uiIconPath>
+    <uiIconPath>StellarisDaughter/Things/SD_Empty</uiIconPath>
     <tickerType>Normal</tickerType>
     <selectable>false</selectable>
     <useHitPoints>false</useHitPoints>
     <size>(1,1)</size>
     <terrainAffordanceNeeded Inherit="False" IsNull="True"/>
     <graphicData>
-      <texPath>StellarisDaughter/Imported/SD_Surveillance_Building</texPath>
+      <texPath>StellarisDaughter/Things/FlyOverThing/SD_Surveillance_Building</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
       <drawSize>(72,72)</drawSize>
@@ -996,54 +996,11 @@
     </graphicData>
   </ThingDef>
   <ThingDef ParentName="SkyfallerBase">
-    <defName>SD_Firepower_Primary_Cannon_EMP_Skyfaller</defName>
-    <label>EMP主炮炮弹</label>
-    <size>(1, 1)</size>
-    <graphicData>
-      <texPath>StellarisDaughter/Imported/SD_Bullet_Plasma_Yellow</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>MoteGlow</shaderType>
-      <drawSize>15</drawSize>
-      <color>(13,88,195,255)</color>
-    </graphicData>
-    <skyfaller>
-      <movementType>Accelerate</movementType>
-      <shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
-      <shadowSize>(5, 5)</shadowSize>
-      <anticipationSound>DropPod_Fall</anticipationSound>
-      <anticipationSoundTicks>100</anticipationSoundTicks>
-      <impactSound>Explosion_EMP</impactSound>
-      <moteSpawnTime>0.05</moteSpawnTime>
-      <motesPerCell>1</motesPerCell>
-      <cameraShake>1</cameraShake>
-      <rotationCurve>
-        <points>
-          <li>(0,150)</li>
-          <li>(1, 151)</li>
-        </points>
-      </rotationCurve>
-      <angleCurve>
-        <points>
-          <li>(0,-30)</li>
-          <li>(1, -31)</li>
-        </points>
-      </angleCurve>
-      <explosionRadius>35</explosionRadius>
-      <explosionDamage>EMP</explosionDamage>
-      <explosionDamageFactor>10</explosionDamageFactor>
-    </skyfaller>
-    <comps>
-      <li Class="StellarisDaughter.CompProperties_PlaySoundOnSpawn">
-        <sound>SD_PrimaryCannon_Fire</sound>
-      </li>
-    </comps>
-  </ThingDef>
-  <ThingDef ParentName="SkyfallerBase">
     <defName>SD_Firepower_Primary_Cannon_Surveillance_Skyfaller</defName>
     <label>星规-寰宇追迹之火监视信标</label>
     <size>(1,1)</size>
     <graphicData>
-      <texPath>StellarisDaughter/Imported/SD_Surveillance_Building</texPath>
+      <texPath>StellarisDaughter/Things/FlyOverThing/SD_Surveillance_Building</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
       <drawSize>(200,200)</drawSize>
@@ -1075,13 +1032,13 @@
     <defName>SD_Firepower_Primary_Cannon_Surveillance_Beacon</defName>
     <label>星规-寰宇追迹之火监视信标</label>
     <description>一枚标定监视区的轰炸信标，进入此处的敌对势力都会被星穹之矛的对舰武装狠狠打击。</description>
-    <uiIconPath>StellarisDaughter/Imported/SD_WeaponArmor_Producer</uiIconPath>
+    <uiIconPath>StellarisDaughter/Things/SD_Empty</uiIconPath>
     <tickerType>Normal</tickerType>
     <selectable>false</selectable>
     <useHitPoints>false</useHitPoints>
     <size>(1,1)</size>
     <graphicData>
-      <texPath>StellarisDaughter/Imported/SD_Surveillance_Building</texPath>
+      <texPath>StellarisDaughter/Things/FlyOverThing/SD_Surveillance_Building</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
       <drawSize>(170,170)</drawSize>
