@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <SoundDef>
+    <defName>SD_PrimaryCannon_Fire</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>StellarisDaughter/Imported/SD_PrimaryCannon_Fire</clipPath>
+          </li>
+        </grains>
+        <volumeRange>55</volumeRange>
+        <pitchRange>0.9~1.1</pitchRange>
+        <onCamera>True</onCamera>
+      </li>
+    </subSounds>
+  </SoundDef>
+  <SoundDef>
+    <defName>SD_Mothership_PlanetInterdiction_Incoming</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>StellarisDaughter/Imported/SD_Mothership_PlanetInterdiction_Incoming</clipPath>
+          </li>
+        </grains>
+        <volumeRange>55</volumeRange>
+        <pitchRange>0.9~1.1</pitchRange>
+        <onCamera>True</onCamera>
+      </li>
+    </subSounds>
+  </SoundDef>
+  <SoundDef>
+    <defName>SD_PlanetInterdiction_Incoming</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>StellarisDaughter/Imported/SD_Mothership_PlanetInterdiction_Incoming</clipPath>
+          </li>
+        </grains>
+        <volumeRange>55</volumeRange>
+        <pitchRange>0.9~1.1</pitchRange>
+        <onCamera>True</onCamera>
+      </li>
+    </subSounds>
+  </SoundDef>
+</Defs>

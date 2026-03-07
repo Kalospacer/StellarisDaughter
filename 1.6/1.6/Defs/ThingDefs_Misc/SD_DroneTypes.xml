@@ -119,7 +119,7 @@
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
-        <defaultProjectile>SD_Bullet_SRATurretGun_SRA_Mech_Tank_M_D</defaultProjectile>
+        <defaultProjectile>SD_Bullet_Cannon</defaultProjectile>
         <hasStandardCommand>true</hasStandardCommand>
         <range>60</range>
         <ticksBetweenBurstShots>1</ticksBetweenBurstShots>

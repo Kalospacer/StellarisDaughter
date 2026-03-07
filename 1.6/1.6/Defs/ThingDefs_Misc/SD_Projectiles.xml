@@ -2,7 +2,7 @@
 <Defs>
   <ThingDef ParentName="BaseBullet">
     <defName>SD_Bullet_MinipulserEX</defName>
-    <label>minipulser bolt</label>
+    <label>脉冲束</label>
     <graphicData>
       <texPath>StellarisDaughter/SRACompat/Projectile/ChargeLanceShot</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -60,7 +60,7 @@
 
   <ThingDef ParentName="BaseBullet">
     <defName>SD_Bullet_Minipulser</defName>
-    <label>minipulser bolt</label>
+    <label>脉冲束</label>
     <graphicData>
       <texPath>StellarisDaughter/SRACompat/Projectile/ChargeLanceShot</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -110,7 +110,7 @@
 
   <ThingDef ParentName="BaseBullet">
     <defName>SD_Bullet_Laser</defName>
-    <label>laser beam</label>
+    <label>能量束</label>
     <thingClass>StellarisDaughter.Projectile_SD_MultiExplosiveBeam</thingClass>
     <graphicData>
       <texPath>Things/Projectile/Bullet_Small</texPath>
@@ -161,8 +161,8 @@
   </ThingDef>
 
   <ThingDef ParentName="BaseBullet">
-    <defName>SD_Bullet_SRATurretGun_SRA_Mech_Tank_M_D</defName>
-    <label>定音鼓相位能量团</label>
+    <defName>SD_Bullet_Cannon</defName>
+    <label>相位能量团</label>
     <thingClass>StellarisDaughter.Projectile_SD_MultiExplosive</thingClass>
     <graphicData>
       <texPath>SRA/Projectile/SRA_Bullet_Plasma</texPath>
