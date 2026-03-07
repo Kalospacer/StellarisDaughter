@@ -69,6 +69,7 @@
     <everCurableByItem>false</everCurableByItem>
     <duplicationAllowed>false</duplicationAllowed>
     <isBad>false</isBad>
+    <preventsDeath>true</preventsDeath>
     <comps>
       <li Class="HediffCompProperties_VerbGiver">
         <tools Inherit="False">
@@ -87,6 +88,20 @@
       </li>
       <li Class="StellarisDaughter.HediffCompProperties_Regeneration">
         <repairCooldownAfterDamage>600</repairCooldownAfterDamage>
+      </li>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDefs>
+          <li>SD_CallSpear_Of_Galaxy_Zenith</li>
+          <li>SD_Spear_Of_Galaxy_Zenith_Overwatch</li>
+          <li>SD_ClearFlightPath</li>
+          <li>SD_Firepower_Minigun_Strafe</li>
+          <li>SD_Firepower_Cannon_Salvo</li>
+          <li>SD_Firepower_EnergyLance_Strafe</li>
+          <li>SD_Firepower_Primary_Cannon_Strafe</li>
+          <li>SD_Firepower_Cannon_Surveillance</li>
+          <li>SD_Firepower_EnergyLance_Surveillance</li>
+          <li>SD_Firepower_Primary_Cannon_Surveillance</li>
+        </abilityDefs>
       </li>
     </comps>
     <stages>

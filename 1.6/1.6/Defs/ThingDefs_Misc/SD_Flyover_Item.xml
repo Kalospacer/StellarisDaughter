@@ -509,7 +509,7 @@
         </points>
       </angleCurve>
       <explosionRadius>4</explosionRadius>
-      <explosionDamage>SD_SpearOfSRA_Burn</explosionDamage>
+      <explosionDamage>SD_SRA_Burn</explosionDamage>
       <explosionDamageFactor>0.1</explosionDamageFactor>
     </skyfaller>
     <comps>
@@ -555,7 +555,7 @@
         </points>
       </angleCurve>
       <explosionRadius>6</explosionRadius>
-      <explosionDamage>SD_SpearOfSRA_Burn</explosionDamage>
+      <explosionDamage>SD_SRA_Burn</explosionDamage>
       <explosionDamageFactor>0.5</explosionDamageFactor>
     </skyfaller>
     <comps>
@@ -664,7 +664,7 @@
   <ThingDef ParentName="EtherealThingBase">
     <defName>SD_EnergyLance_Base</defName>
     <label>星规-归虚之光</label>
-    <description>一束从乌拉帝国战舰上发射的纯净能量光束，将点燃路径上的一切活物。</description>
+    <description>一束从星穹之矛上发射的纯净能量光束，将点燃路径上的一切活物。</description>
     <thingClass>StellarisDaughter.EnergyLance</thingClass>
     <tickerType>Normal</tickerType>
     <drawerType>RealtimeOnly</drawerType>
@@ -677,6 +677,13 @@
 
         <firesPerTick>2</firesPerTick>
         <effectRadius>15</effectRadius>
+
+        <!-- 伤害配置 -->
+        <flameDamageMin>65</flameDamageMin>
+        <flameDamageMax>100</flameDamageMax>
+        <corpseDamageMin>5</corpseDamageMin>
+        <corpseDamageMax>10</corpseDamageMax>
+        <!-- <damageDef>SD_DarkMatterFlame</damageDef> 不填则使用默认值 -->
 
         <flightSpeed>3</flightSpeed>
         <acceleration>2</acceleration>
@@ -700,7 +707,7 @@
       <!-- 光束视觉效果 -->
       <li Class="CompProperties_OrbitalBeam">
         <width>6</width>
-        <color>(147, 116, 201, 212)</color>
+        <color>(100, 150, 255, 212)</color>
         <!-- <sound>OrbitalBeam</sound> -->
       </li>
 
@@ -712,9 +719,9 @@
       <!-- 天空效果 -->
       <li Class="CompProperties_AffectsSky">
         <skyColors>
-          <sky>(147, 116, 201)</sky>
-          <shadow>(147, 116, 185)</shadow>
-          <overlay>(147, 116, 150)</overlay>
+          <sky>(100, 150, 255)</sky>
+          <shadow>(100, 150, 230)</shadow>
+          <overlay>(100, 150, 200)</overlay>
           <saturation>1.5</saturation>
         </skyColors>
       </li>
@@ -877,6 +884,13 @@
         <firesPerTick>1</firesPerTick>
         <effectRadius>10</effectRadius>
 
+        <!-- 伤害配置 -->
+        <flameDamageMin>65</flameDamageMin>
+        <flameDamageMax>100</flameDamageMax>
+        <corpseDamageMin>5</corpseDamageMin>
+        <corpseDamageMax>10</corpseDamageMax>
+        <!-- <damageDef>SD_DarkMatterFlame</damageDef> 不填则使用默认值 -->
+
         <flightSpeed>3</flightSpeed>
         <acceleration>2</acceleration>
         <maxSpeed>5</maxSpeed>
@@ -899,7 +913,7 @@
       <!-- 光束视觉效果 -->
       <li Class="CompProperties_OrbitalBeam">
         <width>6</width>
-        <color>(147, 116, 201, 212)</color>
+        <color>(100, 150, 255, 212)</color>
         <!-- <sound>OrbitalBeam</sound> -->
       </li>
 
@@ -911,9 +925,9 @@
       <!-- 天空效果 -->
       <li Class="CompProperties_AffectsSky">
         <skyColors>
-          <sky>(147, 116, 201)</sky>
-          <shadow>(147, 116, 185)</shadow>
-          <overlay>(147, 116, 150)</overlay>
+          <sky>(100, 150, 255)</sky>
+          <shadow>(100, 150, 230)</shadow>
+          <overlay>(100, 150, 200)</overlay>
           <saturation>1.5</saturation>
         </skyColors>
       </li>

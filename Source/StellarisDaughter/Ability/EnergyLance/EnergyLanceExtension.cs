@@ -14,6 +14,13 @@ namespace StellarisDaughter
         public int firesPerTick = 4;
         public float effectRadius = 15f;
 
+        // 伤害数值配置
+        public int flameDamageMin = 65;           // 火焰伤害最小值
+        public int flameDamageMax = 100;          // 火焰伤害最大值
+        public int corpseDamageMin = 5;           // 尸体伤害最小值
+        public int corpseDamageMax = 10;          // 尸体伤害最大值
+        public DamageDef damageDef;               // 伤害类型（可选，默认使用 SD_DarkMatterFlame）
+
         // 新增：移动速度配置
         public float flightSpeed = 5f;             // 光束移动速度（格/秒）
         public float acceleration = 2f;            // 加速度
