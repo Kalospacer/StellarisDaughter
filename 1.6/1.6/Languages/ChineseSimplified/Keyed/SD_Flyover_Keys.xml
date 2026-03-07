@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_DestroyFlyOver>已净空航道，航道上的舰队正在回到高空轨道</SD_DestroyFlyOver>
+  <SD_NoFlyOverWithFacilities>当前没有带设施的轨道单位</SD_NoFlyOverWithFacilities>
+  <SD_AircraftManagerNotFound>战机管理器未找到</SD_AircraftManagerNotFound>
+  <SD_AircraftStrikeInitiated>{0}空袭已启动</SD_AircraftStrikeInitiated>
+  <SD_AircraftStrikeSuccess>成功调用 {0} 架 {1}</SD_AircraftStrikeSuccess>
+  <SD_NoAvailableAircraft>{0} 当前没有可用机体</SD_NoAvailableAircraft>
+  <SD_AircraftStrikeFailed>{0} 空袭调用失败，派系：{1}</SD_AircraftStrikeFailed>
+  <SD_UnknownFaction>未知派系</SD_UnknownFaction>
+  <SD_AircraftSystemNotReady>战机系统未就绪</SD_AircraftSystemNotReady>
+  <SD_NoAvailableAircraftType>没有可用的 {0}</SD_NoAvailableAircraftType>
+  <SD_AircraftInsufficient>{0} 数量不足，当前 {1}，需要 {2}</SD_AircraftInsufficient>
+  <SD_AircraftOnCooldown>{0} 正在冷却</SD_AircraftOnCooldown>
+  <SD_AvailableAircraft>可用：{0}</SD_AvailableAircraft>
+  <SD_CooldownAircraft>冷却：{0}</SD_CooldownAircraft>
+  <SD_CostPerUse>每次消耗：{0}</SD_CostPerUse>
+  <SD_NoAircraftForStrike>没有可用于本次打击的战机</SD_NoAircraftForStrike>
+  <SD_AircraftStatus>战机状态</SD_AircraftStatus>
+  <SD_TotalAircraft>总数：{0}</SD_TotalAircraft>
+  <SD_ReadyAircraft>就绪：{0}</SD_ReadyAircraft>
+  <SD_CooldownAircraftCount>冷却中：{0}</SD_CooldownAircraftCount>
+  <SD_AircraftRequirement>需求：{0} x{1}</SD_AircraftRequirement>
+  <SD_CooldownTime>冷却时间：{0}</SD_CooldownTime>
+  <SD_GlobalFlyOverCooldown.CannotUseOutsideMap>无法在地图外使用</SD_GlobalFlyOverCooldown.CannotUseOutsideMap>
+  <SD_GlobalFlyOverCooldown.NoAvailableFacilities>轨道上的战舰没有可用的武器阵列（共{0}个，全部冷却中）</SD_GlobalFlyOverCooldown.NoAvailableFacilities>
+  <SD_GlobalFlyOverCooldown.FacilityStatus>武器阵列：{0}个就绪，{1}个冷却中</SD_GlobalFlyOverCooldown.FacilityStatus>
+  <SD_GlobalFlyOverCooldown.FacilityStatusError>设施状态错误</SD_GlobalFlyOverCooldown.FacilityStatusError>
+  <SD_GlobalFlyOverCooldown.FacilityStatusDetailed>武器阵列：{0}个就绪，{1}个冷却中</SD_GlobalFlyOverCooldown.FacilityStatusDetailed>
+  <SD_GlobalFlyOverCooldown.CooldownTime>使用此支援后，武器阵列的冷却时间：{0}</SD_GlobalFlyOverCooldown.CooldownTime>
+  <SD_GlobalFlyOverCooldown.NoAvailableFacilitiesSimple>没有可用的武器阵列</SD_GlobalFlyOverCooldown.NoAvailableFacilitiesSimple>
+  <SD_FlyOverCooldown.Ready>就绪</SD_FlyOverCooldown.Ready>
+  <SD_FlyOverCooldown.CooldownRemaining>冷却：{0}</SD_FlyOverCooldown.CooldownRemaining>
+  <SD_FlyOverCooldown.BombardmentFacilityStatus>武器阵列：{0}</SD_FlyOverCooldown.BombardmentFacilityStatus>
+  <SD_FlyOverCooldown.BombardmentFacilityReady>武器阵列：就绪</SD_FlyOverCooldown.BombardmentFacilityReady>
+</LanguageData>

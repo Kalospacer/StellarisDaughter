@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_DestroyFlyOver>Airspace cleared, fleet on the flight path is returning to high orbit</SD_DestroyFlyOver>
+  <SD_NoFlyOverWithFacilities>No orbiting unit with facilities is currently available</SD_NoFlyOverWithFacilities>
+  <SD_AircraftManagerNotFound>Aircraft manager not found</SD_AircraftManagerNotFound>
+  <SD_AircraftStrikeInitiated>{0} airstrike initiated</SD_AircraftStrikeInitiated>
+  <SD_AircraftStrikeSuccess>Successfully called in {0} {1}</SD_AircraftStrikeSuccess>
+  <SD_NoAvailableAircraft>No available {0}</SD_NoAvailableAircraft>
+  <SD_AircraftStrikeFailed>{0} airstrike failed for faction: {1}</SD_AircraftStrikeFailed>
+  <SD_UnknownFaction>Unknown faction</SD_UnknownFaction>
+  <SD_AircraftSystemNotReady>Aircraft system not ready</SD_AircraftSystemNotReady>
+  <SD_NoAvailableAircraftType>No available {0}</SD_NoAvailableAircraftType>
+  <SD_AircraftInsufficient>{0} insufficient, available {1}, required {2}</SD_AircraftInsufficient>
+  <SD_AircraftOnCooldown>{0} is on cooldown</SD_AircraftOnCooldown>
+  <SD_AvailableAircraft>Available: {0}</SD_AvailableAircraft>
+  <SD_CooldownAircraft>Cooldown: {0}</SD_CooldownAircraft>
+  <SD_CostPerUse>Cost per use: {0}</SD_CostPerUse>
+  <SD_NoAircraftForStrike>No aircraft available for this strike</SD_NoAircraftForStrike>
+  <SD_AircraftStatus>Aircraft status</SD_AircraftStatus>
+  <SD_TotalAircraft>Total: {0}</SD_TotalAircraft>
+  <SD_ReadyAircraft>Ready: {0}</SD_ReadyAircraft>
+  <SD_CooldownAircraftCount>On cooldown: {0}</SD_CooldownAircraftCount>
+  <SD_AircraftRequirement>Requirement: {0} x{1}</SD_AircraftRequirement>
+  <SD_CooldownTime>Cooldown: {0}</SD_CooldownTime>
+  <SD_GlobalFlyOverCooldown.CannotUseOutsideMap>Cannot use outside map</SD_GlobalFlyOverCooldown.CannotUseOutsideMap>
+  <SD_GlobalFlyOverCooldown.NoAvailableFacilities>No available weapon arrays on orbiting warships (total {0}, all on cooldown)</SD_GlobalFlyOverCooldown.NoAvailableFacilities>
+  <SD_GlobalFlyOverCooldown.FacilityStatus>Weapon arrays: {0} ready, {1} on cooldown</SD_GlobalFlyOverCooldown.FacilityStatus>
+  <SD_GlobalFlyOverCooldown.FacilityStatusError>Facility status error</SD_GlobalFlyOverCooldown.FacilityStatusError>
+  <SD_GlobalFlyOverCooldown.FacilityStatusDetailed>Weapon arrays: {0} ready, {1} on cooldown</SD_GlobalFlyOverCooldown.FacilityStatusDetailed>
+  <SD_GlobalFlyOverCooldown.CooldownTime>Cooldown time for weapon arrays after using this support: {0}</SD_GlobalFlyOverCooldown.CooldownTime>
+  <SD_GlobalFlyOverCooldown.NoAvailableFacilitiesSimple>No available weapon arrays</SD_GlobalFlyOverCooldown.NoAvailableFacilitiesSimple>
+  <SD_FlyOverCooldown.Ready>Ready</SD_FlyOverCooldown.Ready>
+  <SD_FlyOverCooldown.CooldownRemaining>Cooldown: {0}</SD_FlyOverCooldown.CooldownRemaining>
+  <SD_FlyOverCooldown.BombardmentFacilityStatus>Weapon arrays: {0}</SD_FlyOverCooldown.BombardmentFacilityStatus>
+  <SD_FlyOverCooldown.BombardmentFacilityReady>Weapon arrays: Ready</SD_FlyOverCooldown.BombardmentFacilityReady>
+</LanguageData>
