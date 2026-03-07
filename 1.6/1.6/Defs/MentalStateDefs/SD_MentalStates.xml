@@ -19,7 +19,7 @@
   <!-- 恢复后的思想 -->
   <ThoughtDef>
     <defName>SD_WitchBerserkRecovered</defName>
-    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <durationDays>5</durationDays>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
