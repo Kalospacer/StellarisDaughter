@@ -56,7 +56,10 @@
     </apparelTags>
     <startingHediffs>
     </startingHediffs>
-    <weaponMoney>0</weaponMoney>
+    <weaponTags>
+      <li>SD_Spear_of_SRA</li>
+    </weaponTags>
+    <weaponMoney>32000~32000</weaponMoney>
   </PawnKindDef>
 
   <RulePackDef>
