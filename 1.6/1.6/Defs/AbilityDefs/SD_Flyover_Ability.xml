@@ -26,9 +26,9 @@
     </verbProperties>
     <comps>
       <li Class="StellarisDaughter.CompProperties_AircraftStrike">
-        <requiredAircraftType>WULA_MotherShip_Entity</requiredAircraftType>
+        <requiredAircraftType>SD_Spear_Of_Galaxy_Zenith_Entity</requiredAircraftType>
         <aircraftCooldownTicks>640000</aircraftCooldownTicks>
-        <aircraftsPerUse>1</aircraftsPerUse>
+        <aircraftsPerUse>0</aircraftsPerUse>
       </li>
       <li Class="StellarisDaughter.CompProperties_AbilitySpawnFlyOver">
         <flyOverDef>SD_Spear_Of_Galaxy_Zenith</flyOverDef>
@@ -51,8 +51,8 @@
 
   <AbilityDef>
     <defName>SD_ClearFlightPath</defName>
-    <label>Flight Path Clearance</label>
-    <description>Orders the fleet in low orbit to depart, allowing other Wula Empire fleets to enter.</description>
+    <label>星域净空</label>
+    <description>命令星域内的舰队立即撤离，清空空域。</description>
     <iconPath>Wula/UI/Abilities/WULA_ClearFlightPath</iconPath>
     <cooldownTicksRange>1</cooldownTicksRange>
     <hotKey>Misc12</hotKey>
@@ -115,8 +115,8 @@
 
   <AbilityDef>
     <defName>SD_Firepower_Minigun_Strafe</defName>
-    <label>Chain Gun Strafing</label>
-    <description>Uses the ship's automatic chain guns to strafe the target area in a selectable direction. Fast firing rate and cooldown, effective against lightly armored targets, but power is lacking.</description>
+    <label>星穹之矛：光辉之冠扫射</label>
+    <description>命令星穹之矛使用其点防御对舰武装对目标区域进行扫射。</description>
     <iconPath>StellarisDaughter/Imported/Abilities/SD_Firepower_Minigun_Strafe</iconPath>
     <cooldownTicksRange>1</cooldownTicksRange>
     <hotKey>Misc12</hotKey>
@@ -154,265 +154,251 @@
       </li>
       <li Class="StellarisDaughter.CompProperties_RequireFlyOverFacility">
         <requiredFacility>BombardmentFacility</requiredFacility>
-        <facilityNotFoundMessage>A ship with a <color=#BD2F31>
-          <i>Weapon Array</i>
-        </color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
-    </li>
-  </comps>
-</AbilityDef>
+        <facilityNotFoundMessage><![CDATA[A ship with a <color=#BD2F31><i>Weapon Array</i></color> facility must be on the map to provide orbital artillery support.]]></facilityNotFoundMessage>
+      </li>
+    </comps>
+  </AbilityDef>
 
-<AbilityDef>
-  <defName>SD_Firepower_Cannon_Salvo</defName>
-  <label>Light Ship Cannon Salvo</label>
-  <description>Commands the ship's secondary broadside cannons to fire a salvo of 12 shells total, causing moderate damage.</description>
-  <iconPath>StellarisDaughter/Imported/Abilities/SD_Firepower_Cannon_Salvo</iconPath>
-  <cooldownTicksRange>1</cooldownTicksRange>
-  <hotKey>Misc12</hotKey>
-  <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-  <verbProperties>
-    <verbClass>Verb_CastAbility</verbClass>
-    <drawAimPie>false</drawAimPie>
-    <requireLineOfSight>false</requireLineOfSight>
-    <warmupTime>1</warmupTime>
-    <range>500</range>
-    <targetable>true</targetable>
-    <targetParams>
-      <canTargetSelf>false</canTargetSelf>
-      <canTargetLocations>true</canTargetLocations>
-    </targetParams>
-  </verbProperties>
-  <comps>
-    <li Class="StellarisDaughter.CompProperties_GlobalFlyOverCooldown">
-      <globalCooldownTicks>6000</globalCooldownTicks>
-      <requiredFacility>BombardmentFacility</requiredFacility>
-    </li>
-    <li Class="StellarisDaughter.CompProperties_AbilityCircularBombardment">
-      <radius>10</radius>
-      <simultaneousLaunches>3</simultaneousLaunches>
-      <launchIntervalTicks>90</launchIntervalTicks>
-      <maxLaunches>24</maxLaunches>
-      <warmupTicks>120</warmupTicks>
-      <useIndependentIntervals>true</useIndependentIntervals>
-      <innerLaunchIntervalTicks>5</innerLaunchIntervalTicks>
-      <skyfallerDef>SD_Firepower_Cannon_Salvo_Skyfaller</skyfallerDef>
-      <showBombardmentArea>true</showBombardmentArea>
-      <showImpactPreview>false</showImpactPreview>
-    </li>
-    <li Class="StellarisDaughter.CompProperties_RequireFlyOverFacility">
-      <requiredFacility>BombardmentFacility</requiredFacility>
-      <facilityNotFoundMessage>A ship with a <color=#BD2F31>
-        <i>Weapon Array</i>
-      </color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
-  </li>
-</comps>
-</AbilityDef>
+  <AbilityDef>
+    <defName>SD_Firepower_Cannon_Salvo</defName>
+    <label>星穹之矛：星弧破碎轰炸</label>
+    <description>命令星穹之矛使用其轻型副炮对舰武装对目标区域进行齐射。</description>
+    <iconPath>StellarisDaughter/Imported/Abilities/SD_Firepower_Cannon_Salvo</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="StellarisDaughter.CompProperties_GlobalFlyOverCooldown">
+        <globalCooldownTicks>6000</globalCooldownTicks>
+        <requiredFacility>BombardmentFacility</requiredFacility>
+      </li>
+      <li Class="StellarisDaughter.CompProperties_AbilityCircularBombardment">
+        <radius>10</radius>
+        <simultaneousLaunches>3</simultaneousLaunches>
+        <launchIntervalTicks>90</launchIntervalTicks>
+        <maxLaunches>24</maxLaunches>
+        <warmupTicks>120</warmupTicks>
+        <useIndependentIntervals>true</useIndependentIntervals>
+        <innerLaunchIntervalTicks>5</innerLaunchIntervalTicks>
+        <skyfallerDef>SD_Firepower_Cannon_Salvo_Skyfaller</skyfallerDef>
+        <showBombardmentArea>true</showBombardmentArea>
+        <showImpactPreview>false</showImpactPreview>
+      </li>
+      <li Class="StellarisDaughter.CompProperties_RequireFlyOverFacility">
+        <requiredFacility>BombardmentFacility</requiredFacility>
+        <facilityNotFoundMessage><![CDATA[A ship with a <color=#BD2F31><i>Weapon Array</i></color> facility must be on the map to provide orbital artillery support.]]></facilityNotFoundMessage>
+      </li>
+    </comps>
+  </AbilityDef>
 
-<AbilityDef>
-<defName>SD_Firepower_Cannon_Surveillance</defName>
-<label>Light Ship Cannon Surveillance</label>
-<description>Commands the ship's secondary broadside cannons to surveil an area for 0.3 hours, bombarding any hostile targets that enter the range.</description>
-<iconPath>StellarisDaughter/Imported/Abilities/SD_Firepower_Cannon_Surveillance</iconPath>
-<cooldownTicksRange>1</cooldownTicksRange>
-<hotKey>Misc12</hotKey>
-<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-<verbProperties>
-  <verbClass>Verb_CastAbility</verbClass>
-  <drawAimPie>false</drawAimPie>
-  <requireLineOfSight>false</requireLineOfSight>
-  <warmupTime>1</warmupTime>
-  <range>500</range>
-  <targetable>true</targetable>
-  <targetParams>
-    <canTargetSelf>false</canTargetSelf>
-    <canTargetLocations>true</canTargetLocations>
-  </targetParams>
-</verbProperties>
-<comps>
-  <li Class="StellarisDaughter.CompProperties_GlobalFlyOverCooldown">
-    <globalCooldownTicks>10000</globalCooldownTicks>
-    <requiredFacility>BombardmentFacility</requiredFacility>
-  </li>
-  <li Class="StellarisDaughter.CompProperties_AbilityCallSkyfaller">
-    <delayTicks>180</delayTicks>
-    <skyfallerDef>SD_Firepower_Cannon_Surveillance_Skyfaller</skyfallerDef>
-    <previewRadius>12</previewRadius>
-    <previewColor>(0.85,0.85,0.3,0.5)</previewColor>
-  </li>
-  <li Class="StellarisDaughter.CompProperties_RequireFlyOverFacility">
-    <requiredFacility>BombardmentFacility</requiredFacility>
-    <facilityNotFoundMessage>A ship with a <color=#BD2F31>
-      <i>Weapon Array</i>
-    </color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
-</li>
-</comps>
-</AbilityDef>
+  <AbilityDef>
+    <defName>SD_Firepower_Cannon_Surveillance</defName>
+    <label>星穹之矛：星弧破碎区域监视</label>
+    <description>命令星穹之矛使用其轻型副炮对舰武装对目标区域进行监视，持续0.3小时，对进入范围的敌方目标进行轰炸。</description>
+    <iconPath>StellarisDaughter/Imported/Abilities/SD_Firepower_Cannon_Surveillance</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="StellarisDaughter.CompProperties_GlobalFlyOverCooldown">
+        <globalCooldownTicks>10000</globalCooldownTicks>
+        <requiredFacility>BombardmentFacility</requiredFacility>
+      </li>
+      <li Class="StellarisDaughter.CompProperties_AbilityCallSkyfaller">
+        <delayTicks>180</delayTicks>
+        <skyfallerDef>SD_Firepower_Cannon_Surveillance_Skyfaller</skyfallerDef>
+        <previewRadius>12</previewRadius>
+        <previewColor>(0.85,0.85,0.3,0.5)</previewColor>
+      </li>
+      <li Class="StellarisDaughter.CompProperties_RequireFlyOverFacility">
+        <requiredFacility>BombardmentFacility</requiredFacility>
+        <facilityNotFoundMessage><![CDATA[A ship with a <color=#BD2F31><i>Weapon Array</i></color> facility must be on the map to provide orbital artillery support.]]></facilityNotFoundMessage>
+      </li>
+    </comps>
+  </AbilityDef>
 
-<AbilityDef>
-<defName>SD_Firepower_EnergyLance_Strafe</defName>
-<label>Lance Strafing</label>
-<description>Commands the ship's lance array to fire a lance beam that sweeps across the battlefield, causing massive heat damage, especially effective against building clusters.</description>
-<iconPath>StellarisDaughter/Imported/Abilities/SD_Firepower_EnergyLance_Strafe</iconPath>
-<cooldownTicksRange>1</cooldownTicksRange>
-<hotKey>Misc12</hotKey>
-<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-<verbProperties>
-<verbClass>Verb_CastAbility</verbClass>
-<drawAimPie>false</drawAimPie>
-<requireLineOfSight>false</requireLineOfSight>
-<warmupTime>1</warmupTime>
-<range>500</range>
-<targetable>true</targetable>
-<targetParams>
-  <canTargetSelf>false</canTargetSelf>
-  <canTargetLocations>true</canTargetLocations>
-</targetParams>
-</verbProperties>
-<comps>
-<li Class="StellarisDaughter.CompProperties_GlobalFlyOverCooldown">
-  <globalCooldownTicks>10000</globalCooldownTicks>
-  <requiredFacility>BombardmentFacility</requiredFacility>
-</li>
-<li Class="StellarisDaughter.CompProperties_AbilityEnergyLance">
-  <durationTicks>450</durationTicks>
-  <moveDistance>20</moveDistance>
-  <useFixedDistance>true</useFixedDistance>
-  <energyLanceDef>SD_EnergyLance_Base</energyLanceDef>
-  <firesPerTick>4</firesPerTick>
-</li>
-<li Class="StellarisDaughter.CompProperties_RequireFlyOverFacility">
-  <requiredFacility>BombardmentFacility</requiredFacility>
-  <facilityNotFoundMessage>A ship with a <color=#BD2F31>
-    <i>Weapon Array</i>
-  </color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
-</li>
-</comps>
-</AbilityDef>
+  <AbilityDef>
+    <defName>SD_Firepower_EnergyLance_Strafe</defName>
+    <label>星穹之矛：归虚之光扫射</label>
+    <description>命令星穹之矛使用其能量长矛对舰武装对目标区域进行扫射。</description>
+    <iconPath>StellarisDaughter/Imported/Abilities/SD_Firepower_EnergyLance_Strafe</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="StellarisDaughter.CompProperties_GlobalFlyOverCooldown">
+        <globalCooldownTicks>10000</globalCooldownTicks>
+        <requiredFacility>BombardmentFacility</requiredFacility>
+      </li>
+      <li Class="StellarisDaughter.CompProperties_AbilityEnergyLance">
+        <durationTicks>450</durationTicks>
+        <moveDistance>20</moveDistance>
+        <useFixedDistance>true</useFixedDistance>
+        <energyLanceDef>SD_EnergyLance_Base</energyLanceDef>
+        <firesPerTick>4</firesPerTick>
+      </li>
+      <li Class="StellarisDaughter.CompProperties_RequireFlyOverFacility">
+        <requiredFacility>BombardmentFacility</requiredFacility>
+        <facilityNotFoundMessage><![CDATA[A ship with a <color=#BD2F31><i>Weapon Array</i></color> facility must be on the map to provide orbital artillery support.]]></facilityNotFoundMessage>
+      </li>
+    </comps>
+  </AbilityDef>
 
-<AbilityDef>
-<defName>SD_Firepower_EnergyLance_Surveillance</defName>
-<label>Lance Surveillance</label>
-<description>Commands the ship's lance array to surveil an area for 1 hour, continuously illuminating any hostile targets that enter the range.</description>
-<iconPath>StellarisDaughter/Imported/Abilities/SD_Firepower_EnergyLance_Surveillance</iconPath>
-<cooldownTicksRange>1</cooldownTicksRange>
-<hotKey>Misc12</hotKey>
-<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-<verbProperties>
-<verbClass>Verb_CastAbility</verbClass>
-<drawAimPie>false</drawAimPie>
-<requireLineOfSight>false</requireLineOfSight>
-<warmupTime>1</warmupTime>
-<range>500</range>
-<targetable>true</targetable>
-<targetParams>
-<canTargetSelf>false</canTargetSelf>
-<canTargetLocations>true</canTargetLocations>
-</targetParams>
-</verbProperties>
-<comps>
-<li Class="StellarisDaughter.CompProperties_GlobalFlyOverCooldown">
-<globalCooldownTicks>30000</globalCooldownTicks>
-<requiredFacility>BombardmentFacility</requiredFacility>
-</li>
-<li Class="StellarisDaughter.CompProperties_AbilityCallSkyfaller">
-<delayTicks>180</delayTicks>
-<skyfallerDef>SD_Firepower_EnergyLance_Surveillance_Skyfaller</skyfallerDef>
-<previewRadius>36</previewRadius>
-<previewColor>(0.85,0.85,0.3,0.5)</previewColor>
-</li>
-<li Class="StellarisDaughter.CompProperties_RequireFlyOverFacility">
-<requiredFacility>BombardmentFacility</requiredFacility>
-<facilityNotFoundMessage>A ship with a <color=#BD2F31>
-  <i>Weapon Array</i>
-</color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
-</li>
-</comps>
-</AbilityDef>
+  <AbilityDef>
+    <defName>SD_Firepower_EnergyLance_Surveillance</defName>
+    <label>星穹之矛：归虚之光区域监视</label>
+    <description>命令星穹之矛使用其能量长矛对舰武装对目标区域进行监视，持续1小时，持续轰击进入射程的任何敌方目标。</description>
+    <iconPath>StellarisDaughter/Imported/Abilities/SD_Firepower_EnergyLance_Surveillance</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="StellarisDaughter.CompProperties_GlobalFlyOverCooldown">
+        <globalCooldownTicks>30000</globalCooldownTicks>
+        <requiredFacility>BombardmentFacility</requiredFacility>
+      </li>
+      <li Class="StellarisDaughter.CompProperties_AbilityCallSkyfaller">
+        <delayTicks>180</delayTicks>
+        <skyfallerDef>SD_Firepower_EnergyLance_Surveillance_Skyfaller</skyfallerDef>
+        <previewRadius>36</previewRadius>
+        <previewColor>(0.85,0.85,0.3,0.5)</previewColor>
+      </li>
+      <li Class="StellarisDaughter.CompProperties_RequireFlyOverFacility">
+        <requiredFacility>BombardmentFacility</requiredFacility>
+        <facilityNotFoundMessage><![CDATA[A ship with a <color=#BD2F31><i>Weapon Array</i></color> facility must be on the map to provide orbital artillery support.]]></facilityNotFoundMessage>
+      </li>
+    </comps>
+  </AbilityDef>
 
-<AbilityDef>
-<defName>SD_Firepower_Primary_Cannon_Strafe</defName>
-<label>Main Cannon Salvo</label>
-<description>Uses the ship's main cannons to strafe the target area in a selectable direction. Possesses terrifying power capable of leveling mountains, but suffers from poor response time, accuracy, and requires lengthy reloading.</description>
-<iconPath>StellarisDaughter/Imported/Abilities/SD_Firepower_Primary_Cannon_Strafe</iconPath>
-<cooldownTicksRange>1</cooldownTicksRange>
-<hotKey>Misc12</hotKey>
-<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-<verbProperties>
-<verbClass>Verb_CastAbility</verbClass>
-<drawAimPie>false</drawAimPie>
-<requireLineOfSight>false</requireLineOfSight>
-<warmupTime>1</warmupTime>
-<range>500</range>
-<targetable>true</targetable>
-<targetParams>
-<canTargetSelf>false</canTargetSelf>
-<canTargetLocations>true</canTargetLocations>
-</targetParams>
-</verbProperties>
-<comps>
-<li Class="StellarisDaughter.CompProperties_GlobalFlyOverCooldown">
-<globalCooldownTicks>60000</globalCooldownTicks>
-<requiredFacility>BombardmentFacility</requiredFacility>
-</li>
-<li Class="StellarisDaughter.CompProperties_AbilityBombardment">
-<bombardmentWidth>35</bombardmentWidth>
-<bombardmentLength>70</bombardmentLength>
-<targetSelectionChance>0.1</targetSelectionChance>
-<minTargetCells>8</minTargetCells>
-<maxTargetCells>8</maxTargetCells>
-<warmupTicks>240</warmupTicks>
-<rowDelayTicks>30</rowDelayTicks>
-<impactDelayTicks>2</impactDelayTicks>
-<showBombardmentArea>true</showBombardmentArea>
-<effecterScale>1.5</effecterScale>
-<areaPreviewColor>1.0,0.3,0.1,0.3</areaPreviewColor>
-<skyfallerDef>SD_Firepower_Primary_Cannon_Strafe_Skyfaller</skyfallerDef>
-</li>
-<li Class="StellarisDaughter.CompProperties_RequireFlyOverFacility">
-<requiredFacility>BombardmentFacility</requiredFacility>
-<facilityNotFoundMessage>A ship with a <color=#BD2F31>
-<i>Weapon Array</i>
-</color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
-</li>
-</comps>
-</AbilityDef>
+  <AbilityDef>
+    <defName>SD_Firepower_Primary_Cannon_Strafe</defName>
+    <label>星穹之矛：寰宇追迹之火轰炸</label>
+    <description>命令星穹之矛使用其能量导弹对舰武装在可选择的方向上扫射目标区域。拥有能够夷平山脉的恐怖威力，但响应时间、精度较差，且需要较长的装填时间。</description>
+    <iconPath>StellarisDaughter/Imported/Abilities/SD_Firepower_Primary_Cannon_Strafe</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="StellarisDaughter.CompProperties_GlobalFlyOverCooldown">
+        <globalCooldownTicks>60000</globalCooldownTicks>
+        <requiredFacility>BombardmentFacility</requiredFacility>
+      </li>
+      <li Class="StellarisDaughter.CompProperties_AbilityBombardment">
+        <bombardmentWidth>35</bombardmentWidth>
+        <bombardmentLength>70</bombardmentLength>
+        <targetSelectionChance>0.1</targetSelectionChance>
+        <minTargetCells>8</minTargetCells>
+        <maxTargetCells>8</maxTargetCells>
+        <warmupTicks>240</warmupTicks>
+        <rowDelayTicks>30</rowDelayTicks>
+        <impactDelayTicks>2</impactDelayTicks>
+        <showBombardmentArea>true</showBombardmentArea>
+        <effecterScale>1.5</effecterScale>
+        <areaPreviewColor>1.0,0.3,0.1,0.3</areaPreviewColor>
+        <skyfallerDef>SD_Firepower_Primary_Cannon_Strafe_Skyfaller</skyfallerDef>
+      </li>
+      <li Class="StellarisDaughter.CompProperties_RequireFlyOverFacility">
+        <requiredFacility>BombardmentFacility</requiredFacility>
+        <facilityNotFoundMessage><![CDATA[A ship with a <color=#BD2F31><i>Weapon Array</i></color> facility must be on the map to provide orbital artillery support.]]></facilityNotFoundMessage>
+      </li>
+    </comps>
+  </AbilityDef>
 
-<AbilityDef>
-<defName>SD_Firepower_Primary_Cannon_EMP_Surveillance</defName>
-<label>Main Cannon EMP Suppression</label>
-<description>Commands the ship's main cannon to surveil a vast area for 3 hours, firing wide-area EMP shells at any hostile targets that enter the range. The immense energy can paralyze mechanoids for extended periods.</description>
-<iconPath>StellarisDaughter/Imported/Abilities/SD_Firepower_Primary_Cannon_EMP_Surveillance</iconPath>
-<cooldownTicksRange>1</cooldownTicksRange>
-<hotKey>Misc12</hotKey>
-<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-<verbProperties>
-<verbClass>Verb_CastAbility</verbClass>
-<drawAimPie>false</drawAimPie>
-<requireLineOfSight>false</requireLineOfSight>
-<warmupTime>1</warmupTime>
-<range>500</range>
-<targetable>true</targetable>
-<targetParams>
-<canTargetSelf>false</canTargetSelf>
-<canTargetLocations>true</canTargetLocations>
-</targetParams>
-</verbProperties>
-<comps>
-<li Class="StellarisDaughter.CompProperties_GlobalFlyOverCooldown">
-<globalCooldownTicks>60000</globalCooldownTicks>
-<requiredFacility>BombardmentFacility</requiredFacility>
-</li>
-<li Class="StellarisDaughter.CompProperties_AbilityCallSkyfaller">
-<delayTicks>180</delayTicks>
-<skyfallerDef>SD_Firepower_Primary_Cannon_EMP_Surveillance_Skyfaller</skyfallerDef>
-<previewRadius>100</previewRadius>
-<previewColor>(0.85,0.85,0.3,0.5)</previewColor>
-</li>
-<li Class="StellarisDaughter.CompProperties_RequireFlyOverFacility">
-<requiredFacility>BombardmentFacility</requiredFacility>
-<facilityNotFoundMessage>A ship with a <color=#BD2F31>
-<i>Weapon Array</i>
-</color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
-</li>
-</comps>
-</AbilityDef>
+  <AbilityDef>
+    <defName>SD_Firepower_Primary_Cannon_Surveillance</defName>
+    <label>星穹之矛：寰宇追迹之火区域监视</label>
+    <description>命令星穹之矛使用其能量导弹对舰武装对目标区域进行监视，持续3小时，持续轰击进入射程的任何敌方目标。</description>
+    <iconPath>StellarisDaughter/Imported/Abilities/SD_Firepower_Primary_Cannon_EMP_Surveillance</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="StellarisDaughter.CompProperties_GlobalFlyOverCooldown">
+        <globalCooldownTicks>60000</globalCooldownTicks>
+        <requiredFacility>BombardmentFacility</requiredFacility>
+      </li>
+      <li Class="StellarisDaughter.CompProperties_AbilityCallSkyfaller">
+        <delayTicks>180</delayTicks>
+        <skyfallerDef>SD_Firepower_Primary_Cannon_Surveillance_Skyfaller</skyfallerDef>
+        <previewRadius>100</previewRadius>
+        <previewColor>(0.85,0.85,0.3,0.5)</previewColor>
+      </li>
+      <li Class="StellarisDaughter.CompProperties_RequireFlyOverFacility">
+        <requiredFacility>BombardmentFacility</requiredFacility>
+        <facilityNotFoundMessage><![CDATA[A ship with a <color=#BD2F31><i>Weapon Array</i></color> facility must be on the map to provide orbital artillery support.]]></facilityNotFoundMessage>
+      </li>
+    </comps>
+  </AbilityDef>
 </Defs>
