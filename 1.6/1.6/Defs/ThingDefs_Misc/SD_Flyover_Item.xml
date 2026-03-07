@@ -72,7 +72,7 @@
         <baseCooldownTicks>60000</baseCooldownTicks> <!-- 1天 -->
       </li>
       <!-- 伴飞 -->
-      <li Class="WulaFallenEmpire.CompProperties_FlyOverEscort">
+      <li Class="StellarisDaughter.CompProperties_FlyOverEscort">
         <escortFlyOverDef>SD_Cruiser_Escort</escortFlyOverDef>
         
         <!-- 生成配置 -->
@@ -188,7 +188,7 @@
       <!-- <impactSound>FlyOver/Landing</impactSound> -->
     </skyfaller>
     <modExtensions>
-      <li Class="WulaFallenEmpire.FlyOverShadowExtension">
+      <li Class="StellarisDaughter.FlyOverShadowExtension">
         <shadow>StellarisDaughter/Things/SD_Empty</shadow>
         <useCustomShadow>true</useCustomShadow>
         <shadowIntensity>0.8</shadowIntensity>
