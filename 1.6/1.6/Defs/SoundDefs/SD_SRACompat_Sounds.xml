@@ -45,4 +45,27 @@
       </li>
     </subSounds>
   </SoundDef>
+
+  <SoundDef>
+    <defName>SD_SML_Mass_Drivers</defName>  
+    <context>MapOnly</context>
+    <eventNames />  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>StellarisDaughter/SRA_SML_Mass_Drivers</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>99</min>        
+          <max>100</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>1.0</min>        
+          <max>1.5</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
 </Defs>

@@ -165,7 +165,7 @@
     <label>相位能量团</label>
     <thingClass>StellarisDaughter.Projectile_SD_MultiExplosive</thingClass>
     <graphicData>
-      <texPath>SRA/Projectile/SRA_Bullet_Plasma</texPath>
+      <texPath>StellarisDaughter/SRACompat/Projectile/SRA_Bullet_Plasma</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
       <drawSize>1.5</drawSize>
