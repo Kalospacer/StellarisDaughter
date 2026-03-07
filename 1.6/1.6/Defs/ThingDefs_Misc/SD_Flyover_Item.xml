@@ -11,7 +11,7 @@
       <texPath>StellarisDaughter/Things/FlyOverThing/SD_Spear_Of_Galaxy_Zenith_Shadow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
-      <drawSize>(100,250)</drawSize>
+      <drawSize>(250,250)</drawSize>
       <color>(195,195,195,45)</color>
     </graphicData>
     <skyfaller>
@@ -219,7 +219,7 @@
       <texPath>StellarisDaughter/Things/FlyOverThing/SD_Cruiser_Shadow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
-      <drawSize>(30,15)</drawSize>
+      <drawSize>(30,30)</drawSize>
       <color>(255,255,255,45)</color>
     </graphicData>
     <castEdgeShadows>false</castEdgeShadows>
@@ -262,7 +262,7 @@
       <texPath>StellarisDaughter/Things/FlyOverThing/SD_Executor_Shadow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
-      <drawSize>(70,100)</drawSize>
+      <drawSize>(100,100)</drawSize>
       <color>(195,195,195,45)</color>
     </graphicData>
     <skyfaller>
@@ -320,7 +320,7 @@
       <texPath>StellarisDaughter/Things/FlyOverThing/SD_Spear_Of_Galaxy_Zenith_Shadow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
-      <drawSize>(100,250)</drawSize>
+      <drawSize>(250,250)</drawSize>
       <color>(195,195,195,45)</color>
     </graphicData>
     <skyfaller>
@@ -426,7 +426,7 @@
       <texPath>StellarisDaughter/Things/FlyOverThing/SD_Executor_Shadow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
-      <drawSize>(70,100)</drawSize>
+      <drawSize>(100,100)</drawSize>
       <color>(195,195,195,45)</color>
     </graphicData>
     <skyfaller>

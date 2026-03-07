@@ -103,7 +103,7 @@
     </verbProperties>
     <comps>
       <li Class="StellarisDaughter.CompProperties_AircraftStrike">
-        <requiredAircraftType>WULA_MotherShip_Entity</requiredAircraftType>
+        <requiredAircraftType>SD_Spear_Of_Galaxy_Zenith_Entity</requiredAircraftType>
         <aircraftCooldownTicks>15000</aircraftCooldownTicks>
         <aircraftsPerUse>1</aircraftsPerUse>
       </li>
