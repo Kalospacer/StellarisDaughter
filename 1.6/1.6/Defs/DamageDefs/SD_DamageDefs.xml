@@ -4,7 +4,7 @@
   <DamageDef Name="SD_SRA_Burn">
     <defName>SD_SRA_Burn</defName>
     <label>相位崩解</label>
-    <workerClass>DamageWorker_Vaporize</workerClass>
+    <workerClass>DamageWorker_AddInjury</workerClass>
     <externalViolence>true</externalViolence>
     <deathMessage>{0} was annihilated.</deathMessage>
     <hediff>Burn</hediff>
@@ -25,8 +25,8 @@
     <explosionHeatEnergyPerCell>20</explosionHeatEnergyPerCell>
     <explosionCellFleck>BlastEMP</explosionCellFleck>
     <minDamageToFragment>15</minDamageToFragment>
-    <explosionColorCenter>(0.5, 0.8, 1)</explosionColorCenter>
-    <explosionColorEdge>(0.2, 0.4, 0.8)</explosionColorEdge>
+    <explosionColorCenter>(1, 1, 1)</explosionColorCenter>
+    <explosionColorEdge>(0.7, 0.8, 0.8, 0.8)</explosionColorEdge>
     <expolosionPropagationSpeed>0.3</expolosionPropagationSpeed>
     <hasForcefulImpact>true</hasForcefulImpact>
     <corpseDamageFactor>0.1</corpseDamageFactor>
@@ -63,7 +63,7 @@
     <defaultArmorPenetration>1.30</defaultArmorPenetration>
     <explosionCenterEffecter>SD_DarkMatterBomb_Shockwave</explosionCenterEffecter>
     <explosionCellFleck>BlastEMP</explosionCellFleck>
-    <explosionColorEdge>(0.8, 0.8, 0.8, 0.8)</explosionColorEdge>
+    <explosionColorEdge>(0.7, 0.8, 0.8, 0.8)</explosionColorEdge>
   </DamageDef>
   <EffecterDef>
     <defName>SD_DarkMatterBomb_Shockwave</defName>

@@ -27,7 +27,7 @@
     <comps>
       <li Class="StellarisDaughter.CompProperties_AircraftStrike">
         <requiredAircraftType>SD_Spear_Of_Galaxy_Zenith_Entity</requiredAircraftType>
-        <aircraftCooldownTicks>15000</aircraftCooldownTicks>
+        <aircraftCooldownTicks>1500</aircraftCooldownTicks>
         <aircraftsPerUse>1</aircraftsPerUse>
       </li>
       <li Class="StellarisDaughter.CompProperties_AbilitySpawnFlyOver">
