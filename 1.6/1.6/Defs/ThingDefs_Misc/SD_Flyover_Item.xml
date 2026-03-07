@@ -72,6 +72,50 @@
         <baseCooldownTicks>60000</baseCooldownTicks> <!-- 1天 -->
       </li>
       <!-- 伴飞 -->
+      <li Class="WulaFallenEmpire.CompProperties_FlyOverEscort">
+        <escortFlyOverDef>SD_Cruiser_Escort</escortFlyOverDef>
+        
+        <!-- 生成配置 -->
+        <spawnIntervalTicks>1350</spawnIntervalTicks> <!-- 5秒 -->
+        <maxEscorts>10</maxEscorts>
+        <spawnCount>1</spawnCount>
+        
+        <!-- 位置配置 -->
+        <spawnDistance>0</spawnDistance>
+        <lateralOffset>130</lateralOffset>
+        <verticalOffset>5</verticalOffset>
+        <useRandomOffset>true</useRandomOffset>
+        <minSafeDistanceBetweenEscorts>10</minSafeDistanceBetweenEscorts> <!-- 伴飞物之间的距离 -->
+        <minSafeDistanceFromMain>70</minSafeDistanceFromMain> <!-- 与主飞行物的距离检查 -->
+        
+        <!-- 飞行配置 -->
+        <escortSpeedMultiplier>15</escortSpeedMultiplier> <!-- 比主舰稍快 -->
+        <escortAltitudeOffset>10</escortAltitudeOffset> <!-- 比主舰稍高 -->
+        <mirrorMovement>false</mirrorMovement>
+        
+        <!-- 行为配置 -->
+        <spawnOnStart>true</spawnOnStart>
+        <destroyWithParent>false</destroyWithParent>
+        <continuousSpawning>true</continuousSpawning>
+        
+        <!-- 外观配置 -->
+        <useParentRotation>true</useParentRotation>
+      
+        <!-- 缩放区间配置 -->
+        <escortScaleRange>
+          <min>0.3</min>
+          <max>0.6</max>
+        </escortScaleRange>
+        
+        <!-- 高度遮罩配置 -->
+        <useHeightMask>true</useHeightMask>
+        <heightMaskAlphaRange>
+          <min>0.6</min>
+          <max>0.8</max>
+        </heightMaskAlphaRange>
+        <heightMaskColor>(0.7,0.85,1.0,1.0)</heightMaskColor>
+        <heightMaskScaleMultiplier>1.3</heightMaskScaleMultiplier>
+      </li>
       <li Class="StellarisDaughter.CompProperties_FlyOverEscort">
         <escortFlyOverDef>SD_BattleShip_Escort</escortFlyOverDef>
         
@@ -120,6 +164,50 @@
   </ThingDef> 
 
   <!-- 伴飞类 -->
+   <ThingDef ParentName="EtherealThingBase">
+    <defName>SD_Cruiser_Escort</defName>
+    <label>星规巡航单元（伴飞）</label>
+    <thingClass>StellarisDaughter.FlyOver</thingClass>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <graphicData>
+      <!-- <texPath>ArachnaeSwarm/Weapon/ARA_Weapon_Empty</texPath> -->
+      <texPath>StellarisDaughter/Things/FlyOverThing/SD_Cruiser</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+      <drawSize>(30,15)</drawSize>
+      <color>(255,255,255,45)</color>
+    </graphicData>
+    <castEdgeShadows>false</castEdgeShadows>
+    <staticSunShadowHeight>0</staticSunShadowHeight>
+    <skyfaller>
+      <shadow>StellarisDaughter/Things/SD_Empty</shadow>
+      <shadowSize>(0, 0)</shadowSize>
+      <motesPerCell>0</motesPerCell>
+      <floatingSound>FlyOver/Flying</floatingSound>
+      <!-- <impactSound>FlyOver/Landing</impactSound> -->
+    </skyfaller>
+    <modExtensions>
+      <li Class="WulaFallenEmpire.FlyOverShadowExtension">
+        <shadow>StellarisDaughter/Things/SD_Empty</shadow>
+        <useCustomShadow>true</useCustomShadow>
+        <shadowIntensity>0.8</shadowIntensity>
+        <minShadowAlpha>0</minShadowAlpha>
+        <maxShadowAlpha>0</maxShadowAlpha>
+        <minShadowScale>0</minShadowScale>
+        <maxShadowScale>0</maxShadowScale>
+
+        <useApproachAnimation>true</useApproachAnimation>
+        <approachDuration>1</approachDuration>
+        <approachOffsetDistance>20</approachOffsetDistance>
+      </li>
+    </modExtensions>
+    <seeThroughFog>true</seeThroughFog>
+    <useHitPoints>false</useHitPoints>
+    <selectable>false</selectable>
+    <alwaysHaulable>false</alwaysHaulable>
+    <altitudeLayer>MetaOverlays</altitudeLayer>
+  </ThingDef>
   <ThingDef ParentName="EtherealThingBase">
     <defName>SD_Executor_Escort</defName>
     <label>星规执行单元（伴飞）</label>

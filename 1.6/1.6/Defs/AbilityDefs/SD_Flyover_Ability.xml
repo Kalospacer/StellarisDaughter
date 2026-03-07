@@ -1,0 +1,1027 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 母舰编队 -->
+  <AbilityDef>
+    <defName>WULA_CallMotherShip</defName>
+    <label>Call Imperial Mothership Fleet</label>
+    <description>Send a reinforcement request to summon the Wula Empire Mothership Fleet to the colony's high orbit. Contains 4 cruisers capable of orbital bombardment and 1 mothership that provides aircraft, artillery, and orbital support.</description>
+    <iconPath>Wula/UI/Abilities/WULA_CallMotherShip</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>true</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>5</warmupTime>
+      <range>-1</range>
+      <targetable>false</targetable>
+      <targetParams>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_AircraftStrike">
+        <requiredAircraftType>WULA_MotherShip_Entity</requiredAircraftType>
+        <aircraftCooldownTicks>640000</aircraftCooldownTicks> 
+        <aircraftsPerUse>1</aircraftsPerUse>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilitySpawnFlyOver">
+        <flyOverDef>WULA_MotherShip</flyOverDef>
+        <flyOverType>Standard</flyOverType>
+        <flightSpeed>0.01</flightSpeed>
+        <altitude>20</altitude>
+        <startPosition>MapEdge</startPosition>
+        <endPosition>OppositeMapEdge</endPosition>
+        <playFlyOverSound>true</playFlyOverSound>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_BlockedByFlyOverFacility">
+        <blockedMessage>Flight Path Blocked: A large vessel is already above the colony.</blockedMessage>
+        <!-- 可选：指定特定的FlyOver定义 -->
+        <!-- <specificFlyOverDef>ARA_HiveShip</specificFlyOverDef> -->
+        <!-- 可选：指定特定的设施名称 -->
+        <!-- <requiredFacility>BombardmentFacility</requiredFacility> -->
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <!-- 战舰编队 -->
+  <AbilityDef>
+    <defName>WULA_CallFleet</defName>
+    <label>Call Imperial Cruiser Fleet</label>
+    <description>Send a reinforcement request to summon the Wula Empire Fleet to the colony's high orbit. Contains 2 cruisers capable of orbital bombardment and 1 aircraft carrier that provides aircraft.</description>
+    <iconPath>Wula/UI/Abilities/WULA_CallBattleShip</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>true</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>2</warmupTime>
+      <range>-1</range>
+      <targetable>false</targetable>
+      <targetParams>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_AircraftStrike">
+        <requiredAircraftType>WULA_AircraftCarrier_Entity</requiredAircraftType>
+        <aircraftCooldownTicks>320000</aircraftCooldownTicks> 
+        <aircraftsPerUse>1</aircraftsPerUse>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilitySpawnFlyOver">
+        <flyOverDef>WULA_AircraftCarrier</flyOverDef>
+        <flyOverType>Standard</flyOverType>
+        <flightSpeed>0.03</flightSpeed>
+        <altitude>20</altitude>
+        <startPosition>MapEdge</startPosition>
+        <endPosition>OppositeMapEdge</endPosition>
+        <playFlyOverSound>true</playFlyOverSound>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_BlockedByFlyOverFacility">
+        <blockedMessage>Flight Path Blocked: A large vessel is already above the colony.</blockedMessage>
+          <!-- 可选：指定特定的FlyOver定义 -->
+          <!-- <specificFlyOverDef>ARA_HiveShip</specificFlyOverDef> -->
+          <!-- 可选：指定特定的设施名称 -->
+          <!-- <requiredFacility>BombardmentFacility</requiredFacility> -->
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_ClearFlightPath</defName>
+    <label>Flight Path Clearance</label>
+    <description>Orders the fleet in low orbit to depart, allowing other Wula Empire fleets to enter.</description>
+    <iconPath>Wula/UI/Abilities/WULA_ClearFlightPath</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>true</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <warmupTime>2</warmupTime>
+      <range>-1</range>
+      <targetable>false</targetable>
+      <targetParams>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_DestroyFlyOverByFacilities" />
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- 全域封锁 -->
+  <AbilityDef>
+    <defName>WULA_Spawn_BattleShip_Artillery</defName>
+    <label>Call Unlimited Blockade Fleet</label>
+    <description>Request a full planetary blockade along a designated flight path. An entire Wula Empire fleet, escorted by numerous fighter squadrons, will advance along the path and bombard with ship cannons to completely crush all resistance.\n\nThe bombardment covers nearly the entire map. While efforts are made to avoid hitting colony personnel and assets, the vast bombardment area leaves little chance for anything below to escape—try not to call it directly over your own colony.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Spawn_Fighter_Drone_Laser</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>2</warmupTime>
+      <range>-1</range>
+      <targetable>false</targetable>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetLocations>false</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_AircraftStrike">
+        <requiredAircraftType>WULA_MotherShip_Entity</requiredAircraftType>
+        <aircraftCooldownTicks>15000</aircraftCooldownTicks> 
+        <aircraftsPerUse>1</aircraftsPerUse>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityEnableOverwatch">
+        <durationSeconds>180</durationSeconds>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- 飞行器 -->
+  <AbilityDef>
+    <defName>WULA_Spawn_Fighter_Drone_Laser</defName>
+    <label>Drone Patrol</label>
+    <description>Command the Wula Empire's swarm drones to sweep across the battlefield at medium speed, using their underslung small laser cannons to strike encountered enemies—the drone capacitors are limited, allowing strikes against only the first 3 targets.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Spawn_Fighter_Drone_Laser</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>0</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+        <requiredResearch>WULA_Light_Fighter_Drone_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AircraftStrike">
+        <requiredAircraftType>WULA_Fighter_Drone_Entity</requiredAircraftType>
+        <aircraftCooldownTicks>5000</aircraftCooldownTicks> 
+        <aircraftsPerUse>1</aircraftsPerUse>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilitySpawnFlyOver">
+        <flyOverDef>WULA_Fighter_Drone_A</flyOverDef>
+        <flyOverType>GroundStrafing</flyOverType>
+        <flightSpeed>2</flightSpeed>
+        <altitude>20</altitude>
+        <playFlyOverSound>true</playFlyOverSound>
+        <approachType>Perpendicular</approachType>
+
+        <!-- 只传递信号，不传递具体参数 -->
+        <enableSectorSurveillance>true</enableSectorSurveillance>
+
+        <!-- 可视化 -->
+        <showStrafePreview>false</showStrafePreview>
+
+        <!-- 预览配置 -->
+        <showSectorPreview>true</showSectorPreview>
+        <sectorPreviewColor>(0.3,0.7,1.0,0.3)</sectorPreviewColor>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_Spawn_Fighter_Drone_Bomb</defName>
+    <label>Drone Bombing</label>
+    <description>Command the Wula Empire's swarm drones to sweep across the battlefield at medium speed, dropping 2 high-drag napalm bombs at the target location. The napalm contains chemical fuel, causing both explosions and persistent area burning.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Spawn_Fighter_Drone_Bomb</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>0</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+          <requiredResearch>WULA_Light_Fighter_Drone_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AircraftStrike">
+        <requiredAircraftType>WULA_Fighter_Drone_Entity</requiredAircraftType>
+        <aircraftCooldownTicks>5000</aircraftCooldownTicks> 
+        <aircraftsPerUse>1</aircraftsPerUse>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilitySpawnFlyOver">
+        <flyOverDef>WULA_Fighter_Drone_B</flyOverDef>
+        <flyOverType>GroundStrafing</flyOverType>
+        <flightSpeed>2.5</flightSpeed>
+        <altitude>20</altitude>
+        <playFlyOverSound>true</playFlyOverSound>
+        <approachType>Perpendicular</approachType>
+
+        <!-- 扫射参数 -->
+        <enableGroundStrafing>true</enableGroundStrafing>
+        <strafeWidth>1</strafeWidth>
+        <strafeLength>2</strafeLength>
+        <strafeFireChance>1</strafeFireChance>
+        <!-- 新增：控制最终射弹数量 -->
+        <minStrafeProjectiles>2</minStrafeProjectiles>
+        <maxStrafeProjectiles>2</maxStrafeProjectiles>
+
+        <!-- 只传递信号，不传递具体参数 -->
+        <enableSectorSurveillance>false</enableSectorSurveillance>
+
+        <!-- 可视化 -->
+        <showStrafePreview>true</showStrafePreview>
+        <strafePreviewColor>(1.0,0.3,0.1,0.2)</strafePreviewColor>
+        <!-- 预览配置 -->
+        <showSectorPreview>false</showSectorPreview>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_Spawn_Striker_Missile</defName>
+    <label>Strike Aircraft Patrol</label>
+    <description>Command the Wula Empire's strike aircraft to sweep across the battlefield at medium speed, using their missiles to strike encountered enemies.\nTheir missile payload allows strikes against 12 targets.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Spawn_Striker_Missile</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+          <requiredResearch>WULA_Striker_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AircraftStrike">
+        <requiredAircraftType>WULA_Striker_Entity</requiredAircraftType>
+        <aircraftCooldownTicks>5000</aircraftCooldownTicks> 
+        <aircraftsPerUse>1</aircraftsPerUse>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilitySpawnFlyOver">
+        <flyOverDef>WULA_Striker_A</flyOverDef>
+        <flyOverType>GroundStrafing</flyOverType>
+        <flightSpeed>3</flightSpeed>
+        <altitude>20</altitude>
+        <playFlyOverSound>true</playFlyOverSound>
+        <approachType>Perpendicular</approachType>
+
+        <!-- 只传递信号，不传递具体参数 -->
+        <enableSectorSurveillance>true</enableSectorSurveillance>
+        <strafeWidth>6</strafeWidth>
+
+        <!-- 可视化 -->
+        <showStrafePreview>false</showStrafePreview>
+
+        <!-- 预览配置 -->
+        <showSectorPreview>true</showSectorPreview>
+        <sectorPreviewColor>(0.3,0.7,1.0,0.3)</sectorPreviewColor>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_RequireFlyOverFacility">
+        <!-- <flyOverDef></flyOverDef> -->
+        <requiredFacility>HarborFacility</requiredFacility>
+        <facilityNotFoundMessage>A ship with a &lt;color=#BD952F>&lt;i>Hangar&lt;/i>&lt;/color> facility must be on the map to launch an airstrike.</facilityNotFoundMessage>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_Spawn_Striker_RailGun</defName>
+    <label>Strike Aircraft Strafing</label>
+    <description>Command the Wula Empire's strike aircraft to sweep across the battlefield at high speed, using two high-rate-of-fire belly cannons to strike the target area—the high speed results in a long, narrow strike zone.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Spawn_Striker_RailGun</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+        <requiredResearch>WULA_Striker_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AircraftStrike">
+        <requiredAircraftType>WULA_Striker_Entity</requiredAircraftType>
+        <aircraftCooldownTicks>5000</aircraftCooldownTicks> 
+        <aircraftsPerUse>1</aircraftsPerUse>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilitySpawnFlyOver">
+        <flyOverDef>WULA_Striker_B</flyOverDef>
+        <flyOverType>GroundStrafing</flyOverType>
+        <flightSpeed>3</flightSpeed>
+        <altitude>20</altitude>
+        <playFlyOverSound>true</playFlyOverSound>
+        <approachType>Perpendicular</approachType>
+
+        <!-- 扫射参数 -->
+        <enableGroundStrafing>true</enableGroundStrafing>
+        <strafeWidth>4</strafeWidth>
+        <strafeLength>52</strafeLength>
+        <strafeFireChance>0.15</strafeFireChance>
+        <!-- 新增：控制最终射弹数量 -->
+        <!-- <minStrafeProjectiles>2</minStrafeProjectiles>
+        <maxStrafeProjectiles>2</maxStrafeProjectiles> -->
+
+        <!-- 只传递信号，不传递具体参数 -->
+        <enableSectorSurveillance>false</enableSectorSurveillance>
+
+        <!-- 可视化 -->
+        <showStrafePreview>true</showStrafePreview>
+        <strafePreviewColor>(1.0,0.3,0.1,0.2)</strafePreviewColor>
+        <!-- 预览配置 -->
+        <showSectorPreview>false</showSectorPreview>
+
+        <!-- 预览配置 -->
+        <showSectorPreview>true</showSectorPreview>
+        <sectorPreviewColor>(0.3,0.7,1.0,0.3)</sectorPreviewColor>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_RequireFlyOverFacility">
+        <!-- <flyOverDef></flyOverDef> -->
+        <requiredFacility>HarborFacility</requiredFacility>
+        <facilityNotFoundMessage>A ship with a &lt;color=#BD952F>&lt;i>Hangar&lt;/i>&lt;/color> facility must be on the map to launch an airstrike.</facilityNotFoundMessage>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_Spawn_Striker_EMP</defName>
+    <label>Strike Aircraft EMP Suppression</label>
+    <description>Command the Wula Empire's strike aircraft to sweep across the battlefield at high speed, rapidly dropping a set of EMP bombs—the high speed results in a long, narrow strike zone.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Spawn_Striker_EMP</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+        <requiredResearch>WULA_Striker_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AircraftStrike">
+        <requiredAircraftType>WULA_Striker_Entity</requiredAircraftType>
+        <aircraftCooldownTicks>5000</aircraftCooldownTicks> 
+        <aircraftsPerUse>1</aircraftsPerUse>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilitySpawnFlyOver">
+        <flyOverDef>WULA_Striker_C</flyOverDef>
+        <flyOverType>GroundStrafing</flyOverType>
+        <flightSpeed>5</flightSpeed>
+        <altitude>20</altitude>
+        <playFlyOverSound>true</playFlyOverSound>
+        <approachType>Perpendicular</approachType>
+
+        <!-- 扫射参数 -->
+        <enableGroundStrafing>true</enableGroundStrafing>
+        <strafeWidth>1</strafeWidth>
+        <strafeLength>35</strafeLength>
+        <strafeFireChance>0.2</strafeFireChance>
+        <!-- 新增：控制最终射弹数量 -->
+        <!-- <minStrafeProjectiles>2</minStrafeProjectiles>
+        <maxStrafeProjectiles>2</maxStrafeProjectiles> -->
+
+        <!-- 只传递信号，不传递具体参数 -->
+        <enableSectorSurveillance>false</enableSectorSurveillance>
+
+        <!-- 可视化 -->
+        <showStrafePreview>true</showStrafePreview>
+        <strafePreviewColor>(1.0,0.3,0.1,0.2)</strafePreviewColor>
+        <!-- 预览配置 -->
+        <showSectorPreview>false</showSectorPreview>
+
+        <!-- 预览配置 -->
+        <showSectorPreview>true</showSectorPreview>
+        <sectorPreviewColor>(0.3,0.7,1.0,0.3)</sectorPreviewColor>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_RequireFlyOverFacility">
+        <!-- <flyOverDef></flyOverDef> -->
+        <requiredFacility>HarborFacility</requiredFacility>
+        <facilityNotFoundMessage>A ship with a &lt;color=#BD952F>&lt;i>Hangar&lt;/i>&lt;/color> facility must be on the map to launch an airstrike.</facilityNotFoundMessage>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_Spawn_Bomber_BaseBomb</defName>
+    <label>Bomber Bombing</label>
+    <description>Command the Wula Empire's bombers to sweep across the battlefield at low speed, dropping numerous bombs on the target area—the resulting destruction is much larger than the marked bombing zone.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Spawn_Bomber_BaseBomb</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+        <requiredResearch>WULA_Bomber_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AircraftStrike">
+        <requiredAircraftType>WULA_Bomber_Entity</requiredAircraftType>
+        <aircraftCooldownTicks>10000</aircraftCooldownTicks> 
+        <aircraftsPerUse>1</aircraftsPerUse>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilitySpawnFlyOver">
+        <flyOverDef>WULA_Bomber_A</flyOverDef>
+        <flyOverType>GroundStrafing</flyOverType>
+        <flightSpeed>3</flightSpeed>
+        <altitude>20</altitude>
+        <playFlyOverSound>true</playFlyOverSound>
+        <approachType>Perpendicular</approachType>
+
+        <!-- 扫射参数 -->
+        <enableGroundStrafing>true</enableGroundStrafing>
+        <strafeWidth>2</strafeWidth>
+        <strafeLength>45</strafeLength>
+        <strafeFireChance>0.1</strafeFireChance>
+        <!-- 新增：控制最终射弹数量 -->
+        <!-- <minStrafeProjectiles>2</minStrafeProjectiles>
+        <maxStrafeProjectiles>2</maxStrafeProjectiles> -->
+
+        <!-- 只传递信号，不传递具体参数 -->
+        <enableSectorSurveillance>false</enableSectorSurveillance>
+
+        <!-- 可视化 -->
+        <showStrafePreview>true</showStrafePreview>
+        <strafePreviewColor>(1.0,0.3,0.1,0.2)</strafePreviewColor>
+        <!-- 预览配置 -->
+        <showSectorPreview>false</showSectorPreview>
+
+        <!-- 预览配置 -->
+        <showSectorPreview>true</showSectorPreview>
+        <sectorPreviewColor>(0.3,0.7,1.0,0.3)</sectorPreviewColor>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_RequireFlyOverFacility">
+        <!-- <flyOverDef></flyOverDef> -->
+        <requiredFacility>HarborFacility</requiredFacility>
+        <facilityNotFoundMessage>A ship with a &lt;color=#BD952F>&lt;i>Hangar&lt;/i>&lt;/color> facility must be on the map to launch an airstrike.</facilityNotFoundMessage>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_Spawn_Bomber_Smoke</defName>
+    <label>Bomber Smoke Wall</label>
+    <description>Command the Wula Empire's bombers to sweep across the battlefield at low speed, dropping numerous smoke bombs on the target area—the resulting smoke wall is much larger than the marked bombing zone.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Spawn_Bomber_Smoke</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+        <requiredResearch>WULA_Bomber_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AircraftStrike">
+        <requiredAircraftType>WULA_Bomber_Entity</requiredAircraftType>
+        <aircraftCooldownTicks>5000</aircraftCooldownTicks> 
+        <aircraftsPerUse>1</aircraftsPerUse>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilitySpawnFlyOver">
+        <flyOverDef>WULA_Bomber_B</flyOverDef>
+        <flyOverType>GroundStrafing</flyOverType>
+        <flightSpeed>3</flightSpeed>
+        <altitude>20</altitude>
+        <playFlyOverSound>true</playFlyOverSound>
+        <approachType>Perpendicular</approachType>
+
+        <!-- 扫射参数 -->
+        <enableGroundStrafing>true</enableGroundStrafing>
+        <strafeWidth>1</strafeWidth>
+        <strafeLength>160</strafeLength>
+        <strafeFireChance>0.1</strafeFireChance>
+        <!-- 新增：控制最终射弹数量 -->
+        <!-- <minStrafeProjectiles>2</minStrafeProjectiles>
+        <maxStrafeProjectiles>2</maxStrafeProjectiles> -->
+
+        <!-- 只传递信号，不传递具体参数 -->
+        <enableSectorSurveillance>false</enableSectorSurveillance>
+
+        <!-- 可视化 -->
+        <showStrafePreview>true</showStrafePreview>
+        <strafePreviewColor>(1.0,0.3,0.1,0.2)</strafePreviewColor>
+        <!-- 预览配置 -->
+        <showSectorPreview>false</showSectorPreview>
+
+        <!-- 预览配置 -->
+        <showSectorPreview>true</showSectorPreview>
+        <sectorPreviewColor>(0.3,0.7,1.0,0.3)</sectorPreviewColor>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_RequireFlyOverFacility">
+        <!-- <flyOverDef></flyOverDef> -->
+        <requiredFacility>HarborFacility</requiredFacility>
+        <facilityNotFoundMessage>A ship with a &lt;color=#BD952F>&lt;i>Hangar&lt;/i>&lt;/color> facility must be on the map to launch an airstrike.</facilityNotFoundMessage>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_Spawn_Bomber_DarkMatterBomb</defName>
+    <label>Bomber Antimatter Impact</label>
+    <description>Command the Wula Empire's bombers to sweep across the battlefield at low speed, firing an antimatter missile at the target location—remember to stay far away.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Spawn_Bomber_DarkMatterBomb</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+        <requiredResearch>WULA_Bomber_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AircraftStrike">
+        <requiredAircraftType>WULA_Bomber_Entity</requiredAircraftType>
+        <aircraftCooldownTicks>10000</aircraftCooldownTicks> 
+        <aircraftsPerUse>1</aircraftsPerUse>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilitySpawnFlyOver">
+        <flyOverDef>WULA_Bomber_C</flyOverDef>
+        <flyOverType>GroundStrafing</flyOverType>
+        <flightSpeed>3</flightSpeed>
+        <altitude>20</altitude>
+        <playFlyOverSound>true</playFlyOverSound>
+        <approachType>Perpendicular</approachType>
+
+        <!-- 扫射参数 -->
+        <enableGroundStrafing>true</enableGroundStrafing>
+        <strafeWidth>1</strafeWidth>
+        <strafeLength>1</strafeLength>
+        <strafeFireChance>1</strafeFireChance>
+        <!-- 新增：控制最终射弹数量 -->
+        <minStrafeProjectiles>1</minStrafeProjectiles>
+        <maxStrafeProjectiles>1</maxStrafeProjectiles>
+
+        <!-- 只传递信号，不传递具体参数 -->
+        <enableSectorSurveillance>false</enableSectorSurveillance>
+
+        <!-- 可视化 -->
+        <showStrafePreview>true</showStrafePreview>
+        <strafePreviewColor>(1.0,0.3,0.1,0.2)</strafePreviewColor>
+        <!-- 预览配置 -->
+        <showSectorPreview>false</showSectorPreview>
+
+        <!-- 预览配置 -->
+        <showSectorPreview>true</showSectorPreview>
+        <sectorPreviewColor>(0.3,0.7,1.0,0.3)</sectorPreviewColor>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_RequireFlyOverFacility">
+        <!-- <flyOverDef></flyOverDef> -->
+        <requiredFacility>HarborFacility</requiredFacility>
+        <facilityNotFoundMessage>A ship with a &lt;color=#BD952F>&lt;i>Hangar&lt;/i>&lt;/color> facility must be on the map to launch an airstrike.</facilityNotFoundMessage>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <!-- 炮击 -->
+  <AbilityDef>
+    <defName>WULA_Firepower_Minigun_Strafe</defName>
+    <label>Chain Gun Strafing</label>
+    <description>Uses the ship's automatic chain guns to strafe the target area in a selectable direction. Fast firing rate and cooldown, effective against lightly armored targets, but power is lacking.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Firepower_Minigun_Strafe</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_GlobalFlyOverCooldown">
+        <globalCooldownTicks>1000</globalCooldownTicks>
+        <requiredFacility>BombardmentFacility</requiredFacility>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityBombardment">
+        <bombardmentWidth>5</bombardmentWidth>
+        <bombardmentLength>35</bombardmentLength>
+        <targetSelectionChance>0.6</targetSelectionChance>
+        <minTargetCells>25</minTargetCells>
+        <maxTargetCells>30</maxTargetCells>
+        <warmupTicks>120</warmupTicks>
+        <rowDelayTicks>5</rowDelayTicks>
+        <impactDelayTicks>2</impactDelayTicks>
+        <showBombardmentArea>true</showBombardmentArea>
+        <effecterScale>1.5</effecterScale>
+        <areaPreviewColor>1.0,0.3,0.1,0.3</areaPreviewColor>
+        <skyfallerDef>WULA_Firepower_Minigun_Strafe_Skyfaller</skyfallerDef>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_RequireFlyOverFacility">
+        <!-- <flyOverDef></flyOverDef> -->
+        <requiredFacility>BombardmentFacility</requiredFacility>
+        <facilityNotFoundMessage>A ship with a &lt;color=#BD2F31>&lt;i>Weapon Array&lt;/i>&lt;/color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+        <requiredResearch>WULA_Firepower_Minigun_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_Firepower_Cannon_Salvo</defName>
+    <label>Light Ship Cannon Salvo</label>
+    <description>Commands the ship's secondary broadside cannons to fire a salvo of 12 shells total, causing moderate damage</description>
+    <iconPath>Wula/UI/Abilities/WULA_Firepower_Cannon_Salvo</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_GlobalFlyOverCooldown">
+        <globalCooldownTicks>6000</globalCooldownTicks>
+        <requiredFacility>BombardmentFacility</requiredFacility>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityCircularBombardment">
+        <radius>10</radius>
+        <simultaneousLaunches>3</simultaneousLaunches>
+        <launchIntervalTicks>90</launchIntervalTicks>
+        <maxLaunches>24</maxLaunches>
+        <warmupTicks>120</warmupTicks>
+        
+        <!-- 独立间隔模式：组内依次发射 -->
+        <useIndependentIntervals>true</useIndependentIntervals>
+        <innerLaunchIntervalTicks>5</innerLaunchIntervalTicks>
+        
+        <skyfallerDef>WULA_Firepower_Cannon_Salvo_Skyfaller</skyfallerDef>
+        <showBombardmentArea>true</showBombardmentArea>
+        <showImpactPreview>false</showImpactPreview>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_RequireFlyOverFacility">
+        <!-- <flyOverDef></flyOverDef> -->
+        <requiredFacility>BombardmentFacility</requiredFacility>
+        <facilityNotFoundMessage>A ship with a &lt;color=#BD2F31>&lt;i>Weapon Array&lt;/i>&lt;/color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+        <requiredResearch>WULA_Firepower_Cannon_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_Firepower_Cannon_Surveillance</defName>
+    <label>Light Ship Cannon Surveillance</label>
+    <description>Commands the ship's secondary broadside cannons to surveil an area for 0.3 hours, bombarding any hostile targets that enter the range.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Firepower_Cannon_Surveillance</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_GlobalFlyOverCooldown">
+        <globalCooldownTicks>10000</globalCooldownTicks> <!-- 1 day -->
+        <requiredFacility>BombardmentFacility</requiredFacility>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityCallSkyfaller">
+        <delayTicks>180</delayTicks>
+        <skyfallerDef>WULA_Firepower_Cannon_Surveillance_Skyfaller</skyfallerDef>
+        <previewRadius>12</previewRadius>
+        <previewColor>(0.85,0.85,0.3,0.5)</previewColor>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_RequireFlyOverFacility">
+        <!-- <flyOverDef></flyOverDef> -->
+        <requiredFacility>BombardmentFacility</requiredFacility>
+        <facilityNotFoundMessage>A ship with a &lt;color=#BD2F31>&lt;i>Weapon Array&lt;/i>&lt;/color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+        <requiredResearch>WULA_Firepower_Cannon_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_Firepower_EnergyLance_Strafe</defName>
+    <label>Lance Strafing</label>
+    <description>Commands the ship's lance array to fire a lance beam that sweeps across the battlefield, causing massive heat damage, especially effective against building clusters.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Firepower_EnergyLance_Strafe</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_GlobalFlyOverCooldown">
+        <globalCooldownTicks>10000</globalCooldownTicks> <!-- 1 day -->
+        <requiredFacility>BombardmentFacility</requiredFacility>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityEnergyLance">
+        <durationTicks>450</durationTicks>
+        <moveDistance>20</moveDistance>
+        <useFixedDistance>true</useFixedDistance>
+        <energyLanceDef>WULA_EnergyLance_Base</energyLanceDef>
+        <firesPerTick>4</firesPerTick>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_RequireFlyOverFacility">
+        <!-- <flyOverDef></flyOverDef> -->
+        <requiredFacility>BombardmentFacility</requiredFacility>
+        <facilityNotFoundMessage>A ship with a &lt;color=#BD2F31>&lt;i>Weapon Array&lt;/i>&lt;/color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+        <requiredResearch>WULA_Firepower_EnergyLance_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_Firepower_EnergyLance_Surveillance</defName>
+    <label>Lance Surveillance</label>
+    <description>Commands the ship's lance array to surveil an area for 1 hour, continuously illuminating any hostile targets that enter the range.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Firepower_EnergyLance_Surveillance</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_GlobalFlyOverCooldown">
+        <globalCooldownTicks>30000</globalCooldownTicks> <!-- 1 day -->
+        <requiredFacility>BombardmentFacility</requiredFacility>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityCallSkyfaller">
+        <delayTicks>180</delayTicks>
+        <skyfallerDef>WULA_Firepower_EnergyLance_Surveillance_Skyfaller</skyfallerDef>
+        <previewRadius>36</previewRadius>
+        <previewColor>(0.85,0.85,0.3,0.5)</previewColor>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_RequireFlyOverFacility">
+        <!-- <flyOverDef></flyOverDef> -->
+        <requiredFacility>BombardmentFacility</requiredFacility>
+        <facilityNotFoundMessage>A ship with a &lt;color=#BD2F31>&lt;i>Weapon Array&lt;/i>&lt;/color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+        <requiredResearch>WULA_Firepower_EnergyLance_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_Firepower_Primary_Cannon_Strafe</defName>
+    <label>Main Cannon Salvo</label>
+    <description>Uses the ship's main cannons to strafe the target area in a selectable direction. Possesses terrifying power capable of leveling mountains, but suffers from poor response time, accuracy, and requires lengthy reloading.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Firepower_Primary_Cannon_Strafe</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_GlobalFlyOverCooldown">
+        <globalCooldownTicks>60000</globalCooldownTicks> <!-- 1 day -->
+        <requiredFacility>BombardmentFacility</requiredFacility>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityBombardment">
+        <bombardmentWidth>35</bombardmentWidth>
+        <bombardmentLength>70</bombardmentLength>
+        <targetSelectionChance>0.1</targetSelectionChance>
+        <minTargetCells>8</minTargetCells>
+        <maxTargetCells>8</maxTargetCells>
+        <warmupTicks>240</warmupTicks>
+        <rowDelayTicks>30</rowDelayTicks>
+        <impactDelayTicks>2</impactDelayTicks>
+        <showBombardmentArea>true</showBombardmentArea>
+        <effecterScale>1.5</effecterScale>
+        <areaPreviewColor>1.0,0.3,0.1,0.3</areaPreviewColor>
+        <skyfallerDef>WULA_Firepower_Primary_Cannon_Strafe_Skyfaller</skyfallerDef>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_RequireFlyOverFacility">
+        <!-- <flyOverDef></flyOverDef> -->
+        <requiredFacility>BombardmentFacility</requiredFacility>
+        <facilityNotFoundMessage>A ship with a &lt;color=#BD2F31>&lt;i>Weapon Array&lt;/i>&lt;/color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+        <requiredResearch>WULA_Firepower_Primary_Cannon_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>WULA_Firepower_Primary_Cannon_EMP_Surveillance</defName>
+    <label>Main Cannon EMP Suppression</label>
+    <description>Commands the ship's main cannon to surveil a vast area for 3 hours, firing wide-area EMP shells at any hostile targets that enter the range. The immense energy can paralyze mechanoids for extended periods.</description>
+    <iconPath>Wula/UI/Abilities/WULA_Firepower_Primary_Cannon_EMP_Surveillance</iconPath>
+    <cooldownTicksRange>1</cooldownTicksRange>
+    <hotKey>Misc12</hotKey>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>1</warmupTime>
+      <range>500</range>
+      <targetable>true</targetable>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="WulaFallenEmpire.CompProperties_GlobalFlyOverCooldown">
+        <globalCooldownTicks>60000</globalCooldownTicks> <!-- 1 day -->
+        <requiredFacility>BombardmentFacility</requiredFacility>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityCallSkyfaller">
+        <delayTicks>180</delayTicks>
+        <skyfallerDef>WULA_Firepower_Primary_Cannon_EMP_Surveillance_Skyfaller</skyfallerDef>
+        <previewRadius>100</previewRadius>
+        <previewColor>(0.85,0.85,0.3,0.5)</previewColor>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_RequireFlyOverFacility">
+        <!-- <flyOverDef></flyOverDef> -->
+        <requiredFacility>BombardmentFacility</requiredFacility>
+        <facilityNotFoundMessage>A ship with a &lt;color=#BD2F31>&lt;i>Weapon Array&lt;/i>&lt;/color> facility must be on the map to provide orbital artillery support.</facilityNotFoundMessage>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityResearchPrereq">
+        <requiredResearch>WULA_Firepower_Primary_Cannon_Technology</requiredResearch>
+      </li>
+      <li Class="WulaFallenEmpire.CompProperties_AbilityRequiresNonHostility">
+        <factionDef>Wula_PIA_Legion_Faction</factionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+</Defs>
