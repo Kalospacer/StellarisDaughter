@@ -361,6 +361,8 @@
         <halfMaxGrowthMult>0.2</halfMaxGrowthMult>
         <transformCooldownTicks>60000</transformCooldownTicks>
         <cancelTransformCooldownTicks>180</cancelTransformCooldownTicks>
+        <witchFormHediffDef>SD_Hediff_WitchForm</witchFormHediffDef>
+        <normalFormHediffDef>SD_Hediff_NormalForm</normalFormHediffDef>
         <normalApparelDef>SD_StellarUniform</normalApparelDef>
         <witchApparelDef>SD_StellarBlackUniform</witchApparelDef>
         <normalHairDef>SD_Daughter_Hair</normalHairDef>

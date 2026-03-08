@@ -22,6 +22,8 @@ namespace StellarisDaughter
         public float halfMaxGrowthMult = 0.5f;
         public int transformCooldownTicks = 0;
         public int cancelTransformCooldownTicks = 0;
+        public HediffDef normalFormHediffDef;
+        public HediffDef witchFormHediffDef;
         public ThingDef normalApparelDef;
         public ThingDef witchApparelDef;
         public HairDef normalHairDef;

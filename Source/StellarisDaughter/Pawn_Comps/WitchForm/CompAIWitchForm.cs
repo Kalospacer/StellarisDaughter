@@ -79,7 +79,14 @@ namespace StellarisDaughter
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
+            EnsureFormHediffState();
             EnsureApparelLockState();
+        }
+
+        public override void PostPostMake()
+        {
+            base.PostPostMake();
+            EnsureFormHediffState();
         }
 
         private void CalculateGrowth()
@@ -277,36 +284,65 @@ namespace StellarisDaughter
 
         private void SwitchAppearance(bool toWitchForm)
         {
-            if (Pawn?.apparel == null || Pawn.story == null)
+            if (Pawn == null)
             {
                 return;
             }
 
-            DropNonExclusiveApparel();
-            SwitchExclusiveApparel(toWitchForm);
-            SwitchHair(toWitchForm);
             SwitchWitchFormHediff(toWitchForm);
-            EnsureApparelLockState();
+
+            if (Pawn.apparel != null && Pawn.story != null)
+            {
+                DropNonExclusiveApparel();
+                SwitchExclusiveApparel(toWitchForm);
+                SwitchHair(toWitchForm);
+                EnsureApparelLockState();
+            }
+
             Pawn.Drawer?.renderer?.SetAllGraphicsDirty();
         }
 
+        private HediffDef NormalFormHediffDef => Props.normalFormHediffDef;
+
+        private HediffDef WitchFormHediffDef => Props.witchFormHediffDef ?? SD_DefOf.SD_Hediff_WitchForm;
+
+        private void EnsureFormHediffState()
+        {
+            SyncFormHediff(IsWitchForm);
+        }
+
         private void SwitchWitchFormHediff(bool toWitchForm)
+        {
+            SyncFormHediff(toWitchForm);
+        }
+
+        private void SyncFormHediff(bool toWitchForm)
         {
             if (Pawn?.health?.hediffSet == null)
             {
                 return;
             }
 
-            var existingHediff = Pawn.health.hediffSet.GetFirstHediffOfDef(SD_DefOf.SD_Hediff_WitchForm);
-            if (toWitchForm)
+            var desiredHediffDef = toWitchForm ? WitchFormHediffDef : NormalFormHediffDef;
+            RemoveFormHediffIfPresent(NormalFormHediffDef, desiredHediffDef);
+            RemoveFormHediffIfPresent(WitchFormHediffDef, desiredHediffDef);
+
+            if (desiredHediffDef != null && Pawn.health.hediffSet.GetFirstHediffOfDef(desiredHediffDef) == null)
             {
-                if (existingHediff == null)
-                {
-                    var hediff = HediffMaker.MakeHediff(SD_DefOf.SD_Hediff_WitchForm, Pawn);
-                    Pawn.health.AddHediff(hediff);
-                }
+                var hediff = HediffMaker.MakeHediff(desiredHediffDef, Pawn);
+                Pawn.health.AddHediff(hediff);
             }
-            else if (existingHediff != null)
+        }
+
+        private void RemoveFormHediffIfPresent(HediffDef hediffDef, HediffDef keepDef)
+        {
+            if (hediffDef == null || hediffDef == keepDef)
+            {
+                return;
+            }
+
+            var existingHediff = Pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef);
+            if (existingHediff != null)
             {
                 Pawn.health.RemoveHediff(existingHediff);
             }
@@ -425,6 +461,7 @@ namespace StellarisDaughter
             Scribe_Values.Look(ref nextCancelTransformAllowedTick, "nextCancelTransformAllowedTick", 0);
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
+                EnsureFormHediffState();
                 EnsureApparelLockState();
             }
         }

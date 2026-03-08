@@ -63,7 +63,7 @@
   <HediffDef>
     <defName>SD_Hediff_WitchForm</defName>
     <label>星规-渊海之形</label>
-    <description>星规子单元进入了魔女形态，获得了强大的真空切割能力。</description>
+    <description>星辉分形流转在这个个体之中，极度强化了其各项能力，并提供强有力的保护。不可见的屏障遍覆其躯体，抵挡一切损伤。\n\n&lt;color=#00FFFF&gt;“我自苍白的门扉归来，我已超然物上。我的力气足以掌控他人，我的力量足以掌控自我。我的肢体强韧，它可驱使万物，它将塑造万物；我的身躯精妙，它已成为一体，它将永为一体。”&lt;/color&gt;</description>
     <hediffClass>HediffWithComps</hediffClass>
     <defaultLabelColor>(0.8, 0.4, 0.8)</defaultLabelColor>
     <everCurableByItem>false</everCurableByItem>
@@ -126,6 +126,43 @@
           <MeleeCooldownFactor>-0.5</MeleeCooldownFactor>
           <RangedCooldownFactor>-0.5</RangedCooldownFactor>
           <MoveSpeed>4</MoveSpeed>
+          <DecompressionResistance MayRequire="kentington.saveourship2">1</DecompressionResistance>
+          <VacuumSpeedMultiplier MayRequire="kentington.saveourship2">10</VacuumSpeedMultiplier>
+          <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- 正常形态 Hediff：提供基础能力 -->
+  <HediffDef>
+    <defName>SD_Hediff_NormalForm</defName>
+    <label>星规-溯星之形</label>
+    <description>星辉分形流转在这个个体之中，极度强化了其各项能力，并提供强有力的保护。不可见的屏障遍覆其躯体，抵挡一切损伤。\n\n&lt;color=#00FFFF&gt;“我自苍白的门扉归来，我已超然物上。我的力气足以掌控他人，我的力量足以掌控自我。我的肢体强韧，它可驱使万物，它将塑造万物；我的身躯精妙，它已成为一体，它将永为一体。”&lt;/color&gt;</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(111, 172, 172)</defaultLabelColor>
+    <everCurableByItem>false</everCurableByItem>
+    <duplicationAllowed>false</duplicationAllowed>
+    <isBad>false</isBad>
+    <preventsDeath>true</preventsDeath>
+    <comps>
+      <li Class="StellarisDaughter.HediffCompProperties_Regeneration">
+        <repairCooldownAfterDamage>600</repairCooldownAfterDamage>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>true</becomeVisible>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.1</offset>
+          </li>
+        </capMods>
+        <statFactors>
+          <StaggerDurationFactor>0</StaggerDurationFactor>
+        </statFactors>
+        <statOffsets>
           <DecompressionResistance MayRequire="kentington.saveourship2">1</DecompressionResistance>
           <VacuumSpeedMultiplier MayRequire="kentington.saveourship2">10</VacuumSpeedMultiplier>
           <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">1</VacuumResistance>
