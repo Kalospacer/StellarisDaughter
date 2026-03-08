@@ -75,7 +75,7 @@ namespace StellarisDaughter
             var labelRect = new Rect(row.x, row.y, row.width * LabelPct, row.height);
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.MiddleLeft;
-            Widgets.Label(labelRect, "魔女因子");
+            Widgets.Label(labelRect, "SD_Witch_Gizmo_Label".Translate());
             Text.Anchor = TextAnchor.UpperLeft;
 
             var bar = new Rect(labelRect.xMax, row.y + 2f, row.width - labelRect.width, row.height - 4f);
@@ -171,86 +171,103 @@ namespace StellarisDaughter
                 var hostileTrustBonus = trust < 0f ? -trust * comp.Props.negativeTrustGrowthFactor : 0f;
                 actualRate = Mathf.Max(baseRate + hostileTrustBonus, 0f) * comp.Props.witchFormGrowthMult;
                 trustRuleText = trust < 0f
-                    ? $"负信任加速：+{hostileTrustBonus:F3}（信任值 {trust:F0}）"
-                    : $"正信任在变身时不再抑制增长（信任值 {trust:F0}）";
+                    ? "SD_Witch_Tooltip_TrustRule_NegativeActive".Translate(hostileTrustBonus.ToString("F3"), trust.ToString("F0"))
+                    : "SD_Witch_Tooltip_TrustRule_PositiveActive".Translate(trust.ToString("F0"));
             }
             else if (trust > 0f && current > 0f)
             {
                 actualRate = -Mathf.Min(
                     trust * comp.Props.positiveTrustDecayFactor,
                     comp.Props.baseGrowthRate * comp.Props.positiveTrustDecayMaxBaseFraction);
-                trustRuleText = $"正信任缓降：{Mathf.Abs(actualRate):F3}（信任值 {trust:F0}）";
+                trustRuleText = "SD_Witch_Tooltip_TrustRule_PositiveDecay".Translate(Mathf.Abs(actualRate).ToString("F3"), trust.ToString("F0"));
             }
             else if (current < comp.TransformThresholdFactor)
             {
                 actualRate = 0f;
-                trustRuleText = $"未变身且低于阈值 {comp.TransformThresholdRatio * 100f:F0}% 时不增长（信任值 {trust:F0}）";
+                trustRuleText = "SD_Witch_Tooltip_TrustRule_BelowThreshold".Translate((comp.TransformThresholdRatio * 100f).ToString("F0"), trust.ToString("F0"));
             }
             else
             {
                 var hostileTrustBonus = trust < 0f ? -trust * comp.Props.negativeTrustGrowthFactor : 0f;
                 actualRate = Mathf.Max(baseRate + hostileTrustBonus, 0f) * comp.Props.halfMaxGrowthMult;
                 trustRuleText = trust < 0f
-                    ? $"负信任加速：+{hostileTrustBonus:F3}（信任值 {trust:F0}）"
-                    : $"后半段按缓速增长（信任值 {trust:F0}）";
+                    ? "SD_Witch_Tooltip_TrustRule_NegativePassive".Translate(hostileTrustBonus.ToString("F3"), trust.ToString("F0"))
+                    : "SD_Witch_Tooltip_TrustRule_PassiveGrowth".Translate(trust.ToString("F0"));
             }
 
             var perDay = actualRate * (60000f / 250f);
             var tooltip = new StringBuilder();
-            tooltip.AppendLine("═══ 魔女因子系统 ═══");
+            tooltip.AppendLine("SD_Witch_Tooltip_Header".Translate());
             tooltip.AppendLine();
-            tooltip.AppendLine("【当前状态】");
-            tooltip.AppendLine($"  数值：{current:F1} / {max:F1} ({percentage:F1}%)");
-            tooltip.AppendLine($"  状态：{GetStateDescription()}");
+            tooltip.AppendLine("SD_Witch_Tooltip_CurrentState_Section".Translate());
+            tooltip.AppendLine("SD_Witch_Tooltip_CurrentValue".Translate(current.ToString("F1"), max.ToString("F1"), percentage.ToString("F1")));
+            tooltip.AppendLine("SD_Witch_Tooltip_CurrentState".Translate(GetStateDescription()));
             tooltip.AppendLine();
-            tooltip.AppendLine("【增长率】");
-            tooltip.AppendLine($"  当前变化：{actualRate:F3} / TickRare ({perDay:F1} / 天)");
-            tooltip.AppendLine($"  基础速度：{baseRate:F3}");
-            tooltip.AppendLine($"  信任规则：{trustRuleText}");
+            tooltip.AppendLine("SD_Witch_Tooltip_Growth_Section".Translate());
+            tooltip.AppendLine("SD_Witch_Tooltip_CurrentRate".Translate(actualRate.ToString("F3"), perDay.ToString("F1")));
+            tooltip.AppendLine("SD_Witch_Tooltip_BaseRate".Translate(baseRate.ToString("F3")));
+            tooltip.AppendLine("SD_Witch_Tooltip_TrustRule".Translate(trustRuleText));
             if (comp.IsWitchForm)
             {
-                tooltip.AppendLine($"  变身加速：×{comp.Props.witchFormGrowthMult:F1}");
+                tooltip.AppendLine("SD_Witch_Tooltip_WitchMult".Translate(comp.Props.witchFormGrowthMult.ToString("F1")));
             }
             else if (current >= comp.TransformThresholdFactor)
             {
-                tooltip.AppendLine($"  后半段倍率：×{comp.Props.halfMaxGrowthMult:F1}");
+                tooltip.AppendLine("SD_Witch_Tooltip_HalfMult".Translate(comp.Props.halfMaxGrowthMult.ToString("F1")));
             }
 
             tooltip.AppendLine();
-            tooltip.AppendLine("【上限计算】");
-            tooltip.AppendLine($"  公式：基础上限 + 好感度 × {comp.Props.affectionToMaxFactor:F2}");
-            tooltip.AppendLine($"  计算：{comp.Props.baseMaxFactor:F0} + {affection:F0} × {comp.Props.affectionToMaxFactor:F2} = {max:F1}");
+            tooltip.AppendLine("SD_Witch_Tooltip_MaxCalc_Section".Translate());
+            tooltip.AppendLine("SD_Witch_Tooltip_MaxFormula".Translate(comp.Props.affectionToMaxFactor.ToString("F2")));
+            tooltip.AppendLine("SD_Witch_Tooltip_MaxFormulaValue".Translate(comp.Props.baseMaxFactor.ToString("F0"), affection.ToString("F0"), comp.Props.affectionToMaxFactor.ToString("F2"), max.ToString("F1")));
             tooltip.AppendLine();
-            tooltip.AppendLine("【机制说明】");
-            tooltip.AppendLine("  • 负信任越高，魔女因子增长越快");
-            tooltip.AppendLine("  • 好感度越高，魔女因子上限越高");
-            tooltip.AppendLine($"  • 未变身且低于 {comp.TransformThresholdRatio * 100f:F0}% 阈值时，不会自然增长");
-            tooltip.AppendLine("  • 信任为正时，未变身状态会缓慢降低魔女因子");
-            tooltip.AppendLine("  • 达到上限时，会触发魔女狂暴");
+            tooltip.AppendLine("SD_Witch_Tooltip_Mechanic_Section".Translate());
+            tooltip.AppendLine("SD_Witch_Tooltip_Mechanic_NegativeTrust".Translate());
+            tooltip.AppendLine("SD_Witch_Tooltip_Mechanic_Affection".Translate());
+            tooltip.AppendLine("SD_Witch_Tooltip_Mechanic_Threshold".Translate((comp.TransformThresholdRatio * 100f).ToString("F0")));
+            tooltip.AppendLine("SD_Witch_Tooltip_Mechanic_PositiveTrust".Translate());
+            tooltip.AppendLine("SD_Witch_Tooltip_Mechanic_Berserk".Translate());
+            if (comp.Props.transformCooldownTicks > 0 || comp.Props.cancelTransformCooldownTicks > 0)
+            {
+                tooltip.AppendLine("SD_Witch_Tooltip_Mechanic_Cooldown".Translate());
+            }
             tooltip.AppendLine();
-            tooltip.AppendLine("【操作提示】");
+            tooltip.AppendLine("SD_Witch_Tooltip_Cooldown_Section".Translate());
+            tooltip.AppendLine("SD_Witch_Tooltip_TransformCooldown".Translate(CompAIWitchForm.FormatCooldownDuration(comp.Props.transformCooldownTicks)));
+            tooltip.AppendLine("SD_Witch_Tooltip_CancelCooldown".Translate(CompAIWitchForm.FormatCooldownDuration(comp.Props.cancelTransformCooldownTicks)));
+            if (comp.state == WitchFormState.Normal && comp.TransformCooldownRemainingTicks > 0)
+            {
+                tooltip.AppendLine("SD_Witch_Tooltip_TransformCooldownRemaining".Translate(CompAIWitchForm.FormatCooldownDuration(comp.TransformCooldownRemainingTicks)));
+            }
+            else if (comp.state == WitchFormState.WitchForm && comp.CancelTransformCooldownRemainingTicks > 0)
+            {
+                tooltip.AppendLine("SD_Witch_Tooltip_CancelCooldownRemaining".Translate(CompAIWitchForm.FormatCooldownDuration(comp.CancelTransformCooldownRemainingTicks)));
+            }
+
+            tooltip.AppendLine();
+            tooltip.AppendLine("SD_Witch_Tooltip_Action_Section".Translate());
             if (comp.IsBerserk)
             {
-                tooltip.AppendLine("  • 当前处于狂暴状态");
-                tooltip.AppendLine("  • 击倒后可右键选择“镇压”结束");
+                tooltip.AppendLine("SD_Witch_Tooltip_Action_Berserk1".Translate());
+                tooltip.AppendLine("SD_Witch_Tooltip_Action_Berserk2".Translate());
             }
             else if (current >= max * 0.9f)
             {
-                tooltip.AppendLine("  • 危险：接近上限，即将失控");
-                tooltip.AppendLine("  • 建议立即解除变身");
+                tooltip.AppendLine("SD_Witch_Tooltip_Action_Danger1".Translate());
+                tooltip.AppendLine("SD_Witch_Tooltip_Action_Danger2".Translate());
             }
             else if (comp.IsWitchForm)
             {
-                tooltip.AppendLine("  • 点击变身按钮可解除魔女形态");
+                tooltip.AppendLine("SD_Witch_Tooltip_Action_Cancel".Translate());
             }
             else if (current >= comp.TransformThresholdFactor)
             {
-                tooltip.AppendLine("  • 点击变身按钮可进入魔女形态");
-                tooltip.AppendLine("  • 变身后因子增长会明显加快");
+                tooltip.AppendLine("SD_Witch_Tooltip_Action_Transform1".Translate());
+                tooltip.AppendLine("SD_Witch_Tooltip_Action_Transform2".Translate());
             }
             else
             {
-                tooltip.AppendLine($"  • 因子达到 {comp.TransformThresholdRatio * 100f:F0}% 后可手动变身");
+                tooltip.AppendLine("SD_Witch_Tooltip_Action_Threshold".Translate((comp.TransformThresholdRatio * 100f).ToString("F0")));
             }
 
             return tooltip.ToString();
@@ -260,11 +277,12 @@ namespace StellarisDaughter
         {
             return comp.state switch
             {
-                WitchFormState.Normal => "正常形态",
-                WitchFormState.WitchForm => "魔女形态",
-                WitchFormState.Berserk => "魔女狂暴（失控）",
-                _ => "未知"
+                WitchFormState.Normal => "SD_Witch_StateDesc_Normal".Translate(),
+                WitchFormState.WitchForm => "SD_Witch_StateDesc_Witch".Translate(),
+                WitchFormState.Berserk => "SD_Witch_StateDesc_Berserk".Translate(),
+                _ => "SD_Unknown".Translate()
             };
         }
+
     }
 }

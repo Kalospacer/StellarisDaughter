@@ -15,10 +15,21 @@ namespace StellarisDaughter
         public float witchFactor = 0f;
         public WitchFormState state = WitchFormState.Normal;
 
+        private int nextTransformAllowedTick;
+        private int nextCancelTransformAllowedTick;
+
         public CompProperties_AIWitchForm Props => (CompProperties_AIWitchForm)props;
         public Pawn Pawn => parent as Pawn;
         public bool IsWitchForm => state == WitchFormState.WitchForm || state == WitchFormState.Berserk;
         public bool IsBerserk => state == WitchFormState.Berserk;
+        public int TransformCooldownRemainingTicks => GetRemainingTicks(nextTransformAllowedTick);
+        public int CancelTransformCooldownRemainingTicks => GetRemainingTicks(nextCancelTransformAllowedTick);
+        public int CurrentToggleCooldownRemainingTicks => state switch
+        {
+            WitchFormState.Normal => TransformCooldownRemainingTicks,
+            WitchFormState.WitchForm => CancelTransformCooldownRemainingTicks,
+            _ => 0
+        };
 
         public float MaxWitchFactor
         {
@@ -63,6 +74,19 @@ namespace StellarisDaughter
 
             CalculateGrowth();
             CheckBerserk();
+        }
+
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            base.PostSpawnSetup(respawningAfterLoad);
+            EnsureFormHediffState();
+            EnsureApparelLockState();
+        }
+
+        public override void PostPostMake()
+        {
+            base.PostPostMake();
+            EnsureFormHediffState();
         }
 
         private void CalculateGrowth()
@@ -141,55 +165,184 @@ namespace StellarisDaughter
 
         public void ToggleWitchForm()
         {
-            if (IsBerserk)
+            if (!CanToggleWitchFormNow(out var reason))
             {
-                Messages.Message("SD_Witch_CannotToggle_Berserk".Translate(), MessageTypeDefOf.RejectInput);
+                if (!string.IsNullOrEmpty(reason))
+                {
+                    Messages.Message(reason, MessageTypeDefOf.RejectInput);
+                }
                 return;
             }
 
             if (state == WitchFormState.Normal)
             {
+                StartTransformCooldown();
                 state = WitchFormState.WitchForm;
                 SwitchAppearance(true);
             }
             else
             {
+                StartCancelTransformCooldown();
                 state = WitchFormState.Normal;
                 SwitchAppearance(false);
             }
         }
 
+        public bool CanToggleWitchFormNow(out string reason)
+        {
+            if (IsBerserk)
+            {
+                reason = "SD_Witch_CannotToggle_Berserk".Translate();
+                return false;
+            }
+
+            if (state == WitchFormState.Normal)
+            {
+                var remainingTicks = TransformCooldownRemainingTicks;
+                if (remainingTicks > 0)
+                {
+                    reason = "SD_Witch_TransformCooldownRemaining".Translate(FormatCooldownDuration(remainingTicks));
+                    return false;
+                }
+            }
+            else if (state == WitchFormState.WitchForm)
+            {
+                var remainingTicks = CancelTransformCooldownRemainingTicks;
+                if (remainingTicks > 0)
+                {
+                    reason = "SD_Witch_CancelCooldownRemaining".Translate(FormatCooldownDuration(remainingTicks));
+                    return false;
+                }
+            }
+
+            reason = null;
+            return true;
+        }
+
+        public string GetCurrentToggleCooldownDescription()
+        {
+            if (state == WitchFormState.Normal)
+            {
+                var remainingTicks = TransformCooldownRemainingTicks;
+                if (remainingTicks > 0)
+                {
+                    return "SD_Witch_TransformCooldownRemaining".Translate(FormatCooldownDuration(remainingTicks));
+                }
+
+                if (Props.transformCooldownTicks > 0)
+                {
+                    return "SD_Witch_TransformCooldown".Translate(FormatCooldownDuration(Props.transformCooldownTicks));
+                }
+            }
+            else if (state == WitchFormState.WitchForm)
+            {
+                var remainingTicks = CancelTransformCooldownRemainingTicks;
+                if (remainingTicks > 0)
+                {
+                    return "SD_Witch_CancelCooldownRemaining".Translate(FormatCooldownDuration(remainingTicks));
+                }
+
+                if (Props.cancelTransformCooldownTicks > 0)
+                {
+                    return "SD_Witch_CancelCooldown".Translate(FormatCooldownDuration(Props.cancelTransformCooldownTicks));
+                }
+            }
+
+            return null;
+        }
+
+        private void StartTransformCooldown()
+        {
+            if (Props.transformCooldownTicks > 0 && Find.TickManager != null)
+            {
+                nextTransformAllowedTick = Find.TickManager.TicksGame + Props.transformCooldownTicks;
+            }
+        }
+
+        private void StartCancelTransformCooldown()
+        {
+            if (Props.cancelTransformCooldownTicks > 0 && Find.TickManager != null)
+            {
+                nextCancelTransformAllowedTick = Find.TickManager.TicksGame + Props.cancelTransformCooldownTicks;
+            }
+        }
+
+        private int GetRemainingTicks(int targetTick)
+        {
+            if (Find.TickManager == null)
+            {
+                return 0;
+            }
+
+            return Mathf.Max(0, targetTick - Find.TickManager.TicksGame);
+        }
+
+        public static string FormatCooldownDuration(int ticks)
+        {
+            return ticks.ToStringTicksToPeriod(allowSeconds: true, shortForm: false, canUseDecimals: true, allowYears: false, canUseDecimalsShortForm: false);
+        }
+
         private void SwitchAppearance(bool toWitchForm)
         {
-            if (Pawn?.apparel == null || Pawn.story == null)
+            if (Pawn == null)
             {
                 return;
             }
 
-            DropNonExclusiveApparel();
-            SwitchExclusiveApparel(toWitchForm);
-            SwitchHair(toWitchForm);
             SwitchWitchFormHediff(toWitchForm);
+
+            if (Pawn.apparel != null && Pawn.story != null)
+            {
+                DropNonExclusiveApparel();
+                SwitchExclusiveApparel(toWitchForm);
+                SwitchHair(toWitchForm);
+                EnsureApparelLockState();
+            }
+
             Pawn.Drawer?.renderer?.SetAllGraphicsDirty();
         }
 
+        private HediffDef NormalFormHediffDef => Props.normalFormHediffDef;
+
+        private HediffDef WitchFormHediffDef => Props.witchFormHediffDef ?? SD_DefOf.SD_Hediff_WitchForm;
+
+        private void EnsureFormHediffState()
+        {
+            SyncFormHediff(IsWitchForm);
+        }
+
         private void SwitchWitchFormHediff(bool toWitchForm)
+        {
+            SyncFormHediff(toWitchForm);
+        }
+
+        private void SyncFormHediff(bool toWitchForm)
         {
             if (Pawn?.health?.hediffSet == null)
             {
                 return;
             }
 
-            var existingHediff = Pawn.health.hediffSet.GetFirstHediffOfDef(SD_DefOf.SD_Hediff_WitchForm);
-            if (toWitchForm)
+            var desiredHediffDef = toWitchForm ? WitchFormHediffDef : NormalFormHediffDef;
+            RemoveFormHediffIfPresent(NormalFormHediffDef, desiredHediffDef);
+            RemoveFormHediffIfPresent(WitchFormHediffDef, desiredHediffDef);
+
+            if (desiredHediffDef != null && Pawn.health.hediffSet.GetFirstHediffOfDef(desiredHediffDef) == null)
             {
-                if (existingHediff == null)
-                {
-                    var hediff = HediffMaker.MakeHediff(SD_DefOf.SD_Hediff_WitchForm, Pawn);
-                    Pawn.health.AddHediff(hediff);
-                }
+                var hediff = HediffMaker.MakeHediff(desiredHediffDef, Pawn);
+                Pawn.health.AddHediff(hediff);
             }
-            else if (existingHediff != null)
+        }
+
+        private void RemoveFormHediffIfPresent(HediffDef hediffDef, HediffDef keepDef)
+        {
+            if (hediffDef == null || hediffDef == keepDef)
+            {
+                return;
+            }
+
+            var existingHediff = Pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef);
+            if (existingHediff != null)
             {
                 Pawn.health.RemoveHediff(existingHediff);
             }
@@ -257,6 +410,28 @@ namespace StellarisDaughter
             }
         }
 
+        private void EnsureApparelLockState()
+        {
+            if (Pawn?.apparel == null)
+            {
+                return;
+            }
+
+            foreach (var apparel in Pawn.apparel.WornApparel)
+            {
+                if (apparel.def == Props.normalApparelDef || apparel.def == Props.witchApparelDef)
+                {
+                    Pawn.apparel.Lock(apparel);
+                    continue;
+                }
+
+                if (Props.keepApparelDefs != null && Props.keepApparelDefs.Contains(apparel.def))
+                {
+                    Pawn.apparel.Unlock(apparel);
+                }
+            }
+        }
+
         public void ApplySuppression()
         {
             if (!IsBerserk)
@@ -273,6 +448,7 @@ namespace StellarisDaughter
             witchFactor = 0f;
             state = WitchFormState.Normal;
             SwitchAppearance(false);
+            Pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(SD_DefOf.SD_WitchBerserkRecovered);
             Messages.Message("SD_Witch_Suppressed".Translate(Pawn.NameShortColored), MessageTypeDefOf.PositiveEvent);
         }
 
@@ -281,6 +457,13 @@ namespace StellarisDaughter
             base.PostExposeData();
             Scribe_Values.Look(ref witchFactor, "witchFactor", 0f);
             Scribe_Values.Look(ref state, "state", WitchFormState.Normal);
+            Scribe_Values.Look(ref nextTransformAllowedTick, "nextTransformAllowedTick", 0);
+            Scribe_Values.Look(ref nextCancelTransformAllowedTick, "nextCancelTransformAllowedTick", 0);
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                EnsureFormHediffState();
+                EnsureApparelLockState();
+            }
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
@@ -292,22 +475,22 @@ namespace StellarisDaughter
             {
                 yield return new Command_Action
                 {
-                    defaultLabel = "DEV: +100 因子",
-                    defaultDesc = "增加100魔女因子用于测试",
+                    defaultLabel = "SD_Witch_Debug_AddFactor_Label".Translate(),
+                    defaultDesc = "SD_Witch_Debug_AddFactor_Desc".Translate(),
                     action = () => witchFactor = Mathf.Min(witchFactor + 100f, MaxWitchFactor)
                 };
 
                 yield return new Command_Action
                 {
-                    defaultLabel = "DEV: 重置因子",
-                    defaultDesc = "重置魔女因子为0",
+                    defaultLabel = "SD_Witch_Debug_ResetFactor_Label".Translate(),
+                    defaultDesc = "SD_Witch_Debug_ResetFactor_Desc".Translate(),
                     action = () => witchFactor = 0f
                 };
 
                 yield return new Command_Action
                 {
-                    defaultLabel = "DEV: 强制发狂",
-                    defaultDesc = "强制进入发狂状态",
+                    defaultLabel = "SD_Witch_Debug_ForceBerserk_Label".Translate(),
+                    defaultDesc = "SD_Witch_Debug_ForceBerserk_Desc".Translate(),
                     action = () =>
                     {
                         witchFactor = MaxWitchFactor;
@@ -320,11 +503,13 @@ namespace StellarisDaughter
         public string GetDebugInfo()
         {
             var trust = Pawn.GetComp<CompAIUpbringing>()?.trust ?? 0f;
-            return $"=== 魔女化系统 ===\n" +
-                   $"因子值: {witchFactor:F1} / {MaxWitchFactor:F1}\n" +
-                   $"状态: {state}\n" +
-                   $"好感影响: {(Pawn.GetComp<CompAIUpbringing>()?.affection ?? 0f) * 0.1f:F1}\n" +
-                   $"信任值: {trust:F1}";
+            return "SD_Witch_Debug_Info".Translate(
+                witchFactor.ToString("F1"),
+                MaxWitchFactor.ToString("F1"),
+                state.ToString(),
+                ((Pawn.GetComp<CompAIUpbringing>()?.affection ?? 0f) * 0.1f).ToString("F1"),
+                trust.ToString("F1"));
         }
+
     }
 }

@@ -15,7 +15,7 @@ namespace StellarisDaughter
         public Command_ToggleWitchForm(CompAIWitchForm comp)
         {
             this.comp = comp;
-            
+
             // 根据状态设置图标和标签
             if (comp.IsBerserk)
             {
@@ -39,10 +39,21 @@ namespace StellarisDaughter
                 action = () => comp.ToggleWitchForm();
             }
 
+            var cooldownDesc = comp.GetCurrentToggleCooldownDescription();
+            if (!string.IsNullOrEmpty(cooldownDesc))
+            {
+                defaultDesc = string.IsNullOrEmpty(defaultDesc)
+                    ? cooldownDesc
+                    : defaultDesc + "\n\n" + cooldownDesc;
+            }
+
+            if (!comp.CanToggleWitchFormNow(out var disableReason))
+            {
+                Disable(disableReason);
+            }
+
             // Ability风格的Order
             Order = 5f;
         }
-
-
     }
 }

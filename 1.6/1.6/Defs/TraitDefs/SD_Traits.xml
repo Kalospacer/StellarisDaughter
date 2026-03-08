@@ -13,4 +13,21 @@
       </li>
     </degreeDatas>
   </TraitDef>
+   <TraitDef>
+    <defName>SD_kind</defName>
+    <commonality>0</commonality>
+    <degreeDatas>
+      <li>
+        <label>苍白的自我</label>
+        <description>{PAWN_nameDef}希望自己能善良而坚强……</description>
+        <degree>0</degree>
+        <statOffsets>
+          <MentalBreakThreshold>-0.20</MentalBreakThreshold>
+        </statOffsets>
+        <statFactors>
+          <CertaintyLossFactor MayRequire="Ludeon.RimWorld.Ideology">0.25</CertaintyLossFactor>
+        </statFactors>
+      </li>
+    </degreeDatas>
+  </TraitDef>
 </Defs>
