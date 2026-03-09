@@ -134,12 +134,26 @@ namespace StellarisDaughter
 
             if (label.NullOrEmpty()) return;
 
+            if (eventLog != null && eventLog.Count > 0)
+            {
+                var last = eventLog[eventLog.Count - 1];
+                if (last != null && last.label == label)
+                {
+                    last.affDelta += aff;
+                    last.trsDelta += trs;
+                    last.tick = Find.TickManager.TicksGame;
+                    last.repeatCount = Mathf.Max(last.repeatCount + 1, 2);
+                    return;
+                }
+            }
+
             var entry = new AIEventLogEntry
             {
-                label    = label,
-                affDelta = aff,
-                trsDelta = trs,
-                tick     = Find.TickManager.TicksGame
+                label       = label,
+                affDelta    = aff,
+                trsDelta    = trs,
+                tick        = Find.TickManager.TicksGame,
+                repeatCount = 1
             };
             eventLog.Add(entry);
             if (eventLog.Count > 30)
@@ -242,3 +256,4 @@ namespace StellarisDaughter
         #endregion
     }
 }
+
