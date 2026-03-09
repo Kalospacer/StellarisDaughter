@@ -23,7 +23,7 @@ namespace StellarisDaughter
                 if (entry.affDelta == 0f) continue;
 
                 hasEvents = true;
-                string delta = entry.affDelta > 0f
+                TaggedString delta = entry.affDelta > 0f
                     ? "SD_AIEvent_AffectionPositive".Translate(entry.affDelta.ToString("F1"))
                     : "SD_AIEvent_AffectionNegative".Translate(entry.affDelta.ToString("F1"));
                 string label = entry.repeatCount > 1 ? $"{entry.label} ×{entry.repeatCount}" : entry.label;
@@ -50,7 +50,7 @@ namespace StellarisDaughter
                 if (entry.trsDelta == 0f) continue;
 
                 hasEvents = true;
-                string delta = entry.trsDelta > 0f
+                TaggedString delta = entry.trsDelta > 0f
                     ? "SD_AIEvent_TrustPositive".Translate(entry.trsDelta.ToString("F1"))
                     : "SD_AIEvent_TrustNegative".Translate(entry.trsDelta.ToString("F1"));
                 string label = entry.repeatCount > 1 ? $"{entry.label} ×{entry.repeatCount}" : entry.label;
