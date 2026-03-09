@@ -126,7 +126,7 @@
 
   <StellarisDaughter.AIEventResponseDef>
     <defName>ObservedTerror</defName>
-    <eventLabel>{THING_label}</eventLabel>
+    <eventLabel>看到了恐怖之物</eventLabel>
     <affDelta>-3</affDelta>
     <trustDelta>-4</trustDelta>
   </StellarisDaughter.AIEventResponseDef>
