@@ -1,9 +1,11 @@
-using Verse;
+﻿using Verse;
 
 namespace StellarisDaughter
 {
-    /// <summary> AI成长事件记录 </summary>
-    // ✨ 沐雪写的哦~
+    /// <summary>
+    /// Legacy AI growth event record.
+    /// Kept for compatibility with older save data and adjacent systems.
+    /// </summary>
     public class AIEventRecord : IExposable
     {
         public string eventDefName;

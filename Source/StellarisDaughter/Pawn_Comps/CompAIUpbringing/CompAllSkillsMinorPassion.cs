@@ -1,9 +1,11 @@
-using RimWorld;
+﻿using RimWorld;
 using Verse;
 
 namespace StellarisDaughter
 {
-    // ✨ 沐雪写的哦~
+    /// <summary>
+    /// Gives every enabled skill a minor passion exactly once.
+    /// </summary>
     public class CompAllSkillsMinorPassion : ThingComp
     {
         private bool _initialized;

@@ -1,20 +1,24 @@
-namespace StellarisDaughter
+﻿namespace StellarisDaughter
 {
-    /// <summary> AI倾向枚举 </summary>
+    /// <summary>
+    /// AI tendency categories.
+    /// </summary>
     public enum AITendency
     {
-        Devoted,      // 深深依恋
-        Attached,     // 亲近依赖
-        Neutral,      // 中立
-        Unstable,     // 不稳定
-        Corrupted     // 扭曲黑化
+        Devoted,
+        Attached,
+        Neutral,
+        Unstable,
+        Corrupted
     }
 
-    /// <summary> 结局路线枚举 </summary>
+    /// <summary>
+    /// Main ending route categories.
+    /// </summary>
     public enum AIEndingRoute
     {
-        NotYetDetermined,  // 尚未确定（15岁前）
-        FatherBond,        // 父嫁（正面结局）
-        DarkCorruption     // 黑化恶堕（负面结局）
+        NotYetDetermined,
+        FatherBond,
+        DarkCorruption
     }
 }

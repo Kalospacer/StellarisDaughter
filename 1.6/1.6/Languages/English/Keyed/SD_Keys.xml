@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <!-- Stage Names -->
   <SD_Stage_Childhood>Childhood</SD_Stage_Childhood>
@@ -71,4 +71,10 @@
   <SD_Drone_SlotStateReturning>Returning</SD_Drone_SlotStateReturning>
   <SD_Drone_SlotStateCharging>Charging</SD_Drone_SlotStateCharging>
   <SD_Drone_SlotChargeReady>Ready</SD_Drone_SlotChargeReady>
+  <SD_AIEventLog_DayLabel>Day {0}</SD_AIEventLog_DayLabel>
+  <SD_AIEvent_AffectionPositive><![CDATA[<color=#7ecf7e>Affection +{0}</color>]]></SD_AIEvent_AffectionPositive>
+  <SD_AIEvent_AffectionNegative><![CDATA[<color=#cf7e7e>Affection {0}</color>]]></SD_AIEvent_AffectionNegative>
+  <SD_AIEvent_TrustPositive><![CDATA[<color=#7ecf7e>Trust +{0}</color>]]></SD_AIEvent_TrustPositive>
+  <SD_AIEvent_TrustNegative><![CDATA[<color=#cf7e7e>Trust {0}</color>]]></SD_AIEvent_TrustNegative>
 </LanguageData>
+

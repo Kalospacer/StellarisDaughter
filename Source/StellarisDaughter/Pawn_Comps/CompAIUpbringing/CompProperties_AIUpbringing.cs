@@ -1,8 +1,10 @@
-using Verse;
+﻿using Verse;
 
 namespace StellarisDaughter
 {
-    // ✨ 沐雪写的哦~
+    /// <summary>
+    /// Config for <see cref="CompAIUpbringing"/>.
+    /// </summary>
     public class CompProperties_AIUpbringing : CompProperties
     {
         public float moodToAffectionFactor = 0.3f;

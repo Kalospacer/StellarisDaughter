@@ -143,4 +143,9 @@
   <SD_Regeneration_Tip_Cooldown>再生状态：冷却中（剩余 {0} 秒）</SD_Regeneration_Tip_Cooldown>
   <SD_Regeneration_Tip_Disabled>再生状态：已关闭</SD_Regeneration_Tip_Disabled>
   <SD_Regeneration_Tip_Idle>再生状态：待机（无可修复损伤）</SD_Regeneration_Tip_Idle>
+  <SD_AIEventLog_DayLabel>第{0}天</SD_AIEventLog_DayLabel>
+  <SD_AIEvent_AffectionPositive><![CDATA[<color=#7ecf7e>好感 +{0}</color>]]></SD_AIEvent_AffectionPositive>
+  <SD_AIEvent_AffectionNegative><![CDATA[<color=#cf7e7e>好感 {0}</color>]]></SD_AIEvent_AffectionNegative>
+  <SD_AIEvent_TrustPositive><![CDATA[<color=#7ecf7e>信任 +{0}</color>]]></SD_AIEvent_TrustPositive>
+  <SD_AIEvent_TrustNegative><![CDATA[<color=#cf7e7e>信任 {0}</color>]]></SD_AIEvent_TrustNegative>
 </LanguageData>
