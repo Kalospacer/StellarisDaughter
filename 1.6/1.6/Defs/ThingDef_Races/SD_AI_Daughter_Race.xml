@@ -346,7 +346,11 @@
         <flyingAnimationEast>SD_FlyEast</flyingAnimationEast>
         <flyingAnimationSouth>SD_FlyEast</flyingAnimationSouth>
       </li>
-      <li Class="StellarisDaughter.CompProperties_AIUpbringing" />
+      <li Class="StellarisDaughter.CompProperties_AIUpbringing">
+        <moodToAffectionFactor>0.3</moodToAffectionFactor>
+        <moodToTrustFactor>0.5</moodToTrustFactor>
+        <perThoughtDeltaAbsCap>20</perThoughtDeltaAbsCap>
+      </li>
       <li Class="StellarisDaughter.CompProperties_AIWitchForm">
         <baseMaxFactor>1000</baseMaxFactor>
         <affectionToMaxFactor>0.1</affectionToMaxFactor>

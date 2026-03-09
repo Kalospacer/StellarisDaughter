@@ -1,18 +1,14 @@
 using System.Collections.Generic;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace StellarisDaughter
 {
-    // ✨ 沐雪写的哦~
-    /// <summary>
-    /// CompAIUpbringing：记忆扫描模块
-    /// 每 TickRare 扫描原版 Thought_Memory，匹配 AIEventResponseDef，触发 Apply。
-    /// </summary>
     public partial class CompAIUpbringing
     {
-        private const int SituationalThoughtEventCooldownTicks = 60000; // 1 in-game day
-        private const int SocialThoughtEventCooldownTicks = 30000; // 0.5 in-game day
+        private const int SituationalThoughtEventCooldownTicks = 60000;
+        private const int SocialThoughtEventCooldownTicks = 30000;
 
         private void ScanMemoriesForEvents(Pawn ai)
         {
@@ -33,9 +29,8 @@ namespace StellarisDaughter
                 if (_processedMemories.Contains(key)) continue;
                 _processedMemories.Add(key);
 
-                var resp = DefDatabase<AIEventResponseDef>.GetNamedSilentFail(memory.def.defName);
-                if (resp != null)
-                    Apply(resp.affDelta, resp.trustDelta, resp.eventLabel);
+                if (TryBuildThoughtEvent(memory, out float affDelta, out float trustDelta, out string label))
+                    Apply(affDelta, trustDelta, label);
             }
 
             if (_processedMemories.Count > 0)
@@ -48,8 +43,7 @@ namespace StellarisDaughter
             if (thoughtHandler == null) return;
 
             if (_tmpMoodThoughts == null)
-                _tmpMoodThoughts = new System.Collections.Generic.List<Thought>();
-
+                _tmpMoodThoughts = new List<Thought>();
             if (_situationalThoughtNextApplyTick == null)
                 _situationalThoughtNextApplyTick = new Dictionary<string, int>();
 
@@ -66,10 +60,9 @@ namespace StellarisDaughter
                 if (_situationalThoughtNextApplyTick.TryGetValue(key, out int nextTick) && now < nextTick)
                     continue;
 
-                var resp = DefDatabase<AIEventResponseDef>.GetNamedSilentFail(situational.def.defName);
-                if (resp != null)
+                if (TryBuildThoughtEvent(situational, out float affDelta, out float trustDelta, out string label))
                 {
-                    Apply(resp.affDelta, resp.trustDelta, resp.eventLabel);
+                    Apply(affDelta, trustDelta, label);
                     _situationalThoughtNextApplyTick[key] = now + SituationalThoughtEventCooldownTicks;
                 }
             }
@@ -86,6 +79,32 @@ namespace StellarisDaughter
                 for (int i = 0; i < expiredKeys.Count; i++)
                     _situationalThoughtNextApplyTick.Remove(expiredKeys[i]);
             }
+        }
+
+        private bool TryBuildThoughtEvent(Thought thought, out float affDelta, out float trustDelta, out string label)
+        {
+            affDelta = 0f;
+            trustDelta = 0f;
+            label = null;
+
+            if (thought?.def == null)
+                return false;
+
+            float mood = thought.MoodOffset();
+            if (Mathf.Approximately(mood, 0f))
+                return false;
+
+            affDelta = Mathf.Clamp(mood * Props.moodToAffectionFactor, -Props.perThoughtDeltaAbsCap, Props.perThoughtDeltaAbsCap);
+            trustDelta = Mathf.Clamp(mood * Props.moodToTrustFactor, -Props.perThoughtDeltaAbsCap, Props.perThoughtDeltaAbsCap);
+
+            if (Mathf.Approximately(affDelta, 0f) && Mathf.Approximately(trustDelta, 0f))
+                return false;
+
+            label = thought.LabelCap;
+            if (label.NullOrEmpty())
+                label = thought.def.defName;
+
+            return true;
         }
 
         private string GetStableMemoryKey(Thought_Memory memory)
@@ -116,8 +135,6 @@ namespace StellarisDaughter
                 if (other.Destroyed) continue;
                 if (!other.Spawned) continue;
                 if (other.Dead) continue;
-                // 原版部分 social thought worker（如 ThoughtWorker_Joyous）直接访问 other.story.traits。
-                // 这里先做强过滤，再走我们自己的安全构造逻辑，避免调用 GetSocialThoughts 触发原版批量重算刷红字。
                 if (!other.RaceProps.Humanlike) continue;
                 if (other.story == null || other.story.traits == null) continue;
                 if (other.relations == null) continue;
@@ -126,7 +143,7 @@ namespace StellarisDaughter
                 {
                     var def = socialDefs[i];
                     if (def == null) continue;
-                    if (def.IsMemory) continue; // MemorySocial 已由记忆扫描处理
+                    if (def.IsMemory) continue;
 
                     var thought = TryCreateSocialSituationalThoughtSafe(ai, other, def);
                     if (thought == null || thought.def == null || !thought.Active) continue;
@@ -140,10 +157,10 @@ namespace StellarisDaughter
                     if (_socialThoughtNextApplyTick.TryGetValue(key, out int nextTick) && now < nextTick)
                         continue;
 
-                    var resp = DefDatabase<AIEventResponseDef>.GetNamedSilentFail(thought.def.defName);
-                    if (resp == null) continue;
+                    if (!TryBuildThoughtEvent(thought, out float affDelta, out float trustDelta, out string label))
+                        continue;
 
-                    Apply(resp.affDelta, resp.trustDelta, resp.eventLabel);
+                    Apply(affDelta, trustDelta, label);
                     _socialThoughtNextApplyTick[key] = now + SocialThoughtEventCooldownTicks;
                 }
             }
@@ -179,7 +196,6 @@ namespace StellarisDaughter
             }
             catch
             {
-                // 某些原版/DLC social thought worker 会对特殊 pawn 组合抛异常；这里静默跳过避免日志刷屏。
                 return null;
             }
         }

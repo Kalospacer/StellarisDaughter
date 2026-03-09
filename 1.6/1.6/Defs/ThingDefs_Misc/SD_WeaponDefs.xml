@@ -16,7 +16,7 @@
     <equippedAngleOffset>45</equippedAngleOffset>
     <statBases>
       <DeteriorationRate>0</DeteriorationRate>
-      <MarketValue>32000</MarketValue>
+      <MarketValue>1200</MarketValue>
       <WorkToMake>200000</WorkToMake>
       <Mass>1</Mass>
       <Flammability>0</Flammability>
