@@ -11,6 +11,7 @@ namespace StellarisDaughter
     /// </summary>
     public partial class CompAIUpbringing
     {
+        private const int SituationalThoughtEventCooldownTicks = 60000; // 1 in-game day
         private const int SocialThoughtEventCooldownTicks = 30000; // 0.5 in-game day
 
         private void ScanMemoriesForEvents(Pawn ai)
@@ -49,11 +50,12 @@ namespace StellarisDaughter
             if (_tmpMoodThoughts == null)
                 _tmpMoodThoughts = new System.Collections.Generic.List<Thought>();
 
-            if (_processedSituationalThoughts == null)
-                _processedSituationalThoughts = new HashSet<string>();
+            if (_situationalThoughtNextApplyTick == null)
+                _situationalThoughtNextApplyTick = new Dictionary<string, int>();
 
             _tmpMoodThoughts.Clear();
             thoughtHandler.GetAllMoodThoughts(_tmpMoodThoughts);
+            int now = Find.TickManager.TicksGame;
 
             foreach (var thought in _tmpMoodThoughts)
             {
@@ -61,15 +63,28 @@ namespace StellarisDaughter
                 if (situational.def == null || !situational.Active) continue;
 
                 string key = GetSituationalThoughtKey(situational);
-                if (_processedSituationalThoughts.Contains(key))
+                if (_situationalThoughtNextApplyTick.TryGetValue(key, out int nextTick) && now < nextTick)
                     continue;
 
                 var resp = DefDatabase<AIEventResponseDef>.GetNamedSilentFail(situational.def.defName);
                 if (resp != null)
                 {
                     Apply(resp.affDelta, resp.trustDelta, resp.eventLabel);
-                    _processedSituationalThoughts.Add(key);
+                    _situationalThoughtNextApplyTick[key] = now + SituationalThoughtEventCooldownTicks;
                 }
+            }
+
+            if (_situationalThoughtNextApplyTick.Count > 0)
+            {
+                var expiredKeys = new List<string>();
+                foreach (var kv in _situationalThoughtNextApplyTick)
+                {
+                    if (now >= kv.Value)
+                        expiredKeys.Add(kv.Key);
+                }
+
+                for (int i = 0; i < expiredKeys.Count; i++)
+                    _situationalThoughtNextApplyTick.Remove(expiredKeys[i]);
             }
         }
 
