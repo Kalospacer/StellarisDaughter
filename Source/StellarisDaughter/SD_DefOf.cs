@@ -10,11 +10,6 @@ namespace StellarisDaughter
         public static ThingDef SD_Fake_Spear_Of_Galaxy_Zenith_Beacon_Building;
         public static ThingDef SD_Quest_AIDaughterCryptosleepCasket;
 
-        public static LifeStageDef SD_AI_Childhood;
-        public static LifeStageDef SD_AI_Youth;
-        public static LifeStageDef SD_AI_Adulthood;
-        public static LifeStageDef SD_AI_Final;
-
         [MayRequire("Tourswen.StellarisDaughter")]
         public static TraitDef SD_Curious;
 

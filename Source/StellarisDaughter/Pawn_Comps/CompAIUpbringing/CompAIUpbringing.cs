@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using RimWorld;
 using UnityEngine;
@@ -44,7 +45,13 @@ namespace StellarisDaughter
         #region 内部状态（不序列化）
 
         /// <summary> 已处理的思绪记忆key，防止重复计算 </summary>
-        private HashSet<long> _processedMemories = new HashSet<long>();
+        private HashSet<string> _processedMemories = new HashSet<string>();
+
+        /// <summary> 已处理过的情境Thought key，首次出现时结算一次并持久化 </summary>
+        private HashSet<string> _processedSituationalThoughts = new HashSet<string>();
+
+        /// <summary> 记忆扫描临时集合，用于清理已消失 memory 的去重键 </summary>
+        private HashSet<string> _scratchMemoryKeys = new HashSet<string>();
 
         /// <summary> 情境Thought（def+stage）的下次允许结算tick（内置冷却） </summary>
         private Dictionary<long, int> _situationalThoughtNextApplyTick = new Dictionary<long, int>();
@@ -81,7 +88,11 @@ namespace StellarisDaughter
         {
             base.PostSpawnSetup(respawningAfterLoad);
             if (_processedMemories == null)
-                _processedMemories = new HashSet<long>();
+                _processedMemories = new HashSet<string>();
+            if (_processedSituationalThoughts == null)
+                _processedSituationalThoughts = new HashSet<string>();
+            if (_scratchMemoryKeys == null)
+                _scratchMemoryKeys = new HashSet<string>();
             if (_situationalThoughtNextApplyTick == null)
                 _situationalThoughtNextApplyTick = new Dictionary<long, int>();
             if (_scratchSituationalThoughtKeys == null)
@@ -158,10 +169,33 @@ namespace StellarisDaughter
             Scribe_Values.Look(ref passiveEnvTrs,    "passiveEnvTrs",    0f);
             Scribe_Collections.Look(ref eventLog, "eventLog", LookMode.Deep);
 
+            List<string> processedMemoryKeys = null;
+            List<string> processedSituationalKeys = null;
+            if (Scribe.mode == LoadSaveMode.Saving)
+            {
+                processedMemoryKeys = _processedMemories?.ToList();
+                processedSituationalKeys = _processedSituationalThoughts?.ToList();
+            }
+            Scribe_Collections.Look(ref processedMemoryKeys, "processedMemoryKeys", LookMode.Value);
+            Scribe_Collections.Look(ref processedSituationalKeys, "processedSituationalThoughtKeys", LookMode.Value);
+            if (Scribe.mode == LoadSaveMode.LoadingVars)
+            {
+                _processedMemories = processedMemoryKeys != null
+                    ? new HashSet<string>(processedMemoryKeys)
+                    : new HashSet<string>();
+                _processedSituationalThoughts = processedSituationalKeys != null
+                    ? new HashSet<string>(processedSituationalKeys)
+                    : new HashSet<string>();
+            }
+
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
                 if (_processedMemories == null)
-                    _processedMemories = new HashSet<long>();
+                    _processedMemories = new HashSet<string>();
+                if (_processedSituationalThoughts == null)
+                    _processedSituationalThoughts = new HashSet<string>();
+                if (_scratchMemoryKeys == null)
+                    _scratchMemoryKeys = new HashSet<string>();
                 if (_situationalThoughtNextApplyTick == null)
                     _situationalThoughtNextApplyTick = new Dictionary<long, int>();
                 if (_scratchSituationalThoughtKeys == null)

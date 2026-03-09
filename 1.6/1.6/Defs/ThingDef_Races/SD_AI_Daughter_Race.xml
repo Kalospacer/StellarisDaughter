@@ -448,19 +448,23 @@
       </lifeStageWorkSettings>
       <lifeStageAges Inherit="False">
         <li>
-          <def>SD_AI_Childhood</def>
+          <def>HumanlikeBaby</def>
           <minAge>0</minAge>
         </li>
         <li>
-          <def>SD_AI_Youth</def>
-          <minAge>8</minAge>
+          <def>HumanlikeChild</def>
+          <minAge>3</minAge>
+        </li>
+        <li MayRequire="Ludeon.RimWorld.Biotech">
+          <def>HumanlikePreTeenager</def>
+          <minAge>9</minAge>
         </li>
         <li>
-          <def>SD_AI_Adulthood</def>
-          <minAge>15</minAge>
+          <def>HumanlikeTeenager</def>
+          <minAge>13</minAge>
         </li>
         <li>
-          <def>SD_AI_Final</def>
+          <def>HumanlikeAdult</def>
           <minAge>18</minAge>
         </li>
       </lifeStageAges>

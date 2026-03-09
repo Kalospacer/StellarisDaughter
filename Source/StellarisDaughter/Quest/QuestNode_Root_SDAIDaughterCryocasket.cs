@@ -27,7 +27,13 @@ public class QuestNode_Root_SDAIDaughterCryocasket : QuestNode
             }
 
             Building_SDQuestCryptosleepCasket casket = (Building_SDQuestCryptosleepCasket)ThingMaker.MakeThing(SD_DefOf.SD_Quest_AIDaughterCryptosleepCasket);
-            Pawn daughter = PawnGenerator.GeneratePawn(SD_DefOf.SD_AI_Daughter, Faction.OfAncients);
+            PawnGenerationRequest request = new PawnGenerationRequest(
+                SD_DefOf.SD_AI_Daughter,
+                Faction.OfAncients,
+                fixedBiologicalAge: 16f,
+                fixedChronologicalAge: 16f,
+                developmentalStages: DevelopmentalStage.Adult);
+            Pawn daughter = PawnGenerator.GeneratePawn(request);
             daughter.SetFaction(Faction.OfAncients);
             casket.pendingBeaconDef = SD_DefOf.SD_Fake_Spear_Of_Galaxy_Zenith_Beacon_Building;
             casket.TryAcceptThing(daughter, allowSpecialEffects: false);

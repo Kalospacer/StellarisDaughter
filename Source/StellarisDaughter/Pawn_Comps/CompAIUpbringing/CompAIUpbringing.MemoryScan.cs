@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using RimWorld;
 using Verse;
 
@@ -12,20 +11,24 @@ namespace StellarisDaughter
     /// </summary>
     public partial class CompAIUpbringing
     {
-        private const int SituationalThoughtEventCooldownTicks = 30000; // 0.5 in-game day
-        private const int SocialThoughtEventCooldownTicks = 30000;      // 0.5 in-game day
+        private const int SocialThoughtEventCooldownTicks = 30000; // 0.5 in-game day
 
         private void ScanMemoriesForEvents(Pawn ai)
         {
             var memories = ai.needs?.mood?.thoughts?.memories?.Memories;
             if (memories == null) return;
 
+            if (_scratchMemoryKeys == null)
+                _scratchMemoryKeys = new HashSet<string>();
+
+            _scratchMemoryKeys.Clear();
+
             foreach (var memory in memories)
             {
                 if (memory?.def == null) continue;
 
-                // 用对象引用哈希做 Session 内去重（不序列化，存档后重置一次问题不大）
-                long key = (long)RuntimeHelpers.GetHashCode(memory);
+                string key = GetStableMemoryKey(memory);
+                _scratchMemoryKeys.Add(key);
                 if (_processedMemories.Contains(key)) continue;
                 _processedMemories.Add(key);
 
@@ -33,6 +36,9 @@ namespace StellarisDaughter
                 if (resp != null)
                     Apply(resp.affDelta, resp.trustDelta, resp.eventLabel);
             }
+
+            if (_processedMemories.Count > 0)
+                _processedMemories.RemoveWhere(key => !_scratchMemoryKeys.Contains(key));
         }
 
         private void ScanSituationalThoughtsForEvents(Pawn ai)
@@ -42,46 +48,40 @@ namespace StellarisDaughter
 
             if (_tmpMoodThoughts == null)
                 _tmpMoodThoughts = new System.Collections.Generic.List<Thought>();
-            if (_situationalThoughtNextApplyTick == null)
-                _situationalThoughtNextApplyTick = new System.Collections.Generic.Dictionary<long, int>();
-            if (_scratchSituationalThoughtKeys == null)
-                _scratchSituationalThoughtKeys = new HashSet<long>();
 
-            _scratchSituationalThoughtKeys.Clear();
+            if (_processedSituationalThoughts == null)
+                _processedSituationalThoughts = new HashSet<string>();
+
+            _tmpMoodThoughts.Clear();
             thoughtHandler.GetAllMoodThoughts(_tmpMoodThoughts);
-            int now = Find.TickManager.TicksGame;
 
             foreach (var thought in _tmpMoodThoughts)
             {
                 if (!(thought is Thought_Situational situational)) continue;
                 if (situational.def == null || !situational.Active) continue;
 
-                long key = ((long)situational.def.shortHash << 32) | (uint)(situational.CurStageIndex + 1);
-                _scratchSituationalThoughtKeys.Add(key);
-                if (_situationalThoughtNextApplyTick.TryGetValue(key, out int nextTick) && now < nextTick)
+                string key = GetSituationalThoughtKey(situational);
+                if (_processedSituationalThoughts.Contains(key))
                     continue;
 
                 var resp = DefDatabase<AIEventResponseDef>.GetNamedSilentFail(situational.def.defName);
                 if (resp != null)
                 {
                     Apply(resp.affDelta, resp.trustDelta, resp.eventLabel);
-                    _situationalThoughtNextApplyTick[key] = now + SituationalThoughtEventCooldownTicks;
+                    _processedSituationalThoughts.Add(key);
                 }
             }
+        }
 
-            // 清理已不再激活的情境Thought冷却项，避免字典无限增长。
-            if (_situationalThoughtNextApplyTick.Count > 0)
-            {
-                var keysToRemove = new System.Collections.Generic.List<long>();
-                foreach (var kv in _situationalThoughtNextApplyTick)
-                {
-                    if (!_scratchSituationalThoughtKeys.Contains(kv.Key))
-                        keysToRemove.Add(kv.Key);
-                }
+        private string GetStableMemoryKey(Thought_Memory memory)
+        {
+            int otherPawnId = memory.otherPawn?.thingIDNumber ?? -1;
+            return $"{memory.def.shortHash}:{memory.CurStageIndex}:{otherPawnId}:{memory.moodOffset}:{memory.durationTicksOverride}:{(memory.permanent ? 1 : 0)}";
+        }
 
-                for (int i = 0; i < keysToRemove.Count; i++)
-                    _situationalThoughtNextApplyTick.Remove(keysToRemove[i]);
-            }
+        private string GetSituationalThoughtKey(Thought_Situational thought)
+        {
+            return $"{thought.def.shortHash}:{thought.CurStageIndex}";
         }
 
         private void ScanSocialThoughtsForEvents(Pawn ai)
