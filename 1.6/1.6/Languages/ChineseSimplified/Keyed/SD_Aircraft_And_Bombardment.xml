@@ -26,4 +26,6 @@
   <SD_CallSkyfaller_TargetLabel>召唤空投舱：将在{0}后到达</SD_CallSkyfaller_TargetLabel>
   <SD_SpearArrivalLetterLabel>星穹之矛已跃迁抵达</SD_SpearArrivalLetterLabel>
   <SD_SpearArrivalLetterText>星穹之矛响应星规的指令，跃迁抵达殖民地星域上空。</SD_SpearArrivalLetterText>
+  <SD_OverwatchNoActiveMap>当前没有可用地图。</SD_OverwatchNoActiveMap>
+  <SD_OverwatchAlreadyActive>已启用（剩余{0}）。</SD_OverwatchAlreadyActive>
 </LanguageData>

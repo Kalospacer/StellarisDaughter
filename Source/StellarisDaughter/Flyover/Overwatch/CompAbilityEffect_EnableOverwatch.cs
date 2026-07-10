@@ -24,7 +24,7 @@ namespace StellarisDaughter
             Map map = parent.pawn?.Map ?? Find.CurrentMap;
             if (map == null)
             {
-                Messages.Message("Error: No active map.", MessageTypeDefOf.RejectInput);
+                Messages.Message("SD_OverwatchNoActiveMap".Translate(), MessageTypeDefOf.RejectInput);
                 return;
             }
 
@@ -63,7 +63,7 @@ namespace StellarisDaughter
                 MapComponent_AIOverwatch overwatch = map.GetComponent<MapComponent_AIOverwatch>();
                 if (overwatch != null && overwatch.IsEnabled)
                 {
-                    return $"Already active ({overwatch.DurationTicks / 60}s remaining)";
+                    return "SD_OverwatchAlreadyActive".Translate(overwatch.DurationTicks.ToStringTicksToPeriod());
                 }
             }
 

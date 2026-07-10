@@ -26,4 +26,6 @@
   <SD_CallSkyfaller_TargetLabel>Call drop pod: arrival in {0}</SD_CallSkyfaller_TargetLabel>
   <SD_SpearArrivalLetterLabel>Stellar Spear has arrived</SD_SpearArrivalLetterLabel>
   <SD_SpearArrivalLetterText>The Stellar Spear answered Stellar's command and warped into position above the colony.</SD_SpearArrivalLetterText>
+  <SD_OverwatchNoActiveMap>No active map.</SD_OverwatchNoActiveMap>
+  <SD_OverwatchAlreadyActive>Already active ({0} remaining).</SD_OverwatchAlreadyActive>
 </LanguageData>

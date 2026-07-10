@@ -9,6 +9,7 @@ namespace StellarisDaughter
     {
         public bool useRepairResource = false;
         public NeedDef repairResourceNeed;
+        public List<HediffDef> additionalRepairableHediffs;
         public float repairCostPerHP = 0.03f;
         public int repairCooldownAfterDamage = 600;
 
@@ -337,7 +338,7 @@ namespace StellarisDaughter
                 return false;
             }
 
-            if (IsMechSpecificHediff(hediff))
+            if (Props.additionalRepairableHediffs?.Contains(hediff.def) == true)
             {
                 return true;
             }
@@ -392,12 +393,6 @@ namespace StellarisDaughter
             {
                 return false;
             }
-        }
-
-        private bool IsMechSpecificHediff(Hediff hediff)
-        {
-            string defName = hediff.def.defName;
-            return defName.Contains("Mech") || defName.Contains("Mechanical") || defName.Contains("Gunshot");
         }
 
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
