@@ -77,7 +77,7 @@ namespace StellarisDaughter
 
         public override string ExtraLabelMouseAttachment(LocalTargetInfo target)
         {
-            return $"召唤空投舱: {Props.delayTicks}刻后到达";
+            return "SD_CallSkyfaller_TargetLabel".Translate(Props.delayTicks.ToStringTicksToPeriod());
         }
     }
 }

@@ -1,17 +1,38 @@
 using System.Collections.Generic;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace StellarisDaughter
 {
     public class HediffCompProperties_Regeneration : HediffCompProperties
     {
+        public bool useRepairResource = false;
+        public NeedDef repairResourceNeed;
         public float repairCostPerHP = 0.03f;
         public int repairCooldownAfterDamage = 600;
 
         public HediffCompProperties_Regeneration()
         {
             compClass = typeof(HediffComp_Regeneration);
+        }
+
+        public override IEnumerable<string> ConfigErrors(HediffDef parentDef)
+        {
+            foreach (string error in base.ConfigErrors(parentDef))
+            {
+                yield return error;
+            }
+
+            if (useRepairResource && repairResourceNeed == null)
+            {
+                yield return "useRepairResource is enabled but repairResourceNeed is null";
+            }
+
+            if (repairCostPerHP < 0f)
+            {
+                yield return "repairCostPerHP must be non-negative";
+            }
         }
     }
 
@@ -177,13 +198,18 @@ namespace StellarisDaughter
             }
 
             float repairCost = minHealth * Props.repairCostPerHP;
-            float mechEnergyLoss = Pawn.GetStatValue(StatDefOf.MechEnergyLossPerHP);
-            if (mechEnergyLoss > 0f)
+            if (!CanAffordRepair(repairCost))
             {
-                repairCost *= mechEnergyLoss;
+                return false;
             }
 
-            return ConvertMissingPartToInjury(partToRepair, repairCost);
+            if (!ConvertMissingPartToInjury(partToRepair))
+            {
+                return false;
+            }
+
+            ConsumeRepairCost(repairCost);
+            return true;
         }
 
         private bool TryRepairDamagedParts()
@@ -221,18 +247,52 @@ namespace StellarisDaughter
             float maxPartHealth = partToRepair.def.GetMaxHealth(Pawn);
             float currentPartHealth = Pawn.health.hediffSet.GetPartHealth(partToRepair);
             float healthToRepair = maxPartHealth - currentPartHealth;
-            float repairCost = healthToRepair;
-
-            float mechEnergyLossPart = Pawn.GetStatValue(StatDefOf.MechEnergyLossPerHP);
-            if (mechEnergyLossPart > 0f)
+            float repairCost = healthToRepair * Props.repairCostPerHP;
+            if (!CanAffordRepair(repairCost))
             {
-                repairCost *= mechEnergyLossPart;
+                return false;
             }
 
-            return RepairDamagedPart(partToRepair, repairCost);
+            if (!RepairDamagedPart(partToRepair))
+            {
+                return false;
+            }
+
+            ConsumeRepairCost(repairCost);
+            return true;
         }
 
-        private bool RepairDamagedPart(BodyPartRecord part, float repairCost)
+        private bool CanAffordRepair(float repairCost)
+        {
+            if (!Props.useRepairResource || repairCost <= 0f)
+            {
+                return true;
+            }
+
+            if (Props.repairResourceNeed == null)
+            {
+                return false;
+            }
+
+            Need resourceNeed = Pawn.needs?.TryGetNeed(Props.repairResourceNeed);
+            return resourceNeed != null && resourceNeed.CurLevel >= repairCost;
+        }
+
+        private void ConsumeRepairCost(float repairCost)
+        {
+            if (!Props.useRepairResource || repairCost <= 0f || Props.repairResourceNeed == null)
+            {
+                return;
+            }
+
+            Need resourceNeed = Pawn.needs?.TryGetNeed(Props.repairResourceNeed);
+            if (resourceNeed != null)
+            {
+                resourceNeed.CurLevel = Mathf.Max(0f, resourceNeed.CurLevel - repairCost);
+            }
+        }
+
+        private bool RepairDamagedPart(BodyPartRecord part)
         {
             try
             {
@@ -305,7 +365,7 @@ namespace StellarisDaughter
             return false;
         }
 
-        private bool ConvertMissingPartToInjury(Hediff_MissingPart missingPart, float repairCost)
+        private bool ConvertMissingPartToInjury(Hediff_MissingPart missingPart)
         {
             try
             {

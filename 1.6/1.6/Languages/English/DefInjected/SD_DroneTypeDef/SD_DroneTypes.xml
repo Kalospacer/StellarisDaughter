@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <SD_DroneType_Cannonpulser.label>Cannon-pulser drone</SD_DroneType_Cannonpulser.label>
+  <SD_DroneType_Cannonpulser.description>A drone pattern built for sustained suppression with rapid pulse barrages against close and mid-range targets.</SD_DroneType_Cannonpulser.description>
   <SD_DroneType_Minipulser.label>Minipulser Drone</SD_DroneType_Minipulser.label>
   <SD_DroneType_Minipulser.description>A drone pattern built for high-rate pulse suppression against close and mid-range targets.</SD_DroneType_Minipulser.description>
   <SD_DroneType_Laser.label>Laser Drone</SD_DroneType_Laser.label>
   <SD_DroneType_Laser.description>A drone pattern equipped with a sustained laser weapon, favoring accurate long-range strikes.</SD_DroneType_Laser.description>
+  <SD_DroneType_Cannon.label>Energy-cannon drone</SD_DroneType_Cannon.label>
+  <SD_DroneType_Cannon.description>A drone pattern equipped with a long-range energy cannon, favoring accurate strikes from a distance.</SD_DroneType_Cannon.description>
 </LanguageData>

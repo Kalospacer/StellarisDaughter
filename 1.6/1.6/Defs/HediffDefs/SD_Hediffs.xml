@@ -87,6 +87,7 @@
         </tools>
       </li>
       <li Class="StellarisDaughter.HediffCompProperties_Regeneration">
+        <useRepairResource>false</useRepairResource>
         <repairCooldownAfterDamage>600</repairCooldownAfterDamage>
       </li>
       <li Class="HediffCompProperties_GiveAbility">
@@ -147,6 +148,7 @@
     <preventsDeath>true</preventsDeath>
     <comps>
       <li Class="StellarisDaughter.HediffCompProperties_Regeneration">
+        <useRepairResource>false</useRepairResource>
         <repairCooldownAfterDamage>600</repairCooldownAfterDamage>
       </li>
     </comps>

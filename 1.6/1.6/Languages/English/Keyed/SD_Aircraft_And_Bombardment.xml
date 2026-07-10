@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AddAircraftNullFaction>Cannot add aircraft: faction is null.</AddAircraftNullFaction>
+  <AircraftAutoLaunchScheduled>{0} is scheduled to launch automatically in {1} seconds.</AircraftAutoLaunchScheduled>
+  <AircraftCooldownEnded>{0} is available again.</AircraftCooldownEnded>
+  <AircraftLaunched>Launched {0} {1}.</AircraftLaunched>
+  <AircraftManagerNotFound>Aircraft manager was not found.</AircraftManagerNotFound>
+  <AircraftStatusLaunched>Aircraft launched</AircraftStatusLaunched>
+  <AutoLaunchCancelled>Automatic launch cancelled.</AutoLaunchCancelled>
+  <AutoLaunchReady>Automatic launch ready</AutoLaunchReady>
+  <AutoLaunchScheduled>Automatic launch in {0} seconds</AutoLaunchScheduled>
+  <CannotBombardInvalidLocation>This location cannot be bombarded.</CannotBombardInvalidLocation>
+  <DefaultLetterLabel>Notification</DefaultLetterLabel>
+  <DefaultLetterText>The scheduled event has completed.</DefaultLetterText>
+  <HangarDamaged>The hangar is damaged.</HangarDamaged>
+  <LaunchAircraft>Launch aircraft</LaunchAircraft>
+  <LaunchAircraftDesc>Launch the stored aircraft and add it to the orbital aircraft reserve.</LaunchAircraftDesc>
+  <LetterInspection_TimeRemaining>Message arrives in {0}</LetterInspection_TimeRemaining>
+  <SelectBombardmentDirection>Select the bombardment direction.</SelectBombardmentDirection>
+  <SelectBombardmentStart>Select the start of the bombardment run.</SelectBombardmentStart>
+  <ShipArtilleryAttack>Orbital artillery strike</ShipArtilleryAttack>
+  <ShipArtilleryAttackDesc>The Stellar Spear has begun an orbital artillery strike.</ShipArtilleryAttackDesc>
+  <TakeoffEffectError>Failed to create takeoff effect: {0}</TakeoffEffectError>
+  <TakeoffEffectMapNull>Cannot create takeoff effect: map is null.</TakeoffEffectMapNull>
+  <TakeoffSkyfallerCreated>Takeoff skyfaller created at {0}.</TakeoffSkyfallerCreated>
+  <SD_CallSkyfaller_TargetLabel>Call drop pod: arrival in {0}</SD_CallSkyfaller_TargetLabel>
+  <SD_SpearArrivalLetterLabel>Stellar Spear has arrived</SD_SpearArrivalLetterLabel>
+  <SD_SpearArrivalLetterText>The Stellar Spear answered Stellar's command and warped into position above the colony.</SD_SpearArrivalLetterText>
+</LanguageData>

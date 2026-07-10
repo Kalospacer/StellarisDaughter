@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AddAircraftNullFaction>无法添加飞行器：派系为空。</AddAircraftNullFaction>
+  <AircraftAutoLaunchScheduled>已安排{0}自动发射，将在{1}秒后执行。</AircraftAutoLaunchScheduled>
+  <AircraftCooldownEnded>{0}已结束冷却。</AircraftCooldownEnded>
+  <AircraftLaunched>已发射{0}架{1}。</AircraftLaunched>
+  <AircraftManagerNotFound>未找到飞行器管理器。</AircraftManagerNotFound>
+  <AircraftStatusLaunched>飞行器已发射</AircraftStatusLaunched>
+  <AutoLaunchCancelled>已取消自动发射。</AutoLaunchCancelled>
+  <AutoLaunchReady>自动发射已就绪</AutoLaunchReady>
+  <AutoLaunchScheduled>将在{0}秒后自动发射</AutoLaunchScheduled>
+  <CannotBombardInvalidLocation>无法轰炸该位置。</CannotBombardInvalidLocation>
+  <DefaultLetterLabel>通知</DefaultLetterLabel>
+  <DefaultLetterText>预定事件已经完成。</DefaultLetterText>
+  <HangarDamaged>机库已损坏。</HangarDamaged>
+  <LaunchAircraft>发射飞行器</LaunchAircraft>
+  <LaunchAircraftDesc>发射储存的飞行器，并将其加入轨道飞行器储备。</LaunchAircraftDesc>
+  <LetterInspection_TimeRemaining>信件将在{0}后送达</LetterInspection_TimeRemaining>
+  <SelectBombardmentDirection>选择轰炸方向。</SelectBombardmentDirection>
+  <SelectBombardmentStart>选择轰炸航线的起点。</SelectBombardmentStart>
+  <ShipArtilleryAttack>轨道舰炮打击</ShipArtilleryAttack>
+  <ShipArtilleryAttackDesc>星穹之矛已经开始执行轨道舰炮打击。</ShipArtilleryAttackDesc>
+  <TakeoffEffectError>创建起飞效果失败：{0}</TakeoffEffectError>
+  <TakeoffEffectMapNull>无法创建起飞效果：地图为空。</TakeoffEffectMapNull>
+  <TakeoffSkyfallerCreated>已在{0}创建起飞空降物。</TakeoffSkyfallerCreated>
+  <SD_CallSkyfaller_TargetLabel>召唤空投舱：将在{0}后到达</SD_CallSkyfaller_TargetLabel>
+  <SD_SpearArrivalLetterLabel>星穹之矛已跃迁抵达</SD_SpearArrivalLetterLabel>
+  <SD_SpearArrivalLetterText>星穹之矛响应星规的指令，跃迁抵达殖民地星域上空。</SD_SpearArrivalLetterText>
+</LanguageData>

@@ -143,21 +143,28 @@ namespace StellarisDaughter
 
         private void EnterBerserk()
         {
+            if (Pawn?.mindState == null || Pawn.InMentalState)
+            {
+                return;
+            }
+
+            bool success = Pawn.mindState.mentalStateHandler.TryStartMentalState(
+                SD_DefOf.SD_WitchBerserk,
+                null,
+                forceWake: true);
+
+            if (!success)
+            {
+                Log.Warning($"[StellarisDaughter] Failed to start WitchBerserk mental state for {Pawn.NameShortColored}");
+                return;
+            }
+
             var wasInWitchForm = state == WitchFormState.WitchForm;
             state = WitchFormState.Berserk;
 
             if (!wasInWitchForm)
             {
                 SwitchAppearance(true);
-            }
-
-            if (Pawn.mindState != null && !Pawn.InMentalState)
-            {
-                var success = Pawn.mindState.mentalStateHandler.TryStartMentalState(SD_DefOf.SD_WitchBerserk, null, forceWake: true);
-                if (!success)
-                {
-                    Log.Warning($"[StellarisDaughter] Failed to start WitchBerserk mental state for {Pawn.NameShortColored}");
-                }
             }
 
             Messages.Message("SD_Witch_Berserk".Translate(Pawn.NameShortColored), Pawn, MessageTypeDefOf.NegativeEvent);

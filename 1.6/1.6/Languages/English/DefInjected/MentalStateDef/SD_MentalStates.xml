@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_WitchBerserk.label>witch berserk</SD_WitchBerserk.label>
+  <SD_WitchBerserk.beginLetter>{0} has entered a witch berserk state.\n\n[PAWN_pronoun] will attack anyone [PAWN_pronoun] sees.</SD_WitchBerserk.beginLetter>
+  <SD_WitchBerserk.recoveryMessage>{0}'s witch berserk state has been suppressed.</SD_WitchBerserk.recoveryMessage>
+  <SD_WitchBerserk.baseInspectLine>Mental state: Witch berserk</SD_WitchBerserk.baseInspectLine>
+</LanguageData>

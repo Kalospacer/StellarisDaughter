@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_MemoryCore.degreeDatas.0.label>memory core</SD_MemoryCore.degreeDatas.0.label>
+  <SD_MemoryCore.degreeDatas.0.description>{PAWN_nameDef} has an exceptional memory. Beyond retaining vast amounts of information, {PAWN_pronoun} possesses perfect muscle memory. {PAWN_possessive} skills never decay.</SD_MemoryCore.degreeDatas.0.description>
+  <SD_kind.degreeDatas.0.label>pale self</SD_kind.degreeDatas.0.label>
+  <SD_kind.degreeDatas.0.description>{PAWN_nameDef} hopes to be kind and strong...</SD_kind.degreeDatas.0.description>
+</LanguageData>

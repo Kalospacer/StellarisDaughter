@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_VoiceEvent_Selected.label>selected</SD_VoiceEvent_Selected.label>
+  <SD_VoiceEvent_Selected.description>Triggered when the pawn is selected by the player.</SD_VoiceEvent_Selected.description>
+  <SD_VoiceEvent_Drafted.label>drafted</SD_VoiceEvent_Drafted.label>
+  <SD_VoiceEvent_Drafted.description>Triggered when the pawn is drafted.</SD_VoiceEvent_Drafted.description>
+  <SD_VoiceEvent_MoveOrder.label>move order</SD_VoiceEvent_MoveOrder.label>
+  <SD_VoiceEvent_MoveOrder.description>Triggered when the player gives a drafted pawn a move order.</SD_VoiceEvent_MoveOrder.description>
+  <SD_VoiceEvent_AttackOrder.label>attack order</SD_VoiceEvent_AttackOrder.label>
+  <SD_VoiceEvent_AttackOrder.description>Triggered when the player gives a drafted pawn an attack order.</SD_VoiceEvent_AttackOrder.description>
+  <SD_VoiceEvent_SpamClick.label>repeated-click easter egg</SD_VoiceEvent_SpamClick.label>
+  <SD_VoiceEvent_SpamClick.description>Triggered when the player rapidly clicks the pawn beyond the configured threshold.</SD_VoiceEvent_SpamClick.description>
+</LanguageData>

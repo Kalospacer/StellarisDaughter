@@ -52,8 +52,8 @@
       <!-- 入场信封信息 -->
       <li Class="StellarisDaughter.CompProperties_SendLetterAfterTicks">
         <ticksDelay>60</ticksDelay>        <!-- 2秒后发送 -->
-        <letterLabel>星穹之矛已跃迁抵达</letterLabel>
-        <letterText>星穹之矛响应星规的指令，跃迁抵达殖民地星域上空</letterText>
+        <letterLabel>SD_SpearArrivalLetterLabel</letterLabel>
+        <letterText>SD_SpearArrivalLetterText</letterText>
         <letterDef>PositiveEvent</letterDef>
         <onlySendOnce>true</onlySendOnce>
         <requireOnMap>true</requireOnMap>

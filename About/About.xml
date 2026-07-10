@@ -32,10 +32,15 @@
       <displayName>Humanoid Alien Races 2.0</displayName>
       <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=839005762</steamWorkshopUrl>
     </li>
+    <li>
+      <packageId>Ludeon.RimWorld.Biotech</packageId>
+      <displayName>Biotech</displayName>
+    </li>
   </modDependencies>
   
   <loadAfter>
     <li>brrainz.harmony</li>
     <li>erdelf.HumanoidAlienRaces</li>
+    <li>Ludeon.RimWorld.Biotech</li>
   </loadAfter>
 </ModMetaData>

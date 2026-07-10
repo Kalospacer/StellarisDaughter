@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_CallSpear_Of_Galaxy_Zenith.label>Call Stellar Spear</SD_CallSpear_Of_Galaxy_Zenith.label>
+  <SD_CallSpear_Of_Galaxy_Zenith.description>Request the Stellar Spear to warp into position above the colony.</SD_CallSpear_Of_Galaxy_Zenith.description>
+  <SD_ClearFlightPath.label>Clear orbital space</SD_ClearFlightPath.label>
+  <SD_ClearFlightPath.description>Order all allied vessels to withdraw and clear the local orbital space.</SD_ClearFlightPath.description>
+  <SD_Spear_Of_Galaxy_Zenith_Overwatch.label>Stellar - orbital blockade</SD_Spear_Of_Galaxy_Zenith_Overwatch.label>
+  <SD_Spear_Of_Galaxy_Zenith_Overwatch.description>Order the Stellar Spear to blockade the system, intercept approaching hostile fleets, and eliminate hostile surface targets.</SD_Spear_Of_Galaxy_Zenith_Overwatch.description>
+  <SD_Firepower_Minigun_Strafe.label>Stellar Spear: Radiant Crown strafe</SD_Firepower_Minigun_Strafe.label>
+  <SD_Firepower_Minigun_Strafe.description>Order the Stellar Spear to strafe the target area with its point-defense batteries.</SD_Firepower_Minigun_Strafe.description>
+  <SD_Firepower_Cannon_Salvo.label>Stellar Spear: Star-Arc Shatter bombardment</SD_Firepower_Cannon_Salvo.label>
+  <SD_Firepower_Cannon_Salvo.description>Order the Stellar Spear to fire a salvo from its light anti-ship batteries into the target area.</SD_Firepower_Cannon_Salvo.description>
+  <SD_Firepower_Cannon_Surveillance.label>Stellar Spear: Star-Arc Shatter overwatch</SD_Firepower_Cannon_Surveillance.label>
+  <SD_Firepower_Cannon_Surveillance.description>Order the Stellar Spear to watch the target area for 0.3 hours and bombard hostile units entering it.</SD_Firepower_Cannon_Surveillance.description>
+  <SD_Firepower_EnergyLance_Strafe.label>Stellar Spear: Voidlight strafe</SD_Firepower_EnergyLance_Strafe.label>
+  <SD_Firepower_EnergyLance_Strafe.description>Order the Stellar Spear to sweep the target area with its energy lance.</SD_Firepower_EnergyLance_Strafe.description>
+  <SD_Firepower_EnergyLance_Surveillance.label>Stellar Spear: Voidlight overwatch</SD_Firepower_EnergyLance_Surveillance.label>
+  <SD_Firepower_EnergyLance_Surveillance.description>Order the Stellar Spear to watch the target area for one hour and continuously strike hostile units entering range.</SD_Firepower_EnergyLance_Surveillance.description>
+  <SD_Firepower_Primary_Cannon_Strafe.label>Stellar Spear: Cosmic Pursuit bombardment</SD_Firepower_Primary_Cannon_Strafe.label>
+  <SD_Firepower_Primary_Cannon_Strafe.description>Order the Stellar Spear to sweep a selected line with anti-ship energy torpedoes. The barrage can level mountains, but responds slowly, is imprecise, and requires a long reload.</SD_Firepower_Primary_Cannon_Strafe.description>
+  <SD_Firepower_Primary_Cannon_Surveillance.label>Stellar Spear: Cosmic Pursuit overwatch</SD_Firepower_Primary_Cannon_Surveillance.label>
+  <SD_Firepower_Primary_Cannon_Surveillance.description>Order the Stellar Spear to watch the target area for three hours and continuously bombard hostile units entering range.</SD_Firepower_Primary_Cannon_Surveillance.description>
+</LanguageData>

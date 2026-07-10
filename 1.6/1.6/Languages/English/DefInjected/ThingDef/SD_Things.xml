@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_Fake_Spear_Of_Galaxy_Zenith_Beacon_Building.label>Stellar Spear beacon</SD_Fake_Spear_Of_Galaxy_Zenith_Beacon_Building.label>
+  <SD_Spear_Of_Galaxy_Zenith_Entity.label>Stellar Spear</SD_Spear_Of_Galaxy_Zenith_Entity.label>
+  <SD_Spear_Of_Galaxy_Zenith_Entity.description>This ThingDef only records a quantity and should never be visible during normal play.</SD_Spear_Of_Galaxy_Zenith_Entity.description>
+  <SD_DroneFramework_Entity.label>Stellar - drone unit</SD_DroneFramework_Entity.label>
+  <SD_DroneFramework_Entity.description>Stellar - drone unit</SD_DroneFramework_Entity.description>
+  <SD_StellarUniform.label>Stellar - formal uniform</SD_StellarUniform.label>
+  <SD_StellarBlackUniform.label>Stellar - corrupted formal uniform</SD_StellarBlackUniform.label>
+  <SD_StellarCloak.label>Stellar - cloak</SD_StellarCloak.label>
+  <SD_Spear_of_SRA.label>Stellar - starlight regulator</SD_Spear_of_SRA.label>
+  <SD_Spear_of_SRA.description>A replica of a weapon used by Lushivia. It serves as a spear, though the prism inside might also fetch a modest price from a trader...</SD_Spear_of_SRA.description>
+  <SD_Spear_Of_Galaxy_Zenith.label>Stellar Spear</SD_Spear_Of_Galaxy_Zenith.label>
+  <SD_Cruiser_Escort.label>Stellar cruiser unit (escort)</SD_Cruiser_Escort.label>
+  <SD_Executor_Escort.label>Stellar executor unit (escort)</SD_Executor_Escort.label>
+  <SD_Spear_Of_Galaxy_Zenith_Planet_Interdiction.label>Stellar Spear (bombardment)</SD_Spear_Of_Galaxy_Zenith_Planet_Interdiction.label>
+  <SD_Executor_Planet_Interdiction.label>Stellar executor unit (bombardment)</SD_Executor_Planet_Interdiction.label>
+  <SD_Firepower_Minigun_Strafe_Skyfaller.label>Stellar - Radiant Crown pulse round</SD_Firepower_Minigun_Strafe_Skyfaller.label>
+  <SD_Firepower_Cannon_Salvo_Skyfaller.label>Stellar - Star-Arc Shatter light energy shell</SD_Firepower_Cannon_Salvo_Skyfaller.label>
+  <SD_Firepower_Cannon_Surveillance_Skyfaller.label>light battery overwatch beacon</SD_Firepower_Cannon_Surveillance_Skyfaller.label>
+  <SD_Firepower_Cannon_Surveillance_Beacon.label>light battery overwatch beacon</SD_Firepower_Cannon_Surveillance_Beacon.label>
+  <SD_Firepower_Cannon_Surveillance_Beacon.description>A beacon designating an overwatch zone. Hostile forces entering the area will be struck by the Stellar Spear's anti-ship batteries.</SD_Firepower_Cannon_Surveillance_Beacon.description>
+  <SD_EnergyLance_Base.label>Stellar - Voidlight</SD_EnergyLance_Base.label>
+  <SD_EnergyLance_Base.description>A beam of pure energy fired from the Stellar Spear, igniting every living thing in its path.</SD_EnergyLance_Base.description>
+  <SD_Firepower_EnergyLance_Surveillance_Skyfaller.label>Stellar - Voidlight overwatch beacon</SD_Firepower_EnergyLance_Surveillance_Skyfaller.label>
+  <SD_Firepower_EnergyLance_Surveillance_Beacon.label>Stellar - Voidlight overwatch beacon</SD_Firepower_EnergyLance_Surveillance_Beacon.label>
+  <SD_Firepower_EnergyLance_Surveillance_Beacon.description>A beacon designating an overwatch zone. Hostile forces entering the area will be struck by the Stellar Spear's anti-ship batteries.</SD_Firepower_EnergyLance_Surveillance_Beacon.description>
+  <SD_EnergyLance_Surveillance.label>Stellar - Voidlight</SD_EnergyLance_Surveillance.label>
+  <SD_EnergyLance_Surveillance.description>A beam of pure energy fired from the Stellar Spear, igniting every living thing in its path.</SD_EnergyLance_Surveillance.description>
+  <SD_Firepower_Primary_Cannon_Strafe_Skyfaller.label>Stellar - Cosmic Pursuit energy torpedo</SD_Firepower_Primary_Cannon_Strafe_Skyfaller.label>
+  <SD_Firepower_Primary_Cannon_Surveillance_Skyfaller.label>Stellar - Cosmic Pursuit overwatch beacon</SD_Firepower_Primary_Cannon_Surveillance_Skyfaller.label>
+  <SD_Firepower_Primary_Cannon_Surveillance_Beacon.label>Stellar - Cosmic Pursuit overwatch beacon</SD_Firepower_Primary_Cannon_Surveillance_Beacon.label>
+  <SD_Firepower_Primary_Cannon_Surveillance_Beacon.description>A beacon designating an overwatch zone. Hostile forces entering the area will be struck by the Stellar Spear's anti-ship batteries.</SD_Firepower_Primary_Cannon_Surveillance_Beacon.description>
+  <SD_Bullet_MinipulserEX.label>pulse beam</SD_Bullet_MinipulserEX.label>
+  <SD_Bullet_Laser.label>energy beam</SD_Bullet_Laser.label>
+  <SD_Bullet_Cannon.label>phase-energy bolt</SD_Bullet_Cannon.label>
+  <SD_Bullet_Minipulser.label>pulse beam</SD_Bullet_Minipulser.label>
+</LanguageData>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_Hediff_EternalBond.label>Eternal bond</SD_Hediff_EternalBond.label>
+  <SD_Hediff_EternalBond.description>The Stellar subunit has fully awakened and chosen to form an eternal emotional connection with her guide. Her eyes are fixed on you alone.</SD_Hediff_EternalBond.description>
+  <SD_Hediff_EternalBond.stages.0.label>Eternal bond</SD_Hediff_EternalBond.stages.0.label>
+  <SD_Hediff_DarkAwakening.label>Dark awakening</SD_Hediff_DarkAwakening.label>
+  <SD_Hediff_DarkAwakening.description>The Stellar subunit's awakening has turned toward darkness. Her consciousness is twisted and filled with hostility toward everything.</SD_Hediff_DarkAwakening.description>
+  <SD_Hediff_DarkAwakening.stages.0.label>Dark awakening</SD_Hediff_DarkAwakening.stages.0.label>
+  <SD_Hediff_WitchForm.label>Stellar - abyssal form</SD_Hediff_WitchForm.label>
+  <SD_Hediff_WitchForm.description>Stellar fractals flow through this body, greatly enhancing its capabilities and providing powerful protection. An invisible barrier covers the body and resists incoming damage.\n\n&lt;color=#00FFFF&gt;“I have returned through the pale gate and risen beyond all things. My strength can command others; my power can command myself. My limbs are strong, and shall move and shape all things. My body is perfected, made whole, and shall remain whole forever.”&lt;/color&gt;</SD_Hediff_WitchForm.description>
+  <SD_Hediff_WitchForm.comps.HediffCompProperties_VerbGiver.tools.0.label>Vacuum cleave</SD_Hediff_WitchForm.comps.HediffCompProperties_VerbGiver.tools.0.label>
+  <SD_Hediff_NormalForm.label>Stellar - starward form</SD_Hediff_NormalForm.label>
+  <SD_Hediff_NormalForm.description>Stellar fractals flow through this body, greatly enhancing its capabilities and providing powerful protection. An invisible barrier covers the body and resists incoming damage.\n\n&lt;color=#00FFFF&gt;“I have returned through the pale gate and risen beyond all things. My strength can command others; my power can command myself. My limbs are strong, and shall move and shape all things. My body is perfected, made whole, and shall remain whole forever.”&lt;/color&gt;</SD_Hediff_NormalForm.description>
+  <SD_Retardant.label>Stellar - phase retardation</SD_Retardant.label>
+  <SD_RailgunDebuff.label>Stellar - phase overload</SD_RailgunDebuff.label>
+</LanguageData>

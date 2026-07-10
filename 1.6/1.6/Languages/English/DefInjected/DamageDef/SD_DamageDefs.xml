@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SD_SRA_Burn.label>Phase disintegration</SD_SRA_Burn.label>
+  <SD_DarkMatterFlame.label>Phase disintegration</SD_DarkMatterFlame.label>
+  <SD_DarkMatterFlame.deathMessage>{0} was phase-disintegrated.</SD_DarkMatterFlame.deathMessage>
+  <SD_DarkMatterBomb.label>Phase disintegration</SD_DarkMatterBomb.label>
+</LanguageData>

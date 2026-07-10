@@ -5,7 +5,7 @@
     <defName>SD_CallSpear_Of_Galaxy_Zenith</defName>
     <label>呼叫星穹之矛</label>
     <description>要求星穹之矛立即跃迁至殖民地上空星域待命.</description>
-    <iconPath>Wula/UI/Abilities/WULA_CallMotherShip</iconPath>
+    <iconPath>StellarisDaughter/UI/Abilities/WULA_CallMotherShip</iconPath>
     <cooldownTicksRange>1</cooldownTicksRange>
     <hotKey>Misc12</hotKey>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
@@ -53,7 +53,7 @@
     <defName>SD_ClearFlightPath</defName>
     <label>星域净空</label>
     <description>命令星域内的舰队立即撤离，清空空域。</description>
-    <iconPath>Wula/UI/Abilities/WULA_ClearFlightPath</iconPath>
+    <iconPath>StellarisDaughter/UI/Abilities/WULA_ClearFlightPath</iconPath>
     <cooldownTicksRange>1</cooldownTicksRange>
     <hotKey>Misc12</hotKey>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
@@ -82,7 +82,7 @@
     <defName>SD_Spear_Of_Galaxy_Zenith_Overwatch</defName>
     <label>星规-星域封锁</label>
     <description>命令星穹之矛立即封锁星域，击落任何靠近星域的敌对舰队，清理星球上所有敌对目标。</description>
-    <iconPath>Wula/UI/Abilities/WULA_Spawn_Fighter_Drone_Laser</iconPath>
+    <iconPath>StellarisDaughter/UI/Abilities/WULA_Spawn_Fighter_Drone_Laser</iconPath>
     <cooldownTicksRange>1</cooldownTicksRange>
     <hotKey>Misc12</hotKey>
     <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
