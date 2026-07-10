@@ -18,7 +18,6 @@
       <shadow>StellarisDaughter/Things/SD_Empty</shadow>
       <shadowSize>(0, 0)</shadowSize>
       <motesPerCell>0</motesPerCell>
-      <floatingSound>FlyOver/Flying</floatingSound>
       <!-- <impactSound>FlyOver/Landing</impactSound> -->
     </skyfaller>
     <modExtensions>
@@ -228,7 +227,6 @@
       <shadow>StellarisDaughter/Things/SD_Empty</shadow>
       <shadowSize>(0, 0)</shadowSize>
       <motesPerCell>0</motesPerCell>
-      <floatingSound>FlyOver/Flying</floatingSound>
       <!-- <impactSound>FlyOver/Landing</impactSound> -->
     </skyfaller>
     <modExtensions>
@@ -269,7 +267,6 @@
       <shadow>StellarisDaughter/Things/SD_Empty</shadow>
       <shadowSize>(0, 0)</shadowSize>
       <motesPerCell>0</motesPerCell>
-      <floatingSound>FlyOver/Flying</floatingSound>
       <!-- <impactSound>FlyOver/Landing</impactSound> -->
     </skyfaller>
     <modExtensions>
@@ -327,7 +324,6 @@
       <shadow>StellarisDaughter/Things/SD_Empty</shadow>
       <shadowSize>(0, 0)</shadowSize>
       <motesPerCell>0</motesPerCell>
-      <floatingSound>FlyOver/Flying</floatingSound>
       <!-- <impactSound>FlyOver/Landing</impactSound> -->
     </skyfaller>
     <modExtensions>
@@ -433,7 +429,6 @@
       <shadow>StellarisDaughter/Things/SD_Empty</shadow>
       <shadowSize>(0, 0)</shadowSize>
       <motesPerCell>0</motesPerCell>
-      <floatingSound>FlyOver/Flying</floatingSound>
       <!-- <impactSound>FlyOver/Landing</impactSound> -->
     </skyfaller>
     <modExtensions>
