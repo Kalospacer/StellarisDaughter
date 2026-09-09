@@ -67,11 +67,7 @@ namespace StellarisDaughter
         public float moveSpeed = 0.18f;
         public int deployTicks = 24;
         public bool autoDeployOnThreat = true;
-        public int idleRecallTicks = 90;
         public int targetScanIntervalTicks = 15;
-        public string deployCommandLabel = "SD_Drone_DeployCommandLabel";
-        public string recallCommandLabel = "SD_Drone_RecallCommandLabel";
-        public string commandDesc = "SD_Drone_CommandDesc";
 
         public CompProperties_SD_DroneController()
         {
@@ -131,7 +127,6 @@ namespace StellarisDaughter
         public override void CompTick()
         {
             base.CompTick();
-            EnsureSlots();
 
             for (var i = 0; i < slots.Count; i++)
             {
@@ -655,7 +650,7 @@ namespace StellarisDaughter
         private bool TryDeploySlot(SD_DroneSlot slot)
         {
             var wearer = Wearer;
-            var droneType = ResolveDroneTypeForSlot(slot.Index);
+            var droneType = ResolveDroneTypeForIndex(slot.Index);
             if (wearer?.Map == null || droneType?.droneDef == null)
             {
                 return false;
@@ -715,18 +710,13 @@ namespace StellarisDaughter
 
         private void StartCharging(SD_DroneSlot slot)
         {
-            var droneType = slot.DroneType ?? ResolveDroneTypeForSlot(slot.Index);
+            var droneType = slot.DroneType ?? ResolveDroneTypeForIndex(slot.Index);
             var rechargeTicks = droneType?.rechargeTicks > 0 ? droneType.rechargeTicks : Props.rechargeTicks;
             slot.State = SD_DroneSlotState.Charging;
             slot.ChargeTicksTotal = Mathf.Max(rechargeTicks, 1);
             slot.ChargeTicksRemaining = slot.ChargeTicksTotal;
             slot.Drones.Clear();
             slot.ReplacementTicksRemaining.Clear();
-        }
-
-        private SD_DroneTypeDef ResolveDroneTypeForSlot(int slotIndex)
-        {
-            return ResolveDroneTypeForIndex(slotIndex);
         }
 
         private SD_DroneTypeDef ResolveDroneTypeForIndex(int slotIndex)
@@ -855,7 +845,7 @@ namespace StellarisDaughter
                 slot.ReplacementTicksRemaining = new List<int>();
             }
 
-            var droneType = slot.DroneType ?? ResolveDroneTypeForSlot(slot.Index);
+            var droneType = slot.DroneType ?? ResolveDroneTypeForIndex(slot.Index);
             var rechargeTicks = droneType?.rechargeTicks > 0 ? droneType.rechargeTicks : Props.rechargeTicks;
             slot.ReplacementTicksRemaining.Add(Mathf.Max(rechargeTicks, 1));
         }
@@ -868,7 +858,7 @@ namespace StellarisDaughter
         private bool TryDeployReplacementDrone(SD_DroneSlot slot)
         {
             var wearer = Wearer;
-            var droneType = slot.DroneType ?? ResolveDroneTypeForSlot(slot.Index);
+            var droneType = slot.DroneType ?? ResolveDroneTypeForIndex(slot.Index);
             if (wearer?.Map == null || droneType?.droneDef == null)
             {
                 return false;

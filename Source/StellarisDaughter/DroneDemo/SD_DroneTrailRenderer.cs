@@ -6,6 +6,8 @@ namespace StellarisDaughter
 {
     public class SD_DroneTrailRenderer
     {
+        private const float TrailZOffsetStep = 0.002f;
+
         private struct TrailPoint
         {
             public Vector3 Pos;
@@ -15,6 +17,7 @@ namespace StellarisDaughter
 
         private readonly SD_DroneEntity drone;
         private readonly SD_DroneTrailProperties props;
+        private readonly int trailIndex;
         private readonly LinkedList<TrailPoint> points;
         private readonly List<Vector3> vertices;
         private readonly List<Vector2> uvs;
@@ -26,10 +29,11 @@ namespace StellarisDaughter
         private Mesh mesh;
         private bool isEmitting;
 
-        public SD_DroneTrailRenderer(SD_DroneEntity drone, SD_DroneTrailProperties props)
+        public SD_DroneTrailRenderer(SD_DroneEntity drone, SD_DroneTrailProperties props, int trailIndex)
         {
             this.drone = drone;
             this.props = props;
+            this.trailIndex = trailIndex;
             points = new LinkedList<TrailPoint>();
             vertices = new List<Vector3>(props.length * 2);
             uvs = new List<Vector2>(props.length * 2);
@@ -111,8 +115,11 @@ namespace StellarisDaughter
                 return;
             }
 
-            mesh ??= new Mesh();
-            mesh.MarkDynamic();
+            if (mesh == null)
+            {
+                mesh = new Mesh();
+                mesh.MarkDynamic();
+            }
             material ??= props.TrailMaterial;
             UpdateMesh(drawLoc);
             Graphics.DrawMesh(mesh, Vector3.zero, Quaternion.identity, material, 0);
@@ -236,7 +243,7 @@ namespace StellarisDaughter
                 var widthFactor = props.widthCurve != null ? props.widthCurve.Evaluate(1f - ageRatio) : 1f;
                 var halfWidth = props.width * widthFactor * 0.5f;
                 var vertexPos = pos;
-                vertexPos.y += props.renderYOffset;
+                vertexPos.y += props.renderYOffset + trailIndex * TrailZOffsetStep;
                 vertices.Add(vertexPos - side * halfWidth);
                 vertices.Add(vertexPos + side * halfWidth);
 

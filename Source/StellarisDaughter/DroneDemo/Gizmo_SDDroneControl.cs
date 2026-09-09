@@ -192,7 +192,6 @@ namespace StellarisDaughter
                 case SD_DroneSlotState.Deployed:
                     return new Color(0.95f, 0.45f, 0.55f);
                 case SD_DroneSlotState.Returning:
-                    return new Color(0.95f, 0.75f, 0.3f);
                 case SD_DroneSlotState.Charging:
                     return new Color(0.95f, 0.75f, 0.3f);
                 case SD_DroneSlotState.Docked:
@@ -204,19 +203,11 @@ namespace StellarisDaughter
 
         private static void DrawChargeBar(Rect rect, SD_DroneSlot slot)
         {
-            GUI.DrawTexture(rect, FillBg);
-            Widgets.DrawBox(rect);
-
             var fillPercent = slot.State == SD_DroneSlotState.Charging && slot.ChargeTicksTotal > 0
                 ? 1f - Mathf.Clamp01(slot.ChargeTicksRemaining / (float)slot.ChargeTicksTotal)
                 : slot.IsCharged ? 1f : slot.ActiveDroneCount > 0 ? slot.ActiveDroneCount / (float)Mathf.Max(slot.SquadronSize, 1) : 0f;
 
-            if (fillPercent > 0f)
-            {
-                var fillRect = rect.ContractedBy(1f);
-                fillRect.width *= fillPercent;
-                GUI.DrawTexture(fillRect, ResolveFillTexture(slot));
-            }
+            Widgets.FillableBar(rect, Mathf.Clamp01(fillPercent), ResolveFillTexture(slot), FillBg, false);
         }
 
         private static Texture2D ResolveFillTexture(SD_DroneSlot slot)

@@ -36,6 +36,7 @@ namespace StellarisDaughter
         private int loiterTicksLeft;
         private int completedAttackCycles;
         private bool notifiedController;
+        private int nextTargetScanTick;
 
         private Vector3 pathStart;
         private Vector3 pathControlA;
@@ -158,6 +159,7 @@ namespace StellarisDaughter
             Scribe_Values.Look(ref loiterTicksLeft, "loiterTicksLeft", 0);
             Scribe_Values.Look(ref completedAttackCycles, "completedAttackCycles", 0);
             Scribe_Values.Look(ref notifiedController, "notifiedController", false);
+            Scribe_Values.Look(ref nextTargetScanTick, "nextTargetScanTick", 0);
             Scribe_Values.Look(ref pathStart, "pathStart");
             Scribe_Values.Look(ref pathControlA, "pathControlA");
             Scribe_Values.Look(ref pathControlB, "pathControlB");
@@ -519,14 +521,16 @@ namespace StellarisDaughter
 
             var side = new Vector3(-tangent.z, 0f, tangent.x);
             var moveSpeed = ResolveMoveSpeed() * Mathf.Max(droneType?.returnSpeedMultiplier ?? 1.25f, 1f);
-            var distance = toDock.magnitude;
-            var pathTicks = Mathf.Max(Mathf.RoundToInt(distance / Mathf.Max(moveSpeed, 0.02f)), 10);
+            var controlA = realPos + tangent * 0.8f + side * 0.35f;
+            var controlB = end - tangent * 0.5f;
+            var curveLength = ApproxBezierLength(realPos, controlA, controlB, end);
+            var pathTicks = Mathf.Max(Mathf.RoundToInt(curveLength / Mathf.Max(moveSpeed, 0.02f)), 10);
 
             BuildBezierPath(
                 realPos,
                 end,
-                realPos + tangent * 0.8f + side * 0.35f,
-                end - tangent * 0.5f,
+                controlA,
+                controlB,
                 pathTicks);
 
             currentTarget = null;
@@ -540,6 +544,20 @@ namespace StellarisDaughter
             {
                 return false;
             }
+
+            var ticksGame = Find.TickManager.TicksGame;
+            if (ticksGame < nextTargetScanTick && IsTargetUsable(currentTarget))
+            {
+                if (controller.TryFindAttackDestination(this, currentTarget, out var cachedDest))
+                {
+                    attackDestination = cachedDest;
+                    return true;
+                }
+
+                return false;
+            }
+
+            nextTargetScanTick = ticksGame + Mathf.Max(controller.Props.targetScanIntervalTicks, 1);
 
             var target = controller.GetAttackTargetForDrone(this);
             if (!IsTargetUsable(target))
@@ -664,7 +682,7 @@ namespace StellarisDaughter
                 var trail = droneType.trails[i];
                 if (trail != null)
                 {
-                    trailRenderers.Add(new SD_DroneTrailRenderer(this, trail));
+                    trailRenderers.Add(new SD_DroneTrailRenderer(this, trail, i));
                 }
             }
         }
@@ -689,7 +707,7 @@ namespace StellarisDaughter
 
             pathTicksElapsed++;
             var t = Mathf.Clamp01(pathTicksElapsed / (float)pathTicksTotal);
-            var nextPos = BezierPoint(t, pathStart, pathControlA, pathControlB, pathEnd);
+            var nextPos = GenMath.BezierCubicEvaluate(t, pathStart, pathControlA, pathControlB, pathEnd);
             var delta = (nextPos - realPos).Yto0();
             if (delta != Vector3.zero)
             {
@@ -700,13 +718,18 @@ namespace StellarisDaughter
             return pathTicksElapsed >= pathTicksTotal;
         }
 
-        private static Vector3 BezierPoint(float t, Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3)
+        private static float ApproxBezierLength(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3)
         {
-            var oneMinusT = 1f - t;
-            return oneMinusT * oneMinusT * oneMinusT * p0
-                + 3f * oneMinusT * oneMinusT * t * p1
-                + 3f * oneMinusT * t * t * p2
-                + t * t * t * p3;
+            var length = 0f;
+            var prev = p0;
+            for (var i = 1; i <= 8; i++)
+            {
+                var t = i / 8f;
+                var pt = GenMath.BezierCubicEvaluate(t, p0, p1, p2, p3);
+                length += (pt - prev).magnitude;
+                prev = pt;
+            }
+            return length;
         }
 
         private void FaceTarget(Thing target)
@@ -775,9 +798,25 @@ namespace StellarisDaughter
 
             EnsureVerbCasters();
 
-            return AllVerbs
-                .OrderByDescending(v => v.verbProps.isPrimary)
-                .FirstOrDefault(v => v.state == VerbState.Idle && v.Available() && v.IsUsableOn(target.Thing) && v.CanHitTarget(target));
+            Verb fallback = null;
+            var verbs = AllVerbs;
+            for (var i = 0; i < verbs.Count; i++)
+            {
+                var v = verbs[i];
+                if (v.state != VerbState.Idle || !v.Available() || !v.IsUsableOn(target.Thing) || !v.CanHitTarget(target))
+                {
+                    continue;
+                }
+
+                if (v.verbProps.isPrimary)
+                {
+                    return v;
+                }
+
+                fallback ??= v;
+            }
+
+            return fallback;
         }
 
         private int ResolveCooldownTicks(Verb verb)
