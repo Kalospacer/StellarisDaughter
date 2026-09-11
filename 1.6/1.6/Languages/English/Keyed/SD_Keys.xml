@@ -52,25 +52,24 @@
   <SD_BodyWeapon_CannotUse>{0} cannot use body weapon right now</SD_BodyWeapon_CannotUse>
   <SD_Drone_DeployCommandLabel>Deploy Drones</SD_Drone_DeployCommandLabel>
   <SD_Drone_RecallCommandLabel>Recall Drones</SD_Drone_RecallCommandLabel>
-  <SD_Drone_CommandDesc>Deploy drones to orbit the wearer and automatically attack enemies. Click again to recall them.</SD_Drone_CommandDesc>
   <SD_Drone_Inspect>Drone slots: {0}/{1} ready  Charging: {2}  Deployed: {3}</SD_Drone_Inspect>
   <SD_Drone_NoWearer>The drone controller currently has no wearer.</SD_Drone_NoWearer>
   <SD_Drone_NoChargedSlot>No charged drone slot is available.</SD_Drone_NoChargedSlot>
-  <SD_Drone_AutoDeployToggleLabel>Auto Deploy</SD_Drone_AutoDeployToggleLabel>
   <SD_Drone_AutoDeployToggleDesc>Automatically launch charged drones when the wearer enters combat.</SD_Drone_AutoDeployToggleDesc>
   <SD_Drone_GizmoTitle>Drones</SD_Drone_GizmoTitle>
   <SD_Drone_GizmoSummary>Ready {0}  Active {1}  Charging {2}</SD_Drone_GizmoSummary>
   <SD_Drone_GizmoAutoOn>Auto: On</SD_Drone_GizmoAutoOn>
   <SD_Drone_GizmoAutoOff>Auto: Off</SD_Drone_GizmoAutoOff>
-  <SD_Drone_SlotCommandLabel>Slot {0}: {1}</SD_Drone_SlotCommandLabel>
   <SD_Drone_SlotCommandDesc>Slot {0}\nType: {1}\nState: {2}\nCharge: {3}\n\nClick to deploy this slot if ready, or recall it if currently active.</SD_Drone_SlotCommandDesc>
   <SD_Drone_SlotStateEmpty>Empty</SD_Drone_SlotStateEmpty>
-  <SD_Drone_SlotStateDocked>Docked</SD_Drone_SlotStateDocked>
   <SD_Drone_SlotStateReady>Ready</SD_Drone_SlotStateReady>
   <SD_Drone_SlotStateDeployed>Deployed</SD_Drone_SlotStateDeployed>
   <SD_Drone_SlotStateReturning>Returning</SD_Drone_SlotStateReturning>
   <SD_Drone_SlotStateCharging>Charging</SD_Drone_SlotStateCharging>
   <SD_Drone_SlotChargeReady>Ready</SD_Drone_SlotChargeReady>
+  <SD_Drone_UnnamedDrone>unnamed drone</SD_Drone_UnnamedDrone>
+  <SD_Drone_SquadronLine>Squadron: {0}/{1}</SD_Drone_SquadronLine>
+  <SD_Drone_LayerLine>Layer: {0}</SD_Drone_LayerLine>
   <SD_AIEventLog_DayLabel>Day {0}</SD_AIEventLog_DayLabel>
   <SD_AIEvent_AffectionPositive><![CDATA[<color=#7ecf7e>Affection +{0}</color>]]></SD_AIEvent_AffectionPositive>
   <SD_AIEvent_AffectionNegative><![CDATA[<color=#cf7e7e>Affection {0}</color>]]></SD_AIEvent_AffectionNegative>

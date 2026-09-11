@@ -282,9 +282,6 @@
           <li>6.4</li>
           <li>3.2</li>
         </orbitLayerRadii>
-        <deployCommandLabel>SD_Drone_DeployCommandLabel</deployCommandLabel>
-        <recallCommandLabel>SD_Drone_RecallCommandLabel</recallCommandLabel>
-        <commandDesc>SD_Drone_CommandDesc</commandDesc>
       </li>
     </comps>
   </ThingDef>

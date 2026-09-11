@@ -42,6 +42,16 @@ namespace StellarisDaughter
             dists = new List<float>(props.length);
         }
 
+        /// <summary>释放 Unity 原生 Mesh（原生资源，GC 不回收底层内存）。无人机销毁时由 SD_DroneEntity 调用。</summary>
+        public void Dispose()
+        {
+            if (mesh != null)
+            {
+                Object.Destroy(mesh);
+                mesh = null;
+            }
+        }
+
         public void Tick()
         {
             if (drone.Map == null)

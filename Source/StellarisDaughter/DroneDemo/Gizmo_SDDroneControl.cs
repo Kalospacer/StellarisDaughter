@@ -167,7 +167,7 @@ namespace StellarisDaughter
 
         private static string ResolveDroneTypeLabel(SD_DroneSlot slot)
         {
-            return string.IsNullOrWhiteSpace(slot.DroneType?.label) ? "未命名无人机" : slot.DroneType.label;
+            return string.IsNullOrWhiteSpace(slot.DroneType?.label) ? "SD_Drone_UnnamedDrone".Translate().ToString() : slot.DroneType.label;
         }
 
         private static string ShortenLabel(string text, int maxChars)

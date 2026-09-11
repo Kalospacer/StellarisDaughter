@@ -127,7 +127,7 @@ namespace StellarisDaughter
 
             var controller = Controller;
             realPos = controller?.GetDockPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer) ?? Position.ToVector3Shifted();
-            Position = realPos.ToIntVec3();
+            SyncPositionToRealPos();
             realDir = ((Owner?.DrawPos ?? realPos) - realPos).Yto0();
             if (realDir == Vector3.zero)
             {
@@ -221,7 +221,21 @@ namespace StellarisDaughter
                 }
             }
 
-            Position = realPos.ToIntVec3();
+            SyncPositionToRealPos();
+        }
+
+        /// <summary>位置同步：直接赋值 Position 不更新 thingGrid，飞离后出生格会残留幽灵引用（已销毁对象无法 GC、格子查询返回死引用）。</summary>
+        private void SyncPositionToRealPos()
+        {
+            IntVec3 newCell = realPos.ToIntVec3();
+            if (newCell == Position || Map == null)
+            {
+                Position = newCell;
+                return;
+            }
+            Map.thingGrid.Deregister(this);
+            Position = newCell;
+            Map.thingGrid.Register(this);
         }
 
         public void StartReturn()
@@ -236,6 +250,14 @@ namespace StellarisDaughter
 
         public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
         {
+            // 尾迹 Mesh 是 Unity 原生资源，GC 不回收，必须显式释放
+            if (trailRenderers != null)
+            {
+                for (var i = 0; i < trailRenderers.Count; i++)
+                {
+                    trailRenderers[i].Dispose();
+                }
+            }
             if (!notifiedController)
             {
                 Controller?.NotifyDroneLost(slotIndex, this);
@@ -279,7 +301,7 @@ namespace StellarisDaughter
                 return;
             }
 
-            TickLinearMove(controller.GetOrbitPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer), ResolveMoveSpeed());
+            TickLinearMove(controller.GetOrbitPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer) ?? realPos, ResolveMoveSpeed());
 
             if (TryAcquireTargetAndDestination())
             {
@@ -511,7 +533,7 @@ namespace StellarisDaughter
                 return;
             }
 
-            var end = controller.GetDockPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer);
+            var end = controller.GetDockPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer) ?? realPos;
             var toDock = (end - realPos).Yto0();
             var tangent = toDock == Vector3.zero ? realDir.Yto0().normalized : toDock.normalized;
             if (tangent == Vector3.zero)
@@ -596,14 +618,20 @@ namespace StellarisDaughter
                 return false;
             }
 
-            if (target == owner || !owner.HostileTo(target))
+            if (target == owner)
             {
                 return false;
             }
 
+            // 主人显式目标优先：武器不评判使用者，跳过派系敌意判定
             if (Controller?.IsOwnerForcedAttackTarget(target) == true)
             {
                 return true;
+            }
+
+            if (!owner.HostileTo(target))
+            {
+                return false;
             }
 
             var maxRange = ResolveMaxRange();

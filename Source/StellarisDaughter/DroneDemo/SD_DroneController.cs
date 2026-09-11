@@ -8,7 +8,6 @@ namespace StellarisDaughter
 {
     public enum SD_DroneSlotState
     {
-        Empty,
         Docked,
         Deployed,
         Returning,
@@ -78,7 +77,6 @@ namespace StellarisDaughter
     public class CompSD_DroneController : ThingComp
     {
         private List<SD_DroneSlot> slots = new List<SD_DroneSlot>();
-        private int lastThreatTick = -99999;
         private bool autoDeployEnabled = true;
         private float gizmoScrollPosition;
 
@@ -102,7 +100,6 @@ namespace StellarisDaughter
         {
             base.PostExposeData();
             Scribe_Collections.Look(ref slots, "slots", LookMode.Deep);
-            Scribe_Values.Look(ref lastThreatTick, "lastThreatTick", -99999);
             Scribe_Values.Look(ref autoDeployEnabled, "autoDeployEnabled", true);
             Scribe_Values.Look(ref gizmoScrollPosition, "gizmoScrollPosition", 0f);
             if (Scribe.mode == LoadSaveMode.PostLoadInit && slots == null)
@@ -165,11 +162,10 @@ namespace StellarisDaughter
                 return;
             }
 
-            var threat = GetPrimaryThreatTarget();
-            if (threat != null)
+            if (parent.IsHashIntervalTick(Props.targetScanIntervalTicks))
             {
-                lastThreatTick = Find.TickManager.TicksGame;
-                if (autoDeployEnabled)
+                var threat = GetPrimaryThreatTarget();
+                if (threat != null && autoDeployEnabled)
                 {
                     DeployChargedDrones(false);
                 }
@@ -342,12 +338,13 @@ namespace StellarisDaughter
             return false;
         }
 
-        public Vector3 GetOrbitPosition(int slotIndex, SD_DroneTypeDef droneType = null, int squadronMemberIndex = 0, int squadronSize = 1, int orbitLayer = 0)
+        /// <summary>wearer 为空时返回 null（不可表示为有效坐标，调用方必须兜底）。</summary>
+        public Vector3? GetOrbitPosition(int slotIndex, SD_DroneTypeDef droneType = null, int squadronMemberIndex = 0, int squadronSize = 1, int orbitLayer = 0)
         {
             var wearer = Wearer;
             if (wearer == null)
             {
-                return Vector3.zero;
+                return null;
             }
 
             var pos = GetIndependentOrbitPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer, false);
@@ -355,12 +352,13 @@ namespace StellarisDaughter
             return pos;
         }
 
-        public Vector3 GetDockPosition(int slotIndex, SD_DroneTypeDef droneType = null, int squadronMemberIndex = 0, int squadronSize = 1, int orbitLayer = 0)
+        /// <summary>wearer 为空时返回 null（不可表示为有效坐标，调用方必须兜底）。</summary>
+        public Vector3? GetDockPosition(int slotIndex, SD_DroneTypeDef droneType = null, int squadronMemberIndex = 0, int squadronSize = 1, int orbitLayer = 0)
         {
             var wearer = Wearer;
             if (wearer == null)
             {
-                return Vector3.zero;
+                return null;
             }
 
             var pos = GetIndependentOrbitPosition(slotIndex, droneType, squadronMemberIndex, squadronSize, orbitLayer, true);
@@ -457,8 +455,9 @@ namespace StellarisDaughter
         {
             switch (slot.State)
             {
+                // Docked 必已充能（未充能时处于 Charging）
                 case SD_DroneSlotState.Docked:
-                    return slot.IsCharged ? "SD_Drone_SlotStateReady".Translate().ToString() : "SD_Drone_SlotStateDocked".Translate().ToString();
+                    return "SD_Drone_SlotStateReady".Translate().ToString();
                 case SD_DroneSlotState.Deployed:
                     return "SD_Drone_SlotStateDeployed".Translate().ToString();
                 case SD_DroneSlotState.Returning:
@@ -473,15 +472,15 @@ namespace StellarisDaughter
         public string BuildSlotDescription(SD_DroneSlot slot)
         {
             var droneType = slot.DroneType ?? ResolveDroneTypeForIndex(slot.Index);
-            var droneTypeLabel = string.IsNullOrWhiteSpace(droneType?.label) ? "未命名无人机" : droneType.label;
+            var droneTypeLabel = string.IsNullOrWhiteSpace(droneType?.label) ? "SD_Drone_UnnamedDrone".Translate().ToString() : droneType.label;
             var chargeText = slot.State == SD_DroneSlotState.Charging
                 ? slot.ChargeTicksRemaining.ToStringTicksToPeriod()
                 : "SD_Drone_SlotChargeReady".Translate().ToString();
             return "SD_Drone_SlotCommandDesc".Translate(slot.Index + 1, droneTypeLabel, GetSlotShortState(slot), chargeText)
                 + "\n"
-                + $"Squadron: {slot.ActiveDroneCount}/{Mathf.Max(slot.SquadronSize, 1)}"
+                + "SD_Drone_SquadronLine".Translate(slot.ActiveDroneCount, Mathf.Max(slot.SquadronSize, 1))
                 + "\n"
-                + $"Layer: {slot.OrbitLayer + 1}";
+                + "SD_Drone_LayerLine".Translate(slot.OrbitLayer + 1);
         }
 
         public int GetSquadronSize(SD_DroneSlot slot)
@@ -494,6 +493,7 @@ namespace StellarisDaughter
             return slot?.ActiveDroneCount ?? 0;
         }
 
+        /// <summary>主人显式指定的目标（武器不评判使用者）：当前指令目标或被攻击后登记的敌对目标，跳过派系敌意判定（狩猎/还击的无派系动物都覆盖）。</summary>
         public bool IsOwnerForcedAttackTarget(Thing target)
         {
             var wearer = Wearer;
@@ -502,13 +502,12 @@ namespace StellarisDaughter
                 return false;
             }
 
-            var forcedTarget = wearer.CurJob?.targetA.Thing;
-            if (forcedTarget == null)
+            if (target == wearer)
             {
                 return false;
             }
 
-            return forcedTarget == target && wearer.HostileTo(target);
+            return wearer.CurJob?.targetA.Thing == target || wearer.mindState?.enemyTarget == target;
         }
 
         private Thing GetPrimaryThreatTarget()
@@ -520,7 +519,7 @@ namespace StellarisDaughter
             }
 
             var wearerTarget = wearer.CurJob?.targetA.Thing ?? wearer.mindState?.enemyTarget;
-            if (IsPotentialThreatTarget(wearer, wearerTarget))
+            if (IsOwnerForcedAttackTarget(wearerTarget))
             {
                 return wearerTarget;
             }
@@ -577,14 +576,15 @@ namespace StellarisDaughter
 
         private bool IsValidAttackTarget(SD_DroneEntity drone, Pawn wearer, Thing target, float attackRange)
         {
-            if (!IsPotentialThreatTarget(wearer, target))
-            {
-                return false;
-            }
-
+            // 主人显式目标走无判定通道；其余走原版敌意判定
             if (IsOwnerForcedAttackTarget(target))
             {
                 return true;
+            }
+
+            if (!IsPotentialThreatTarget(wearer, target))
+            {
+                return false;
             }
 
             if (!GenSight.LineOfSight(drone.Position, target.Position, wearer.Map))
@@ -625,7 +625,6 @@ namespace StellarisDaughter
             }
 
             EnsureSlots();
-            lastThreatTick = Find.TickManager.TicksGame;
             var deployedAny = false;
             for (var i = 0; i < slots.Count; i++)
             {
